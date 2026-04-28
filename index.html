@@ -44,6 +44,30 @@
       background: #222;
       border-color: #777;
     }
+    .social {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social a {
+  border: none;
+  padding: 0;
+}
+
+.social img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1);
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.social img:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
   </style>
 </head>
 <body>
@@ -54,6 +78,17 @@
 
     <a href="https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x">Handmade Guitar </a>
     <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI">Handmade Cues </a>
+    <div class="social">
+  <a href="https://facebook.com/yourpage" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook">
+  </a>
+  <a href="https://youtube.com/@yourchannel" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+  </a>
+  <a href="https://instagram.com/yourpage" target="_blank">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+  </a>
+</div>
   </div>
 </body>
 </html>
