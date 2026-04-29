@@ -63,11 +63,10 @@
       transition: all 0.3s ease;
     }
 
-    /* สไตล์ปุ่มหลักแบบใหม่ รัดพอดีข้อความและมี Hover สีทอง */
     .btn {
-      display: inline-block; /* บังคับให้กรอบกว้างเท่ากับตัวหนังสือ */
+      display: inline-block; 
       margin: 0 auto 12px auto; 
-      padding: 10px 18px; /* ปรับขอบให้อยู่ห่างข้อความนิดเดียว (ประมาณ 2mm) */
+      padding: 10px 18px; 
       border: 1px solid #444;
       border-radius: 8px;
       color: white;
@@ -79,21 +78,21 @@
     }
     .btn:hover {
       background: rgba(255, 255, 255, 0.08);
-      color: #D4AF37; /* ตัวหนังสือเปลี่ยนเป็นสีทอง */
-      border-color: #D4AF37; /* ขอบเปลี่ยนเป็นสีทอง */
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); /* แสงเรืองแสงสีทอง */
+      color: #D4AF37; 
+      border-color: #D4AF37; 
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); 
       transform: translateY(-2px);
     }
 
-    /* ลดช่องไฟ (gap) ของไอคอนโซเชียลให้ชิดกันขึ้น */
+    /* โซนไอคอนใต้ปุ่ม */
     .sub-social {
       display: flex;
       justify-content: center;
-      gap: 10px; /* ลดจาก 15px เหลือ 10px */
+      gap: 8px; /* ลดช่องไฟให้ไอคอนชิดกันมากขึ้น (จากเดิม 15px -> 10px -> 8px) */
     }
     .sub-social a {
       text-decoration: none;
-      font-size: 24px; 
+      font-size: 26px; /* ขยายขนาดไอคอนขึ้นนิดนึงให้ดูเต็มขึ้น */
       transition: all 0.3s ease;
       opacity: 0.9;
     }
@@ -115,11 +114,11 @@
       font-weight: normal;
     }
     
-    /* ลดช่องไฟของโซน Contact Us ด้วยเช่นกัน */
+    /* โซนช่องทางติดต่อ */
     .contact-social {
       display: flex;
       justify-content: center;
-      gap: 15px; /* ลดจาก 20px เหลือ 15px */
+      gap: 12px; /* ลดช่องไฟตรงส่วนติดต่อด้วยเช่นกัน */
     }
     .contact-social a {
       text-decoration: none;
@@ -146,7 +145,7 @@
 <body>
   <div class="container">
     
-    <h1>Darinworks</h1>
+    <h1>Darin workshop</h1>
     <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
     <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala, we unite natural elegance with modern precision to deliver uncompromised aesthetic appeal and maximum performance.</p>
 
