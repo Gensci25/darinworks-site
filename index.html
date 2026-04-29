@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Darin Works</title>
+  <title>Darinworks</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
@@ -16,8 +16,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh; /* เปลี่ยนเป็น min-height เผื่อเนื้อหายาวขึ้น */
       text-align: center;
+      padding: 20px 0;
     }
     .container {
       max-width: 500px;
@@ -25,49 +26,87 @@
       width: 100%;
     }
     h1 {
-      margin-bottom: 10px;
-      font-size: 32px;
+      margin-bottom: 5px;
+      font-size: 36px;
+      letter-spacing: 1px;
     }
-    p {
+    p.subtitle {
       color: #aaa;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       line-height: 1.6;
+      font-size: 15px;
     }
     
-    /* สไตล์สำหรับปุ่มลิงก์หลัก */
+    /* สไตล์หมวดหมู่ผลงาน */
+    .category-group {
+      margin-bottom: 35px; /* ระยะห่างระหว่างกลุ่มผลงาน */
+    }
+
+    /* สไตล์ปุ่มหลัก */
     .btn {
       display: block;
-      margin: 10px 0 10px 0;
+      margin: 0 0 12px 0;
       padding: 16px;
       border: 1px solid #444;
       border-radius: 10px;
       color: white;
       text-decoration: none;
       font-size: 18px;
-      transition: 0.2s;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
     }
     .btn:hover {
-      background: #222;
-      border-color: #777;
+      background: #333;
+      border-color: #888;
+      transform: translateY(-2px);
     }
-    
-    /* สไตล์สำหรับกลุ่มไอคอนที่อยู่ใต้ลิงก์ */
-    .social-under-link {
+
+    /* สไตล์ไอคอนใต้ปุ่ม */
+    .sub-social {
       display: flex;
       justify-content: center;
-      gap: 12px; 
-      margin-bottom: 30px; 
+      gap: 15px; 
     }
-    .social-under-link a {
+    .sub-social a {
       text-decoration: none;
-      font-size: 26px; 
-      transition: 0.2s;
+      font-size: 24px; /* ขนาดไอคอนใต้ปุ่ม */
+      transition: all 0.3s ease;
+      opacity: 0.9;
     }
-    .social-under-link a:hover {
+    .sub-social a:hover {
+      opacity: 1;
       transform: scale(1.1);
     }
 
-    /* ตั้งค่าสีตามแบรนด์ */
+    /* สัดส่วนโซนติดต่อสอบถาม (Contact Us) */
+    .divider {
+      width: 50px;
+      height: 1px;
+      background: #444;
+      margin: 10px auto 20px auto;
+    }
+    h3.contact-title {
+      font-size: 16px;
+      color: #aaa;
+      margin-bottom: 15px;
+      font-weight: normal;
+    }
+    .contact-social {
+      display: flex;
+      justify-content: center;
+      gap: 20px; 
+    }
+    .contact-social a {
+      text-decoration: none;
+      font-size: 32px; /* ให้ไอคอนติดต่อใหญ่กว่าไอคอนโซเชียลนิดนึง */
+      transition: all 0.3s ease;
+    }
+    .contact-social a:hover {
+      transform: scale(1.1);
+    }
+
+    /* สีแบรนด์ไอคอน */
     .fa-facebook { color: #1877F2; }
     .fa-youtube { color: #FF0000; }
     .fa-instagram {
@@ -77,50 +116,37 @@
     }
     .fa-line { color: #00C300; }
     .fa-tiktok { color: #FFFFFF; }
+    .fa-whatsapp { color: #25D366; } /* เพิ่มสี WhatsApp */
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Darin Works</h1>
-    <p>ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
-    <p>Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. We unite natural elegance with modern technological precision to deliver uncompromised aesthetic appeal and maximum performance.</p>
+    <h1>Darinworks</h1>
+    <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ<br>
+    Premium custom guitars and snooker cues.</p>
 
-    <a href="https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x" class="btn" target="_blank">Handmade Guitar</a>
-    <div class="social-under-link">
-      <a href="https://facebook.com/yourpage" target="_blank" title="Facebook">
-        <i class="fa-brands fa-facebook"></i>
-      </a>
-      <a href="https://youtube.com/@yourchannel" target="_blank" title="YouTube">
-        <i class="fa-brands fa-youtube"></i>
-      </a>
-      <a href="https://instagram.com/yourpage" target="_blank" title="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://line.me/ti/p/yourid" target="_blank" title="LINE">
-        <i class="fa-brands fa-line"></i>
-      </a>
-      <a href="https://tiktok.com/@yourprofile" target="_blank" title="TikTok">
-        <i class="fa-brands fa-tiktok"></i>
-      </a>
+    <div class="category-group">
+      <a href="ลิงก์GoogleDriveกีต้าร์" class="btn" target="_blank">Handmade Guitar</a>
+      <div class="sub-social">
+        <a href="ลิงก์เพจFacebookกีต้าร์" target="_blank" title="Facebook Page: Guitar"><i class="fa-brands fa-facebook"></i></a>
+        <a href="ลิงก์IG" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
     </div>
 
-    <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI" class="btn" target="_blank">Handmade Cues</a>
-    <div class="social-under-link">
-      <a href="https://facebook.com/yourpage" target="_blank" title="Facebook">
-        <i class="fa-brands fa-facebook"></i>
-      </a>
-      <a href="https://youtube.com/@yourchannel" target="_blank" title="YouTube">
-        <i class="fa-brands fa-youtube"></i>
-      </a>
-      <a href="https://instagram.com/yourpage" target="_blank" title="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://line.me/ti/p/yourid" target="_blank" title="LINE">
-        <i class="fa-brands fa-line"></i>
-      </a>
-      <a href="https://tiktok.com/@yourprofile" target="_blank" title="TikTok">
-        <i class="fa-brands fa-tiktok"></i>
-      </a>
+    <div class="category-group">
+      <a href="ลิงก์GoogleDriveไม้คิว" class="btn" target="_blank">Handmade Cues</a>
+      <div class="sub-social">
+        <a href="ลิงก์เพจFacebookไม้คิว" target="_blank" title="Facebook Page: Cues"><i class="fa-brands fa-facebook"></i></a>
+        <a href="ลิงก์YouTube" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="ลิงก์TikTok" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 class="contact-title">Contact Us</h3>
+    <div class="contact-social">
+      <a href="ลิงก์LINE" target="_blank" title="LINE"><i class="fa-brands fa-line"></i></a>
+      <a href="https://wa.me/66เบอร์โทรศัพท์ของคุณ" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
 
   </div>
