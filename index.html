@@ -22,6 +22,7 @@
     .container {
       max-width: 500px;
       padding: 20px;
+      width: 100%;
     }
     h1 {
       margin-bottom: 10px;
@@ -33,10 +34,10 @@
       line-height: 1.6;
     }
     
-    /* ปุ่มลิงก์หลัก */
+    /* สไตล์สำหรับปุ่มลิงก์หลัก */
     .btn {
       display: block;
-      margin: 15px 0;
+      margin: 10px 0 10px 0; /* ปรับระยะขอบล่างให้ชิดไอคอนมากขึ้น */
       padding: 16px;
       border: 1px solid #444;
       border-radius: 10px;
@@ -50,42 +51,32 @@
       border-color: #777;
     }
     
-    /* โซนไอคอน Social */
-    .social {
-      margin-top: 30px;
+    /* สไตล์ใหม่สำหรับกลุ่มไอคอนที่อยู่ใต้ลิงก์ */
+    .social-under-link {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
+      margin-bottom: 30px; /* เพิ่มระยะห่างก่อนจะเริ่มปุ่มถัดไป */
     }
-    .social a {
+    .social-under-link a {
       text-decoration: none;
-      font-size: 32px; /* ขนาดไอคอน */
+      font-size: 28px; /* ปรับขนาดไอคอนให้พอดีกับปุ่ม */
       transition: 0.2s;
     }
-    .social a:hover {
+    .social-under-link a:hover {
       transform: scale(1.1);
     }
 
     /* ตั้งค่าสีตามแบรนด์ */
-    .fa-facebook {
-      color: #1877F2;
-    }
-    .fa-youtube {
-      color: #FF0000;
-    }
+    .fa-facebook { color: #1877F2; }
+    .fa-youtube { color: #FF0000; }
     .fa-instagram {
       background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .fa-line {
-      color: #00C300;
-    }
-    .fa-tiktok {
-      color: #FFFFFF; /* ใช้สีขาวเพื่อให้ตัดกับพื้นหลังเว็บสีดำ */
-      /* หากต้องการให้มีเงาสีฟ้า-แดงแบบเอกลักษณ์ TikTok ลองลบเครื่องหมายคอมเมนต์ /* */ ออกในบรรทัดด้านล่างดูครับ */
-      /* text-shadow: 2px 0px #ff0050, -2px 0px #00f2fe; */
-    }
+    .fa-line { color: #00C300; }
+    .fa-tiktok { color: #FFFFFF; }
   </style>
 </head>
 <body>
@@ -95,17 +86,19 @@
     <p>Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. We unite natural elegance with modern technological precision to deliver uncompromised aesthetic appeal and maximum performance.</p>
 
     <a href="https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x" class="btn" target="_blank">Handmade Guitar</a>
-    <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI" class="btn" target="_blank">Handmade Cues</a>
-    
-    <div class="social">
+    <div class="social-under-link">
       <a href="https://facebook.com/yourpage" target="_blank" title="Facebook">
         <i class="fa-brands fa-facebook"></i>
       </a>
-      <a href="https://youtube.com/@yourchannel" target="_blank" title="YouTube">
-        <i class="fa-brands fa-youtube"></i>
-      </a>
       <a href="https://instagram.com/yourpage" target="_blank" title="Instagram">
         <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+
+    <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI" class="btn" target="_blank">Handmade Cues</a>
+    <div class="social-under-link">
+      <a href="https://youtube.com/@yourchannel" target="_blank" title="YouTube">
+        <i class="fa-brands fa-youtube"></i>
       </a>
       <a href="https://line.me/ti/p/yourid" target="_blank" title="LINE">
         <i class="fa-brands fa-line"></i>
@@ -114,6 +107,7 @@
         <i class="fa-brands fa-tiktok"></i>
       </a>
     </div>
+
   </div>
 </body>
 </html>
