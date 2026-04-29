@@ -21,7 +21,7 @@
       padding: 40px 0;
     }
     .container {
-      max-width: 500px; /* ลดความกว้างคอนเทนเนอร์หลักลงเล็กน้อยเพื่อให้ดูเกาะกลุ่ม */
+      max-width: 500px; 
       padding: 20px;
       width: 100%;
     }
@@ -57,18 +57,19 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      margin: 0 auto 8px auto; /* ปรับลดช่องไฟใต้โลโก้ให้กระชับ */
+      margin: 0 auto 10px auto; 
       display: block;
       border: 2px solid #333;
+      transition: all 0.3s ease;
     }
 
+    /* สไตล์ปุ่มหลักแบบใหม่ รัดพอดีข้อความและมี Hover สีทอง */
     .btn {
-      display: block;
-      max-width: 260px; /* <--- ลดความกว้างสูงสุดของปุ่มลงอีกเพื่อให้กระชับขึ้น */
-      margin: 0 auto 12px auto; /* จัดให้อยู่กึ่งกลางหน้าจอและชิดกับโลโก้/ไอคอน */
-      padding: 12px 16px; /* ลด padding แนวนอนลงเล็กน้อยเพื่อให้พอดี */
+      display: inline-block; /* บังคับให้กรอบกว้างเท่ากับตัวหนังสือ */
+      margin: 0 auto 12px auto; 
+      padding: 10px 18px; /* ปรับขอบให้อยู่ห่างข้อความนิดเดียว (ประมาณ 2mm) */
       border: 1px solid #444;
-      border-radius: 10px;
+      border-radius: 8px;
       color: white;
       text-decoration: none;
       font-size: 18px;
@@ -77,15 +78,18 @@
       background: rgba(255, 255, 255, 0.05);
     }
     .btn:hover {
-      background: rgba(255, 255, 255, 0.08); /* เพิ่มพื้นหลังจางๆ ตอน hover */
-      border-color: #888;
+      background: rgba(255, 255, 255, 0.08);
+      color: #D4AF37; /* ตัวหนังสือเปลี่ยนเป็นสีทอง */
+      border-color: #D4AF37; /* ขอบเปลี่ยนเป็นสีทอง */
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); /* แสงเรืองแสงสีทอง */
       transform: translateY(-2px);
     }
 
+    /* ลดช่องไฟ (gap) ของไอคอนโซเชียลให้ชิดกันขึ้น */
     .sub-social {
       display: flex;
       justify-content: center;
-      gap: 15px; 
+      gap: 10px; /* ลดจาก 15px เหลือ 10px */
     }
     .sub-social a {
       text-decoration: none;
@@ -110,10 +114,12 @@
       margin-bottom: 15px;
       font-weight: normal;
     }
+    
+    /* ลดช่องไฟของโซน Contact Us ด้วยเช่นกัน */
     .contact-social {
       display: flex;
       justify-content: center;
-      gap: 20px; 
+      gap: 15px; /* ลดจาก 20px เหลือ 15px */
     }
     .contact-social a {
       text-decoration: none;
@@ -124,7 +130,7 @@
       transform: scale(1.1);
     }
 
-    /* สีแบรนด์สำหรับไอคอนโซเชียล */
+    /* สีไอคอนแบรนด์ */
     .fa-facebook { color: #1877F2; }
     .fa-youtube { color: #FF0000; }
     .fa-instagram {
@@ -142,7 +148,7 @@
     
     <h1>Darinworks</h1>
     <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
-    <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. We unite natural elegance with modern technological precision to deliver uncompromised aesthetic appeal and maximum performance.</p>
+    <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala, we unite natural elegance with modern precision to deliver uncompromised aesthetic appeal and maximum performance.</p>
 
     <div class="category-group">
       <img src="darin-guitar-logo.png" alt="Darin Guitar Logo" class="category-logo">
