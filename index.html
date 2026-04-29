@@ -39,12 +39,65 @@
     }
     .description {
       color: #888;
-      margin-bottom: 30px; 
+      margin-bottom: 20px; 
       line-height: 1.6;
       font-size: 14px;
       padding: 0 20px;
     }
+
+    /* ส่วนสถานะโปรเจกต์ */
+    .status-badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.1);
+      color: #D4AF37;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
     
+    /* ส่วนรูปภาพไฮไลต์ */
+    .featured-work {
+      margin-bottom: 25px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #333;
+      position: relative;
+    }
+    .featured-work img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .featured-work:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* ปุ่ม Video */
+    .btn-video {
+      display: block;
+      width: 90%;
+      margin: 0 auto 35px auto;
+      padding: 12px;
+      background: transparent;
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-video:hover {
+      background: #D4AF37;
+      color: #111;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    }
+
     .category-group {
       margin-bottom: 30px; 
       background: rgba(255, 255, 255, 0.02);
@@ -53,8 +106,8 @@
     }
 
     .category-logo {
-      width: 100px; 
-      height: 100px;
+      width: 90px; 
+      height: 90px;
       border-radius: 50%;
       object-fit: cover;
       margin: 0 auto 10px auto; 
@@ -62,16 +115,15 @@
       border: 2px solid #333;
     }
 
-    /* ปุ่มที่รัดพอดีข้อความและมีเอฟเฟกต์สีทอง */
     .btn {
       display: inline-block; 
       margin: 0 auto 10px auto; 
-      padding: 10px 18px; /* ระยะห่างจากข้อความประมาณ 2mm */
+      padding: 10px 18px; 
       border: 1px solid #444;
       border-radius: 8px;
       color: white;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       transition: all 0.3s ease;
       background: rgba(255, 255, 255, 0.05);
@@ -84,7 +136,6 @@
       transform: translateY(-2px);
     }
 
-    /* ช่องไฟไอคอนให้ชิดกัน */
     .sub-social {
       display: flex;
       justify-content: center;
@@ -105,7 +156,7 @@
       width: 50px;
       height: 1px;
       background: #444;
-      margin: 10px auto 20px auto;
+      margin: 20px auto 20px auto;
     }
     .contact-title {
       font-size: 16px;
@@ -124,7 +175,6 @@
       transition: all 0.3s ease;
     }
 
-    /* สีไอคอนแบรนด์ */
     .fa-facebook { color: #1877F2; }
     .fa-youtube { color: #FF0000; }
     .fa-instagram {
@@ -142,11 +192,22 @@
     
     <h1>Darinworks</h1>
     <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
-    <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala, we unite natural elegance with modern precision.</p>
+    <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala.</p>
+
+    <div class="status-badge">
+      <i class="fa-solid fa-hammer"></i> Currently Crafting: Prototype Series
+    </div>
+
+    <div class="featured-work">
+      <img src="https://images.unsplash.com/photo-1550985543-f47f38aee18e?q=80&w=800&auto=format&fit=crop" alt="Latest Darinworks Craft">
+    </div>
+
+    <a href="#" class="btn-video"><i class="fa-brands fa-youtube"></i> Watch Our Craftsmanship</a>
+
 
     <div class="category-group">
       <img src="darin-guitar-logo.png" alt="Darin Guitar Logo" class="category-logo">
-      <a href="https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x" class="btn" target="_blank">Handmade Guitar</a>
+      <a href="ใส่ลิงก์โฟลเดอร์_Handmade_Guitar_ตรงนี้" class="btn" target="_blank">Handmade Guitar</a>
       <div class="sub-social">
         <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -155,7 +216,7 @@
 
     <div class="category-group">
       <img src="darin-cues-logo.png" alt="Darin Cues Logo" class="category-logo">
-      <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI" class="btn" target="_blank">Handmade Cues</a>
+      <a href="ใส่ลิงก์โฟลเดอร์_Handmade_Cues_ตรงนี้" class="btn" target="_blank">Handmade Cues</a>
       <div class="sub-social">
         <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
