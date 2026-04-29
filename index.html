@@ -16,15 +16,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh; /* เปลี่ยนเป็น min-height เผื่อเนื้อหายาวขึ้น */
+      min-height: 100vh;
       text-align: center;
-      padding: 20px 0;
+      padding: 40px 0;
     }
     .container {
-      max-width: 500px;
+      max-width: 600px;
       padding: 20px;
       width: 100%;
     }
+    
+    /* สไตล์หัวเว็บและคำโปรย */
     h1 {
       margin-bottom: 5px;
       font-size: 36px;
@@ -32,20 +34,42 @@
     }
     p.subtitle {
       color: #aaa;
+      margin-bottom: 10px;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    p.description {
+      color: #888;
       margin-bottom: 40px;
       line-height: 1.6;
-      font-size: 15px;
+      font-size: 14px;
+      padding: 0 20px;
     }
     
-    /* สไตล์หมวดหมู่ผลงาน */
+    /* สไตล์กลุ่มผลงานแต่ละหมวด */
     .category-group {
-      margin-bottom: 35px; /* ระยะห่างระหว่างกลุ่มผลงาน */
+      margin-bottom: 45px; 
+      background: rgba(255, 255, 255, 0.02); /* ใส่พื้นหลังจางๆ แยกโซนให้ชัดขึ้น */
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    /* สไตล์รูปโลโก้วงกลม */
+    .category-logo {
+      width: 110px; 
+      height: 110px;
+      border-radius: 50%; /* คำสั่งนี้ทำให้รูปเป็นวงกลม */
+      object-fit: cover;
+      margin: 0 auto 15px auto;
+      display: block;
+      border: 2px solid #333; /* ขอบบางๆ ให้โลโก้ดูโดดเด่น */
     }
 
     /* สไตล์ปุ่มหลัก */
     .btn {
       display: block;
-      margin: 0 0 12px 0;
+      max-width: 320px; /* บังคับความกว้างสูงสุด */
+      margin: 0 auto 15px auto; /* จัดให้อยู่กึ่งกลาง */
       padding: 16px;
       border: 1px solid #444;
       border-radius: 10px;
@@ -62,7 +86,7 @@
       transform: translateY(-2px);
     }
 
-    /* สไตล์ไอคอนใต้ปุ่ม */
+    /* สไตล์ไอคอนโซเชียลใต้ปุ่ม */
     .sub-social {
       display: flex;
       justify-content: center;
@@ -70,7 +94,7 @@
     }
     .sub-social a {
       text-decoration: none;
-      font-size: 24px; /* ขนาดไอคอนใต้ปุ่ม */
+      font-size: 24px; 
       transition: all 0.3s ease;
       opacity: 0.9;
     }
@@ -79,7 +103,7 @@
       transform: scale(1.1);
     }
 
-    /* สัดส่วนโซนติดต่อสอบถาม (Contact Us) */
+    /* สไตล์โซน Contact Us */
     .divider {
       width: 50px;
       height: 1px;
@@ -99,14 +123,14 @@
     }
     .contact-social a {
       text-decoration: none;
-      font-size: 32px; /* ให้ไอคอนติดต่อใหญ่กว่าไอคอนโซเชียลนิดนึง */
+      font-size: 32px; 
       transition: all 0.3s ease;
     }
     .contact-social a:hover {
       transform: scale(1.1);
     }
 
-    /* สีแบรนด์ไอคอน */
+    /* สีไอคอนแบรนด์ */
     .fa-facebook { color: #1877F2; }
     .fa-youtube { color: #FF0000; }
     .fa-instagram {
@@ -116,27 +140,30 @@
     }
     .fa-line { color: #00C300; }
     .fa-tiktok { color: #FFFFFF; }
-    .fa-whatsapp { color: #25D366; } /* เพิ่มสี WhatsApp */
+    .fa-whatsapp { color: #25D366; }
   </style>
 </head>
 <body>
   <div class="container">
+    
     <h1>Darinworks</h1>
-    <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ<br>
-    Premium custom guitars and snooker cues.</p>
+    <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
+    <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. We unite natural elegance with modern technological precision to deliver uncompromised aesthetic appeal and maximum performance.</p>
 
     <div class="category-group">
+      <img src="Darin shop.jpg" alt="Darin Guitar Logo" class="category-logo">
       <a href="ลิงก์GoogleDriveกีต้าร์" class="btn" target="_blank">Handmade Guitar</a>
       <div class="sub-social">
-        <a href="ลิงก์เพจFacebookกีต้าร์" target="_blank" title="Facebook Page: Guitar"><i class="fa-brands fa-facebook"></i></a>
+        <a href="ลิงก์เพจFacebookกีต้าร์" target="_blank" title="Facebook Page: Darin Guitar"><i class="fa-brands fa-facebook"></i></a>
         <a href="ลิงก์IG" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
 
     <div class="category-group">
+      <img src="Logo.JPG" alt="Darin Cues Logo" class="category-logo">
       <a href="ลิงก์GoogleDriveไม้คิว" class="btn" target="_blank">Handmade Cues</a>
       <div class="sub-social">
-        <a href="ลิงก์เพจFacebookไม้คิว" target="_blank" title="Facebook Page: Cues"><i class="fa-brands fa-facebook"></i></a>
+        <a href="ลิงก์เพจFacebookไม้คิว" target="_blank" title="Facebook Page: Darin Cues"><i class="fa-brands fa-facebook"></i></a>
         <a href="ลิงก์YouTube" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
         <a href="ลิงก์TikTok" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
