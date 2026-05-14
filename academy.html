@@ -1,4 +1,137 @@
-<!-- คอร์สที่ 1: Cue Making -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academy | Darinworks</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111; /* คุมโทนพื้นหลังสีดำ */
+      color: white; /* ตัวหนังสือสีขาว */
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .back-btn {
+      display: inline-block;
+      color: #aaa;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 30px;
+      transition: color 0.3s ease;
+      align-self: flex-start;
+      width: 100%;
+      text-align: left;
+    }
+    .back-btn:hover {
+      color: #D4AF37;
+    }
+    .back-btn i {
+      margin-right: 8px;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+      font-size: 32px;
+      letter-spacing: 1px;
+      color: #FFF;
+    }
+    .subtitle {
+      color: #D4AF37;
+      margin-bottom: 40px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* โซนคอร์สเรียน */
+    .course-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 30px 20px;
+      margin-bottom: 20px;
+      text-align: left;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-3px);
+      border-color: #D4AF37;
+    }
+    
+    .status-badge {
+      background: rgba(212, 175, 55, 0.1);
+      color: #D4AF37;
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 12px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .course-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 22px;
+      color: #FFF;
+    }
+    .course-card p {
+      margin: 0 0 20px 0;
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* ปุ่มลงชื่อจอง */
+    .waitlist-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00C300;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+    }
+    .waitlist-btn:hover {
+      opacity: 0.8;
+    }
+    .waitlist-btn i {
+      margin-right: 5px;
+    }
+
+    .divider {
+      width: 50px;
+      height: 1px;
+      background: #444;
+      margin: 40px auto 30px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+
+    <h1>Darinworks Academy</h1>
+    <p class="subtitle">ส่งต่อศาสตร์แห่งงานคราฟต์และวิศวกรรม</p>
+
+    <!-- คอร์สที่ 1: Cue Making -->
     <div class="course-card">
       <div class="status-badge">COMING SOON</div>
       <h3>Precision Cue Making</h3>
@@ -8,7 +141,7 @@
       </a>
     </div>
 
-    <!-- คอร์สที่ 2: Custom Guitar Building (เพิ่มใหม่) -->
+    <!-- คอร์สที่ 2: Custom Guitar Building -->
     <div class="course-card">
       <div class="status-badge">COMING SOON</div>
       <h3>Custom Guitar Building</h3>
@@ -27,3 +160,10 @@
         <i class="fa-brands fa-line"></i> Join Waitlist via LINE
       </a>
     </div>
+
+    <div class="divider"></div>
+    <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+
+  </div>
+</body>
+</html>
