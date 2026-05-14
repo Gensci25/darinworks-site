@@ -39,58 +39,19 @@
     }
     .description {
       color: #888;
-      margin-bottom: 25px; 
+      margin-bottom: 30px; 
       line-height: 1.6;
       font-size: 14px;
       padding: 0 20px;
     }
 
-    /* โซนปุ่มคู่ บังคับสี่เหลี่ยมจัตุรัสเป๊ะ 100% */
-    .action-row {
-      display: flex;
-      gap: 15px; /* ระยะห่างระหว่างปุ่ม */
-      justify-content: center;
-      margin-bottom: 35px;
-      padding: 0 10px;
-    }
-    .btn-half {
-      flex: 1; /* แบ่งพื้นที่เท่ากัน */
-      max-width: 130px; /* ไม่ให้กล่องใหญ่เกินไปบนจอคอม */
-      aspect-ratio: 1 / 1; /* บังคับให้ความกว้างและความสูงเท่ากัน (สี่เหลี่ยมจัตุรัส) */
-      box-sizing: border-box;
-      padding: 10px;
-      background: rgba(212, 175, 55, 0.05);
-      border: 1px solid #D4AF37;
-      color: #D4AF37;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      text-align: center;
-    }
-    .btn-half i {
-      font-size: 28px; /* ขยายไอคอนให้ดูบาลานซ์กับพื้นที่กล่อง */
-    }
-    .btn-half:hover {
-      background: #D4AF37;
-      color: #111;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-      transform: translateY(-2px);
-    }
-    
+    /* โซนผลงานหลัก */
     .category-group {
       margin-bottom: 30px; 
       background: rgba(255, 255, 255, 0.02);
       padding: 20px;
       border-radius: 15px;
     }
-
     .category-logo {
       width: 100px; 
       height: 100px;
@@ -100,7 +61,6 @@
       display: block;
       border: 2px solid #333;
     }
-
     .btn {
       display: inline-block; 
       margin: 0 auto 10px auto; 
@@ -121,7 +81,6 @@
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); 
       transform: translateY(-2px);
     }
-
     .sub-social {
       display: flex;
       justify-content: center;
@@ -138,6 +97,7 @@
       transform: scale(1.1);
     }
 
+    /* โซน Contact */
     .divider {
       width: 50px;
       height: 1px;
@@ -161,14 +121,37 @@
       transition: all 0.3s ease;
     }
 
-    /* สีแบรนด์ต่างๆ ของโซเชียลมีเดีย */
+    /* โซนเมนู Tab ด้านล่างสุด (ทำตัวเป็น Footer) */
+    .minimal-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 8px 10px; 
+      margin: 50px auto 10px auto; /* เพิ่มระยะห่างด้านบนให้แยกขาดจากปุ่มติดต่อ */
+      padding: 0 15px;
+    }
+    .minimal-tabs a {
+      color: #666; /* ดรอปสีลงนิดหน่อยให้เป็นเมนูรอง */
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .minimal-tabs a:hover {
+      color: #D4AF37; /* เอาเมาส์ชี้แล้วค่อยสว่างเป็นสีทอง */
+    }
+    .separator {
+      color: #333; 
+      font-size: 11px;
+      user-select: none; 
+    }
+
+    /* แบรนด์คัลเลอร์ */
     .fa-facebook { color: #1877F2; }
     .fa-youtube { color: #FF0000; }
-    .fa-instagram {
-      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+    .fa-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .fa-line { color: #00C300; }
     .fa-tiktok { color: #FFFFFF; }
     .fa-whatsapp { color: #25D366; }
@@ -179,21 +162,9 @@
     
     <h1>Darinworks</h1>
     <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
-    <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala.</p>
+    <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood.</p>
 
-    <!-- ปุ่มคู่แบบทรงกล่องสี่เหลี่ยมจัตุรัสสมมาตรเป๊ะ -->
-    <div class="action-row">
-      <a href="#" class="btn-half" target="_blank">
-        <i class="fa-solid fa-headphones"></i>
-        Sound Check
-      </a>
-      <a href="#" class="btn-half" target="_blank">
-        <i class="fa-solid fa-hammer"></i>
-        Workshop Tour
-      </a>
-    </div>
-
-    <!-- กลุ่มที่ 1: งานกีต้าร์ -->
+    <!-- ZONE 1: ผลงานหลัก -->
     <div class="category-group">
       <img src="darin-guitar-logo.png" alt="Darin Guitar Logo" class="category-logo">
       <a href="https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x" class="btn" target="_blank">Handmade Guitar</a>
@@ -203,7 +174,6 @@
       </div>
     </div>
 
-    <!-- กลุ่มที่ 2: งานไม้คิว -->
     <div class="category-group">
       <img src="darin-cues-logo.png" alt="Darin Cues Logo" class="category-logo">
       <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI" class="btn" target="_blank">Handmade Cues</a>
@@ -214,11 +184,27 @@
       </div>
     </div>
 
+    <!-- ZONE 2: Contact (ดันขึ้นมาปิดการขายทันที) -->
     <div class="divider"></div>
     <h3 class="contact-title">Contact Us</h3>
     <div class="contact-social">
       <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank"><i class="fa-brands fa-line"></i></a>
       <a href="https://wa.me/66845687670" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <!-- ZONE 3: Minimal Text Tabs (เมนูเจาะลึกสำหรับคนที่สนใจจริงๆ) -->
+    <div class="minimal-tabs">
+      <a href="#" target="_blank">Sound Check</a>
+      <span class="separator">|</span>
+      <a href="#" target="_blank">Workshop Tour</a>
+      <span class="separator">|</span>
+      <a href="#" target="_blank">Blueprints</a>
+      <span class="separator">|</span>
+      <a href="#" target="_blank">RAW Materials</a>
+      <span class="separator">|</span>
+      <a href="#" target="_blank">Prototype Series</a>
+      <span class="separator">|</span>
+      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank">Academy</a>
     </div>
 
   </div>
