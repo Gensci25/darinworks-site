@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DarinWorkshops</title>
+  <title>Darinworks</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
@@ -39,10 +39,165 @@
     }
     .description {
       color: #888;
-      margin-bottom: 30px; 
+      margin-bottom: 25px; 
       line-height: 1.6;
       font-size: 14px;
       padding: 0 20px;
+    }
+    
+    /* สไตล์สำหรับ 2 ปุ่มพิเศษ วางคู่กันซ้าย-ขวา */
+    .action-row {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 0 auto 35px auto;
+      width: 90%;
+    }
+    .btn-action {
+      flex: 1; /* แบ่งพื้นที่กันคนละครึ่ง */
+      padding: 12px 5px;
+      background: rgba(212, 175, 55, 0.05);
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column; /* ให้ไอคอนอยู่บน ตัวหนังสืออยู่ล่าง */
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-action i {
+      font-size: 22px;
+    }
+    .btn-action:hover {
+      background: #D4AF37;
+      color: #111;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .category-group {
+      margin-bottom: 30px; 
+      background: rgba(255, 255, 255, 0.02);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .category-logo {
+      width: 100px; 
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 10px auto; 
+      display: block;
+      border: 2px solid #333;
+    }
+
+    .btn {
+      display: inline-block; 
+      margin: 0 auto 10px auto; 
+      padding: 10px 18px; 
+      border: 1px solid #444;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .btn:hover {
+      background: rgba(255, 255, 2**คำว่า "Sound Check" กับ "Workshop Tour" ดีมากครับ!** กระชับ ได้ใจความ และดูเป็นศัพท์ทางเทคนิคที่ช่างคราฟต์ระดับโปรเขาใช้กันจริงๆ ครับ (คำว่า Sound Check นี่เข้ากับงานกีต้าร์มากครับ)
+
+พอคุณแบงค์ย่อคำให้สั้นลงแบบนี้ มันเปิดโอกาสให้เราจัดหน้าเว็บได้สวยขึ้นและประหยัดพื้นที่หน้าจอได้ดีมากครับ! 
+
+ผมเลยเอาไอเดียนี้มาต่อยอด โดยจับ 2 ปุ่มนี้มา **"วางคู่กันซ้าย-ขวา"** และดันขึ้นไปไว้ **ด้านบนสุด (ใต้คำโปรย)** ซะเลยครับ 
+
+*   **ข้อดี:** ลูกค้าจะเห็นปุ่มนี้เด่นชัดตั้งแต่เปิดเว็บมา (ไม่ต้องเลื่อนลงไปล่างสุด) และการวางคู่กันก็ไม่ทำให้หน้าเว็บดูยาวหรือรกจนเกินไปครับ ดูเท่และพรีเมียมมากๆ
+
+ลองดูโค้ดเวอร์ชันนี้ครับ ก๊อปปี้ไปทับใน `index.html` ได้เลยครับ:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darinworks</title>
+  
+  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css)">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 0;
+    }
+    .container {
+      max-width: 500px; 
+      padding: 20px;
+      width: 100%;
+    }
+    
+    h1 {
+      margin-bottom: 5px;
+      font-size: 36px;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      color: #aaa;
+      margin-bottom: 10px;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .description {
+      color: #888;
+      margin-bottom: 25px; 
+      line-height: 1.6;
+      font-size: 14px;
+      padding: 0 20px;
+    }
+
+    /* โซนปุ่มคู่ ซ้าย-ขวา */
+    .action-row {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 35px;
+      padding: 0 10px;
+    }
+    .btn-half {
+      flex: 1;
+      padding: 12px 5px;
+      background: rgba(212, 175, 55, 0.05);
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-half:hover {
+      background: #D4AF37;
+      color: #111;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+      transform: translateY(-2px);
     }
     
     .category-group {
@@ -137,38 +292,42 @@
 <body>
   <div class="container">
     
-    <h1>Darin workshop</h1>
+    <h1>Darinworks</h1>
     <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
     <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala.</p>
+
+    <!-- ปุ่มไฮไลต์วางคู่กัน ซ้าย-ขวา -->
+    <div class="action-row">
+      <a href="#" class="btn-half" target="_blank"><i class="fa-solid fa-headphones"></i> Sound Check</a>
+      <a href="#" class="btn-half" target="_blank"><i class="fa-solid fa-hammer"></i> Workshop Tour</a>
+    </div>
 
     <!-- กลุ่มที่ 1: งานกีต้าร์ -->
     <div class="category-group">
       <img src="darin-guitar-logo.png" alt="Darin Guitar Logo" class="category-logo">
-      <a href="https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x" class="btn" target="_blank">Handmade Guitar</a>
+      <a href="[https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x](https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x)" class="btn" target="_blank">Handmade Guitar</a>
       <div class="sub-social">
-        <a href="https://www.facebook.com/share/1DeXqAtaEg/?mibextid=wwXIfr" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        <!-- ใส่ลิงก์ Instagram เรียบร้อย -->
-        <a href="https://www.instagram.com/darin.guitar391?igsh=MWphem02c3V6N2drag==" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="[https://www.facebook.com/share/1DeXqAtaEg/?mibextid=wwXIfr](https://www.facebook.com/share/1DeXqAtaEg/?mibextid=wwXIfr)" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="[https://www.instagram.com/darin.guitar391?igsh=MWphem02c3V6N2drag==](https://www.instagram.com/darin.guitar391?igsh=MWphem02c3V6N2drag==)" target="_blank"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
 
     <!-- กลุ่มที่ 2: งานไม้คิว -->
     <div class="category-group">
-      <img src="darin-cues-logo.png.JPG" alt="Darin Cues Logo" class="category-logo">
-      <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI" class="btn" target="_blank">Handmade Cues</a>
+      <img src="darin-cues-logo.png" alt="Darin Cues Logo" class="category-logo">
+      <a href="[https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI](https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI)" class="btn" target="_blank">Handmade Cues</a>
       <div class="sub-social">
-        <a href="https://www.facebook.com/share/1D3G6zQF4g/?mibextid=wwXIfr" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.youtube.com/channel/UCVNW4BkTsjc0aIpWvUIoEnQ" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-        <!-- ใส่ลิงก์ TikTok เรียบร้อย -->
-        <a href="https://www.tiktok.com/@darin.cues.thaila?_r=1&_t=ZS-95xbumFxSbN" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="[https://www.facebook.com/share/1D3G6zQF4g/?mibextid=wwXIfr](https://www.facebook.com/share/1D3G6zQF4g/?mibextid=wwXIfr)" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="[https://www.youtube.com/channel/UCVNW4BkTsjc0aIpWvUIoEnQ](https://www.youtube.com/channel/UCVNW4BkTsjc0aIpWvUIoEnQ)" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="[https://www.tiktok.com/@darin.cues.thaila?_r=1&_t=ZS-95xbumFxSbN](https://www.tiktok.com/@darin.cues.thaila?_r=1&_t=ZS-95xbumFxSbN)" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
 
     <div class="divider"></div>
     <h3 class="contact-title">Contact Us</h3>
     <div class="contact-social">
-      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank"><i class="fa-brands fa-line"></i></a>
-      <a href="https://wa.me/66845687670" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="[https://line.me/ti/p/B2bKUN2Z25](https://line.me/ti/p/B2bKUN2Z25)" target="_blank"><i class="fa-brands fa-line"></i></a>
+      <a href="[https://wa.me/66845687670](https://wa.me/66845687670)" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
 
   </div>
