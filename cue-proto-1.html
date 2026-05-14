@@ -90,12 +90,27 @@
       border-bottom-right-radius: 10px;
     }
 
-    .timeline-item img {
+    /* สไตล์สำหรับรูปเดี่ยวและรูปเรียงแนวตั้ง */
+    .timeline-item > img {
       width: 100%;
       height: 300px;
       object-fit: cover;
       display: block;
       border-bottom: 1px solid #333;
+    }
+
+    /* สไตล์สำหรับรูปคู่ ซ้าย-ขวา (เพิ่มเข้ามาใหม่) */
+    .multi-image {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* แบ่ง 2 ช่องเท่ากัน */
+      gap: 2px; /* เส้นคั่นกลางบางๆ */
+      border-bottom: 1px solid #333;
+    }
+    .multi-image img {
+      width: 100%;
+      height: 250px; /* บีบความสูงลงนิดนึงให้ดูสมส่วน */
+      object-fit: cover;
+      display: block;
     }
 
     .content {
@@ -124,55 +139,58 @@
 <body>
   <div class="container">
     
-    <!-- ปุ่มกลับไปหน้าเลือกโปรเจกต์ -->
     <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Prototype Series</a>
 
-    <!-- โลโก้ -->
     <a href="index.html" style="display: inline-block;">
       <img src="darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
     </a>
 
-    <!-- ชื่อโปรเจกต์ (แก้ให้ตรงกับงานในไฟล์นั้นๆ) -->
     <h1>The 10-Day Build</h1>
     <p class="subtitle">Ebony Custom Cue</p>
 
-    <!-- กล่อง Timeline เรียงลงมา -->
     <div class="timeline">
       
-      <!-- สเต็ปที่ 1 -->
+      <!-- ตัวอย่างที่ 1: ใส่รูปเดียว (แบบปกติ) -->
       <div class="timeline-item">
         <div class="day-badge">DAY 1</div>
-        <img src="day1.jpg" alt="Day 1">
+        <img src="day1.jpg" alt="Day 1"> <!-- รูปเดียวโดดๆ -->
         <div class="content">
-          <h3>Wood Selection</h3>
-          <p>อธิบายขั้นตอนการทำงานของสเต็ปนี้...</p>
+          <h3>Wood Selection (แบบรูปเดียว)</h3>
+          <p>คัดเลือกไม้มะเกลือและไม้แอช...</p>
         </div>
       </div>
 
-      <!-- สเต็ปที่ 2 -->
+      <!-- ตัวอย่างที่ 2: ใส่ 2 รูปคู่กัน ซ้าย-ขวา (ใช้ .multi-image ครอบ) -->
       <div class="timeline-item">
         <div class="day-badge">DAY 2</div>
-        <img src="day2.jpg" alt="Day 2">
+        
+        <div class="multi-image">
+          <img src="day2-pic1.jpg" alt="Splicing 1"> <!-- รูปซ้าย -->
+          <img src="day2-pic2.jpg" alt="Splicing 2"> <!-- รูปขวา -->
+        </div>
+
         <div class="content">
-          <h3>Splicing & Assembly</h3>
-          <p>อธิบายขั้นตอนการทำงานของสเต็ปนี้...</p>
+          <h3>Splicing & Assembly (แบบรูปคู่)</h3>
+          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks ทำให้ได้ลายศรที่สวยงามและสมมาตรทั้ง 2 ด้าน...</p>
         </div>
       </div>
 
-      <!-- สเต็ปที่ 3 -->
+      <!-- ตัวอย่างที่ 3: ใส่ 2 รูป เรียงต่อกันบน-ล่าง -->
       <div class="timeline-item">
         <div class="day-badge">DAY 3</div>
-        <img src="day3.jpg" alt="Day 3">
+        
+        <img src="day3-pic1.jpg" alt="Shaping 1"> <!-- รูปบน -->
+        <img src="day3-pic2.jpg" alt="Shaping 2"> <!-- รูปล่าง -->
+
         <div class="content">
-          <h3>Shaping</h3>
-          <p>อธิบายขั้นตอนการทำงานของสเต็ปนี้...</p>
+          <h3>Shaping (แบบรูปบน-ล่าง)</h3>
+          <p>ขึ้นรูปและเก็บรายละเอียดด้วยเครื่อง CNC...</p>
         </div>
       </div>
 
     </div>
 
     <div class="divider"></div>
-    <!-- ปุ่มกลับไปหน้าเลือกโปรเจกต์ -->
     <a href="prototype.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Prototype Series</a>
 
   </div>
