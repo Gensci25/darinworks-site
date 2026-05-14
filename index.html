@@ -45,32 +45,37 @@
       padding: 0 20px;
     }
 
-    /* โซนปุ่มคู่ ปรับให้เป็นทรงกล่องสมมาตร */
+    /* โซนปุ่มคู่ บังคับสี่เหลี่ยมจัตุรัสเป๊ะ 100% */
     .action-row {
       display: flex;
-      gap: 20px; /* ระยะห่างระหว่าง 2 ปุ่ม */
+      gap: 15px; /* ระยะห่างระหว่างปุ่ม */
       justify-content: center;
       margin-bottom: 35px;
+      padding: 0 10px;
     }
     .btn-half {
-      width: 130px; /* กำหนดความกว้างตายตัวให้ปุ่มเท่ากันเป๊ะ */
-      padding: 15px 10px;
+      flex: 1; /* แบ่งพื้นที่เท่ากัน */
+      max-width: 130px; /* ไม่ให้กล่องใหญ่เกินไปบนจอคอม */
+      aspect-ratio: 1 / 1; /* บังคับให้ความกว้างและความสูงเท่ากัน (สี่เหลี่ยมจัตุรัส) */
+      box-sizing: border-box;
+      padding: 10px;
       background: rgba(212, 175, 55, 0.05);
       border: 1px solid #D4AF37;
       color: #D4AF37;
-      border-radius: 12px; /* ลบมุมให้ดูละมุนขึ้น */
-      font-size: 14px;
+      border-radius: 12px;
+      font-size: 13px;
       font-weight: bold;
       text-decoration: none;
       transition: all 0.3s ease;
       display: flex;
-      flex-direction: column; /* จัดเรียงให้ไอคอนอยู่บน ตัวหนังสืออยู่ล่าง */
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
+      text-align: center;
     }
     .btn-half i {
-      font-size: 24px; /* ขยายไอคอนให้เด่นขึ้นรับกับทรงกล่อง */
+      font-size: 28px; /* ขยายไอคอนให้ดูบาลานซ์กับพื้นที่กล่อง */
     }
     .btn-half:hover {
       background: #D4AF37;
@@ -176,9 +181,8 @@
     <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
     <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala.</p>
 
-    <!-- ปุ่มคู่แบบทรงกล่องสมมาตร ซ้าย-ขวา -->
+    <!-- ปุ่มคู่แบบทรงกล่องสี่เหลี่ยมจัตุรัสสมมาตรเป๊ะ -->
     <div class="action-row">
-      <!-- เปลี่ยนเครื่องหมาย # เป็นลิงก์วิดีโอเมื่อพร้อมครับ -->
       <a href="#" class="btn-half" target="_blank">
         <i class="fa-solid fa-headphones"></i>
         Sound Check
