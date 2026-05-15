@@ -4,210 +4,152 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Details | Darinworks</title>
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-    }
+    body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #111; color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+    .container { max-width: 600px; width: 100%; text-align: center; }
+    .back-btn { display: block; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 30px; text-align: left; transition: 0.3s; }
+    .back-btn:hover { color: #D4AF37; }
+    .page-logo { width: 60px; margin-bottom: 20px; opacity: 0.9; }
+    h1 { margin: 0; font-size: 32px; letter-spacing: 1px; }
+    .subtitle { color: #D4AF37; margin-bottom: 40px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
     
-    .back-btn {
-      display: inline-block;
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 30px;
-      transition: color 0.3s ease;
-      align-self: flex-start;
-      width: 100%;
-      text-align: left;
-    }
-    .back-btn:hover {
-      color: #D4AF37;
-    }
-    .back-btn i {
-      margin-right: 8px;
-    }
-
-    .page-logo {
-      width: 60px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
-      letter-spacing: 1px;
-      color: #FFF;
-    }
-    .subtitle {
-      color: #D4AF37;
-      margin-bottom: 40px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* โซน Timeline */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      margin-bottom: 50px;
-    }
+    /* Timeline & Items */
+    .timeline { display: flex; flex-direction: column; gap: 40px; margin-bottom: 50px; }
+    .timeline-item { background: rgba(255, 255, 255, 0.02); border: 1px solid #333; border-radius: 12px; overflow: hidden; text-align: left; }
+    .day-badge { background: #D4AF37; color: #111; display: inline-block; padding: 5px 15px; font-weight: bold; font-size: 14px; border-bottom-right-radius: 10px; }
+    .timeline-item img { width: 100%; height: 300px; object-fit: cover; display: block; border-bottom: 1px solid #333; }
     
-    .timeline-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid #333;
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: left;
-    }
+    /* Multi Image Grid */
+    .multi-image { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-bottom: 1px solid #333; }
+    .multi-image img { height: 250px; border: none; }
     
-    .day-badge {
-      background: #D4AF37;
-      color: #111;
-      display: inline-block;
-      padding: 5px 15px;
-      font-weight: bold;
-      font-size: 14px;
-      border-bottom-right-radius: 10px;
-    }
+    .content { padding: 20px; }
+    .content h3 { margin: 0 0 10px 0; font-size: 20px; }
+    .content p { margin: 0; font-size: 15px; color: #aaa; line-height: 1.6; }
 
-    /* สไตล์สำหรับรูปเดี่ยวและรูปเรียงแนวตั้ง */
-    .timeline-item > img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid #333;
-    }
+    /* Video Section */
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; margin-top: 20px; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    
+    .divider { width: 50px; height: 1px; background: #444; margin: 40px auto; }
 
-    /* สไตล์สำหรับรูปคู่ ซ้าย-ขวา (เพิ่มเข้ามาใหม่) */
-    .multi-image {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* แบ่ง 2 ช่องเท่ากัน */
-      gap: 2px; /* เส้นคั่นกลางบางๆ */
-      border-bottom: 1px solid #333;
-    }
-    .multi-image img {
-      width: 100%;
-      height: 250px; /* บีบความสูงลงนิดนึงให้ดูสมส่วน */
-      object-fit: cover;
-      display: block;
-    }
-
-    .content {
-      padding: 20px;
-    }
-    .content h3 {
-      margin: 0 0 10px 0;
-      font-size: 20px;
-      color: #FFF;
-    }
-    .content p {
-      margin: 0;
-      font-size: 15px;
-      color: #aaa;
-      line-height: 1.6;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #444;
-      margin: 0 auto 30px auto;
+    @media (max-width: 480px) {
+      .multi-image { grid-template-columns: 1fr; }
+      .multi-image img { height: 200px; }
+      h1 { font-size: 24px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    
-    <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Prototype Series</a>
-
-    <a href="index.html" style="display: inline-block;">
-      <img src="darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
-    </a>
+    <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
+    <a href="index.html"><img src="darin-guitar-logo.png" alt="Logo" class="page-logo"></a>
 
     <h1>The 10-Day Build</h1>
     <p class="subtitle">Ebony Custom Cue</p>
 
     <div class="timeline">
-      
-      <!-- ตัวอย่างที่ 1: ใส่รูปเดียว (แบบปกติ) -->
+      <!-- Day 1 -->
       <div class="timeline-item">
         <div class="day-badge">DAY 1</div>
-        <img src="day1.jpg" alt="Day 1"> <!-- รูปเดียวโดดๆ -->
+        <img src="day1.jpg" alt="Day 1">
         <div class="content">
-          <h3>Wood Selection (แบบรูปเดียว)</h3>
-          <p>คัดเลือกไม้มะเกลือและไม้แอช...</p>
+          <h3>Wood Selection</h3>
+          <p>คัดเลือกไม้มะเกลือและไม้แอชคุณภาพสูงเพื่อความแกร่งและลวดลายที่สมบูรณ์</p>
         </div>
       </div>
 
-      <!-- ตัวอย่างที่ 2: ใส่ 2 รูปคู่กัน ซ้าย-ขวา (ใช้ .multi-image ครอบ) -->
+      <!-- Day 2 -->
       <div class="timeline-item">
         <div class="day-badge">DAY 2</div>
-        
         <div class="multi-image">
-          <img src="day2-pic1.jpg" alt="Splicing 1"> <!-- รูปซ้าย -->
-          <img src="day2-pic2.jpg" alt="Splicing 2"> <!-- รูปขวา -->
+          <img src="day2-pic1.jpg" alt="Pic 1">
+          <img src="day2-pic2.jpg" alt="Pic 2">
         </div>
-
         <div class="content">
-          <h3>Splicing & Assembly (แบบรูปคู่)</h3>
-          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks ทำให้ได้ลายศรที่สวยงามและสมมาตรทั้ง 2 ด้าน...</p>
+          <h3>Splicing & Assembly</h3>
+          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
         </div>
       </div>
 
-      <!-- ตัวอย่างที่ 3: ใส่ 2 รูป เรียงต่อกันบน-ล่าง -->
+      <!-- Day 3 -->
       <div class="timeline-item">
-        <div class="day-badge">DAY 3</div>
-        
-        <img src="day3-pic1.jpg" alt="Shaping 1"> <!-- รูปบน -->
-        <img src="day3-pic2.jpg" alt="Shaping 2"> <!-- รูปล่าง -->
-
+        <div class="day-badge">DAY 2</div>
+        <div class="multi-image">
+          <img src="day2-pic1.jpg" alt="Pic 1">
+          <img src="day2-pic2.jpg" alt="Pic 2">
+        </div>
         <div class="content">
-          <h3>Shaping (แบบรูปบน-ล่าง)</h3>
-          <p>ขึ้นรูปและเก็บรายละเอียดด้วยเครื่อง CNC...</p>
+          <h3>Splicing & Assembly</h3>
+          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+        </div>
+      </div>
+      <!-- Day 4 -->
+      <div class="timeline-item">
+        <div class="day-badge">DAY 2</div>
+        <div class="multi-image">
+          <img src="day2-pic1.jpg" alt="Pic 1">
+          <img src="day2-pic2.jpg" alt="Pic 2">
+        </div>
+        <div class="content">
+          <h3>Splicing & Assembly</h3>
+          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
         </div>
       </div>
 
-      <div class="final-video-section">
-      <h3><i class="fa-solid fa-play"></i> The Final Performance</h3>
-      <p style="color: #aaa; font-size: 14px; margin-bottom: 20px;">ทดสอบไม้คิวตัวจริงที่ผ่านกระบวนการสร้างอย่างพิถีพิถัน</p>
-      
-      <div class="video-container">
-        <iframe 
-          src="https://www.youtube.com/embed/ใส่_ID_คลิปตรงนี้" 
-          title="Darinworks The Cues Final Performance" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+            <!-- Day 5 -->
+      <div class="timeline-item">
+        <div class="day-badge">DAY 2</div>
+        <div class="multi-image">
+          <img src="day2-pic1.jpg" alt="Pic 1">
+          <img src="day2-pic2.jpg" alt="Pic 2">
+        </div>
+        <div class="content">
+          <h3>Splicing & Assembly</h3>
+          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+        </div>
       </div>
-    </div>
+
+            <!-- Day 6 -->
+      <div class="timeline-item">
+        <div class="day-badge">DAY 2</div>
+        <div class="multi-image">
+          <img src="day2-pic1.jpg" alt="Pic 1">
+          <img src="day2-pic2.jpg" alt="Pic 2">
+        </div>
+        <div class="content">
+          <h3>Splicing & Assembly</h3>
+          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+        </div>
+      </div>
+
+            <!-- Day 7 -->
+      <div class="timeline-item">
+        <div class="day-badge">DAY 2</div>
+        <div class="multi-image">
+          <img src="day2-pic1.jpg" alt="Pic 1">
+          <img src="day2-pic2.jpg" alt="Pic 2">
+        </div>
+        <div class="content">
+          <h3>Splicing & Assembly</h3>
+          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+        </div>
+      </div>
       
+      
+      <!-- Video Section -->
+      <div class="final-video-section">
+        <h3 style="margin-bottom:5px;"><i class="fa-solid fa-play"></i> Final Performance</h3>
+        <p style="color:#aaa; font-size:14px;">ทดสอบสมรรถนะไม้คิวตัวจบ</p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
 
     <div class="divider"></div>
-    <a href="prototype.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Prototype Series</a>
-
+    <a href="prototype.html" class="back-btn" style="text-align: center;"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
   </div>
 </body>
 </html>
