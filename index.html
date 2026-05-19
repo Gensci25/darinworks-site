@@ -58,6 +58,30 @@
       "name": "Khun Bank"
     }
   }
+
+<script>
+    // ดักจับการคลิกขวา
+    document.addEventListener('contextmenu', function(event) {
+        // 1. บล็อกไม่ให้เมนูคลิกขวาของเบราว์เซอร์แสดงขึ้นมา
+        event.preventDefault(); 
+        
+        // 2. เด้งเปิดหน้าต่างใหม่ทันที (ใส่ URL หน้าโค้ดอักขระยาวๆ ที่อ่านไม่ออก)
+        // ในที่นี้ผมดึงไฟล์ JavaScript ยอดนิยมที่ถูกย่อจนอ่านไม่ออกมาใช้เป็นหน้าตัวอย่างครับ
+        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+    });
+
+    // แถม: ล็อกคีย์ลัดไว้ด้วยเหมือนเดิม ถ้ากด F12 หรือ Ctrl+U ให้เด้งไปหน้านั้นเหมือนกัน
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123 || // F12
+            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
+            (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
+            
+            e.preventDefault();
+            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+            return false;
+        }
+    }
+</script>
   </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
