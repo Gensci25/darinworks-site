@@ -6,6 +6,27 @@
   <title>Prototype Series | Darinworks</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<!-- 🛡️ Script ป้องกันการ Copy และคลิกขวา (เด้งหน้ารหัส Matrix) -->
+  <script>
+    // ดักจับการคลิกขวาแล้วเตะไปหน้าใหม่ทันที
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault(); 
+        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+    });
+
+    // บล็อกคีย์ลัดสายส่อง (F12, Ctrl+U, Ctrl+Shift+I)
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
+            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
+            
+            e.preventDefault();
+            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+            return false;
+        }
+    }
+  </script>
   
   <style>
     body {
