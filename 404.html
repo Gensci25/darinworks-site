@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found | Darinworks</title>
+  
+  <meta name="robots" content="noindex, follow"> 
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <script>
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        window.location.href = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    });
+    document.onkeydown = function(e) {
+        if (e.keyCode === 123 || 
+           (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 105)) || 
+           (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 117))) {
+            e.preventDefault();
+            window.location.href = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+            return false;
+        }
+    };
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .error-code {
+      font-size: 80px;
+      font-weight: bold;
+      color: #D4AF37;
+      margin: 0;
+      letter-spacing: 5px;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    .error-msg {
+      font-size: 20px;
+      color: #FFF;
+      margin: 10px 0 20px 0;
+    }
+    .error-desc {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 40px;
+      max-width: 400px;
+      line-height: 1.6;
+    }
+    .btn-home {
+      display: inline-block;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #D4AF37;
+      color: #D4AF37;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn-home:hover {
+      background: #D4AF37;
+      color: #111;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+      transform: translateY(-2px);
+    }
+    .btn-home i {
+      margin-right: 8px;
+    }
+    .logo-container {
+      margin-bottom: 30px;
+    }
+    .logo-container img {
+      width: 80px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo">
+  </div>
+
+  <h1 class="error-code">404</h1>
+  <p class="error-msg">PAGE NOT FOUND</p>
+  <p class="error-desc">ขออภัย ไม่พบหน้าเว็บไซต์ที่คุณกำลังค้นหา อาจมีการเปลี่ยนลิงก์ หรือเนื้อหาถูกย้ายไปแล้วครับ</p>
+  
+  <a href="index.html" class="btn-home"><i class="fa-solid fa-house"></i> กลับสู่หน้าหลัก</a>
+
+</body>
+</html>
