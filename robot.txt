@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# บล็อกไม่ให้บอตเข้ามาเก็บข้อมูลที่ไม่ได้ใช้ทำ SEO (ถ้ามีในอนาคต)
+Disallow: /private/
+Disallow: /admin/
+
+# ชี้เป้าแผนที่เว็บไซต์ เพื่อให้บอตทำงานได้ไวขึ้น
+Sitemap: https://www.darinworks.com/sitemap.xml
