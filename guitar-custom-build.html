@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Guitar Configurator | Darinworks</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #0a0a0a; color: white; padding: 40px 20px; }
+    .container { max-width: 600px; margin: auto; }
+    h1 { color: #D4AF37; margin-bottom: 5px; }
+    .subtitle { color: #888; margin-bottom: 40px; }
+
+    /* Form Styles */
+    .form-group { margin-bottom: 25px; }
+    label { display: block; margin-bottom: 8px; color: #aaa; font-size: 14px; }
+    select, input, textarea { 
+      width: 100%; padding: 12px; background: #111; border: 1px solid #333; 
+      color: white; border-radius: 8px; box-sizing: border-box; 
+    }
+    
+    .btn-submit { 
+      width: 100%; background: #D4AF37; color: #000; padding: 15px; 
+      border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
+      font-size: 16px; transition: 0.3s; margin-top: 20px;
+    }
+    .btn-submit:hover { background: #b8962d; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="custom-engineering.html" style="color: #aaa; text-decoration: none;"><i class="fa-solid fa-arrow-left"></i> ย้อนกลับ</a>
+    <h1>Guitar Custom Build</h1>
+    <p class="subtitle">เลือกสเปกที่คุณต้องการ เพื่อรับคำปรึกษาจากช่างแบงค์</p>
+
+    <form id="orderForm">
+      <div class="form-group">
+        <label>ชื่อ-นามสกุล</label>
+        <input type="text" id="name" placeholder="ชื่อของคุณ" required>
+      </div>
+
+      <div class="form-group">
+        <label>ชนิดไม้ (Body Wood)</label>
+        <select id="wood">
+          <option value="พญางิ้วดำ">พญางิ้วดำ (Black Ebony)</option>
+          <option value="เทพทาโร">เทพทาโร</option>
+          <option value="เสลา">เสลา</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>ประเภทปิ๊กอัพ (Pickup Type)</label>
+        <select id="pickup">
+          <option value="Single Coil">Single Coil</option>
+          <option value="Humbucker">Humbucker</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>รายละเอียดเพิ่มเติม (อื่นๆ)</label>
+        <textarea id="remark" rows="3" placeholder="ระบุความต้องการพิเศษ เช่น อยากได้คอแบบบางพิเศษ"></textarea>
+      </div>
+
+      <button type="button" class="btn-submit" onclick="sendToLine()">สรุปสเปกและขอคำปรึกษา (LINE)</button>
+    </form>
+  </div>
+
+  <script>
+    function sendToLine() {
+      // ดึงข้อมูลจากฟอร์ม
+      const name = document.getElementById('name').value;
+      const wood = document.getElementById('wood').value;
+      const pickup = document.getElementById('pickup').value;
+      const remark = document.getElementById('remark').value;
+
+      // สร้างข้อความ
+      const message = `สวัสดีครับ ผมชื่อ ${name} สนใจสั่งทำ Custom Guitar ครับ%0A%0Aสเปกที่เลือก:%0A- ไม้: ${wood}%0A- ปิ๊กอัพ: ${pickup}%0A- รายละเอียด: ${remark}`;
+
+      // ลิงก์ LINE (แทนที่ YOUR_LINE_ID ด้วย ID ของคุณ)
+      const lineUrl = `https://line.me/R/msg/text/?${message}`;
+      
+      // เปิดหน้า LINE
+      window.open(lineUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
