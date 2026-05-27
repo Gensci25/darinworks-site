@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D80CMSQ1YH');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prototype Series | Darinworks</title>
-  <link rel="icon" type="image/png" href="/images/ui/favicon.png">
+  
+  <meta name="description" content="บันทึกการวิจัยและพัฒนาชิ้นงานต้นแบบ (R&D) ของ Darinworks เจาะลึกไดอารี่การสร้างสรรค์ไม้คิวสนุกเกอร์และกีตาร์ไฟฟ้า/กีตาร์โปร่งจากไม้ไทยหายาก ด้วยระบบวิศวกรรมความแม่นยำสูง">
+  <meta name="keywords" content="ช่างทำกีตาร์, สั่งทำกีตาร์, กีตาร์คัสตอม, Custom Guitar, Luthier, ช่างทำไม้คิว, สั่งทำไม้คิว, ไม้คิวคัสตอม, Custom Snooker Cue, Cue Maker, ไม้พญางิ้วดำ, ไม้จามจุรี, ไม้พฤกษ์, ชิ้นงานต้นแบบ, Prototype">
+  <meta name="author" content="Darinworks">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<!-- 🛡️ Script ป้องกันการ Copy และคลิกขวา (เด้งหน้ารหัส Matrix) -->
   <script>
-    // ดักจับการคลิกขวาแล้วเตะไปหน้าใหม่ทันที
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
         window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
     });
 
-    // บล็อกคีย์ลัดสายส่อง (F12, Ctrl+U, Ctrl+Shift+I)
     document.onkeydown = function(e) {
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
@@ -174,58 +176,51 @@
     <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
 
     <a href="index.html" style="display: inline-block;">
-      <img src="darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
+      <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
     </a>
 
     <h1>Prototype Series</h1>
     <p class="subtitle">บันทึกการสร้างชิ้นงานต้นแบบ</p>
 
-    <!-- ==================== โซนไม้คิว ==================== -->
     <div class="section-title"><i class="fa-solid fa-gavel"></i> Darin Cues</div>
 
-    <!-- ไม้คิว โปรเจกต์ที่ 1 -->
     <a href="cue-proto-1.html" class="selection-card">
       <div class="card-badge">Project 01</div>
-      <h3>The 10-Day Build (Ebony) <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>บันทึกการสร้างไม้คิวต้นแบบ 10 วันเต็ม เจาะลึกกระบวนการเข้าไม้ดำ สเปก และการบาลานซ์น้ำหนัก ตั้งแต่ไม้ดิบจนถึงเป็นไม้คิวพร้อมเล่น</p>
+      <h3>The 7-Day Build (Ebony) <i class="fa-solid fa-chevron-right"></i></h3>
+      <p>บันทึกการวิจัยและสร้างไม้คิวต้นแบบ 7 วันเต็ม เจาะลึกกระบวนการเข้าไม้ดำดง (Black Ebony) การคำนวณสเปก และระบบบาลานซ์น้ำหนักเชิงวิศวกรรม ตั้งแต่ไม้ดิบจนถึงเป็นไม้คิวมาสเตอร์พีซ</p>
     </a>
 
-    <!-- ไม้คิว โปรเจกต์ที่ 2 -->
     <a href="cue-proto-2.html" class="selection-card">
       <div class="card-badge">Project 02</div>
       <h3>Premium Ash Wood Series <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>การคัดเลือกลายไม้แอชเกรดพรีเมียม และเทคนิคการเหลาปลายไม้คิวเพื่อสัมผัสการแทงที่สมบูรณ์แบบ</p>
+      <p>ศาสตร์แห่งการคัดเลือกลายไม้แอชเกรดพรีเมียม และเทคนิคการเหลาปลายไม้คิวสนุกเกอร์เฉพาะตัว เพื่อมอบแรงสะท้อน (Feedback) และสัมผัสการแทงที่สมบูรณ์แบบที่สุด</p>
     </a>
 
-    <!-- ==================== โซนกีตาร์ ==================== -->
     <div class="section-title"><i class="fa-solid fa-guitar"></i> Darin Guitar</div>
 
-    <!-- กีตาร์ โปรเจกต์ที่ 1 -->
     <a href="guitar-proto-1.html" class="selection-card">
       <div class="card-badge">Project 01</div>
       <h3>Custom PRS Style Build <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>กระบวนการสร้างกีตาร์ทรง PRS ผสมผสานเทคนิค CNC เข้ากับงานมือ พร้อมการจับคู่ลายไม้ไทยสุดพิเศษ</p>
+      <p>กระบวนการขึ้นรูปกีตาร์ไฟฟ้าทรง PRS ผสมผสานความเที่ยงตรงของเครื่อง CNC และโปรแกรม Fusion 360 เข้ากับงานมือ พร้อมการแมตช์ลวดลายไม้ไทย(ไม้มะม่วงป่า)หายากสุดพิเศษ</p>
     </a>
 
-    <!-- กีตาร์ โปรเจกต์ที่ 2 -->
     <a href="guitar-proto-2.html" class="selection-card">
       <div class="card-badge">Project 02</div>
       <h3>Classic Tele <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>บันทึกการสร้างกีตาร์ทรงคลาสสิก เจาะลึกขั้นตอนการเดินวงจรไฟฟ้า (Wiring) และการเซ็ตอัพเสียง</p>
+      <p>บันทึกการสร้างกีตาร์ทรงคลาสสิก Telecaster เจาะลึกขั้นตอนการเดินวงจรไฟฟ้าภายใน (Premium Wiring) การทดสอบย่านเสียง และการเซ็ตอัพทัชชิ่งเพื่อความคล่องตัวในการเล่น</p>
     </a>
 
-     <!-- กีตาร์ โปรเจกต์ที่ 3 -->
     <a href="guitar-proto-3.html" class="selection-card">
       <div class="card-badge">Project 03</div>
-      <h3>Acoustic guitar (J200) <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>บันทึกการสร้างกีตาร์โปร่ง ทรง ๋J200 ( Jumbo )จากไม้ไทย ไม้จามจุรีและไม้พฤก </p>
+      <h3>Acoustic Guitar (J200 Jumbo) <i class="fa-solid fa-chevron-right"></i></h3>
+      <p>บันทึกความท้าทายในการสร้างกีตาร์โปร่งทรงมหากาพย์ J200 (Jumbo Size) โดยเลือกใช้วัตถุดิบไม้ไทยอย่าง ไม้จามจุรี และ ไม้พฤกษ์ เพื่อสร้างโทนเสียงที่เป็นเอกลักษณ์เฉพาะตัว</p>
     </a>
 
-     <!-- กีตาร์ โปรเจกต์ที่ 4 -->
     <a href="guitar-proto-4.html" class="selection-card">
       <div class="card-badge">Project 04</div>
-      <h3>Knaggs Guitar <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>บันทึกการสร้างกีตาร์ไฟฟ้า ทรง Knaggs จากไม้ไทย </p>
+      <h3>PSK Guitar Style <i class="fa-solid fa-chevron-right"></i></h3>
+      <p>โปรเจกต์ท้าทายขีดจำกัดกับการสร้างสรรค์กีตาร์ไฟฟ้าทรง PSK จากเนื้อไม้ไทยหายาก คัดสรรโครงสร้างและการกระจายน้ำหนักบอดี้เพื่อยกระดับซัสเทนเสียง (Sustain)</p>
+    </a>
       
     <div class="divider"></div>
     <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
