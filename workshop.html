@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D80CMSQ1YH');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop Tour | Darinworks</title>
-  <link rel="icon" type="image/png" href="/images/ui/favicon.png">
+  <title>Inside the Shop | Darinworks</title>
+  
+  <meta name="description" content="เจาะลึกเบื้องหลังโรงงานกึ่งสตูดิโองานคราฟต์ของ Darinworks ชมกระบวนการสร้างสรรค์กีตาร์คัสตอมและไม้คิวสนุกเกอร์พรีเมียม ที่ผสานเทคโนโลยี CAD/CAM วิศวกรรมความแม่นยำสูง และศาสตร์งานฝีมือดั้งเดิม">
+  <meta name="keywords" content="ช่างทำกีตาร์, สั่งทำกีตาร์, กีตาร์คัสตอม, Custom Guitar, Luthier, ช่างทำไม้คิว, สั่งทำไม้คิว, ไม้คิวคัสตอม, Custom Snooker Cue, Cue Maker, เครื่องมือช่าง, Fusion 360, CNC Machining">
+  <meta name="author" content="Darinworks">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<!-- 🛡️ Script ป้องกันการ Copy และคลิกขวา (เด้งหน้ารหัส Matrix) -->
   <script>
-    // ดักจับการคลิกขวาแล้วเตะไปหน้าใหม่ทันที
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
         window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
     });
 
-    // บล็อกคีย์ลัดสายส่อง (F12, Ctrl+U, Ctrl+Shift+I)
     document.onkeydown = function(e) {
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
@@ -50,7 +52,7 @@
       align-items: center;
     }
     .container {
-      max-width: 800px; /* ให้หน้าแกลเลอรีดูกว้างขึ้นนิดนึงสำหรับโชว์รูป */
+      max-width: 900px; /* ขยายกว้างขึ้นเล็กน้อยเพื่อรองรับมิติกริดที่สมดุล */
       width: 100%;
       text-align: center;
     }
@@ -63,7 +65,7 @@
       font-size: 14px;
       margin-bottom: 30px;
       transition: color 0.3s ease;
-      align-self: flex-start; /* ดันปุ่มไปชิดซ้าย */
+      align-self: flex-start;
       width: 100%;
       text-align: left;
     }
@@ -77,129 +79,166 @@
     h1 {
       margin-bottom: 5px;
       font-size: 32px;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       color: #FFF;
+      text-transform: uppercase;
     }
     .subtitle {
       color: #D4AF37;
       margin-bottom: 40px;
-      font-size: 14px;
+      font-size: 13px;
       letter-spacing: 2px;
       text-transform: uppercase;
+    }
+
+    /* หัวข้อแบ่งกลุ่มหมวดหมู่ภายในช็อป (Section Headers) */
+    .shop-section-title {
+      text-align: left;
+      border-bottom: 1px solid #222;
+      padding-bottom: 10px;
+      margin: 50px 0 25px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .shop-section-title i {
+      color: #D4AF37;
+      font-size: 18px;
+    }
+    .shop-section-title span {
+      font-size: 16px;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #DDD;
     }
 
     /* ระบบ Grid สำหรับแกลเลอรีรูปภาพ */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 20px;
     }
     .gallery-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid #333;
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid #222;
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     }
     .gallery-item:hover {
       transform: translateY(-5px);
       border-color: #D4AF37;
+      background: rgba(255, 255, 255, 0.03);
     }
     .gallery-item img {
       width: 100%;
-      height: 250px; /* บังคับความสูงให้รูปเท่ากันทุกใบ */
+      height: 240px; /* ควบคุมสัดส่วนภาพแบบ Golden Ratio ให้ดูพรีเมียม */
       object-fit: cover;
       display: block;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #222;
     }
     .caption {
-      padding: 15px;
-      font-size: 14px;
-      color: #aaa;
+      padding: 20px;
+      font-size: 13px;
+      color: #888;
       text-align: left;
+      line-height: 1.6;
     }
     .caption strong {
       color: #FFF;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
+      font-size: 15px;
+      letter-spacing: 0.5px;
     }
 
     .divider {
       width: 50px;
       height: 1px;
-      background: #444;
-      margin: 0 auto 30px auto;
+      background: #333;
+      margin: 60px auto 30px auto;
     }
   </style>
 </head>
 <body>
   <div class="container">
     
-    <!-- ปุ่มกลับหน้าแรก (UX ที่ดีต้องมีทางออกให้ลูกค้าเสมอ) -->
     <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
 
-    <h1>INSIDE THE SHOP</h1>
-    <p class="subtitle">Inside the Engineering Room</p>
+    <h1>Inside the Shop</h1>
+    <p class="subtitle">เบื้องหลังงานวิศวกรรมและศาสตร์แห่งงานคราฟต์</p>
 
-    <!-- โซนแกลเลอรีรูปภาพ -->
+    <div class="shop-section-title">
+      <i class="fa-solid fa-gears"></i>
+      <span>1. Engineering & Heavy Equipment (โครงสร้างหลักและเครื่องจักรใหญ่)</span>
+    </div>
+
     <div class="gallery-grid">
-      
-      <!-- รูปที่ 1 -->
       <div class="gallery-item">
-        <!-- เปลี่ยนคำว่า image1.jpg เป็นชื่อไฟล์รูปจริงๆ -->
-        <img src="image1.jpg" alt="CNC Machine">
+        <img src="images/workshop/cnc-machining.jpg" alt="CNC Automated Machining" loading="lazy">
         <div class="caption">
-          <strong>CNC Precision Milling</strong>
-          ควบคุมความแม่นยำระดับมิลลิเมตรด้วยระบบคอมพิวเตอร์
+          <strong>CNC Automated Machining</strong>
+          ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ
         </div>
       </div>
 
-      <!-- รูปที่ 2 -->
       <div class="gallery-item">
-        <img src="image2.jpg" alt="Custom Steel Worktable">
+        <img src="images/workshop/steel-table.jpg" alt="2-Inch Heavy Steel Worktable" loading="lazy">
         <div class="caption">
-          <strong>Custom 2-Inch Steel Worktable</strong>
-          โต๊ะเหล็กสั่งทำพิเศษเพื่อความนิ่งและมั่นคงในการขึ้นรูปชิ้นงาน
+          <strong>2-Inch Heavy Steel Worktable</strong>
+          แท่นประกอบและขึ้นรูปโครงสร้างเหล็กสั่งทำพิเศษหนา 2 นิ้ว มอบความหนาแน่นและนิ่งสนิท (Vibration Control) เพื่อผลลัพธ์การไสไม้ที่เที่ยงตรงที่สุด
+        </div>
+      </div>
+    </div>
+
+
+    <div class="shop-section-title">
+      <i class="fa-solid fa-hammer"></i>
+      <span>2. Artisan Bench & Hand Tools (โต๊ะช่างและเครื่องมือทำมือ)</span>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/workshop/hand-tools.jpg" alt="Hand Tools & Precision Tuning" loading="lazy">
+        <div class="caption">
+          <strong>Hand Tools & Precision Tuning</strong>
+          กลิ่นอายและจิตวิญญาณช็อปช่างดั้งเดิม คัดสรรสิ่ว กบเหล็ก และเหล็กขูดแต่งผิว (Scrapers) เพื่อใช้เดินคมและเก็บรายละเอียดส่วนโค้งเว้าในจุดที่คอมพิวเตอร์ทำแทนไม่ได้
         </div>
       </div>
 
-      <!-- รูปที่ 3 -->
       <div class="gallery-item">
-        <img src="image3.jpg" alt="Fusion 360 Design">
+        <img src="images/workshop/cad-station.jpg" alt="3D Structural Design" loading="lazy">
         <div class="caption">
-          <strong>CAD/CAM Station</strong>
-          ออกแบบและคำนวณโครงสร้างผ่าน Fusion 360 ก่อนลงมือตัดไม้จริง
+          <strong>3D Structural Design (Fusion 360)</strong>
+          สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ
+        </div>
+      </div>
+    </div>
+
+
+    <div class="shop-section-title">
+      <i class="fa-solid fa-tree"></i>
+      <span>3. Exotic Wood Storage (คลังบ่มไม้และวัตถุดิบหายาก)</span>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/workshop/wood-storage.jpg" alt="Climate-Controlled Timber Storage" loading="lazy">
+        <div class="caption">
+          <strong>Climate-Controlled Timber Storage</strong>
+          พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ภายใต้การควบคุมอุณหภูมิและความชื้นสัมพัทธ์ที่เหมาะสม ป้องกันการบิดงอหรือคดตัวในระยะยาว
         </div>
       </div>
 
-      <!-- รูปที่ 4 -->
       <div class="gallery-item">
-        <img src="image4.jpg" alt="Wood Stock">
+        <img src="images/workshop/exotic-selection.jpg" alt="Phaya Ngiu Dam Masterpiece Selection" loading="lazy">
         <div class="caption">
-          <strong>Raw Material Stock</strong>
-          พื้นที่จัดเก็บและคัดลายไม้หายากแบบควบคุมอุณหภูมิและความชื้น
+          <strong>Exotic Masterpiece Selection</strong>
+          คลังไม้ไทยหายากเกรดสูง เช่น ไม้ปุ่มตะแบก, ไม้เทพทาโร และเสลา คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและมีความหนาแน่นของเนื้อไม้ดีเยี่ยม
         </div>
       </div>
-
-         <!-- รูปที่ 5 -->
-      <div class="gallery-item">
-        <img src="image4.jpg" alt="Wood Stock">
-        <div class="caption">
-          <strong>Raw Material Stock</strong>
-          พื้นที่จัดเก็บและคัดลายไม้หายากแบบควบคุมอุณหภูมิและความชื้น
-        </div>
-      </div>
-
-         <!-- รูปที่ 6 -->
-      <div class="gallery-item">
-        <img src="image4.jpg" alt="Wood Stock">
-        <div class="caption">
-          <strong>Raw Material Stock</strong>
-          พื้นที่จัดเก็บและคัดลายไม้หายากแบบควบคุมอุณหภูมิและความชื้น
-        </div>
-      </div>
-      
     </div>
 
     <div class="divider"></div>
