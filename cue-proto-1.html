@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D80CMSQ1YH');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Details | Darinworks</title>
-  <link rel="icon" type="image/png" href="/images/ui/favicon.png">
+  <title>The 10-Day Build (Ebony) | Darinworks</title>
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<!-- 🛡️ Script ป้องกันการ Copy และคลิกขวา (เด้งหน้ารหัส Matrix) -->
   <script>
-    // ดักจับการคลิกขวาแล้วเตะไปหน้าใหม่ทันที
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
         window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
     });
 
-    // บล็อกคีย์ลัดสายส่อง (F12, Ctrl+U, Ctrl+Shift+I)
     document.onkeydown = function(e) {
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
@@ -42,6 +38,7 @@
     .container { max-width: 600px; width: 100%; text-align: center; }
     .back-btn { display: block; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 30px; text-align: left; transition: 0.3s; }
     .back-btn:hover { color: #D4AF37; }
+    .back-btn i { margin-right: 8px; }
     .page-logo { width: 60px; margin-bottom: 20px; opacity: 0.9; }
     h1 { margin: 0; font-size: 32px; letter-spacing: 1px; }
     .subtitle { color: #D4AF37; margin-bottom: 40px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
@@ -57,11 +54,12 @@
     .multi-image img { height: 250px; border: none; }
     
     .content { padding: 20px; }
-    .content h3 { margin: 0 0 10px 0; font-size: 20px; }
-    .content p { margin: 0; font-size: 15px; color: #aaa; line-height: 1.6; }
+    .content h3 { margin: 0 0 10px 0; font-size: 20px; color: #FFF; }
+    .content p { margin: 0; font-size: 14px; color: #aaa; line-height: 1.6; }
 
     /* Video Section */
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; margin-top: 20px; }
+    .final-video-section { text-align: left; margin-top: 20px; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; margin-top: 15px; border: 1px solid #333; }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     
     .divider { width: 50px; height: 1px; background: #444; margin: 40px auto; }
@@ -69,119 +67,114 @@
     @media (max-width: 480px) {
       .multi-image { grid-template-columns: 1fr; }
       .multi-image img { height: 200px; }
-      h1 { font-size: 24px; }
+      h1 { font-size: 26px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
-    <a href="index.html"><img src="darin-guitar-logo.png" alt="Logo" class="page-logo"></a>
+    <a href="index.html"><img src="images/ui/darin-guitar-logo.png" alt="Logo" class="page-logo"></a>
 
-    <h1>The 7-Day Build</h1>
-    <p class="subtitle"> The Custom Cue</p>
+    <h1>The 10-Day Build</h1>
+    <p class="subtitle">The Custom Snooker Cue (Ebony)</p>
 
     <div class="timeline">
-      <!-- Day 1 -->
+      
       <div class="timeline-item">
         <div class="day-badge">DAY 1</div>
-        <img src="day1.jpg" alt="Day 1">
+        <img src="images/prototype/cue1-day1.jpg" alt="Wood Selection">
         <div class="content">
-          <h3>Wood Selection</h3>
-          <p>คัดเลือกไม้แอชแอชคุณภาพสูงเพื่อความแกร่งและลวดลายศรที่สมบูรณ์</p>
+          <h3>Material Selection & Timber Testing</h3>
+          <p>เริ่มต้นกระบวนการด้วยการคัดเลือกไม้ปลายคิว โดยเน้นไม้แอช (Ash Wood) ที่มีความหนาแน่นสูง ลายศรวิ่งตรงสวยงาม และทำการเลือกไม้ด้ามพญางิ้วดำ (Black Ebony) ไม้ไทยหายากเนื้อสกรีนแน่นสนิท เพื่อเตรียมนำมาประกอบขึ้นโครงสร้าง</p>
         </div>
       </div>
 
-      <!-- Day 2 -->
       <div class="timeline-item">
         <div class="day-badge">DAY 2</div>
         <div class="multi-image">
-          <img src="day2-pic1.jpg" alt="Pic 1">
-          <img src="day2-pic2.jpg" alt="Pic 2">
+          <img src="images/prototype/cue1-day2-1.jpg" alt="Fusion 360 Design">
+          <img src="images/prototype/cue1-day2-2.jpg" alt="CNC Machining">
         </div>
         <div class="content">
-          <h3>Splicing & Assembly</h3>
-          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+          <h3>CAD Design & CNC Tapering</h3>
+          <p>นำสเปกและสัดส่วนมาคำนวณผ่านโปรแกรม Fusion 360 เพื่อหาจุดศูนย์ถ่วง (Balance Point) และกำหนดองศาการปาดด้าม จากนั้นส่งต่อข้อมูลเข้าเครื่อง CNC เพื่อไสไม้ปลายคิวให้ได้รูปทรงเรียว (Taper) ที่เที่ยงตรงระดับไมครอน</p>
         </div>
       </div>
 
-      <!-- Day 3 -->
       <div class="timeline-item">
         <div class="day-badge">DAY 3</div>
-        <div class="multi-image">
-          <img src="day2-pic1.jpg" alt="Pic 1">
-          <img src="day2-pic2.jpg" alt="Pic 2">
-        </div>
+        <img src="images/prototype/cue1-day3.jpg" alt="Veneer Preparation">
         <div class="content">
-          <h3>Splicing & Assembly</h3>
-          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
-        </div>
-      </div>
-      <!-- Day 4 -->
-      <div class="timeline-item">
-        <div class="day-badge">DAY 4</div>
-        <div class="multi-image">
-          <img src="day2-pic1.jpg" alt="Pic 1">
-          <img src="day2-pic2.jpg" alt="Pic 2">
-        </div>
-        <div class="content">
-          <h3>Splicing & Assembly</h3>
-          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+          <h3>Veneer Selection & Splicing Preparation</h3>
+          <p>เตรียมไม้ตัดแต่งสี (Veneer) เพื่อใช้เป็นเส้นขลิบตัดลาย โดยเลือกใช้แผ่นไม้สีขาว ดำ และเหลือง นำมาประกอบซ้อนชั้นอย่างประณีต ก่อนจะทำการเซาะร่องที่ไม้ด้ามและไม้คิวหลักเพื่อเตรียมขั้นตอนเข้าจำปา</p>
         </div>
       </div>
 
-            <!-- Day 5 -->
       <div class="timeline-item">
-        <div class="day-badge">DAY 5</div>
+        <div class="day-badge">DAY 4 - 5</div>
         <div class="multi-image">
-          <img src="day2-pic1.jpg" alt="Pic 1">
-          <img src="day2-pic2.jpg" alt="Pic 2">
+          <img src="images/prototype/cue1-day4-1.jpg" alt="Hand Splicing">
+          <img src="images/prototype/cue1-day4-2.jpg" alt="Glue Curing">
         </div>
         <div class="content">
-          <h3>Splicing & Assembly</h3>
-          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+          <h3>4-Point Hand Splicing & Bonding</h3>
+          <p>กระบวนการเข้าจำปามือ 4 ด้าน (4-Point Hand Splicing) ประกบไม้พญางิ้วดำเข้ากับแกนคิวหลักผ่านชั้นวีเนียร์อย่างสมมาตร อัดกาวเกรดพรีเมียมและยึดแน่นหนา จากนั้นปล่อยทิ้งไว้ให้เซ็ตตัวเต็มที่ในห้องควบคุมสภาวะอากาศ</p>
         </div>
       </div>
 
-            <!-- Day 6 -->
       <div class="timeline-item">
-        <div class="day-badge">DAY 6</div>
-        <div class="multi-image">
-          <img src="day2-pic1.jpg" alt="Pic 1">
-          <img src="day2-pic2.jpg" alt="Pic 2">
-        </div>
+        <div class="day-badge">DAY 6 - 7</div>
+        <img src="images/prototype/cue1-day6.jpg" alt="Rough Turning">
         <div class="content">
-          <h3>Splicing & Assembly</h3>
-          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+          <h3>Rough Turning & Natural Seasoning</h3>
+          <p>หลังจากกาวแห้งสนิท ทำการขึ้นรูปหยาบ (Rough Turning) เพื่อลดขนาดด้ามลงมาใกล้เคียงกับสเปกจริง จากนั้นนำไม้คิวไปแขวนบ่มธรรมชาติ (Wood Seasoning) เพื่อปล่อยให้เนื้อไม้คลายแรงเค้นภายในและปรับตัวเข้ากับโครงสร้างใหม่</p>
         </div>
       </div>
 
-            <!-- Day 7 -->
       <div class="timeline-item">
-        <div class="day-badge">DAY 2</div>
+        <div class="day-badge">DAY 8</div>
         <div class="multi-image">
-          <img src="day2-pic1.jpg" alt="Pic 1">
-          <img src="day2-pic2.jpg" alt="Pic 2">
+          <img src="images/prototype/cue1-day8-1.jpg" alt="Hand Shaving">
+          <img src="images/prototype/cue1-day8-2.jpg" alt="Planer Work">
         </div>
         <div class="content">
-          <h3>Splicing & Assembly</h3>
-          <p>เข้าไม้ด้วยเทคนิคเฉพาะของ Darinworks เพื่อลายศรที่สวยงามและสมมาตร</p>
+          <h3>Artisan Hand Shaving & Fine Shaping</h3>
+          <p>เข้าสู่ขั้นตอนงานมืออันเป็นเอกลักษณ์ ใช้กบไสไม้และเหล็กขูดแต่งผิว (Scrapers) ค่อยๆ ไสปรับแต่งทรวดทรงคิวอย่างใจเย็น เช็กสัดส่วนความกลมกลืนและบาลานซ์ฟีลลิ่งการจับถือจนได้มิติตามสเปกของลูกค้า</p>
         </div>
       </div>
-      
-      
-      <!-- Video Section -->
-      <div class="final-video-section">
-        <h3 style="margin-bottom:5px;"><i class="fa-solid fa-play"></i> Final Performance</h3>
-        <p style="color:#aaa; font-size:14px;">ทดสอบสมรรถนะไม้คิวตัวจบ</p>
-        <div class="video-container">
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+
+      <div class="timeline-item">
+        <div class="day-badge">DAY 9</div>
+        <img src="images/prototype/cue1-day9.jpg" alt="Sanding & Oil Finishing">
+        <div class="content">
+          <h3>Progressive Sanding & Oil Finishing</h3>
+          <p>ขัดกระดาษทรายละเอียดไล่เบอร์อย่างประณีตจนผิวไม้เนียนเรียบลื่นมือ จากนั้นทำการเคลือบผิวด้วยน้ำมันสูตรเฉพาะของ Darinworks ดึงความลึกของสีไม้พญางิ้วดำและลวดลายไม้แอชให้เด่นชัด พร้อมปกป้องไม้จากความชื้น</p>
         </div>
       </div>
+
+      <div class="timeline-item">
+        <div class="day-badge">DAY 10</div>
+        <img src="images/prototype/cue1-day10.jpg" alt="Final Assembly">
+        <div class="content">
+          <h3>Ferrule Fitting & Tip Installation</h3>
+          <p>วันสุดท้ายของการสร้างสรรค์ ติดตั้งปลอกทองเหลือง (Ferrule) และอัดหัวคิวเกรดพรีเมียม ปาดแต่งขอบหัวคิวให้มนได้องศา ตรวจสอบความตรงของไม้คิวและเช็กน้ำหนักรวม (Total Weight) เป็นอันเสร็จสิ้นโปรเจกต์มาสเตอร์พีซ</p>
+        </div>
+      </div>
+
     </div>
 
+    <div class="final-video-section">
+      <h3 style="margin-bottom:5px;"><i class="fa-solid fa-play"></i> Final Performance Test</h3>
+      <p style="color:#aaa; font-size:14px; margin: 0;">ทดสอบการส่งแรงแทงและฟีลลิ่งของไม้คิวตัวจริง</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+      </div>
+    </div>
+    
     <div class="divider"></div>
-    <a href="prototype.html" class="back-btn" style="text-align: center;"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
+    <a href="prototype.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
+
   </div>
 </body>
 </html>
