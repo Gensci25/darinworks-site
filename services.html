@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Darinworks Custom Engineering</title>
-  <meta name="description" content="บริการโดยช่างทำกีตาร์และช่างทำไม้คิวระดับพรีเมียม รับสั่งทำกีตาร์และไม้คิวคัสตอม พร้อมบริการซ่อม เซ็ตอัพ โดยมาตรฐานวิศวกรรม">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
   <style>
     body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #0a0a0a; color: white; min-height: 100vh; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 850px; width: 100%; text-align: center; }
     
-    .page-logo { width: 60px; margin-bottom: 20px; }
     h1 { margin-bottom: 5px; font-size: 32px; color: #FFF; }
     .subtitle { color: #D4AF37; margin-bottom: 50px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
 
@@ -25,9 +23,20 @@
     .card-bg img { width: 100%; height: 100%; object-fit: cover; }
     .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #111 25%, rgba(17,17,17,0.4) 100%); z-index: 1; }
     .card-content { position: relative; z-index: 2; }
+    .status-tag { font-size: 10px; background: rgba(212, 175, 55, 0.15); color: #D4AF37; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px; }
 
     .service-card h3 { color: #fff; margin: 0 0 10px 0; display: flex; align-items: center; gap: 10px; }
     .service-card p { color: #aaa; font-size: 14px; line-height: 1.6; margin: 0; }
+
+    /* Workflow Section */
+    .workflow-section { text-align: left; width: 100%; margin-top: 20px; }
+    .workflow-title { color: #FFF; font-size: 18px; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+    .timeline { position: relative; padding-left: 35px; }
+    .timeline::before { content: ''; position: absolute; left: 6px; top: 5px; bottom: 5px; width: 1px; background: #333; }
+    .step { position: relative; margin-bottom: 30px; }
+    .step-dot { position: absolute; left: -35px; width: 13px; height: 13px; background: #0a0a0a; border: 2px solid #D4AF37; border-radius: 50%; top: 5px; }
+    .step h4 { color: #fff; margin: 0 0 5px 0; font-size: 16px; }
+    .step p { color: #888; font-size: 13px; line-height: 1.6; margin: 0; }
     
     @media (max-width: 650px) { .bento-grid { grid-template-columns: 1fr; } .card-large { grid-column: span 1; } }
   </style>
@@ -53,7 +62,7 @@
         <div class="card-overlay"></div>
         <div class="card-content">
           <h3><i class="fa-solid fa-guitar"></i> Guitar Clinic & Setup</h3>
-          <p>คืนสมรรถนะสูงสุดด้วยบริการซ่อมและเซ็ตอัพกีตาร์ (Guitar Setup) วัดค่าแม่นยำระดับมิลลิเมตร</p>
+          <p>คืนสมรรถนะสูงสุดด้วยบริการซ่อมและเซ็ตอัพกีตาร์ วัดค่าแม่นยำระดับมิลลิเมตร</p>
         </div>
       </a>
 
@@ -62,10 +71,38 @@
         <div class="card-overlay"></div>
         <div class="card-content">
           <h3><i class="fa-solid fa-gavel"></i> The Cue Clinic</h3>
-          <p>บริการดัดไม้คิวคด เปลี่ยนหัวคิวเกรดพรีเมียม และปรับตั้งจุดบาลานซ์ (Balance Tuning) ให้เข้ากับสรีระ</p>
+          <p>บริการดัดไม้คิวคด เปลี่ยนหัวคิวเกรดพรีเมียม และปรับตั้งจุดบาลานซ์ให้เข้ากับสรีระ</p>
         </div>
       </a>
 
+      <div class="service-card">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <div class="status-tag">Coming Soon</div>
+          <h3><i class="fa-solid fa-graduation-cap"></i> Darinworks Academy</h3>
+          <p>หลักสูตรถ่ายทอดงานวิศวกรรมกว่า 20 ปี ผสานงาน Luthier และการใช้ CAD/CAM</p>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <div class="status-tag">Coming Soon</div>
+          <h3><i class="fa-solid fa-sliders"></i> The Live Room</h3>
+          <p>ห้องซ้อมดนตรีที่ออกแบบพื้นที่ตามหลัก Acoustic Engineering เพื่อสัมผัสเสียงที่แท้จริง</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="workflow-section">
+      <div class="workflow-title"><i class="fa-solid fa-route"></i> Custom Crafting Workflow</div>
+      <div class="timeline">
+        <div class="step"><div class="step-dot"></div><h4>1. Consultation</h4><p>วิเคราะห์สไตล์การเล่นและเลือกไม้</p></div>
+        <div class="step"><div class="step-dot"></div><h4>2. Engineering</h4><p>สร้าง 3D Model และคำนวณบาลานซ์</p></div>
+        <div class="step"><div class="step-dot"></div><h4>3. Precision Crafting</h4><p>CNC Machining & Hand-finished</p></div>
+        <div class="step"><div class="step-dot"></div><h4>4. Final Setup</h4><p>ปรับทัชชิ่งและส่งมอบงานระดับ Masterpiece</p></div>
+      </div>
     </div>
   </div>
 </body>
