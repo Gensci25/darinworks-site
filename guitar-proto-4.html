@@ -11,7 +11,7 @@
   </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Knaggs Style Custom Build | Darinworks</title>
+  <title>The Survivor (Knaggs Custom) | Darinworks</title>
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
@@ -25,7 +25,6 @@
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
             (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
-            
             e.preventDefault();
             window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
             return false;
@@ -34,247 +33,141 @@
   </script>
   
   <style>
+    /* ================= BASE STYLES ================= */
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #080808;
+      color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center;
     }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-    }
+    .container { max-width: 900px; width: 100%; padding: 40px 20px; box-sizing: border-box; }
     
     .back-btn {
-      display: inline-block;
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 30px;
-      transition: color 0.3s ease;
-      align-self: flex-start;
-      width: 100%;
-      text-align: left;
+      display: inline-block; color: #aaa; text-decoration: none; font-size: 14px;
+      margin-bottom: 30px; transition: color 0.3s ease;
     }
-    .back-btn:hover {
-      color: #D4AF37;
-    }
-    .back-btn i {
-      margin-right: 8px;
-    }
-
-    .page-logo {
-      width: 60px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
-      letter-spacing: 1px;
-      color: #FFF;
-    }
-    .subtitle {
-      color: #D4AF37;
-      margin-bottom: 40px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* โซน Timeline บล็อกวัน */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 50px;
-      margin-bottom: 50px;
-    }
+    .back-btn:hover { color: #D4AF37; }
     
-    .timeline-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid #333;
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: left;
-      position: relative;
-    }
+    .page-logo { width: 60px; height: auto; margin-bottom: 20px; opacity: 0.9; display: block; }
     
+    h1, h2, h3 { color: #D4AF37; font-weight: normal; margin-top: 0; }
+    
+    /* ================= STORY SECTION ================= */
+    .hero-section { text-align: center; margin-bottom: 60px; border-bottom: 1px solid #222; padding-bottom: 50px; }
+    .hero-section h1 { font-size: 48px; color: #fff; margin-bottom: 10px; font-weight: bold; }
+    .hero-section h1 span { color: #D4AF37; }
+    .hero-section .subtitle { font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: #888; margin-bottom: 30px; }
+
+    .story-block { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 80px; }
+    .story-block.reverse { grid-template-columns: 1fr 1fr; direction: rtl; }
+    .story-block.reverse > * { direction: ltr; }
+    
+    .story-img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; border: 1px solid #222; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .story-text h2 { font-size: 28px; margin-bottom: 20px; }
+    .story-text p { color: #ccc; font-size: 16px; line-height: 1.8; margin-bottom: 20px; }
+    .highlight { color: #fff; font-weight: bold; }
+
+    .quote-box {
+      border-left: 4px solid #D4AF37; padding-left: 30px; margin: 80px auto; max-width: 700px;
+      font-size: 24px; font-style: italic; color: #fff; line-height: 1.6; text-align: left;
+    }
+
+    /* ================= TIMELINE & CAROUSEL (Original Code) ================= */
+    .section-title { text-align: center; margin: 100px 0 50px 0; font-size: 32px; color: #fff; }
+    .section-title span { color: #D4AF37; }
+
+    .timeline { display: flex; flex-direction: column; gap: 60px; margin-bottom: 80px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .timeline-item { background: #111; border: 1px solid #222; border-radius: 12px; overflow: hidden; position: relative; }
     .day-badge {
-      background: #D4AF37;
-      color: #111;
-      display: inline-block;
-      padding: 6px 18px;
-      font-weight: bold;
-      font-size: 13px;
-      border-bottom-right-radius: 10px;
-      letter-spacing: 1px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 10;
+      background: #D4AF37; color: #000; display: inline-block; padding: 6px 18px;
+      font-weight: bold; font-size: 13px; border-bottom-right-radius: 10px; letter-spacing: 1px;
+      position: absolute; top: 0; left: 0; z-index: 10;
     }
 
-    /* ==================== โครงสร้างสไลด์ภาพ Carousel ==================== */
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      height: 380px; 
-      background: #090909;
-      overflow: hidden;
-      border-bottom: 1px solid #222;
-    }
-    
-    .carousel-track {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    
-    .carousel-slide {
-      min-width: 100%;
-      height: 100%;
-    }
-    
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .carousel-container { position: relative; width: 100%; height: 400px; background: #000; overflow: hidden; border-bottom: 1px solid #222; }
+    .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .carousel-slide { min-width: 100%; height: 100%; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-    /* ปุ่มลูกศร ซ้าย-ขวา */
     .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #FFF;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      z-index: 5;
+      position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1); color: #FFF; width: 40px; height: 40px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.3s ease; z-index: 5;
     }
-    .carousel-btn:hover {
-      background: #D4AF37;
-      color: #111;
-      border-color: #D4AF37;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    }
+    .carousel-btn:hover { background: #D4AF37; color: #111; border-color: #D4AF37; }
     .carousel-btn.prev { left: 15px; }
     .carousel-btn.next { right: 15px; }
 
-    /* ปุ่มจุดวงกลมบอกจำนวนรูป (Dots) */
     .carousel-dots {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 5;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 5px 10px;
-      border-radius: 20px;
+      position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 5; background: rgba(0, 0, 0, 0.5); padding: 6px 12px; border-radius: 20px;
     }
-    .dot {
-      width: 7px;
-      height: 7px;
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .dot.active {
-      background: #D4AF37;
-      transform: scale(1.2);
-    }
+    .dot { width: 8px; height: 8px; background: rgba(255, 255, 255, 0.4); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+    .dot.active { background: #D4AF37; transform: scale(1.3); }
 
-    /* โซนเนื้อหาบรรยาย */
-    .content {
-      padding: 25px;
-    }
-    .content h3 {
-      margin: 0 0 12px 0;
-      font-size: 20px;
-      color: #FFF;
-      letter-spacing: 0.5px;
-    }
-    .content p {
-      margin: 0;
-      font-size: 14px;
-      color: #aaa;
-      line-height: 1.6;
-    }
+    .content { padding: 30px; }
+    .content h3 { margin: 0 0 15px 0; font-size: 22px; color: #FFF; }
+    .content p { margin: 0; font-size: 15px; color: #aaa; line-height: 1.7; }
 
-    /* โซนวิดีโอ YouTube ด้านล่างสุด */
-    .final-video-section {
-      margin-top: 20px;
-      padding-top: 30px;
-      border-top: 1px dashed #333;
-      text-align: left;
-    }
-    .final-video-section h3 {
-      color: #D4AF37;
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
+    /* ================= FULL WIDTH FINAL & VIDEO ================= */
+    .full-img-section { position: relative; width: 100%; height: 600px; margin-bottom: 60px; }
+    .full-img-section img { width: 100%; height: 100%; object-fit: cover; border-top: 1px solid #333; border-bottom: 1px solid #333; opacity: 0.6; }
+    .full-img-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0,0,0,0.3); text-align: center; padding: 20px; box-sizing: border-box; }
     
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      border: 1px solid #333;
-      background: #000;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+    .final-video-section { max-width: 800px; margin: 0 auto 60px auto; text-align: left; }
+    .final-video-section h3 { color: #D4AF37; margin-bottom: 15px; font-size: 26px; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid #333; background: #000; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #444;
-      margin: 40px auto 30px auto;
-    }
-
-    @media (max-width: 480px) {
-      .carousel-container { height: 280px; }
-      h1 { font-size: 26px; }
+    @media (max-width: 768px) {
+      .story-block, .story-block.reverse { grid-template-columns: 1fr; gap: 30px; }
+      .story-img { height: 300px; }
+      .carousel-container { height: 300px; }
     }
   </style>
 </head>
 <body>
+
   <div class="container">
-    
     <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Prototype Series</a>
+    <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
 
-    <a href="index.html" style="display: inline-block;">
-      <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
-    </a>
+    <div class="hero-section">
+      <p class="subtitle">Prototype Series #4</p>
+      <h1>The <span>Survivor</span></h1>
+      <p style="color: #aaa; font-size: 18px;">จากเศษไม้ข้างถังน้ำมัน สู่ปีกผีเสื้อที่ไม่มีวันตาย</p>
+    </div>
 
-    <h1>Knaggs Style Custom</h1>
-    <p class="subtitle">บันทึกการสร้างกีตาร์ไฟฟ้าทรง Knaggs จากเนื้อไม้ไทยหายาก</p>
+    <div class="story-block">
+      <img class="story-img" src="images/prototype/proto4-wood-raw.jpg" alt="เศษไม้ข้างถังน้ำมัน">
+      <div class="story-text">
+        <h2>01. The Forgotten</h2>
+        <p>ครั้งหนึ่ง... มันเคยเป็นแค่ไม้ชิ้นเดียวที่ถูกทิ้งอยู่ข้างถังน้ำมันเครื่องในร้านซ่อมรถ</p>
+        <p>มันเปื้อนฝุ่น ดำคล้ำ และดูไร้ค่า จนไม่มีใครคิดว่าวันหนึ่งมันจะส่งเสียงได้ แต่ภายใต้ความหนาเพียง 2 เซนติเมตรนั้น <span class="highlight">ผมมองเห็นสิ่งที่คนอื่นมองไม่เห็น...</span></p>
+      </div>
+    </div>
+
+    <div class="story-block reverse">
+      <img class="story-img" src="images/prototype/proto4-cutting.jpg" alt="การผ่าไม้">
+      <div class="story-text">
+        <h2>02. The Gamble</h2>
+        <p>ผมตัดสินใจผ่ามันออกเป็นสองซีก วางหัวใจไว้กับการตัดเพียงครั้งเดียว</p>
+        <p>เพราะไม้ชิ้นนี้มีเพียงชิ้นเดียวในโลก <span class="highlight">ถ้าพลาดคือจบ</span> ทุกลมหายใจในการเดินเครื่องมือ คือการเดิมพันเพื่อดึงจิตวิญญาณของมันออกมา</p>
+      </div>
+    </div>
+
+    <div class="story-block">
+      <img class="story-img" src="images/prototype/proto4-butterfly.jpg" alt="ลายปีกผีเสื้อ">
+      <div class="story-text">
+        <h2>03. Revelation</h2>
+        <p>แต่วินาทีที่ไม้แยกออกจากกัน... ความงามที่หลับใหลมานานก็ถูกปลดปล่อย</p>
+        <p>ลวดลาย <span class="highlight">'ปีกผีเสื้อ'</span> ที่สมบูรณ์แบบปรากฏขึ้น ราวกับมันรอคอยเวลานี้มาตลอด นี่คือรางวัลของการไม่ยอมแพ้ให้กับสิ่งที่ถูกตัดสินว่าไร้ค่า</p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      "มันไม่ได้เกิดมาเพื่อถูกลืม... แต่มันเกิดมาเพื่อกางปีกและส่งเสียงให้อยู่ตลอดไป ในแบบของมันเอง"
+    </div>
+
+    <h2 class="section-title">The <span>Making</span> Of</h2>
 
     <div class="timeline">
       
@@ -284,15 +177,15 @@
           <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day1-1.jpg" alt="Knaggs Wood Selection" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day1-2.jpg" alt="Thai Exotic Timber" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day1-1.jpg" alt="Wood Selection" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day1-2.jpg" alt="Exotic Timber" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/guitar4-day1-3.jpg" alt="Density Check" loading="lazy"></div>
           </div>
           <div class="carousel-dots"></div>
         </div>
         <div class="content">
           <h3>Thai Wood Selection for High Sustain</h3>
-          <p>คัดเลือกหน้าไม้ดิบและไม้ไทยหายากสูตรเฉพาะเพื่อนำมาประกอบขึ้นโครงสร้างสไตล์ Knaggs มุ่งเน้นไปที่เนื้อไม้ที่มีลวดลายจัดจ้านและมีความหนาแน่นสูงเป็นพิเศษ เพื่อให้ได้ย่านเสียงที่ทรงพลังและการลากหางเสียง (Sustain) ที่ยอดเยี่ยม</p>
+          <p>คัดเลือกหน้าไม้ดิบและไม้ไทยหายากสูตรเฉพาะเพื่อนำมาประกอบขึ้นโครงสร้างสไตล์ Knaggs มุ่งเน้นไปที่เนื้อไม้ที่มีลวดลายจัดจ้านและมีความหนาแน่นสูงเป็นพิเศษ เพื่อให้ได้ย่านเสียงที่ทรงพลัง</p>
         </div>
       </div>
 
@@ -302,15 +195,15 @@
           <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day2-1.jpg" alt="Knaggs Body CNC" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day2-2.jpg" alt="Contour Routing" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day2-3.jpg" alt="3D Curve Milling" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day2-1.jpg" alt="Body CNC" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day2-2.jpg" alt="Routing" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day2-3.jpg" alt="Milling" loading="lazy"></div>
           </div>
           <div class="carousel-dots"></div>
         </div>
         <div class="content">
-          <h3>Advanced Body Shaping & 3D CNC Routing</h3>
-          <p>สแกนสเกลและขึ้นรูปบอดี้ที่มีความซับซ้อนตามสไตล์ Knaggs ด้วยเครื่องจักร CNC ความละเอียดสูง เซาะร่องส่วนเว้าโค้งทางสรีรศาสตร์ (Body Contour) และขุดช่องฮาร์ดแวร์เพื่อให้ส่วนสะพานสาย (Bridge Alignment) วางได้ระนาบที่สมบูรณ์ที่สุด</p>
+          <h3>Advanced Body Shaping & 3D Routing</h3>
+          <p>สแกนสเกลและขึ้นรูปบอดี้ที่มีความซับซ้อนด้วยเครื่องจักร CNC ความละเอียดสูง เซาะร่องส่วนเว้าโค้งและขุดช่องฮาร์ดแวร์เพื่อให้ระนาบสมบูรณ์ที่สุด</p>
         </div>
       </div>
 
@@ -320,15 +213,15 @@
           <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day3-1.jpg" alt="Hand Scraping" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day3-2.jpg" alt="Edge Carving" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day3-3.jpg" alt="Wood Grain Highlighting" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day3-1.jpg" alt="Scraping" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day3-2.jpg" alt="Carving" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day3-3.jpg" alt="Highlighting" loading="lazy"></div>
           </div>
           <div class="carousel-dots"></div>
         </div>
         <div class="content">
-          <h3>Artisan Edge Carving & Sanding Refinement</h3>
-          <p>ผสานงานฝีมือช่างเพื่อขัดเกลาเหลี่ยมมุมที่เครื่องจักรเข้าไม่ถึง ใช้สิ่วและเหลกขูดผิว (Scrapers) ค่อยๆ แต่งขอบและขัดไล่เบอร์กระดาษทรายอย่างพิถีพิถัน เผยให้เห็นแนวชั้นสลับของลายไม้ดิบตามธรรมชาติอย่างชัดเจนและมีมิติ</p>
+          <h3>Artisan Edge Carving & Sanding</h3>
+          <p>ผสานงานฝีมือช่างเพื่อขัดเกลาเหลี่ยมมุมที่เครื่องจักรเข้าไม่ถึง ค่อยๆ แต่งขอบและขัดไล่เบอร์กระดาษทรายอย่างพิถีพิถัน เผยให้เห็นแนวชั้นสลับของลายไม้ดิบ</p>
         </div>
       </div>
 
@@ -338,15 +231,15 @@
           <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day4-1.jpg" alt="Neck Alignment" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day4-2.jpg" alt="Set-Neck Gluing" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day4-3.jpg" alt="Fret Dress" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day4-1.jpg" alt="Neck" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day4-2.jpg" alt="Gluing" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day4-3.jpg" alt="Fret" loading="lazy"></div>
           </div>
           <div class="carousel-dots"></div>
         </div>
         <div class="content">
-          <h3>Set-Neck Jointing & Fretwork Optimization</h3>
-          <p>กระบวนการต่อคอกีตาร์แบบฝังลึก (Set-Neck) อัดกาวเชื่อมต่อคอเข้ากับบอดี้อย่างแข็งแรง ตรวจวัดแนวระนาบและการกระจายน้ำหนักอย่างเข้มงวด พร้อมจัดแนวและเก็บรายละเอียดงานเฟรตเพื่อรองรับการตั้งทัชชิ่งที่ต่ำและเล่นได้นุ่มมือ</p>
+          <h3>Set-Neck Jointing & Fretwork</h3>
+          <p>ต่อคอกีตาร์แบบฝังลึก (Set-Neck) ตรวจวัดแนวระนาบและการกระจายน้ำหนักอย่างเข้มงวด พร้อมจัดแนวเฟรตเพื่อรองรับการตั้งทัชชิ่งที่ต่ำและเล่นได้นุ่มมือ</p>
         </div>
       </div>
 
@@ -356,23 +249,30 @@
           <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
           <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day5-1.jpg" alt="Staining & Finish" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day5-2.jpg" alt="Hardware Assembly" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/prototype/guitar4-day5-3.jpg" alt="Final Intonation" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day5-1.jpg" alt="Finish" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day5-2.jpg" alt="Hardware" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar4-day5-3.jpg" alt="Intonation" loading="lazy"></div>
           </div>
           <div class="carousel-dots"></div>
         </div>
         <div class="content">
-          <h3>Custom Staining, Electronics & Final Assembly</h3>
-          <p>ย้อมสีเนื้อไม้เพื่อขับลายให้โดดเด่นสะดุดตา พ่นเคลือบผิวแบบพรีเมียม เดินวงจรไฟฟ้าและติดตั้งปิ๊กอัพสเปกไฮเอนด์ ประกอบฮาร์ดแวร์สะพานสายเฉพาะตัวของทรง Knaggs และทำการเซ็ตอัพอินโทเนชัน (Intonation) เต็มระบบพร้อมเล่น</p>
+          <h3>Custom Finish & Final Assembly</h3>
+          <p>ย้อมสีเนื้อไม้ พ่นเคลือบผิว เดินวงจรไฟฟ้าและติดตั้งปิ๊กอัพ ประกอบฮาร์ดแวร์สะพานสายเฉพาะตัวของทรง Knaggs และทำการเซ็ตอัพเต็มระบบ</p>
         </div>
       </div>
-      
     </div>
+  </div> <div class="full-img-section">
+    <img src="images/prototype/proto4-finished.jpg" alt="Knaggs Style Custom Guitar">
+    <div class="full-img-overlay">
+      <h2 style="font-size: 48px; margin-bottom: 10px; color: #fff;">The Knaggs Rebirth</h2>
+      <p style="color: #D4AF37; letter-spacing: 3px; font-size: 18px; text-transform: uppercase;">A Darinworks Masterpiece</p>
+    </div>
+  </div>
 
+  <div class="container">
     <div class="final-video-section">
       <h3><i class="fa-solid fa-play"></i> The Final Sound Check</h3>
-      <p style="color: #aaa; font-size: 14px; margin-bottom: 20px;">ทดสอบเสียงและโทนเสียงกีตาร์ตัวจริงที่ผ่านกระบวนการสร้างอย่างพิถีพิถัน</p>
+      <p style="color: #aaa; font-size: 15px; margin-bottom: 25px;">ทดสอบโทนเสียงที่เกิดจากการคำนวณโครงสร้างและการคืนชีพไม้แผ่นนี้</p>
       
       <div class="video-container">
         <iframe 
@@ -384,10 +284,10 @@
         </iframe>
       </div>
     </div>
-
-    <div class="divider"></div>
-    <a href="prototype.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Prototype Series</a>
-
+    
+    <div style="text-align: center; border-top: 1px solid #333; padding-top: 40px; margin-top: 40px;">
+      <a href="prototype.html" class="back-btn" style="margin-bottom: 0;"><i class="fa-solid fa-arrow-left"></i> กลับสู่ Prototype Series</a>
+    </div>
   </div>
 
   <script>
@@ -403,7 +303,6 @@
       
       let currentIndex = 0;
 
-      // สร้างจุดวงกลม (Dots) ด้านล่างให้อัตโนมัติคุมตามจำนวนรูปจริง
       slides.forEach((slide, index) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
@@ -432,7 +331,6 @@
       nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
       prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
 
-      // รองรับระบบ Touch Swipe บนสมาร์ทโฟน
       let touchStartX = 0;
       let touchEndX = 0;
 
