@@ -2,422 +2,71 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D80CMSQ1YH');
-  </script>
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Darinworks Custom Engineering</title>
-  
-  <meta name="description" content="Darinworks: บริการโดยช่างทำกีตาร์และช่างทำไม้คิวระดับพรีเมียม รับสั่งทำกีตาร์ (Custom Guitar) กีตาร์คัสตอม พร้อมบริการซ่อมกีตาร์ เซ็ตอัพกีตาร์ (Guitar Setup) และรับสั่งทำไม้คิว ซ่อมไม้คิว การเลือกไม้ปลาย">
-  <meta name="keywords" content="ช่างทำกีตาร์, สั่งทำกีตาร์, ซ่อมกีตาร์, เซ็ตอัพกีตาร์, กีตาร์คัสตอม, Custom Guitar, Luthier, Handmade Guitar, Boutique Guitar, Guitar Setup, ช่างทำไม้คิว, สั่งทำไม้คิว, ซ่อมไม้คิว, ไม้คิวคัสตอม, การเลือกไม้ปลาย, Custom Snooker Cue, Cue Maker, Hand Spliced Cue, Premium Snooker Cue, Cue Repair, Fusion 360, CNC">
-  <meta name="author" content="Bank Darinworks">
-  <meta name="robots" content="index, follow">
-  
-  <meta property="og:title" content="Darinworks | Custom Guitars & Premium Snooker Cues">
-  <meta property="og:description" content="รับสั่งทำกีตาร์และไม้คิวคัสตอม พร้อมบริการซ่อมบำรุงและเซ็ตอัพเต็มระบบ โดยช่างผู้เชี่ยวชาญ">
-  <meta property="og:image" content="images/ui/darin-guitar-logo.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://darinworks.com">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Darinworks",
-    "image": "https://darinworks.com/images/ui/darin-guitar-logo.png",
-    "url": "https://darinworks.com",
-    "priceRange": "$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "TH"
-    },
-    "description": "Premium custom guitars and snooker cues, born from a passion for Thai exotic wood.",
-    "knowsAbout": [
-      "ช่างทำกีตาร์", "สั่งทำกีตาร์", "ซ่อมกีตาร์", "เซ็ตอัพกีตาร์", "Guitar Setup",
-      "ช่างทำไม้คิว", "สั่งทำไม้คิว", "ซ่อมไม้คิว", "ไม้คิวคัสตอม", "Fusion 360 CAD Design", "CNC Machining"
-    ],
-    "founder": {
-      "@type": "Person",
-      "name": "Khun Bank"
-    }
-  }
-  </script>
-
-  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  <meta name="description" content="บริการโดยช่างทำกีตาร์และช่างทำไม้คิวระดับพรีเมียม รับสั่งทำกีตาร์และไม้คิวคัสตอม พร้อมบริการซ่อม เซ็ตอัพ โดยมาตรฐานวิศวกรรม">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-  <script>
-    document.addEventListener('contextmenu', function(event) {
-        event.preventDefault(); 
-        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-    });
-
-    document.onkeydown = function(e) {
-        if (e.keyCode == 123 || 
-            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
-            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
-            
-            e.preventDefault();
-            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-            return false;
-        }
-    }
-  </script>
   
   <style>
-    /* ==================== SETUP & THEME ==================== */
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #0a0a0a;
-      color: white;
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .container {
-      max-width: 850px;
-      width: 100%;
-      text-align: center;
-    }
+    body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #0a0a0a; color: white; min-height: 100vh; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+    .container { max-width: 850px; width: 100%; text-align: center; }
     
-    .back-btn {
-      display: inline-block;
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 30px;
-      transition: color 0.3s ease;
-      align-self: flex-start;
-      width: 100%;
-      text-align: left;
-    }
-    .back-btn:hover { color: #D4AF37; }
-    .back-btn i { margin-right: 8px; }
+    .page-logo { width: 60px; margin-bottom: 20px; }
+    h1 { margin-bottom: 5px; font-size: 32px; color: #FFF; }
+    .subtitle { color: #D4AF37; margin-bottom: 50px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
 
-    .page-logo {
-      width: 60px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
-      letter-spacing: 1px;
-      color: #FFF;
-      transition: color 0.3s;
-    }
-    h1:hover { color: #D4AF37; }
-
-    .subtitle {
-      color: #D4AF37;
-      margin-bottom: 15px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    .subtitle:hover { color: #FFF; }
+    /* Bento Grid */
+    .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 60px; }
+    .service-card { background: #111; border: 1px solid #222; border-radius: 16px; padding: 30px; text-align: left; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: 260px; transition: all 0.4s; cursor: pointer; text-decoration: none; color: white; }
+    .service-card:hover { transform: translateY(-5px); border-color: #D4AF37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.12); }
+    .card-large { grid-column: span 2; min-height: 320px; }
     
-    .seo-subtitle {
-      color: #aaa;
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 50px;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .seo-subtitle span {
-      color: #D4AF37;
-      font-weight: bold;
-    }
+    .card-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.25; }
+    .card-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .card-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, #111 25%, rgba(17,17,17,0.4) 100%); z-index: 1; }
+    .card-content { position: relative; z-index: 2; }
 
-    /* ==================== BENTO GRID LAYOUT ==================== */
-    .bento-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin-bottom: 60px;
-    }
-
-    .service-card {
-      background: #111;
-      border: 1px solid #222;
-      border-radius: 16px;
-      padding: 30px;
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-height: 260px;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      border-color: #D4AF37;
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.12);
-    }
-
-    /* การ์ดพระเอกใบใหญ่สุด (Custom Build) กางเต็ม 2 คอลัมน์ */
-    .card-large {
-      grid-column: span 2;
-      min-height: 320px;
-    }
+    .service-card h3 { color: #fff; margin: 0 0 10px 0; display: flex; align-items: center; gap: 10px; }
+    .service-card p { color: #aaa; font-size: 14px; line-height: 1.6; margin: 0; }
     
-    /* ภาพพื้นหลังแบบหรูหราลึกๆ */
-    .card-bg {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 0;
-      opacity: 0.25;
-      transition: opacity 0.4s, transform 0.6s;
-    }
-    .service-card:hover .card-bg {
-      opacity: 0.45;
-      transform: scale(1.03);
-    }
-    .card-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* ม่านเฉดสีดำไล่ระดับ */
-    .card-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(to top, #111 25%, rgba(17,17,17,0.4) 100%);
-      z-index: 1;
-    }
-
-    .card-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .status-tag {
-      font-size: 10px;
-      background: rgba(212, 175, 55, 0.15);
-      color: #D4AF37;
-      padding: 4px 10px;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border: 1px solid rgba(212, 175, 55, 0.25);
-    }
-
-    .service-card h3 {
-      color: #fff;
-      font-size: 22px;
-      margin: 0 0 10px 0;
-      transition: color 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .service-card:hover h3 { color: #D4AF37; }
-    .service-card h3 i { font-size: 18px; color: #D4AF37; }
-
-    .service-card p {
-      color: #aaa;
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* ==================== WORKFLOW TIMELINE ==================== */
-    .workflow-section {
-      margin-top: 20px;
-      text-align: left;
-      width: 100%;
-    }
-    .workflow-title {
-      color: #FFF;
-      font-size: 18px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s ease;
-    }
-    .workflow-title:hover {
-      color: #D4AF37;
-      border-color: #D4AF37;
-    }
-    .workflow-title i { color: #D4AF37; }
-
-    .timeline {
-      position: relative;
-      padding-left: 35px;
-    }
-    /* เส้นแกนกลางแนวตั้ง */
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6px;
-      top: 5px;
-      bottom: 5px;
-      width: 1px;
-      background: #333;
-    }
-
-    .step {
-      position: relative;
-      margin-bottom: 35px;
-    }
-    /* หมุดสีทองหัวข้อสเต็ป */
-    .step-dot {
-      position: absolute;
-      left: -35px;
-      width: 13px;
-      height: 13px;
-      background: #0a0a0a;
-      border: 2px solid #D4AF37;
-      border-radius: 50%;
-      top: 5px;
-      z-index: 2;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    }
-    .step h4 { color: #fff; margin: 0 0 6px 0; font-size: 16px; letter-spacing: 0.5px; }
-    .step p { color: #888; font-size: 13.5px; line-height: 1.6; margin: 0; }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #333;
-      margin: 50px auto 30px auto;
-    }
-
-    /* ปรับขนาดการแสดงผลบนจอคอมและมือถือ */
-    @media (max-width: 650px) {
-      .bento-grid { grid-template-columns: 1fr; }
-      .card-large { grid-column: span 1; }
-      .service-card { min-height: 240px; }
-    }
+    @media (max-width: 650px) { .bento-grid { grid-template-columns: 1fr; } .card-large { grid-column: span 1; } }
   </style>
 </head>
 <body>
   <div class="container">
-    
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-
-    <a href="index.html" style="display: inline-block;">
-      <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
-    </a>
-
     <h1>Darinworks Services</h1>
-    <p class="subtitle">บริการดูแลและสร้างสรรค์ระดับมืออาชีพ</p>
-    
-    <p class="seo-subtitle">
-      Darinworks บริการโดยช่างทำกีตาร์และช่างทำไม้คิวระดับพรีเมียม รับสั่งทำ <span>#CustomGuitar</span> กีตาร์คัสตอม พร้อมบริการ <span>#ซ่อมกีตาร์ #เซ็ตอัพกีตาร์</span> และรับ <span>#สั่งทำไม้คิว #ซ่อมไม้คิว</span> คัดเลือกไม้ปลายเต็มระบบด้วยมาตรฐานวิศวกรรมความแม่นยำสูง
-    </p>
+    <p class="subtitle">มาตรฐานวิศวกรรม เพื่องานคราฟต์ระดับมาสเตอร์พีซ</p>
 
     <div class="bento-grid">
       
-      <a href="custom-build-detail.html" class="service-card card-large">
-        <div class="card-bg"><img src="images/services/bento-custom.jpg" alt="Custom Engineering & Design Darinworks"></div>
+      <a href="custom-engineering.html" class="service-card card-large">
+        <div class="card-bg"><img src="images/services/bento-custom.jpg" alt="Custom Engineering"></div>
         <div class="card-overlay"></div>
         <div class="card-content">
           <h3><i class="fa-solid fa-compass-drafting"></i> Custom Engineering & Design</h3>
-          <p>บริการสั่งทำกีตาร์ (Custom Guitar) และสั่งทำไม้คิว (Custom Snooker Cue) แบบเฉพาะตัว โดยใช้ Fusion 360 คำนวณสัดส่วน โครงสร้าง และศูนย์ถ่วงเชิงวิศวกรรมอย่างแม่นยำ ก่อนขึ้นรูปด้วยเครื่อง CNC เพื่อผลงานระดับมาสเตอร์พีซชิ้นเดียวในโลกของคุณ</p>
+          <p>บริการสั่งทำกีตาร์และไม้คิวแบบเฉพาะตัว คำนวณโครงสร้างเชิงวิศวกรรมด้วย Fusion 360 และขึ้นรูปด้วย CNC ความแม่นยำสูง</p>
         </div>
       </a>
 
       <a href="guitar-clinic-detail.html" class="service-card">
-        <div class="card-bg"><img src="images/services/bento-guitar.jpg" alt="Guitar Clinic & Setup ซ่อมกีตาร์"></div>
+        <div class="card-bg"><img src="images/services/bento-guitar.jpg" alt="Guitar Clinic"></div>
         <div class="card-overlay"></div>
         <div class="card-content">
           <h3><i class="fa-solid fa-guitar"></i> Guitar Clinic & Setup</h3>
-          <p>คืนสมรรถนะสูงสุดให้เครื่องดนตรีด้วยบริการซ่อมและเซ็ตอัพกีตาร์ (Guitar Setup) ที่วัดค่าเชิงลึกเป็นตัวเลขทุกจุด ตั้งแต่ระยะทัชชิ่ง ความลาดเอียงเฟรต ไปจนถึงงานเดินวงจรไฟฟ้า</p>
+          <p>คืนสมรรถนะสูงสุดด้วยบริการซ่อมและเซ็ตอัพกีตาร์ (Guitar Setup) วัดค่าแม่นยำระดับมิลลิเมตร</p>
         </div>
       </a>
 
       <a href="cue-clinic-detail.html" class="service-card">
-        <div class="card-bg"><img src="images/services/bento-cue.jpg" alt="The Cue Clinic ซ่อมไม้คิว"></div>
+        <div class="card-bg"><img src="images/services/bento-cue.jpg" alt="The Cue Clinic"></div>
         <div class="card-overlay"></div>
         <div class="card-content">
           <h3><i class="fa-solid fa-gavel"></i> The Cue Clinic</h3>
-          <p>ดูแลรักษาไม้คิวสนุ๊กเกอร์ระดับพรีเมียม บริการดัดไม้คิวคดให้ตรงสนิท เปลี่ยนหัวคิวคัดเกรดด้วยความละเอียดระดับมิลลิเมตร และปรับเซ็ตบาลานซ์จุดศูนย์ถ่วงให้เข้ากับสรีระผู้เล่น</p>
+          <p>บริการดัดไม้คิวคด เปลี่ยนหัวคิวเกรดพรีเมียม และปรับตั้งจุดบาลานซ์ (Balance Tuning) ให้เข้ากับสรีระ</p>
         </div>
       </a>
 
-      <div class="service-card">
-        <div class="card-bg" style="opacity: 0.08;"><i class="fa-solid fa-graduation-cap" style="font-size: 130px; position: absolute; right: -15px; top: 15px; color: #D4AF37;"></i></div>
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <div class="status-tag">Coming Soon</div>
-          <h3><i class="fa-solid fa-graduation-cap"></i> Darinworks Academy</h3>
-          <p>หลักสูตรถ่ายทอดประสบการณ์งานวิศวกรรมกว่า 20 ปี ผสานเข้ากับศาสตร์ Luthier เปิดสอนการทำกีตาร์ ศิลปะการทำไม้คิว และเทคนิค CAD/CAM ชั้นสูง</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="card-bg"><img src="images/services/bento-liveroom.jpg" alt="The Live Room Rehearsal Studio"></div>
-        <div class="card-overlay"></div>
-        <div class="card-content">
-          <div class="status-tag">Coming Soon</div>
-          <h3><i class="fa-solid fa-sliders"></i> The Live Room</h3>
-          <p>ห้องซ้อมดนตรีที่ออกแบบพื้นที่ตามหลัก Acoustic Engineering คุมมู้ดแอนด์โทนระดับพรีเมียม พร้อมระบบ 'Darin Test Drive' ให้ทดสอบสมรรถนะกีตาร์คัสตอมในเวทีจริง</p>
-        </div>
-      </div>
-
     </div>
-
-    <div class="workflow-section">
-      <div class="workflow-title"><i class="fa-solid fa-route"></i> Custom Crafting Workflow</div>
-      <div class="timeline">
-        
-        <div class="step">
-          <div class="step-dot"></div>
-          <h4>1. Consultation & Materials Selection</h4>
-          <p>พูดคุยวิเคราะห์สไตล์การเล่นและข้อกำหนดสเปกที่คุณต้องการ เลือกวัสดุจากคลังไม้ไทยเกรดพรีเมียมหายากในช็อป พร้อมประเมินกรอบเวลาและงบประมาณอย่างเป็นระบบ</p>
-        </div>
-
-        <div class="step">
-          <div class="step-dot"></div>
-          <h4>2. Digital Modeling & Balance Calculation</h4>
-          <p>เริ่มต้นสร้างแบบจำลอง 3 มิติเชิงลึกผ่านโปรแกรม Fusion 360 เพื่อคำนวณจุดศูนย์ถ่วง น้ำหนัก และการกระจายแรงโครงสร้าง เพื่อให้ได้สัดส่วนที่เป๊ะที่สุดก่อนลงมือผลิต</p>
-        </div>
-
-        <div class="step">
-          <div class="step-dot"></div>
-          <h4>3. Precision Hybrid Crafting</h4>
-          <p>เข้าสู่ขั้นตอนการผลิตโดยใช้เครื่อง CNC ตัดกลึงขึ้นรูปชิ้นงานหลักเพื่อความสมมาตรสมบูรณ์แบบระดับมิลลิเมตร จากนั้นจึงประกอบเก็บงานด้วยศาสตร์งานฝีมือ Hand-crafted ในขั้นตอนเข้าจำปาและขัดแต่งผิวไม้</p>
-        </div>
-
-        <div class="step">
-          <div class="step-dot"></div>
-          <h4>4. Master Setup & Performance Handover</h4>
-          <p>ทำความสะอาด ลงออยล์รักษาเนื้อไม้ และทำการปรับเซ็ตอัพขั้นสูง (Precision Setup) ปรับทัชชิ่ง บาลานซ์น้ำหนัก ให้เข้ามือและลงตัวกับผู้เล่นที่สุด ก่อนส่งมอบงานมาสเตอร์พีซถึงมือคุณ</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="divider"></div>
-    <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-
   </div>
 </body>
 </html>
