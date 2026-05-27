@@ -36,37 +36,113 @@
   <style>
     body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #111; color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
     .container { max-width: 600px; width: 100%; text-align: center; }
-    .back-btn { display: block; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 30px; text-align: left; transition: 0.3s; }
+    .back-btn { display: inline-block; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 30px; text-align: left; transition: 0.3s; align-self: flex-start; width: 100%; }
     .back-btn:hover { color: #D4AF37; }
     .back-btn i { margin-right: 8px; }
     .page-logo { width: 60px; margin-bottom: 20px; opacity: 0.9; }
-    h1 { margin: 0; font-size: 32px; letter-spacing: 1px; }
+    h1 { margin: 0; font-size: 32px; letter-spacing: 1px; color: #FFF; }
     .subtitle { color: #D4AF37; margin-bottom: 40px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
     
     /* Timeline & Items */
-    .timeline { display: flex; flex-direction: column; gap: 40px; margin-bottom: 50px; }
-    .timeline-item { background: rgba(255, 255, 255, 0.02); border: 1px solid #333; border-radius: 12px; overflow: hidden; text-align: left; }
-    .day-badge { background: #D4AF37; color: #111; display: inline-block; padding: 5px 15px; font-weight: bold; font-size: 14px; border-bottom-right-radius: 10px; }
-    .timeline-item img { width: 100%; height: 300px; object-fit: cover; display: block; border-bottom: 1px solid #333; }
+    .timeline { display: flex; flex-direction: column; gap: 50px; margin-bottom: 50px; }
+    .timeline-item { background: rgba(255, 255, 255, 0.02); border: 1px solid #333; border-radius: 12px; overflow: hidden; text-align: left; position: relative; }
+    .day-badge { background: #D4AF37; color: #111; display: inline-block; padding: 6px 18px; font-weight: bold; font-size: 13px; border-bottom-right-radius: 10px; letter-spacing: 1px; position: absolute; top: 0; left: 0; z-index: 10; }
     
-    /* Multi Image Grid */
-    .multi-image { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-bottom: 1px solid #333; }
-    .multi-image img { height: 250px; border: none; }
+    /* ==================== โครงสร้างสไลด์ภาพ Carousel ==================== */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 380px; 
+      background: #090909;
+      overflow: hidden;
+      border-bottom: 1px solid #222;
+    }
     
-    .content { padding: 20px; }
-    .content h3 { margin: 0 0 10px 0; font-size: 20px; color: #FFF; }
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+    }
+    
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ปุ่มลูกศร ซ้าย-ขวา */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #FFF;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 5;
+    }
+    .carousel-btn:hover {
+      background: #D4AF37;
+      color: #111;
+      border-color: #D4AF37;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+    .carousel-btn.prev { left: 15px; }
+    .carousel-btn.next { right: 15px; }
+
+    /* ปุ่มจุดวงกลมบอกจำนวนรูป (Dots) */
+    .carousel-dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .dot.active {
+      background: #D4AF37;
+      transform: scale(1.2);
+    }
+    
+    .content { padding: 25px; }
+    .content h3 { margin: 0 0 12px 0; font-size: 20px; color: #FFF; letter-spacing: 0.5px; }
     .content p { margin: 0; font-size: 14px; color: #aaa; line-height: 1.6; }
 
     /* Video Section */
-    .final-video-section { text-align: left; margin-top: 20px; }
+    .final-video-section { text-align: left; margin-top: 20px; padding-top: 30px; border-top: 1px dashed #333; }
     .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; margin-top: 15px; border: 1px solid #333; }
     .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     
-    .divider { width: 50px; height: 1px; background: #444; margin: 40px auto; }
+    .divider { width: 50px; height: 1px; background: #444; margin: 40px auto 30px auto; }
 
     @media (max-width: 480px) {
-      .multi-image { grid-template-columns: 1fr; }
-      .multi-image img { height: 200px; }
+      .carousel-container { height: 280px; }
       h1 { font-size: 26px; }
     }
   </style>
@@ -83,7 +159,15 @@
       
       <div class="timeline-item">
         <div class="day-badge">DAY 1</div>
-        <img src="images/prototype/cue1-day1.jpg" alt="Wood Selection">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day1.jpg" alt="Material Selection" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day1-2.jpg" alt="Ebony Wood Quality" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
         <div class="content">
           <h3>Material Selection & Timber Testing</h3>
           <p>เริ่มต้นกระบวนการด้วยการคัดเลือกไม้ปลายคิว โดยเน้นไม้แอช (Ash Wood) ที่มีความหนาแน่นสูง ลายศรวิ่งตรงสวยงาม และทำการเลือกไม้ด้ามพญางิ้วดำ (Black Ebony) ไม้ไทยหายากเนื้อสกรีนแน่นสนิท เพื่อเตรียมนำมาประกอบขึ้นโครงสร้าง</p>
@@ -92,9 +176,14 @@
 
       <div class="timeline-item">
         <div class="day-badge">DAY 2</div>
-        <div class="multi-image">
-          <img src="images/prototype/cue1-day2-1.jpg" alt="Fusion 360 Design">
-          <img src="images/prototype/cue1-day2-2.jpg" alt="CNC Machining">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day2-1.jpg" alt="Fusion 360 Design" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day2-2.jpg" alt="CNC Machining" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
         </div>
         <div class="content">
           <h3>CAD Design & CNC Tapering</h3>
@@ -104,7 +193,15 @@
 
       <div class="timeline-item">
         <div class="day-badge">DAY 3</div>
-        <img src="images/prototype/cue1-day3.jpg" alt="Veneer Preparation">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day3.jpg" alt="Veneer Preparation" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day3-2.jpg" alt="Veneer Cutting" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
         <div class="content">
           <h3>Veneer Selection & Splicing Preparation</h3>
           <p>เตรียมไม้ตัดแต่งสี (Veneer) เพื่อใช้เป็นเส้นขลิบตัดลาย โดยเลือกใช้แผ่นไม้สีขาว ดำ และเหลือง นำมาประกอบซ้อนชั้นอย่างประณีต ก่อนจะทำการเซาะร่องที่ไม้ด้ามและไม้คิวหลักเพื่อเตรียมขั้นตอนเข้าจำปา</p>
@@ -113,9 +210,14 @@
 
       <div class="timeline-item">
         <div class="day-badge">DAY 4 - 5</div>
-        <div class="multi-image">
-          <img src="images/prototype/cue1-day4-1.jpg" alt="Hand Splicing">
-          <img src="images/prototype/cue1-day4-2.jpg" alt="Glue Curing">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day4-1.jpg" alt="Hand Splicing" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day4-2.jpg" alt="Glue Curing" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
         </div>
         <div class="content">
           <h3>4-Point Hand Splicing & Bonding</h3>
@@ -125,7 +227,15 @@
 
       <div class="timeline-item">
         <div class="day-badge">DAY 6 - 7</div>
-        <img src="images/prototype/cue1-day6.jpg" alt="Rough Turning">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day6.jpg" alt="Rough Turning" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day6-2.jpg" alt="Seasoning Process" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
         <div class="content">
           <h3>Rough Turning & Natural Seasoning</h3>
           <p>หลังจากกาวแห้งสนิท ทำการขึ้นรูปหยาบ (Rough Turning) เพื่อลดขนาดด้ามลงมาใกล้เคียงกับสเปกจริง จากนั้นนำไม้คิวไปแขวนบ่มธรรมชาติ (Wood Seasoning) เพื่อปล่อยให้เนื้อไม้คลายแรงเค้นภายในและปรับตัวเข้ากับโครงสร้างใหม่</p>
@@ -134,9 +244,14 @@
 
       <div class="timeline-item">
         <div class="day-badge">DAY 8</div>
-        <div class="multi-image">
-          <img src="images/prototype/cue1-day8-1.jpg" alt="Hand Shaving">
-          <img src="images/prototype/cue1-day8-2.jpg" alt="Planer Work">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day8-1.jpg" alt="Hand Shaving" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day8-2.jpg" alt="Planer Work" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
         </div>
         <div class="content">
           <h3>Artisan Hand Shaving & Fine Shaping</h3>
@@ -146,7 +261,15 @@
 
       <div class="timeline-item">
         <div class="day-badge">DAY 9</div>
-        <img src="images/prototype/cue1-day9.jpg" alt="Sanding & Oil Finishing">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day9.jpg" alt="Sanding Base" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day9-2.jpg" alt="Oil Finishing" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
         <div class="content">
           <h3>Progressive Sanding & Oil Finishing</h3>
           <p>ขัดกระดาษทรายละเอียดไล่เบอร์อย่างประณีตจนผิวไม้เนียนเรียบลื่นมือ จากนั้นทำการเคลือบผิวด้วยน้ำมันสูตรเฉพาะของ Darinworks ดึงความลึกของสีไม้พญางิ้วดำและลวดลายไม้แอชให้เด่นชัด พร้อมปกป้องไม้จากความชื้น</p>
@@ -155,7 +278,15 @@
 
       <div class="timeline-item">
         <div class="day-badge">DAY 10</div>
-        <img src="images/prototype/cue1-day10.jpg" alt="Final Assembly">
+        <div class="carousel-container">
+          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/cue1-day10.jpg" alt="Final Assembly" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/cue1-day10-2.jpg" alt="Cue Tip Work" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
         <div class="content">
           <h3>Ferrule Fitting & Tip Installation</h3>
           <p>วันสุดท้ายของการสร้างสรรค์ ติดตั้งปลอกทองเหลือง (Ferrule) และอัดหัวคิวเกรดพรีเมียม ปาดแต่งขอบหัวคิวให้มนได้องศา ตรวจสอบความตรงของไม้คิวและเช็กน้ำหนักรวม (Total Weight) เป็นอันเสร็จสิ้นโปรเจกต์มาสเตอร์พีซ</p>
@@ -176,5 +307,71 @@
     <a href="prototype.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
 
   </div>
+
+  <script>
+    document.querySelectorAll('.timeline-item').forEach(item => {
+      const container = item.querySelector('.carousel-container');
+      if (!container) return;
+
+      const track = container.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const nextButton = container.querySelector('.carousel-btn.next');
+      const prevButton = container.querySelector('.carousel-btn.prev');
+      const dotsContainer = container.querySelector('.carousel-dots');
+      
+      let currentIndex = 0;
+
+      // สร้างจุดวงกลม (Dots) ด้านล่างให้อัตโนมัติคุมตามจำนวนรูปจริง
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dotsContainer.appendChild(dot);
+        
+        dot.addEventListener('click', () => {
+          goToSlide(index);
+        });
+      });
+
+      const dots = dotsContainer.querySelectorAll('.dot');
+
+      const goToSlide = (index) => {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        
+        track.style.transform = `translateX(-${index * 100}%)`;
+        
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+        
+        currentIndex = index;
+      };
+
+      nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+      prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+
+      // รองรับระบบ Touch Swipe บนสมาร์ทโฟน
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      container.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      container.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      const handleSwipe = () => {
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+          goToSlide(currentIndex + 1);
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+          goToSlide(currentIndex - 1);
+        }
+      };
+    });
+  </script>
 </body>
 </html>
