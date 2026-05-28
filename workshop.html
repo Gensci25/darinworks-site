@@ -40,158 +40,85 @@
   </script>
   
   <style>
-    /* =========================================
-       Main Layout Styles
-    ========================================= */
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0; font-family: Arial, sans-serif;
+      background: #111; color: white;
+      min-height: 100vh; padding: 40px 20px;
+      display: flex; flex-direction: column; align-items: center;
     }
     .container {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
+      max-width: 900px; width: 100%; text-align: center;
     }
     .back-btn {
-      display: inline-block;
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 30px;
-      transition: color 0.3s ease;
-      align-self: flex-start;
-      width: 100%;
-      text-align: left;
+      display: inline-block; color: #aaa; text-decoration: none;
+      font-size: 14px; margin-bottom: 30px; transition: color 0.3s ease;
+      align-self: flex-start; width: 100%; text-align: left;
     }
-    .back-btn:hover {
-      color: #D4AF37;
-    }
-    .back-btn i {
-      margin-right: 8px;
-    }
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
-      letter-spacing: 2px;
-      color: #FFF;
-      text-transform: uppercase;
-    }
-    .subtitle {
-      color: #D4AF37;
-      margin-bottom: 40px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+    .back-btn:hover { color: #D4AF37; }
+    .back-btn i { margin-right: 8px; }
+    
+    h1 { margin-bottom: 5px; font-size: 32px; letter-spacing: 2px; color: #FFF; text-transform: uppercase; }
+    .subtitle { color: #D4AF37; margin-bottom: 40px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
+    
     .shop-section-title {
-      text-align: left;
-      border-bottom: 1px solid #222;
-      padding-bottom: 10px;
-      margin: 50px 0 25px 0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      text-align: left; border-bottom: 1px solid #222;
+      padding-bottom: 10px; margin: 50px 0 25px 0;
+      display: flex; align-items: center; gap: 12px;
     }
-    .shop-section-title i {
-      color: #D4AF37;
-      font-size: 18px;
-    }
-    .shop-section-title span {
-      font-size: 16px;
-      letter-spacing: 1.5px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #DDD;
-    }
+    .shop-section-title i { color: #D4AF37; font-size: 18px; }
+    .shop-section-title span { font-size: 16px; letter-spacing: 1.5px; font-weight: bold; text-transform: uppercase; color: #DDD; }
+    
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-bottom: 20px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px; margin-bottom: 20px;
     }
     .gallery-item {
-      background: rgba(255, 255, 255, 0.01);
-      border: 1px solid #222;
-      border-radius: 12px;
-      overflow: hidden;
+      background: rgba(255, 255, 255, 0.01); border: 1px solid #222;
+      border-radius: 12px; overflow: hidden;
       transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     }
     .gallery-item:hover {
-      transform: translateY(-5px);
-      border-color: #D4AF37;
-      background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-5px); border-color: #D4AF37; background: rgba(255, 255, 255, 0.03);
     }
     .gallery-item img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid #222;
+      width: 100%; height: 240px; object-fit: cover;
+      display: block; border-bottom: 1px solid #222;
     }
     .caption {
-      padding: 20px;
-      font-size: 13px;
-      color: #888;
-      text-align: left;
-      line-height: 1.6;
+      padding: 20px; font-size: 13px; color: #888;
+      text-align: left; line-height: 1.6;
     }
     .caption strong {
-      color: #FFF;
-      display: block;
-      margin-bottom: 6px;
-      font-size: 15px;
-      letter-spacing: 0.5px;
+      color: #FFF; display: block; margin-bottom: 6px;
+      font-size: 15px; letter-spacing: 0.5px;
     }
     .divider {
-      width: 50px;
-      height: 1px;
-      background: #333;
-      margin: 60px auto 30px auto;
+      width: 50px; height: 1px; background: #333; margin: 60px auto 30px auto;
     }
 
-    /* =========================================
-       Modal & Carousel (Lightbox) Styles
-    ========================================= */
+    /* Modal Styles */
     .modal-overlay {
-      display: none; 
-      position: fixed;
+      display: none; position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      justify-content: center; align-items: center;
-      backdrop-filter: blur(5px);
+      background: rgba(0, 0, 0, 0.9); z-index: 1000;
+      justify-content: center; align-items: center; backdrop-filter: blur(5px);
     }
     .modal-content {
-      position: relative;
-      width: 90%; max-width: 800px;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      position: relative; width: 90%; max-width: 800px;
+      background: #1a1a1a; border: 1px solid #333; border-radius: 12px;
+      overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     .close-btn {
-      position: absolute;
-      top: 15px; right: 20px;
+      position: absolute; top: 15px; right: 20px;
       color: #aaa; font-size: 28px; font-weight: bold;
-      cursor: pointer; z-index: 10;
-      transition: color 0.3s;
+      cursor: pointer; z-index: 10; transition: color 0.3s;
     }
     .close-btn:hover { color: #D4AF37; }
     
     .modal-carousel-container { position: relative; width: 100%; }
     .modal-carousel {
-      display: flex; overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
     }
     .modal-carousel::-webkit-scrollbar { display: none; }
     .modal-carousel img {
@@ -200,26 +127,21 @@
     }
     
     .modal-dots {
-      text-align: center; padding: 15px 0; background: #111;
-      border-bottom: 1px solid #333;
+      text-align: center; padding: 15px 0; background: #111; border-bottom: 1px solid #333;
     }
     .dot {
       display: inline-block; width: 10px; height: 10px;
-      margin: 0 5px; background-color: #555;
-      border-radius: 50%; cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
+      margin: 0 5px; background-color: #555; border-radius: 50%;
+      cursor: pointer; transition: background-color 0.3s, transform 0.3s;
     }
-    .dot.active {
-      background-color: #D4AF37; transform: scale(1.2);
-    }
+    .dot.active { background-color: #D4AF37; transform: scale(1.2); }
     
     .modal-caption {
       padding: 25px; font-size: 15px; color: #ccc;
       line-height: 1.6; text-align: left;
     }
-    .modal-caption strong {
-      display: block; font-size: 18px; color: #D4AF37; margin-bottom: 10px;
-    }
+    .modal-caption strong { display: block; font-size: 18px; color: #D4AF37; margin-bottom: 10px; }
+    .click-hint { display: block; margin-top: 10px; color: #D4AF37; font-size: 12px; }
   </style>
 </head>
 <body>
@@ -235,88 +157,89 @@
       <span>1. Engineering & Heavy Equipment (โครงสร้างหลักและเครื่องจักรใหญ่)</span>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('cnc-modal')">
         <img src="images/workshop/cnc-machining.jpg" alt="CNC Automated Machining" loading="lazy">
         <div class="caption">
           <strong>CNC Automated Machining</strong>
           ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('steel-modal')">
         <img src="images/workshop/steel-table.jpg" alt="2-Inch Heavy Steel Worktable" loading="lazy">
         <div class="caption">
           <strong>2-Inch Heavy Steel Worktable</strong>
-          แท่นประกอบและขึ้นรูปโครงสร้างเหล็กสั่งทำพิเศษหนา 2 นิ้ว มอบความหนาแน่นและนิ่งสนิท (Vibration Control) เพื่อผลลัพธ์การไสไม้ที่เที่ยงตรงที่สุด
+          แท่นประกอบและขึ้นรูปโครงสร้างเหล็กสั่งทำพิเศษหนา 2 นิ้ว มอบความหนาแน่นและนิ่งสนิท (Vibration Control)
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
     </div>
-
 
     <div class="shop-section-title">
       <i class="fa-solid fa-hammer"></i>
       <span>2. Artisan Bench & Hand Tools (โต๊ะช่างและเครื่องมือทำมือ)</span>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('hand-modal')">
         <img src="images/workshop/hand-tools.jpg" alt="Hand Tools & Precision Tuning" loading="lazy">
         <div class="caption">
           <strong>Hand Tools & Precision Tuning</strong>
-          กลิ่นอายและจิตวิญญาณช็อปช่างดั้งเดิม คัดสรรสิ่ว กบเหล็ก และเหล็กขูดแต่งผิว (Scrapers) เพื่อใช้เดินคมและเก็บรายละเอียดส่วนโค้งเว้าในจุดที่คอมพิวเตอร์ทำแทนไม่ได้
+          คัดสรรสิ่ว กบเหล็ก และเหล็กขูดแต่งผิว (Scrapers) เพื่อใช้เดินคมและเก็บรายละเอียดส่วนโค้งเว้าในจุดที่คอมพิวเตอร์ทำแทนไม่ได้
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
-
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('cad-modal')">
         <img src="images/workshop/cad-station.jpg" alt="3D Structural Design" loading="lazy">
         <div class="caption">
           <strong>3D Structural Design (Fusion 360)</strong>
-          สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ
-          <span style="display: block; margin-top: 10px; color: #D4AF37; font-size: 12px;">
-            <i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ
-          </span>
+          สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรม
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
     </div>
-
 
     <div class="shop-section-title">
       <i class="fa-solid fa-tree"></i>
       <span>3. Exotic Wood Storage (คลังบ่มไม้และวัตถุดิบหายาก)</span>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('wood-modal')">
         <img src="images/workshop/wood-storage.jpg" alt="Climate-Controlled Timber Storage" loading="lazy">
         <div class="caption">
           <strong>Climate-Controlled Timber Storage</strong>
-          พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ภายใต้การควบคุมอุณหภูมิและความชื้นสัมพัทธ์ที่เหมาะสม ป้องกันการบิดงอหรือคดตัวในระยะยาว
+          พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ภายใต้การควบคุมอุณหภูมิและความชื้นสัมพัทธ์ที่เหมาะสม
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('exotic-modal')">
         <img src="images/workshop/exotic-selection.jpg" alt="Exotic Masterpiece Selection" loading="lazy">
         <div class="caption">
           <strong>Exotic Masterpiece Selection</strong>
-          คลังไม้ไทยหายากเกรดสูง เช่น ไม้ปุ่มตะแบก, ไม้เทพทาโร และเสลา คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและมีความหนาแน่นของเนื้อไม้ดีเยี่ยม
+          คลังไม้ไทยหายากเกรดสูง เช่น ไม้ปุ่มตะแบก, ไม้เทพทาโร และเสลา คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและความหนาแน่นสูง
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
     </div>
-
 
     <div class="shop-section-title">
       <i class="fa-solid fa-music"></i>
       <span>4. Creative & Share (พื้นที่สร้างสรรค์และแชร์ประสบการณ์)</span>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('lounge-modal')">
         <img src="images/workshop/lounge-corner.jpg" alt="The Artisan's Sanctuary" loading="lazy">
         <div class="caption">
           <strong>The Artisan's Sanctuary</strong>
-          มุมพักผ่อนและจุดแลกเปลี่ยนไอเดียภายในช็อป พื้นที่เคล้าเสียงดนตรีที่ออกแบบไว้เพื่อต้อนรับผู้มาเยือน เป็นสเปซสำหรับนั่งพูดคุย ลงลึกเรื่องสเปกชิ้นงาน และลองสัมผัสเนื้อไม้จริงในบรรยากาศที่เป็นกันเอง
+          มุมพักผ่อนและจุดแลกเปลี่ยนไอเดียภายในช็อป พื้นที่เคล้าเสียงดนตรีที่ออกแบบไว้เพื่อต้อนรับผู้มาเยือน
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('vibe-modal')">
         <img src="images/workshop/shop-vibe.jpg" alt="The Creative Atmosphere" loading="lazy">
         <div class="caption">
           <strong>The Creative Atmosphere</strong>
-          บรรยากาศรอบๆ ช็อปที่เต็มไปด้วยแรงบันดาลใจ ทุกชิ้นงานที่สร้างสรรค์ขึ้นที่นี่ผ่านการคิดค้น ทดลอง และรับฟังเสียงอย่างตั้งใจ เพื่อให้มั่นใจว่างานคราฟต์ทุกชิ้นมีทั้งความแม่นยำและจิตวิญญาณ
+          บรรยากาศรอบๆ ช็อปที่เต็มไปด้วยแรงบันดาลใจ ทุกชิ้นงานที่สร้างสรรค์ขึ้นที่นี่ผ่านการคิดค้น ทดลอง และรับฟังเสียงอย่างตั้งใจ
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
     </div>
@@ -324,74 +247,94 @@
     <div class="divider"></div>
     <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
 
-  </div> 
+  </div>
+
+  <div id="cnc-modal" class="modal-overlay" onclick="closeModal(event, 'cnc-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'cnc-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <div class="modal-carousel" id="cnc-carousel">
+          <img src="images/workshop/cnc-machining.jpg" alt="CNC 1">
+          <img src="images/workshop/cnc-machining-2.jpg" alt="CNC 2">
+          <img src="images/workshop/cnc-machining-3.jpg" alt="CNC 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('cnc-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('cnc-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('cnc-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>CNC Automated Machining</strong>
+        ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ ทุกมิลลิเมตรถูกควบคุมอย่างเข้มงวด
+      </div>
+    </div>
+  </div>
+
+  <div id="steel-modal" class="modal-overlay" onclick="closeModal(event, 'steel-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'steel-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <div class="modal-carousel" id="steel-carousel">
+          <img src="images/workshop/steel-table.jpg" alt="Steel Table 1">
+          <img src="images/workshop/steel-table-2.jpg" alt="Steel Table 2">
+          <img src="images/workshop/steel-table-3.jpg" alt="Steel Table 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('steel-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('steel-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('steel-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>2-Inch Heavy Steel Worktable</strong>
+        แท่นประกอบและขึ้นรูปโครงสร้างเหล็กสั่งทำพิเศษหนา 2 นิ้ว มอบความหนาแน่นและนิ่งสนิท (Vibration Control) เพื่อผลลัพธ์การไสไม้ที่เที่ยงตรงที่สุด
+      </div>
+    </div>
+  </div>
+
+  <div id="hand-modal" class="modal-overlay" onclick="closeModal(event, 'hand-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'hand-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <div class="modal-carousel" id="hand-carousel">
+          <img src="images/workshop/hand-tools.jpg" alt="Hand Tools 1">
+          <img src="images/workshop/hand-tools-2.jpg" alt="Hand Tools 2">
+          <img src="images/workshop/hand-tools-3.jpg" alt="Hand Tools 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('hand-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('hand-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('hand-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>Hand Tools & Precision Tuning</strong>
+        กลิ่นอายและจิตวิญญาณช็อปช่างดั้งเดิม คัดสรรสิ่ว กบเหล็ก และเหล็กขูดแต่งผิว (Scrapers) เพื่อใช้เดินคมและเก็บรายละเอียดส่วนโค้งเว้าในจุดที่คอมพิวเตอร์ทำแทนไม่ได้
+      </div>
+    </div>
+  </div>
 
   <div id="cad-modal" class="modal-overlay" onclick="closeModal(event, 'cad-modal')">
     <div class="modal-content">
-      
       <span class="close-btn" onclick="closeModal(event, 'cad-modal')">&times;</span>
-      
       <div class="modal-carousel-container">
         <div class="modal-carousel" id="cad-carousel">
-          <img src="images/workshop/cad-station.jpg" alt="Step 1">
-          <img src="images/workshop/cad-station-2.jpg" alt="Step 2">
-          <img src="images/workshop/cad-station-3.jpg" alt="Step 3">
+          <img src="images/workshop/cad-station.jpg" alt="CAD 1">
+          <img src="images/workshop/cad-station-2.jpg" alt="CAD 2">
+          <img src="images/workshop/cad-station-3.jpg" alt="CAD 3">
         </div>
-        
         <div class="modal-dots">
           <span class="dot active" onclick="scrollToImage('cad-carousel', 0)"></span>
           <span class="dot" onclick="scrollToImage('cad-carousel', 1)"></span>
           <span class="dot" onclick="scrollToImage('cad-carousel', 2)"></span>
         </div>
       </div>
-
       <div class="modal-caption">
         <strong>3D Structural Design (Fusion 360)</strong>
-        สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ เพื่อวิเคราะห์มวลความหนาแน่นของเนื้อไม้แต่ละชนิด ก่อนจะส่งต่อเข้าสู่กระบวนการกลึง CNC อย่างแม่นยำ
+        สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ เพื่อวิเคราะห์มวลความหนาแน่นของเนื้อไม้
       </div>
-
     </div>
   </div>
 
-  <script>
-    function openModal(modalId) {
-      document.getElementById(modalId).style.display = 'flex';
-      document.getElementById('cad-carousel').scrollLeft = 0;
-    }
-
-    function closeModal(event, modalId) {
-      if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('close-btn')) {
-        document.getElementById(modalId).style.display = 'none';
-      }
-    }
-
-    function scrollToImage(carouselId, index) {
-      const carousel = document.getElementById(carouselId);
-      const imageWidth = carousel.clientWidth;
-      carousel.scrollTo({
-        left: imageWidth * index,
-        behavior: 'smooth'
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousel = document.getElementById('cad-carousel');
-      const dots = document.querySelectorAll('#cad-modal .dot');
-
-      carousel.addEventListener('scroll', () => {
-        const scrollPosition = carousel.scrollLeft;
-        const imageWidth = carousel.clientWidth;
-        const activeIndex = Math.round(scrollPosition / imageWidth);
-        
-        dots.forEach((dot, index) => {
-          if (index === activeIndex) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+  <div id="wood-modal" class="modal-overlay" onclick="closeModal(event, 'wood-modal')">
