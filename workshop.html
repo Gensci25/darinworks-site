@@ -100,7 +100,7 @@
     }
 
     /* =========================================
-       Modal & Carousel Styles
+       Modal & Carousel Styles (เพิ่มปุ่มลูกศร)
     ========================================= */
     .modal-overlay {
       display: none; position: fixed;
@@ -131,6 +131,32 @@
       object-fit: cover; scroll-snap-align: start;
     }
     
+    /* สไตล์สำหรับปุ่มลูกศรซ้าย-ขวา */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%; /* ให้อยู่กึ่งกลางแนวตั้ง */
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5); /* พื้นหลังดำโปร่งแสง */
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .carousel-arrow:hover {
+      background: rgba(212, 175, 55, 0.9); /* สีทอง #D4AF37 ตอนโฮเวอร์ */
+      color: #111; /* เปลี่ยนสีไอคอนเป็นสีดำให้ตัดกัน */
+    }
+    .arrow-left { left: 10px; }
+    .arrow-right { right: 10px; }
+
     .modal-dots {
       text-align: center; padding: 15px 0; background: #111; border-bottom: 1px solid #333;
     }
@@ -256,6 +282,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'cnc-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('cnc-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('cnc-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        
         <div class="modal-carousel" id="cnc-carousel">
           <img src="images/workshop/cnc-machining.jpg" alt="CNC 1">
           <img src="images/workshop/cnc-machining-2.jpg" alt="CNC 2">
@@ -278,6 +307,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'steel-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('steel-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('steel-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+
         <div class="modal-carousel" id="steel-carousel">
           <img src="images/workshop/steel-table.jpg" alt="Steel Table 1">
           <img src="images/workshop/steel-table-2.jpg" alt="Steel Table 2">
@@ -300,6 +332,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'hand-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('hand-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('hand-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+
         <div class="modal-carousel" id="hand-carousel">
           <img src="images/workshop/hand-tools.jpg" alt="Hand Tools 1">
           <img src="images/workshop/hand-tools-2.jpg" alt="Hand Tools 2">
@@ -322,6 +357,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'cad-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('cad-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('cad-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+
         <div class="modal-carousel" id="cad-carousel">
           <img src="images/workshop/cad-station.jpg" alt="CAD 1">
           <img src="images/workshop/cad-station-2.jpg" alt="CAD 2">
@@ -344,6 +382,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'wood-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('wood-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('wood-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+
         <div class="modal-carousel" id="wood-carousel">
           <img src="images/workshop/wood-storage.jpg" alt="Wood Storage 1">
           <img src="images/workshop/wood-storage-2.jpg" alt="Wood Storage 2">
@@ -366,6 +407,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'exotic-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('exotic-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('exotic-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+
         <div class="modal-carousel" id="exotic-carousel">
           <img src="images/workshop/exotic-selection.jpg" alt="Exotic Selection 1">
           <img src="images/workshop/exotic-selection-2.jpg" alt="Exotic Selection 2">
@@ -388,6 +432,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'lounge-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('lounge-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('lounge-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+
         <div class="modal-carousel" id="lounge-carousel">
           <img src="images/workshop/lounge-corner.jpg" alt="Lounge 1">
           <img src="images/workshop/lounge-corner-2.jpg" alt="Lounge 2">
@@ -410,6 +457,9 @@
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'vibe-modal')">&times;</span>
       <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('vibe-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('vibe-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+
         <div class="modal-carousel" id="vibe-carousel">
           <img src="images/workshop/shop-vibe.jpg" alt="Vibe 1">
           <img src="images/workshop/shop-vibe-2.jpg" alt="Vibe 2">
@@ -448,6 +498,7 @@
       }
     }
 
+    // ฟังก์ชันเลื่อนไปยังรูปที่กำหนด (ใช้กับจุดไข่ปลา)
     function scrollToImage(carouselId, index) {
       var carousel = document.getElementById(carouselId);
       if(carousel) {
@@ -459,6 +510,26 @@
       }
     }
 
+    // ฟังก์ชันใหม่: ใช้กับลูกศรซ้าย-ขวา (-1 คือถอยหลัง, 1 คือไปข้างหน้า)
+    function slideDirection(carouselId, direction) {
+      var carousel = document.getElementById(carouselId);
+      if(carousel) {
+        var imageWidth = carousel.clientWidth;
+        var currentScroll = carousel.scrollLeft;
+        // หาว่าตอนนี้อยู่ตำแหน่งรูปที่เท่าไหร่
+        var currentIndex = Math.round(currentScroll / imageWidth);
+        // คำนวณตำแหน่งใหม่
+        var newIndex = currentIndex + direction;
+        
+        // สั่งให้เลื่อนไปตำแหน่งใหม่
+        carousel.scrollTo({
+          left: imageWidth * newIndex,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // ระบบจับความเคลื่อนไหวอัปเดตจุดไข่ปลา
     document.addEventListener('DOMContentLoaded', function() {
       var carousels = document.querySelectorAll('.modal-carousel');
       
@@ -472,7 +543,6 @@
         carousel.addEventListener('scroll', function() {
           var scrollPosition = carousel.scrollLeft;
           var imageWidth = carousel.clientWidth;
-          // ป้องกัน error กรณีหารด้วย 0
           if(imageWidth === 0) return;
           
           var activeIndex = Math.round(scrollPosition / imageWidth);
