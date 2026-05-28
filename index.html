@@ -8,7 +8,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-D80CMSQ1YH');
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +24,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://darinworks.com">
   
-  <!-- 1. JSON-LD Schema (ซ่อมแท็กปิดเรียบร้อย) -->
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,28 +39,9 @@
     },
     "description": "Premium custom guitars and snooker cues, born from a passion for Thai exotic wood. บริการโดยช่างทำกีตาร์และช่างทำไม้คิวระดับพรีเมียม รับสั่งทำ ซ่อมแซม และเซ็ตอัพเต็มระบบด้วยมาตรฐานวิศวกรรมความแม่นยำสูง",
     "knowsAbout": [
-      "ช่างทำกีตาร์",
-      "สั่งทำกีตาร์",
-      "ซ่อมกีตาร์",
-      "เซ็ตอัพกีตาร์",
-      "กีตาร์คัสตอม",
-      "Custom Guitar",
-      "Luthier",
-      "Handmade Guitar",
-      "Boutique Guitar",
-      "Guitar Setup",
-      "ช่างทำไม้คิว",
-      "สั่งทำไม้คิว",
-      "ซ่อมไม้คิว",
-      "ไม้คิวคัสตอม",
-      "ดัดไม้คิวคด",
-      "Custom Snooker Cue",
-      "Cue Maker",
-      "Hand Spliced Cue",
-      "Premium Snooker Cue",
-      "Cue Repair",
-      "Fusion 360 CAD Design",
-      "CNC Machining"
+      "ช่างทำกีตาร์", "สั่งทำกีตาร์", "ซ่อมกีตาร์", "เซ็ตอัพกีตาร์", "กีตาร์คัสตอม",
+      "ช่างทำไม้คิว", "สั่งทำไม้คิว", "ซ่อมไม้คิว", "ไม้คิวคัสตอม", "ดัดไม้คิวคด",
+      "Fusion 360 CAD Design", "CNC Machining"
     ],
     "founder": {
       "@type": "Person",
@@ -70,19 +50,17 @@
   }
   </script>
 
-  <!-- 2. สคริปต์สะท้อนกลับเมื่อคลิกขวา / กด F12 (จัดระเบียบใหม่) -->
+  <!-- สคริปต์ป้องกันคลิกขวา / กด F12 -->
   <script>
-    // ดักจับการคลิกขวา
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
         window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
     });
 
-    // ล็อกคีย์ลัดไว้เหมือนเดิม ถ้ากด F12 หรือ Ctrl+U ให้เด้งไปหน้านั้นเหมือนกัน
     document.onkeydown = function(e) {
-        if (e.keyCode == 123 || // F12
-            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || // Ctrl+Shift+I
-            (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) { // Ctrl+U
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || 
+            (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
             
             e.preventDefault();
             window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
@@ -94,129 +72,30 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 40px 0;
-    }
-    .container {
-      max-width: 500px; 
-      padding: 20px;
-      width: 100%;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; background: #111; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 40px 0; }
+    .container { max-width: 500px; padding: 20px; width: 100%; }
     
-    h1 {
-      margin-bottom: 5px;
-      font-size: 36px;
-      letter-spacing: 1px;
-    }
-    .subtitle {
-      color: #aaa;
-      margin-bottom: 10px;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-    .description {
-      color: #888;
-      margin-bottom: 30px; 
-      line-height: 1.6;
-      font-size: 14px;
-      padding: 0 20px;
-    }
+    h1 { margin-bottom: 5px; font-size: 36px; letter-spacing: 1px; }
+    .subtitle { color: #aaa; margin-bottom: 10px; line-height: 1.6; font-size: 16px; }
+    .description { color: #888; margin-bottom: 30px; line-height: 1.6; font-size: 14px; padding: 0 20px; }
 
     /* โซนผลงานหลัก */
-    .category-group {
-      margin-bottom: 30px; 
-      background: rgba(255, 255, 255, 0.02);
-      padding: 20px;
-      border-radius: 15px;
-    }
-    .category-logo {
-      width: 100px; 
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 10px auto; 
-      display: block;
-      border: 2px solid #333;
-    }
-    .btn {
-      display: inline-block; 
-      margin: 0 auto 10px auto; 
-      padding: 10px 18px; 
-      border: 1px solid #444;
-      border-radius: 8px;
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      background: rgba(255, 255, 255, 0.05);
-    }
-    .btn:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: #D4AF37; 
-      border-color: #D4AF37; 
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); 
-      transform: translateY(-2px);
-    }
-    .sub-social {
-      display: flex;
-      justify-content: center;
-      gap: 10px; 
-    }
-    .sub-social a {
-      text-decoration: none;
-      font-size: 26px; 
-      transition: all 0.3s ease;
-      opacity: 0.9;
-    }
-    .sub-social a:hover {
-      opacity: 1;
-      transform: scale(1.1);
-    }
+    .category-group { margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); padding: 20px; border-radius: 15px; }
+    .category-logo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 10px auto; display: block; border: 2px solid #333; }
+    .btn { display: inline-block; margin: 0 auto 10px auto; padding: 10px 18px; border: 1px solid #444; border-radius: 8px; color: white; text-decoration: none; font-size: 18px; font-weight: bold; transition: all 0.3s ease; background: rgba(255, 255, 255, 0.05); }
+    .btn:hover { background: rgba(255, 255, 255, 0.08); color: #D4AF37; border-color: #D4AF37; box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); transform: translateY(-2px); }
+    
+    .sub-social { display: flex; justify-content: center; gap: 10px; }
+    .sub-social a { text-decoration: none; font-size: 26px; transition: all 0.3s ease; opacity: 0.9; }
+    .sub-social a:hover { opacity: 1; transform: scale(1.1); }
 
-    /* โซน Contact */
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #444;
-      margin: 10px auto 20px auto;
-    }
+    .divider { width: 50px; height: 1px; background: #444; margin: 10px auto 20px auto; }
 
-    /* โซนเมนู Tab ด้านล่างสุด (ทำตัวเป็น Footer) */
-    .minimal-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 8px 10px; 
-      margin: 50px auto 10px auto;
-      padding: 0 15px;
-    }
-    .minimal-tabs a {
-      color: #666; 
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-    .minimal-tabs a:hover {
-      color: #D4AF37; 
-    }
-    .separator {
-      color: #333; 
-      font-size: 11px;
-      user-select: none; 
-    }
+    /* โซนเมนู Tab ด้านล่างสุด */
+    .minimal-tabs { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 10px; margin: 50px auto 10px auto; padding: 0 15px; }
+    .minimal-tabs a { color: #666; text-decoration: none; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; }
+    .minimal-tabs a:hover { color: #D4AF37; }
+    .separator { color: #333; font-size: 11px; user-select: none; }
 
     /* แบรนด์คัลเลอร์ */
     .fa-facebook { color: #1877F2; }
@@ -234,6 +113,7 @@
     <p class="subtitle">ศิลปะแห่งงานไม้ ผสานวิศวกรรมเพื่อความสมบูรณ์แบบ</p>
     <p class="description">Premium custom guitars and snooker cues, born from a passion for the unique patterns of Thai wood. Specializing in rare materials like Phaya Ngiu Dam, Theptharo, and Sala.</p>
 
+    <!-- กีตาร์ -->
     <div class="category-group">
       <img src="images/ui/darin-guitar-logo.png" alt="Darin Guitar Logo" class="category-logo">
       <a href="https://drive.google.com/drive/folders/1fuBzCocio0XQP_saGctFuOQMQLPyAz7x" class="btn" target="_blank">Handmade Guitar</a>
@@ -243,6 +123,7 @@
       </div>
     </div>
 
+    <!-- ไม้คิว -->
     <div class="category-group">
       <img src="images/ui/darin-cues-logo.png" alt="Darin Cues Logo" class="category-logo">
       <a href="https://drive.google.com/drive/folders/17zqC77gr6lVIbcR2rj8HbwYQwvbvaxQI" class="btn" target="_blank">Handmade Cues</a>
@@ -253,6 +134,7 @@
       </div>
     </div>
 
+    <!-- แถบเมนูนำทาง (อัปเดตใหม่) -->
     <div class="minimal-tabs">
       <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank">Sound Check</a>
       <span class="separator">|</span>
@@ -267,6 +149,12 @@
       <span class="separator">|</span>
       
       <a href="services.html">Services</a>
+      <span class="separator">|</span>
+      
+      <a href="about.html">About Us</a>
+      <span class="separator">|</span>
+
+      <a href="faq.html">FAQ</a>
       <span class="separator">|</span>
       
       <span style="color: #888; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">Contact:</span>
