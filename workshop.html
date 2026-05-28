@@ -40,6 +40,9 @@
   </script>
   
   <style>
+    /* =========================================
+       สไตล์เดิมของคุณ
+    ========================================= */
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -52,12 +55,10 @@
       align-items: center;
     }
     .container {
-      max-width: 900px; /* ขยายกว้างขึ้นเล็กน้อยเพื่อรองรับมิติกริดที่สมดุล */
+      max-width: 900px;
       width: 100%;
       text-align: center;
     }
-    
-    /* ปุ่มกลับหน้าแรก */
     .back-btn {
       display: inline-block;
       color: #aaa;
@@ -75,7 +76,6 @@
     .back-btn i {
       margin-right: 8px;
     }
-
     h1 {
       margin-bottom: 5px;
       font-size: 32px;
@@ -90,8 +90,6 @@
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-
-    /* หัวข้อแบ่งกลุ่มหมวดหมู่ภายในช็อป (Section Headers) */
     .shop-section-title {
       text-align: left;
       border-bottom: 1px solid #222;
@@ -112,8 +110,6 @@
       text-transform: uppercase;
       color: #DDD;
     }
-
-    /* ระบบ Grid สำหรับแกลเลอรีรูปภาพ */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -134,7 +130,7 @@
     }
     .gallery-item img {
       width: 100%;
-      height: 240px; /* ควบคุมสัดส่วนภาพแบบ Golden Ratio ให้ดูพรีเมียม */
+      height: 240px;
       object-fit: cover;
       display: block;
       border-bottom: 1px solid #222;
@@ -153,12 +149,76 @@
       font-size: 15px;
       letter-spacing: 0.5px;
     }
-
     .divider {
       width: 50px;
       height: 1px;
       background: #333;
       margin: 60px auto 30px auto;
+    }
+
+    /* =========================================
+       สไตล์ใหม่สำหรับ Modal & Carousel (Popup)
+    ========================================= */
+    .modal-overlay {
+      display: none; 
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center; align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    .modal-content {
+      position: relative;
+      width: 90%; max-width: 800px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .close-btn {
+      position: absolute;
+      top: 15px; right: 20px;
+      color: #aaa; font-size: 28px; font-weight: bold;
+      cursor: pointer; z-index: 10;
+      transition: color 0.3s;
+    }
+    .close-btn:hover { color: #D4AF37; }
+    
+    .modal-carousel-container { position: relative; width: 100%; }
+    .modal-carousel {
+      display: flex; overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .modal-carousel::-webkit-scrollbar { display: none; }
+    .modal-carousel img {
+      flex: 0 0 100%; width: 100%; max-height: 500px;
+      object-fit: cover; scroll-snap-align: start;
+    }
+    
+    .modal-dots {
+      text-align: center; padding: 15px 0; background: #111;
+      border-bottom: 1px solid #333;
+    }
+    .dot {
+      display: inline-block; width: 10px; height: 10px;
+      margin: 0 5px; background-color: #555;
+      border-radius: 50%; cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .dot.active {
+      background-color: #D4AF37; transform: scale(1.2);
+    }
+    
+    .modal-caption {
+      padding: 25px; font-size: 15px; color: #ccc;
+      line-height: 1.6; text-align: left;
+    }
+    .modal-caption strong {
+      display: block; font-size: 18px; color: #D4AF37; margin-bottom: 10px;
     }
   </style>
 </head>
@@ -174,7 +234,6 @@
       <i class="fa-solid fa-gears"></i>
       <span>1. Engineering & Heavy Equipment (โครงสร้างหลักและเครื่องจักรใหญ่)</span>
     </div>
-
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="images/workshop/cnc-machining.jpg" alt="CNC Automated Machining" loading="lazy">
@@ -183,7 +242,6 @@
           ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ
         </div>
       </div>
-
       <div class="gallery-item">
         <img src="images/workshop/steel-table.jpg" alt="2-Inch Heavy Steel Worktable" loading="lazy">
         <div class="caption">
@@ -198,7 +256,6 @@
       <i class="fa-solid fa-hammer"></i>
       <span>2. Artisan Bench & Hand Tools (โต๊ะช่างและเครื่องมือทำมือ)</span>
     </div>
-
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="images/workshop/hand-tools.jpg" alt="Hand Tools & Precision Tuning" loading="lazy">
@@ -208,11 +265,14 @@
         </div>
       </div>
 
-      <div class="gallery-item">
-        <img src="images/workshop/cad-station.JPG" alt="3D Structural Design" loading="lazy">
+      <div class="gallery-item" style="cursor: pointer;" onclick="openModal('cad-modal')">
+        <img src="images/workshop/cad-station.jpg" alt="3D Structural Design" loading="lazy">
         <div class="caption">
           <strong>3D Structural Design (Fusion 360)</strong>
           สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ
+          <span style="display: block; margin-top: 10px; color: #D4AF37; font-size: 12px;">
+            <i class="fa-solid fa-magnifying-glass-plus"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ
+          </span>
         </div>
       </div>
     </div>
@@ -222,7 +282,6 @@
       <i class="fa-solid fa-tree"></i>
       <span>3. Exotic Wood Storage (คลังบ่มไม้และวัตถุดิบหายาก)</span>
     </div>
-
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="images/workshop/wood-storage.jpg" alt="Climate-Controlled Timber Storage" loading="lazy">
@@ -231,9 +290,8 @@
           พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ภายใต้การควบคุมอุณหภูมิและความชื้นสัมพัทธ์ที่เหมาะสม ป้องกันการบิดงอหรือคดตัวในระยะยาว
         </div>
       </div>
-
       <div class="gallery-item">
-        <img src="images/workshop/exotic-selection.jpg" alt="Phaya Ngiu Dam Masterpiece Selection" loading="lazy">
+        <img src="images/workshop/exotic-selection.jpg" alt="Exotic Masterpiece Selection" loading="lazy">
         <div class="caption">
           <strong>Exotic Masterpiece Selection</strong>
           คลังไม้ไทยหายากเกรดสูง เช่น ไม้ปุ่มตะแบก, ไม้เทพทาโร และเสลา คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและมีความหนาแน่นของเนื้อไม้ดีเยี่ยม
@@ -241,11 +299,11 @@
       </div>
     </div>
 
-<div class="shop-section-title">
+
+    <div class="shop-section-title">
       <i class="fa-solid fa-music"></i>
       <span>4. Creative & Share (พื้นที่สร้างสรรค์และแชร์ประสบการณ์)</span>
     </div>
-
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="images/workshop/lounge-corner.jpg" alt="The Artisan's Sanctuary" loading="lazy">
@@ -254,7 +312,6 @@
           มุมพักผ่อนและจุดแลกเปลี่ยนไอเดียภายในช็อป พื้นที่เคล้าเสียงดนตรีที่ออกแบบไว้เพื่อต้อนรับผู้มาเยือน เป็นสเปซสำหรับนั่งพูดคุย ลงลึกเรื่องสเปกชิ้นงาน และลองสัมผัสเนื้อไม้จริงในบรรยากาศที่เป็นกันเอง
         </div>
       </div>
-
       <div class="gallery-item">
         <img src="images/workshop/shop-vibe.jpg" alt="The Creative Atmosphere" loading="lazy">
         <div class="caption">
@@ -267,6 +324,75 @@
     <div class="divider"></div>
     <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
 
+  </div> <div id="cad-modal" class="modal-overlay" onclick="closeModal(event, 'cad-modal')">
+    <div class="modal-content">
+      
+      <span class="close-btn" onclick="closeModal(event, 'cad-modal')">&times;</span>
+      
+      <div class="modal-carousel-container">
+        <div class="modal-carousel" id="cad-carousel">
+          <img src="images/workshop/cad-station.jpg" alt="Step 1">
+          <img src="images/workshop/cad-station-2.jpg" alt="Step 2">
+          <img src="images/workshop/cad-station-3.jpg" alt="Step 3">
+        </div>
+        
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('cad-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('cad-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('cad-carousel', 2)"></span>
+        </div>
+      </div>
+
+      <div class="modal-caption">
+        <strong>3D Structural Design (Fusion 360)</strong>
+        สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ เพื่อวิเคราะห์มวลความหนาแน่นของเนื้อไม้แต่ละชนิด ก่อนจะส่งต่อเข้าสู่กระบวนการกลึง CNC อย่างแม่นยำ
+      </div>
+
+    </div>
   </div>
+
+  <script>
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+      // เปิดมาให้รูปกลับไปอยู่ตำแหน่งแรกเสมอ
+      document.getElementById('cad-carousel').scrollLeft = 0;
+    }
+
+    function closeModal(event, modalId) {
+      // ปิดเมื่อคลิกที่พื้นดำนอกกรอบ หรือคลิกที่ปุ่ม X
+      if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('close-btn')) {
+        document.getElementById(modalId).style.display = 'none';
+      }
+    }
+
+    function scrollToImage(carouselId, index) {
+      const carousel = document.getElementById(carouselId);
+      const imageWidth = carousel.clientWidth;
+      carousel.scrollTo({
+        left: imageWidth * index,
+        behavior: 'smooth'
+      });
+    }
+
+    // ตัวจับความเคลื่อนไหว: เปลี่ยนสีจุดไข่ปลาเมื่อใช้นิ้วปัด
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.getElementById('cad-carousel');
+      const dots = document.querySelectorAll('#cad-modal .dot');
+
+      carousel.addEventListener('scroll', () => {
+        const scrollPosition = carousel.scrollLeft;
+        const imageWidth = carousel.clientWidth;
+        const activeIndex = Math.round(scrollPosition / imageWidth);
+        
+        dots.forEach((dot, index) => {
+          if (index === activeIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
