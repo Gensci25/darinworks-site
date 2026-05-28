@@ -41,7 +41,7 @@
   
   <style>
     /* =========================================
-       สไตล์เดิมของคุณ
+       Main Layout Styles
     ========================================= */
     body {
       margin: 0;
@@ -157,7 +157,7 @@
     }
 
     /* =========================================
-       สไตล์ใหม่สำหรับ Modal & Carousel (Popup)
+       Modal & Carousel (Lightbox) Styles
     ========================================= */
     .modal-overlay {
       display: none; 
@@ -266,7 +266,7 @@
       </div>
 
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('cad-modal')">
-        <img src="images/workshop/cad-station.JPG" alt="3D Structural Design" loading="lazy">
+        <img src="images/workshop/cad-station.jpg" alt="3D Structural Design" loading="lazy">
         <div class="caption">
           <strong>3D Structural Design (Fusion 360)</strong>
           สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ
@@ -324,18 +324,18 @@
     <div class="divider"></div>
     <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
 
-  </div> <div id="cad-modal" class="modal-overlay" onclick="closeModal(event, 'cad-modal')">
+  </div> 
+
+  <div id="cad-modal" class="modal-overlay" onclick="closeModal(event, 'cad-modal')">
     <div class="modal-content">
       
       <span class="close-btn" onclick="closeModal(event, 'cad-modal')">&times;</span>
       
       <div class="modal-carousel-container">
         <div class="modal-carousel" id="cad-carousel">
-          <img src="images/workshop/cad-station.JPG" alt="Step 1">
+          <img src="images/workshop/cad-station.jpg" alt="Step 1">
           <img src="images/workshop/cad-station-2.jpg" alt="Step 2">
           <img src="images/workshop/cad-station-3.jpg" alt="Step 3">
-           <img src="images/workshop/cad-station-4.jpg" alt="Step 4">
-           <img src="images/workshop/cad-station-5.jpg" alt="Step 5">
         </div>
         
         <div class="modal-dots">
@@ -356,12 +356,10 @@
   <script>
     function openModal(modalId) {
       document.getElementById(modalId).style.display = 'flex';
-      // เปิดมาให้รูปกลับไปอยู่ตำแหน่งแรกเสมอ
       document.getElementById('cad-carousel').scrollLeft = 0;
     }
 
     function closeModal(event, modalId) {
-      // ปิดเมื่อคลิกที่พื้นดำนอกกรอบ หรือคลิกที่ปุ่ม X
       if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('close-btn')) {
         document.getElementById(modalId).style.display = 'none';
       }
@@ -376,7 +374,6 @@
       });
     }
 
-    // ตัวจับความเคลื่อนไหว: เปลี่ยนสีจุดไข่ปลาเมื่อใช้นิ้วปัด
     document.addEventListener('DOMContentLoaded', () => {
       const carousel = document.getElementById('cad-carousel');
       const dots = document.querySelectorAll('#cad-modal .dot');
