@@ -113,10 +113,13 @@
       background: #1a1a1a; border: 1px solid #333; border-radius: 12px;
       overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
+    
+    /* ปุ่มกากบาทมุมขวาบน */
     .close-btn {
       position: absolute; top: 15px; right: 20px;
       color: #aaa; font-size: 28px; font-weight: bold;
-      cursor: pointer; z-index: 10; transition: color 0.3s;
+      cursor: pointer; z-index: 99; /* ปรับให้ลอยอยู่บนสุด */
+      transition: color 0.3s;
     }
     .close-btn:hover { color: #D4AF37; }
     
@@ -134,9 +137,9 @@
     /* สไตล์สำหรับปุ่มลูกศรซ้าย-ขวา */
     .carousel-arrow {
       position: absolute;
-      top: 50%; /* ให้อยู่กึ่งกลางแนวตั้ง */
+      top: 50%;
       transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5); /* พื้นหลังดำโปร่งแสง */
+      background: rgba(0, 0, 0, 0.5);
       color: white;
       border: none;
       width: 40px;
@@ -151,8 +154,8 @@
       transition: background 0.3s, color 0.3s;
     }
     .carousel-arrow:hover {
-      background: rgba(212, 175, 55, 0.9); /* สีทอง #D4AF37 ตอนโฮเวอร์ */
-      color: #111; /* เปลี่ยนสีไอคอนเป็นสีดำให้ตัดกัน */
+      background: rgba(212, 175, 55, 0.9);
+      color: #111;
     }
     .arrow-left { left: 10px; }
     .arrow-right { right: 10px; }
@@ -179,10 +182,11 @@
   <div class="container">
     
     <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    
     <a href="index.html" style="display: inline-block; width: 100%; text-align: center;">
       <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" style="width: 60px; height: auto; margin-bottom: 20px; opacity: 0.9;">
     </a>
-     
+      
     <h1>Inside the Shop</h1>
     <p class="subtitle">เบื้องหลังงานวิศวกรรมและศาสตร์แห่งงานคราฟต์</p>
 
@@ -192,7 +196,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('cnc-modal')">
-        <img src="images/workshop/cnc-machining.jpg" alt="CNC Automated Machining" loading="lazy">
+        <img src="images/workshop/cnc-machining.jpg" alt="กระบวนการกลึงขึ้นรูปไม้คิวสนุกเกอร์และกีตาร์คัสตอมด้วยเครื่อง CNC ความแม่นยำสูง" loading="lazy">
         <div class="caption">
           <strong>CNC Automated Machining</strong>
           ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ
@@ -200,7 +204,7 @@
         </div>
       </div>
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('steel-modal')">
-        <img src="images/workshop/steel-table.jpg" alt="2-Inch Heavy Steel Worktable" loading="lazy">
+        <img src="images/workshop/steel-table.jpg" alt="โต๊ะช่างเหล็กสั่งทำพิเศษหนา 2 นิ้ว ควบคุมการสั่นสะเทือนเพื่องานประกอบคิวและกีตาร์ที่เที่ยงตรง" loading="lazy">
         <div class="caption">
           <strong>2-Inch Heavy Steel Worktable</strong>
           แท่นประกอบและขึ้นรูปโครงสร้างเหล็กสั่งทำพิเศษหนา 2 นิ้ว มอบความหนาแน่นและนิ่งสนิท (Vibration Control)
@@ -215,7 +219,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('hand-modal')">
-        <img src="images/workshop/hand-tools.jpg" alt="Hand Tools & Precision Tuning" loading="lazy">
+        <img src="images/workshop/hand-tools.jpg" alt="เครื่องมือช่างทำมือ กบเหล็กและสิ่ว สำหรับงานปรับแต่งโค้งเว้าไม้คิวและกีตาร์คัสตอม" loading="lazy">
         <div class="caption">
           <strong>Hand Tools & Precision Tuning</strong>
           คัดสรรสิ่ว กบเหล็ก และเหล็กขูดแต่งผิว (Scrapers) เพื่อใช้เดินคมและเก็บรายละเอียดส่วนโค้งเว้าในจุดที่คอมพิวเตอร์ทำแทนไม่ได้
@@ -223,7 +227,7 @@
         </div>
       </div>
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('cad-modal')">
-        <img src="images/workshop/cad-station.jpg" alt="3D Structural Design" loading="lazy">
+        <img src="images/workshop/cad-station.jpg" alt="การออกแบบโครงสร้าง 3 มิติและคำนวณจุดศูนย์ถ่วง (Balance Point) ด้วยโปรแกรม Fusion 360" loading="lazy">
         <div class="caption">
           <strong>3D Structural Design (Fusion 360)</strong>
           สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรม
@@ -238,7 +242,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('wood-modal')">
-        <img src="images/workshop/wood-storage.jpg" alt="Climate-Controlled Timber Storage" loading="lazy">
+        <img src="images/workshop/wood-storage.jpg" alt="ห้องควบคุมความชื้นและอุณหภูมิสำหรับบ่มไม้ดิบธรรมชาติ ป้องกันไม้คิวและกีตาร์บิดงอ" loading="lazy">
         <div class="caption">
           <strong>Climate-Controlled Timber Storage</strong>
           พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ภายใต้การควบคุมอุณหภูมิและความชื้นสัมพัทธ์ที่เหมาะสม
@@ -246,10 +250,10 @@
         </div>
       </div>
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('exotic-modal')">
-        <img src="images/workshop/exotic-selection.jpg" alt="Exotic Masterpiece Selection" loading="lazy">
+        <img src="images/workshop/exotic-selection.jpg" alt="คลังไม้หายากเกรดพรีเมียม ไม้พญางิ้วดำ ไม้ปุ่มตะแบก ไม้เทพทาโร และเสลา ไม้หว้า ไม้สมอ ไม้นนทรี ไม้จามจุรี ไม้ขี้เหล็ก ไม้มะม่วงป่า ไม้สะเดา ไม้มะขามเทศ ไม้ยางนา ไม้มะขาม ไม้กระท้อน ไม้ขนุน ไม้มะกอก ไม้กระถินณรงค์ ไม้คูณ ไม้ตะแบก ไม้ประดู่ ไม้มะค่า ไม้ยมหอม ไม้ตะค้อ ไม้มะค่าแต้ ไม้มะขามเทศ สำหรับงานคราฟต์สั่งทำพิเศษ" loading="lazy">
         <div class="caption">
           <strong>Exotic Masterpiece Selection</strong>
-          คลังไม้ไทยหายากเกรดสูง เช่น ไม้ปุ่มตะแบก, ไม้เทพทาโร และเสลา คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและความหนาแน่นสูง
+          คลังไม้ไทยหายากเกรดสูง เช่น ไม้ปุ่มตะแบก, ไม้เทพทาโร และเสลา ไม้หว้า ไม้สมอ ไม้นนทรี ไม้จามจุรี ไม้ขี้เหล็ก ไม้มะม่วงป่า ไม้สะเดา ไม้มะขามเทศ ไม้ยางนา ไม้มะขาม ไม้กระท้อน ไม้ขนุน ไม้มะกอก ไม้กระถินณรงค์ ไม้คูณ ไม้ตะแบก ไม้ประดู่ ไม้มะค่า ไม้ยมหอม ไม้ตะค้อ ไม้มะค่าแต้ ไม้มะขามเทศ คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและความหนาแน่นสูง
           <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
         </div>
       </div>
@@ -261,7 +265,7 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('lounge-modal')">
-        <img src="images/workshop/lounge-corner.jpg" alt="The Artisan's Sanctuary" loading="lazy">
+        <img src="images/workshop/lounge-corner.jpg" alt="พื้นที่แลกเปลี่ยนไอเดียและพูดคุยสเปกงานสั่งทำไม้คิวและกีตาร์คัสตอม แบรนด์ Darinworks" loading="lazy">
         <div class="caption">
           <strong>The Artisan's Sanctuary</strong>
           มุมพักผ่อนและจุดแลกเปลี่ยนไอเดียภายในช็อป พื้นที่เคล้าเสียงดนตรีที่ออกแบบไว้เพื่อต้อนรับผู้มาเยือน
@@ -269,7 +273,7 @@
         </div>
       </div>
       <div class="gallery-item" style="cursor: pointer;" onclick="openModal('vibe-modal')">
-        <img src="images/workshop/shop-vibe.jpg" alt="The Creative Atmosphere" loading="lazy">
+        <img src="images/workshop/shop-vibe.jpg" alt="บรรยากาศสตูดิโอโรงงานคราฟต์ Darinworks พื้นที่สร้างสรรค์งานศิลปะบนเครื่องดนตรีและอุปกรณ์กีฬา" loading="lazy">
         <div class="caption">
           <strong>The Creative Atmosphere</strong>
           บรรยากาศรอบๆ ช็อปที่เต็มไปด้วยแรงบันดาลใจ ทุกชิ้นงานที่สร้างสรรค์ขึ้นที่นี่ผ่านการคิดค้น ทดลอง และรับฟังเสียงอย่างตั้งใจ
@@ -284,6 +288,7 @@
   </div> <div id="cnc-modal" class="modal-overlay" onclick="closeModal(event, 'cnc-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'cnc-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('cnc-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('cnc-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -309,6 +314,7 @@
   <div id="steel-modal" class="modal-overlay" onclick="closeModal(event, 'steel-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'steel-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('steel-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('steel-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -334,6 +340,7 @@
   <div id="hand-modal" class="modal-overlay" onclick="closeModal(event, 'hand-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'hand-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('hand-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('hand-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -359,6 +366,7 @@
   <div id="cad-modal" class="modal-overlay" onclick="closeModal(event, 'cad-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'cad-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('cad-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('cad-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -384,6 +392,7 @@
   <div id="wood-modal" class="modal-overlay" onclick="closeModal(event, 'wood-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'wood-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('wood-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('wood-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -409,6 +418,7 @@
   <div id="exotic-modal" class="modal-overlay" onclick="closeModal(event, 'exotic-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'exotic-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('exotic-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('exotic-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -434,6 +444,7 @@
   <div id="lounge-modal" class="modal-overlay" onclick="closeModal(event, 'lounge-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'lounge-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('lounge-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('lounge-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -459,6 +470,7 @@
   <div id="vibe-modal" class="modal-overlay" onclick="closeModal(event, 'vibe-modal')">
     <div class="modal-content">
       <span class="close-btn" onclick="closeModal(event, 'vibe-modal')">&times;</span>
+      
       <div class="modal-carousel-container">
         <button class="carousel-arrow arrow-left" onclick="slideDirection('vibe-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="carousel-arrow arrow-right" onclick="slideDirection('vibe-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
