@@ -11,220 +11,120 @@
   </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prototype Series | Darinworks</title>
+  <meta name="theme-color" content="#0a0a0a">
   
-  <meta name="description" content="บันทึกการวิจัยและพัฒนาชิ้นงานต้นแบบ (R&D) ของ Darinworks เจาะลึกไดอารี่การสร้างสรรค์ไม้คิวสนุกเกอร์และกีตาร์ไฟฟ้า/กีตาร์โปร่งจากไม้ไทยหายาก ด้วยระบบวิศวกรรมความแม่นยำสูง">
-  <meta name="keywords" content="ช่างทำกีตาร์, สั่งทำกีตาร์, กีตาร์คัสตอม, Custom Guitar, Luthier, ช่างทำไม้คิว, สั่งทำไม้คิว, ไม้คิวคัสตอม, Custom Snooker Cue, Cue Maker, ไม้พญางิ้วดำ, ไม้จามจุรี, ไม้พฤกษ์, ชิ้นงานต้นแบบ, Prototype">
-  <meta name="author" content="Darinworks">
-  <meta name="robots" content="index, follow">
-
+  <title>Prototype Series | Darinworks</title>
+  <meta name="description" content="บันทึกการวิจัยและพัฒนาชิ้นงานต้นแบบ (R&D) ของ Darinworks เจาะลึกไดอารี่การสร้างสรรค์ไม้คิวสนุกเกอร์และกีตาร์จากไม้ไทยหายาก">
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <script>
-    document.addEventListener('contextmenu', function(event) {
-        event.preventDefault(); 
-        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-    });
+  <link rel="stylesheet" href="css/darinworks.css">
 
-    document.onkeydown = function(e) {
-        if (e.keyCode == 123 || 
-            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
-            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
-            
-            e.preventDefault();
-            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-            return false;
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = e => {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault(); return false;
         }
     }
   </script>
   
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
+    /* ─── CSS เฉพาะหน้า Prototype Index ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .section-title { 
+      font-family: var(--serif); color: var(--gold); font-size: 22px; margin: 60px 0 20px 0; 
+      padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; 
+      gap: 12px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase;
     }
     
-    .back-btn {
-      display: inline-block;
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 30px;
-      transition: color 0.3s ease;
-      align-self: flex-start;
-      width: 100%;
-      text-align: left;
+    .selection-card { 
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
+      padding: 30px; margin-bottom: 15px; text-align: left; transition: all 0.4s ease;
+      display: flex; flex-direction: column; text-decoration: none; color: var(--text);
+      opacity: 0; animation: fadeUp 0.8s forwards;
     }
-    .back-btn:hover {
-      color: #D4AF37;
-    }
-    .back-btn i {
-      margin-right: 8px;
-    }
-
-    .page-logo {
-      width: 60px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
-      letter-spacing: 1px;
-      color: #FFF;
-    }
-    .subtitle {
-      color: #D4AF37;
-      margin-bottom: 30px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* หัวข้อแบ่งหมวดหมู่ */
-    .section-title {
-      color: #D4AF37;
-      font-size: 16px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin: 40px 0 15px 0;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #333;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* กล่องเลือกโปรเจกต์ */
-    .selection-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 25px 20px;
-      margin-bottom: 15px;
-      text-align: left;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-    .selection-card:hover {
-      transform: translateY(-3px);
-      border-color: #D4AF37;
-    }
-
-    .card-badge {
-      font-size: 11px;
-      color: #888;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .selection-card h3 {
-      margin: 0 0 8px 0;
-      font-size: 20px;
-      color: #FFF;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .selection-card h3 i {
-      font-size: 14px;
-      color: #666;
-    }
-    .selection-card:hover h3 i {
-      color: #D4AF37;
-    }
-
-    .selection-card p {
-      margin: 0;
-      font-size: 14px;
-      color: #aaa;
-      line-height: 1.6;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #444;
-      margin: 40px auto 30px auto;
-    }
+    .selection-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+    
+    .card-badge { font-size: 10px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 500; }
+    .selection-card h3 { margin: 0 0 10px 0; font-size: 20px; font-family: var(--serif); font-weight: 400; display: flex; align-items: center; justify-content: space-between; }
+    .selection-card p { margin: 0; font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="top-line"></div>
+  <main class="page">
     
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
 
-    <a href="index.html" style="display: inline-block;">
-      <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
-    </a>
+    <p class="logo-mark">Darinworks</p>
+    <h1>PROTOTYPE SERIES</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">บันทึกการสร้างชิ้นงานต้นแบบ</p>
 
-    <h1>Prototype Series</h1>
-    <p class="subtitle">บันทึกการสร้างชิ้นงานต้นแบบ</p>
-
-    <div class="section-title"><i class="fa-solid fa-gavel"></i> Darin Cues</div>
-
-    <a href="cue-proto-1.html" class="selection-card">
+    <div class="section-title" style="animation-delay: 0.3s;"><i class="fa-solid fa-gavel"></i> Darin Cues</div>
+    <a href="cue-proto-1.html" class="selection-card" style="animation-delay: 0.4s;">
       <div class="card-badge">Project 01</div>
-      <h3>The 7-Day Build (Ebony) <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>บันทึกการวิจัยและสร้างไม้คิวต้นแบบ 7 วันเต็ม เจาะลึกกระบวนการเข้าไม้ดำดง (Black Ebony) การคำนวณสเปก และระบบบาลานซ์น้ำหนักเชิงวิศวกรรม ตั้งแต่ไม้ดิบจนถึงเป็นไม้คิวมาสเตอร์พีซ</p>
+      <h3>The 7-Day Build (Ebony) <i class="fa-solid fa-chevron-right" style="font-size: 12px; opacity: 0.5;"></i></h3>
+      <p>บันทึกการวิจัยและสร้างไม้คิวต้นแบบ 7 วันเต็ม เจาะลึกกระบวนการเข้าไม้ดำดง (Black Ebony) และระบบบาลานซ์น้ำหนักเชิงวิศวกรรม</p>
     </a>
-
-    <a href="cue-proto-2.html" class="selection-card">
+    <a href="cue-proto-2.html" class="selection-card" style="animation-delay: 0.5s;">
       <div class="card-badge">Project 02</div>
-      <h3>Premium Ash Wood Series <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>ศาสตร์แห่งการคัดเลือกลายไม้แอชเกรดพรีเมียม และเทคนิคการเหลาปลายไม้คิวสนุกเกอร์เฉพาะตัว เพื่อมอบแรงสะท้อน (Feedback) และสัมผัสการแทงที่สมบูรณ์แบบที่สุด</p>
+      <h3>Premium Ash Wood Series <i class="fa-solid fa-chevron-right" style="font-size: 12px; opacity: 0.5;"></i></h3>
+      <p>ศาสตร์แห่งการคัดเลือกลายไม้แอชเกรดพรีเมียม และเทคนิคการเหลาปลายไม้คิวสนุกเกอร์เฉพาะตัว เพื่อมอบแรงสะท้อน (Feedback) ที่สมบูรณ์แบบ</p>
     </a>
 
-    <div class="section-title"><i class="fa-solid fa-guitar"></i> Darin Guitar</div>
-
-    <a href="guitar-proto-1.html" class="selection-card">
+    <div class="section-title" style="animation-delay: 0.6s;"><i class="fa-solid fa-guitar"></i> Darin Guitar</div>
+    <a href="prs-build-detail.html" class="selection-card" style="animation-delay: 0.7s;">
       <div class="card-badge">Project 01</div>
-      <h3>Custom PRS Style Build <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>กระบวนการขึ้นรูปกีตาร์ไฟฟ้าทรง PRS ผสมผสานความเที่ยงตรงของเครื่อง CNC และโปรแกรม Fusion 360 เข้ากับงานมือ พร้อมการแมตช์ลวดลายไม้ไทย(ไม้มะม่วงป่า)หายากสุดพิเศษ</p>
+      <h3>Custom PRS Style Build <i class="fa-solid fa-chevron-right" style="font-size: 12px; opacity: 0.5;"></i></h3>
+      <p>กระบวนการขึ้นรูปกีตาร์ไฟฟ้าทรง PRS ผสมผสาน CNC และ Fusion 360 เข้ากับงานมือ พร้อมการแมตช์ลวดลายไม้ไทยหายาก</p>
     </a>
-
-    <a href="guitar-proto-2.html" class="selection-card">
+    <a href="tele-build-detail.html" class="selection-card" style="animation-delay: 0.8s;">
       <div class="card-badge">Project 02</div>
-      <h3>Classic Tele <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>บันทึกการสร้างกีตาร์ทรงคลาสสิก Telecaster เจาะลึกขั้นตอนการเดินวงจรไฟฟ้าภายใน (Premium Wiring) การทดสอบย่านเสียง และการเซ็ตอัพทัชชิ่งเพื่อความคล่องตัวในการเล่น</p>
+      <h3>Classic Tele Build <i class="fa-solid fa-chevron-right" style="font-size: 12px; opacity: 0.5;"></i></h3>
+      <p>บันทึกการสร้างกีตาร์ทรงคลาสสิก Telecaster เจาะลึกขั้นตอนการเดินวงจรไฟฟ้าภายใน และการเซ็ตอัพทัชชิ่งเพื่อความคล่องตัว</p>
     </a>
-
-    <a href="guitar-proto-3.html" class="selection-card">
+    <a href="acoustic-j200-detail.html" class="selection-card" style="animation-delay: 0.9s;">
       <div class="card-badge">Project 03</div>
-      <h3>Acoustic Guitar (J200 Jumbo) <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>บันทึกความท้าทายในการสร้างกีตาร์โปร่งทรงมหากาพย์ J200 (Jumbo Size) โดยเลือกใช้วัตถุดิบไม้ไทยอย่าง ไม้จามจุรี และ ไม้พฤกษ์ เพื่อสร้างโทนเสียงที่เป็นเอกลักษณ์เฉพาะตัว</p>
+      <h3>Acoustic Guitar (J200 Jumbo) <i class="fa-solid fa-chevron-right" style="font-size: 12px; opacity: 0.5;"></i></h3>
+      <p>บันทึกความท้าทายในการสร้างกีตาร์โปร่งทรงมหากาพย์ J200 โดยเลือกใช้ ไม้จามจุรี และ ไม้พฤกษ์ เพื่อสร้างโทนเสียงที่เป็นเอกลักษณ์</p>
     </a>
 
-    <a href="guitar-proto-4.html" class="selection-card">
-      <div class="card-badge">Project 04</div>
-      <h3>PSK Guitar Style <i class="fa-solid fa-chevron-right"></i></h3>
-      <p>โปรเจกต์ท้าทายขีดจำกัดกับการสร้างสรรค์กีตาร์ไฟฟ้าทรง PSK จากเนื้อไม้ไทยหายาก คัดสรรโครงสร้างและการกระจายน้ำหนักบอดี้เพื่อยกระดับซัสเทนเสียง (Sustain)</p>
-    </a>
-      
     <div class="divider"></div>
-    <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
 
-  </div>
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 1.1s forwards;">
+      <a href="index.html">HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="prototype.html" class="active" style="color: var(--gold-light); font-weight: 500;">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 1.2s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
 </body>
 </html>
