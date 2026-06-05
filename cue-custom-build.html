@@ -1,140 +1,279 @@
 <!DOCTYPE html>
+
 <html lang="th">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Custom Cue Configurator | Darinworks</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
   <style>
+
     /* สไตล์คุมโทนพรีเมียม Darinworks */
+
     body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #0a0a0a; color: white; padding: 40px 20px; }
+
     .container { max-width: 600px; margin: auto; }
+
     
+
     .back-btn { display: inline-block; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 20px; transition: 0.3s; }
+
     .back-btn:hover { color: #D4AF37; }
 
+
+
     h1 { color: #D4AF37; margin-bottom: 5px; font-size: 28px; }
+
     .subtitle { color: #888; font-size: 14px; margin-bottom: 40px; }
 
+
+
     /* โซนฟอร์มสั่งทำ */
+
     .config-section { background: #111; border: 1px solid #222; border-radius: 12px; padding: 30px; margin-bottom: 30px; }
+
     .form-group { margin-bottom: 20px; }
+
     label { display: block; margin-bottom: 8px; color: #D4AF37; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
     
+
     select, input, textarea { 
+
       width: 100%; padding: 12px; background: #050505; border: 1px solid #333; 
+
       color: white; border-radius: 8px; box-sizing: border-box; font-size: 15px;
+
     }
+
     select:focus, input:focus { border-color: #D4AF37; outline: none; }
+
+
 
     .help-text { font-size: 12px; color: #555; margin-top: 5px; }
 
+
+
     /* ปุ่มส่ง LINE */
+
     .btn-line { 
+
       width: 100%; background: #D4AF37; color: #000; padding: 18px; 
+
       border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
+
       font-size: 16px; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+
     }
+
     .btn-line:hover { background: #b8962d; transform: translateY(-2px); }
+
   </style>
+
 </head>
+
 <body>
 
+
+
   <div class="container">
+
     <a href="custom-engineering.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> ย้อนกลับไปหน้าเลือกบริการ</a>
+
     
+
     <h1>Custom Cue Build</h1>
+
     <p class="subtitle">กำหนดสเปกไม้คิวของคุณ เพื่อคำนวณบาลานซ์เชิงวิศวกรรมโดยช่างแบงค์</p>
 
+
+
     <div class="config-section">
+
       <form id="cueForm">
+
         <div class="form-group">
+
           <label>ชื่อผู้สั่งทำ (Customer Name)</label>
+
           <input type="text" id="customerName" placeholder="ระบุชื่อของคุณ" required>
+
         </div>
 
+
+
         <div class="form-group">
+
           <label>ไม้ปลาย (Shaft Wood)</label>
+
           <select id="shaftWood">
+
             <option value="ไม้แอชเกรดคัดพิเศษ (Special Ash)">ไม้แอชเกรดคัดพิเศษ (Special Ash)</option>
+
             <option value="ไม้เมเปิล (Hard Maple)">ไม้เมเปิล (Hard Maple)</option>
+
           </select>
+
         </div>
 
+
+
         <div class="form-group">
+
           <label>ไม้ด้าม / จำปา (Butt Wood & Splicing)</label>
+
           <select id="buttWood">
+
             <option value="พญางิ้วดำ (Black Ebony)">พญางิ้วดำ (Black Ebony)</option>
+
             <option value="ไม้พยุง (Rosewood)">ไม้พยุง (Rosewood)</option>
+
             <option value="ไม้เทพทาโร (Tepparo)">ไม้เทพทาโร (Tepparo)</option>
+
             <option value="ไม้ปุ่มหายาก (Exotic Burl)">ไม้ปุ่มหายาก (Exotic Burl)</option>
+
           </select>
+
         </div>
 
+
+
         <div class="form-group">
+
           <label>ขนาดหัวคิว (Tip Size - mm)</label>
+
           <input type="number" id="tipSize" step="0.1" placeholder="เช่น 9.5" required>
+
           <p class="help-text">มาตรฐานสนุกเกอร์อยู่ระหว่าง 9.0 - 10.0 mm</p>
+
         </div>
 
+
+
         <div class="form-group">
+
           <label>น้ำหนักที่ต้องการ (Weight - oz)</label>
+
           <input type="number" id="weight" step="0.1" placeholder="เช่น 18.2" required>
+
           <p class="help-text">น้ำหนักเฉลี่ยที่แนะนำ 17.5 - 19.5 oz</p>
+
         </div>
 
+
+
         <div class="form-group">
+
           <label>ความยาวไม้คิว (Length - inch)</label>
+
           <select id="length">
+
             <option value="57 นิ้ว (Standard)">57 นิ้ว (Standard)</option>
+
             <option value="58 นิ้ว">58 นิ้ว</option>
+
             <option value="ความยาวพิเศษ (ระบุในหมายเหตุ)">ความยาวพิเศษ (ระบุในหมายเหตุ)</option>
+
           </select>
+
         </div>
 
+
+
         <div class="form-group">
+
           <label>หมายเหตุเพิ่มเติม (Special Requests)</label>
+
           <textarea id="notes" rows="4" placeholder="เช่น ต้องการจุดบาลานซ์ที่ 17.5 นิ้ว หรือระบุสีไม้ที่ชอบ"></textarea>
+
         </div>
+
+
 
         <button type="button" class="btn-line" onclick="submitToLine()">
+
           <i class="fa-brands fa-line"></i> ส่งสเปกและปรึกษาช่างแบงค์
+
         </button>
+
       </form>
+
     </div>
 
+
+
     <p style="text-align: center; font-size: 12px; color: #444;">
+
       Darinworks Engineering: Precision, Balance, and Artisan Soul.
+
     </p>
+
   </div>
 
+
+
   <script>
+
     function submitToLine() {
+
       // ดึงข้อมูลจากฟอร์มทั้งหมด
+
       const name = document.getElementById('customerName').value;
+
       const shaft = document.getElementById('shaftWood').value;
+
       const butt = document.getElementById('buttWood').value;
+
       const tip = document.getElementById('tipSize').value;
+
       const weight = document.getElementById('weight').value;
+
       const length = document.getElementById('length').value;
+
       const notes = document.getElementById('notes').value;
 
+
+
       // ตรวจสอบข้อมูลเบื้องต้น
+
       if (!name || !tip || !weight) {
+
         alert("กรุณากรอกข้อมูลสำคัญ (ชื่อ, ขนาดหัวคิว, น้ำหนัก) ให้ครบถ้วนครับ");
+
         return;
+
       }
 
+
+
       // สร้างข้อความสรุปสำหรับส่งเข้า LINE
+
       const text = `สวัสดีครับคุณแบงค์ ผมชื่อ ${name} สนใจสั่งทำไม้คิวคัสตอมครับ%0A%0A--- สรุปสเปกเบื้องต้น ---%0A- ไม้ปลาย: ${shaft}%0A- ไม้ด้าม: ${butt}%0A- ขนาดหัวคิว: ${tip} mm%0A- น้ำหนัก: ${weight} oz%0A- ความยาว: ${length}%0A- หมายเหตุ: ${notes || '-'}`;
 
+
+
       // สร้างลิงก์ส่งหา LINE (Deep Link)
+
       const lineUrl = `https://line.me/R/msg/text/?${text}`;
 
+
+
       // เปิดหน้า LINE ทันที
+
       window.open(lineUrl, '_blank');
+
     }
+
   </script>
 
+
+
 </body>
+
 </html>
