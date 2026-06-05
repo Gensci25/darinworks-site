@@ -2,7 +2,6 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,20 +11,19 @@
   </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ | คำถามที่พบบ่อย - Darinworks</title>
+  <meta name="theme-color" content="#0a0a0a">
   
+  <title>FAQ | คำถามที่พบบ่อย - Darinworks</title>
   <meta name="description" content="คำถามที่พบบ่อย (FAQ) เกี่ยวกับการสั่งทำกีตาร์และไม้คิวคัสตอม ราคาเริ่มต้น ระยะเวลาการผลิต วัสดุไม้ และบริการซ่อมเซ็ตอัพโดย Darinworks">
   <meta name="keywords" content="สั่งทำกีตาร์ ราคา, สั่งทำไม้คิว ราคา, ซ่อมกีตาร์, ซ่อมไม้คิว, ดัดไม้คิวคด, ระยะเวลาสั่งทำ, FAQ Darinworks">
   <meta name="author" content="Darinworks">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph Tags -->
   <meta property="og:title" content="FAQ | คำถามที่พบบ่อย - Darinworks">
   <meta property="og:description" content="รวมข้อสงสัยเกี่ยวกับการสั่งทำกีตาร์และไม้คิวคัสตอม (Custom Build), ราคา, และบริการซ่อมบำรุง">
   <meta property="og:image" content="images/ui/darin-guitar-logo.png">
   <meta property="og:type" content="website">
 
-  <!-- JSON-LD FAQPage (ตัวช่วยให้ Google โชว์กล่องคำถามหน้าผลการค้นหา) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,7 +68,13 @@
   </script>
 
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/darinworks.css">
 
   <script>
     document.addEventListener('contextmenu', function(event) {
@@ -87,53 +91,62 @@
   </script>
   
   <style>
-    body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #111; color: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; }
-    .container { max-width: 800px; width: 100%; text-align: center; }
+    /* ─── CSS เฉพาะหน้า FAQ ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .faq-container { width: 100%; max-width: 760px; margin: 20px auto 60px; opacity: 0; animation: fadeUp 0.8s forwards; text-align: left; }
     
-    .back-btn { display: inline-block; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 30px; transition: color 0.3s ease; align-self: flex-start; width: 100%; text-align: left; }
-    .back-btn:hover { color: #D4AF37; }
-    .back-btn i { margin-right: 8px; }
-
-    .page-logo { width: 60px; height: auto; margin-bottom: 20px; opacity: 0.9; }
-
-    h1 { margin-bottom: 5px; font-size: 36px; letter-spacing: 1px; color: #FFF; transition: color 0.3s ease; }
-    h1:hover { color: #D4AF37; }
-    .subtitle { color: #D4AF37; margin-bottom: 60px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
-
-    /* ================= FAQ ACCORDION STYLES ================= */
-    .faq-container { text-align: left; margin-bottom: 60px; }
-    .faq-category { color: #D4AF37; font-size: 20px; margin: 50px 0 20px 0; border-bottom: 1px solid #333; padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+    .faq-category { 
+      font-family: var(--serif); color: var(--gold); font-size: 24px; margin: 50px 0 20px 0; 
+      border-bottom: 1px solid var(--border); padding-bottom: 12px; display: flex; align-items: center; 
+      gap: 12px; font-weight: 400; letter-spacing: 1px; 
+    }
+    .faq-category i { font-size: 20px; }
     
-    .faq-item { background: #1a1a1a; border: 1px solid #222; border-radius: 8px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease; }
-    .faq-item.active { border-color: #D4AF37; background: #111; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.05); }
+    .faq-item { 
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px; 
+      margin-bottom: 16px; overflow: hidden; transition: all 0.4s ease; 
+    }
+    .faq-item.active { border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-    .faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #fff; background: transparent; transition: color 0.3s; font-weight: bold; }
-    .faq-question:hover { color: #D4AF37; }
+    .faq-question { 
+      padding: 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; 
+      font-size: 15px; color: var(--text); background: transparent; transition: color 0.3s; 
+      font-weight: 500; font-family: var(--sans); letter-spacing: 1px;
+    }
+    .faq-question:hover { color: var(--gold); }
     
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: #aaa; line-height: 1.7; font-size: 15px; padding: 0 20px; }
-    .faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 500px; } 
+    .faq-answer { 
+      max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease; 
+      color: var(--text-muted); line-height: 1.7; font-size: 14px; padding: 0 24px; font-weight: 300; 
+    }
+    .faq-item.active .faq-answer { padding: 0 24px 24px 24px; max-height: 500px; } 
 
-    .icon-plus { transition: transform 0.3s; color: #D4AF37; font-size: 14px; }
+    .icon-plus { transition: transform 0.4s; color: var(--gold); font-size: 14px; }
     .faq-item.active .icon-plus { transform: rotate(45deg); } 
-
-    .divider { width: 50px; height: 1px; background: #444; margin: 40px auto; }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="top-line"></div>
+  <main class="page">
     
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-    
-    <a href="index.html" style="display: inline-block;">
-      <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
-    </a>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
 
+    <p class="logo-mark">Darinworks</p>
     <h1>FAQ</h1>
-    <p class="subtitle">คำถามที่พบบ่อย (Frequently Asked Questions)</p>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">คำถามที่พบบ่อย (Frequently Asked Questions)</p>
 
     <div class="faq-container">
 
-      <!-- Category 1 -->
       <div class="faq-category"><i class="fa-solid fa-hammer"></i> 1. งานสั่งทำ (Custom Build)</div>
       
       <div class="faq-item">
@@ -154,7 +167,6 @@
         </div>
       </div>
 
-      <!-- Category 2 -->
       <div class="faq-category"><i class="fa-solid fa-microchip"></i> 2. วัสดุและวิศวกรรม (Materials & Engineering)</div>
       
       <div class="faq-item">
@@ -175,7 +187,6 @@
         </div>
       </div>
 
-      <!-- Category 3 -->
       <div class="faq-category"><i class="fa-solid fa-screwdriver-wrench"></i> 3. บริการและซ่อมบำรุง (Clinic & Setup)</div>
       
       <div class="faq-item">
@@ -192,35 +203,37 @@
           หากต้องการสั่งทำหรือส่งซ่อม ต้องเริ่มต้นอย่างไร? <i class="fa-solid fa-plus icon-plus"></i>
         </div>
         <div class="faq-answer">
-          ลูกค้าสามารถแอด LINE หรือส่งข้อความทาง WhatsApp (ที่เมนูด้านล่าง) เพื่อส่งรูปภาพหรือแจ้งความประสงค์เบื้องต้นให้ช่างประเมินก่อนได้ครับ จากนั้นจึงนัดหมายคิวเพื่อนำเครื่องดนตรีหรือไม้คิวเข้ามาที่ช็อป
+          ลูกค้าสามารถแอด LINE หรือส่งข้อความทาง WhatsApp (ที่ปุ่มด้านล่าง) เพื่อส่งรูปภาพหรือแจ้งความประสงค์เบื้องต้นให้ช่างประเมินก่อนได้ครับ จากนั้นจึงนัดหมายคิวเพื่อนำเครื่องดนตรีหรือไม้คิวเข้ามาที่ช็อป
         </div>
       </div>
 
-    </div> <!-- End FAQ Container -->
+    </div> <div class="divider"></div>
 
-    <div class="divider"></div>
-    <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <div class="contact-strip" style="animation-delay: 0.6s; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;">
+      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <i class="fa-brands fa-line" aria-hidden="true"></i> ติดต่อสอบถาม / ประเมินราคา
+      </a>
+    </div>
 
-  </div>
+    <div class="divider" style="margin-top: 10px;"></div>
 
-  <!-- JavaScript สำหรับระบบ Accordion เปิด/ปิด กล่อง FAQ -->
-  <script>
-    const faqItems = document.querySelectorAll('.faq-item');
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 0.7s forwards;">
+      <a href="index.html">HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="prototype.html">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="faq.html" class="active" style="color: var(--gold-light); font-weight: 500;">FAQ</a>
+    </nav>
 
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      question.addEventListener('click', () => {
-        // ให้ปิดกล่องอื่นที่เปิดอยู่ก่อน
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            otherItem.classList.remove('active');
-          }
-        });
-        
-        // สลับสถานะเปิด/ปิดของกล่องที่คลิก
-        item.classList.toggle('active');
-      });
-    });
-  </script>
-</body>
-</html>
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </
