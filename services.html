@@ -11,25 +11,29 @@
   </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
   
   <title>Services | Darinworks Custom Engineering</title>
-  
   <meta name="description" content="บริการโดยช่างทำกีตาร์และช่างทำไม้คิวระดับพรีเมียม รับสั่งทำกีตาร์และไม้คิวคัสตอม พร้อมบริการซ่อม เซ็ตอัพ โดยมาตรฐานวิศวกรรม">
   
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/darinworks.css">
 
   <script>
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
         window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
     });
-
     document.onkeydown = function(e) {
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
             (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
-            
             e.preventDefault();
             window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
             return false;
@@ -38,74 +42,19 @@
   </script>
   
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #111;
-      color: white;
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .container {
-      max-width: 850px;
-      width: 100%;
-      text-align: center;
-    }
-    
-    .back-btn {
-      display: inline-block;
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 30px;
-      transition: color 0.3s ease;
-      align-self: flex-start;
-      width: 100%;
-      text-align: left;
-    }
-    .back-btn:hover { color: #D4AF37; }
-    .back-btn i { margin-right: 8px; }
-
-    .page-logo {
-      width: 60px;
-      height: auto;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
-      letter-spacing: 1px;
-      color: #FFF;
-      transition: color 0.3s ease;
-    }
-    h1:hover { color: #D4AF37; }
-
-    .subtitle {
-      color: #D4AF37;
-      margin-bottom: 50px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .subtitle:hover {
-      color: #FFF;
-      transform: scale(1.02);
-    }
+    /* ─── CSS เฉพาะหน้า Services (Bento & Timeline) ─── */
+    .back-nav { width: 100%; text-align: left; margin-bottom: 30px; }
+    .back-link { color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+    .back-link:hover { color: var(--gold); }
 
     /* Bento Grid */
-    .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 60px; }
+    .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 60px; width: 100%; }
+    
     .service-card { 
-      background-color: #111; 
+      background-color: var(--surface); 
       background-size: cover;
       background-position: center;
-      border: 1px solid #222; 
-      border-radius: 16px; 
+      border: 1px solid var(--border); 
       padding: 30px; 
       text-align: left; 
       position: relative; 
@@ -114,65 +63,71 @@
       flex-direction: column; 
       justify-content: flex-end; 
       min-height: 280px; 
-      transition: all 0.4s; 
+      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s; 
       cursor: pointer; 
       text-decoration: none; 
-      color: white; 
+      color: var(--text); 
     }
     
-    /* Overlay for readability */
+    /* Overlay ทำให้ตัวหนังสืออ่านง่ายขึ้น และดูพรีเมียม */
     .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(to top, rgba(10,10,10,0.92) 20%, rgba(10,10,10,0.4) 100%);
-      z-index: 1;
-      transition: opacity 0.3s;
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 15%, rgba(10,10,10,0.4) 100%);
+      z-index: 1; transition: opacity 0.4s;
+    }
+    
+    /* กรอบมุมแบบหน้าหลัก */
+    .service-card::after {
+      content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--gold); border-style: solid; 
+      bottom: -1px; right: -1px; border-width: 0 1px 1px 0; opacity: 0; transition: opacity 0.4s; z-index: 3;
     }
 
-    .service-card:hover { transform: translateY(-5px); border-color: #D4AF37; box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-    .service-card:hover::before { background: linear-gradient(to top, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.2) 100%); }
+    .service-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(201,168,76,0.1); }
+    .service-card:hover::before { background: linear-gradient(to top, rgba(10,10,10,0.98) 30%, rgba(10,10,10,0.2) 100%); }
+    .service-card:hover::after { opacity: 1; }
 
     .card-large { grid-column: span 2; min-height: 350px; }
-    
     .card-content { position: relative; z-index: 2; }
-    .status-tag { font-size: 10px; background: rgba(212, 175, 55, 0.2); color: #D4AF37; padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 12px; border: 1px solid rgba(212, 175, 55, 0.3); }
+    
+    .status-tag { font-family: var(--sans); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: var(--gold-dim); color: var(--gold); padding: 4px 10px; display: inline-block; margin-bottom: 16px; border: 1px solid rgba(201,168,76,0.3); }
 
-    .service-card h3 { color: #fff; margin: 0 0 10px 0; display: flex; align-items: center; gap: 10px; font-size: 24px; }
-    .service-card h3 i { color: #D4AF37; }
-    .service-card p { color: #ccc; font-size: 15px; line-height: 1.6; margin: 0; }
+    .service-card h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: 2px; color: var(--text); margin: 0 0 12px 0; display: flex; align-items: center; gap: 12px; }
+    .service-card h3 i { color: var(--gold); font-size: 20px; }
+    .service-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; font-weight: 300; }
 
     /* Workflow Section */
-    .workflow-section { text-align: left; width: 100%; margin-top: 40px; border-top: 1px solid #333; padding-top: 40px; }
-    .workflow-title { color: #D4AF37; font-size: 20px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; display: flex; align-items: center; gap: 10px; }
-    .timeline { position: relative; padding-left: 35px; }
-    .timeline::before { content: ''; position: absolute; left: 6px; top: 5px; bottom: 5px; width: 1px; background: #333; }
-    .step { position: relative; margin-bottom: 40px; }
-    .step-dot { position: absolute; left: -35px; width: 14px; height: 14px; background: #111; border: 2px solid #D4AF37; border-radius: 50%; top: 4px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-    .step h4 { color: #fff; margin: 0 0 8px 0; font-size: 18px; }
-    .step p { color: #888; font-size: 14px; line-height: 1.6; margin: 0; }
+    .workflow-section { text-align: left; width: 100%; margin-top: 20px; padding-top: 50px; border-top: 1px solid var(--border); }
+    .workflow-title { font-family: var(--serif); color: var(--gold); font-size: 26px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 12px; font-weight: 400; }
     
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #444;
-      margin: 40px auto;
-    }
+    .timeline { position: relative; padding-left: 35px; }
+    .timeline::before { content: ''; position: absolute; left: 6px; top: 5px; bottom: 5px; width: 1px; background: var(--border); }
+    
+    .step { position: relative; margin-bottom: 40px; }
+    .step-dot { position: absolute; left: -35px; width: 13px; height: 13px; background: var(--bg); border: 1px solid var(--gold); border-radius: 50%; top: 6px; box-shadow: 0 0 10px var(--gold-dim); transition: background 0.3s; }
+    .step:hover .step-dot { background: var(--gold); }
+    
+    .step h4 { font-family: var(--sans); font-weight: 500; letter-spacing: 1px; color: var(--text); margin: 0 0 8px 0; font-size: 14px; text-transform: uppercase; }
+    .step p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; font-weight: 300; }
 
     @media (max-width: 650px) { .bento-grid { grid-template-columns: 1fr; } .card-large { grid-column: span 1; } }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="top-line"></div>
+  <main class="page">
     
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-    
-    <a href="index.html" style="display: inline-block;">
-      <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
-    </a>
+    <div class="back-nav">
+      <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    </div>
 
-    <h1>Darinworks Services</h1>
-    <p class="subtitle">มาตรฐานวิศวกรรม เพื่องานคราฟต์ระดับมาสเตอร์พีซ</p>
+    <p class="logo-mark">Custom Engineering</p>
+    <h1 style="font-size: clamp(40px, 8vw, 60px);">Services</h1>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    <p class="subtitle" style="margin-bottom: 40px;">มาตรฐานวิศวกรรม เพื่องานคราฟต์ระดับมาสเตอร์พีซ</p>
 
     <div class="bento-grid">
       
@@ -218,16 +173,36 @@
     <div class="workflow-section">
       <div class="workflow-title"><i class="fa-solid fa-route"></i> Custom Crafting Workflow</div>
       <div class="timeline">
-        <div class="step"><div class="step-dot"></div><h4>1. Consultation</h4><p>วิเคราะห์สไตล์การเล่นและเลือกไม้หายากที่ตอบโจทย์โทนเสียงของคุณ</p></div>
-        <div class="step"><div class="step-dot"></div><h4>2. Engineering</h4><p>สร้าง 3D Model ด้วย Fusion 360 และคำนวณบาลานซ์จุดศูนย์ถ่วงเชิงลึก</p></div>
-        <div class="step"><div class="step-dot"></div><h4>3. Precision Crafting</h4><p>ขึ้นรูปด้วยเครื่อง CNC เพื่อความแม่นยำสูงสุด และขัดแต่งด้วยมืออาชีพ (Hand-finished)</p></div>
-        <div class="step"><div class="step-dot"></div><h4>4. Final Setup</h4><p>ปรับทัชชิ่งและทดสอบสมรรถนะขั้นสุดท้ายก่อนส่งมอบงานระดับ Masterpiece</p></div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>1. Consultation</h4>
+          <p>วิเคราะห์สไตล์การเล่นและเลือกไม้หายากที่ตอบโจทย์โทนเสียงของคุณ</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>2. Engineering</h4>
+          <p>สร้าง 3D Model ด้วย Fusion 360 และคำนวณบาลานซ์จุดศูนย์ถ่วงเชิงลึก</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>3. Precision Crafting</h4>
+          <p>ขึ้นรูปด้วยเครื่อง CNC เพื่อความแม่นยำสูงสุด และขัดแต่งด้วยมืออาชีพ (Hand-finished)</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>4. Final Setup</h4>
+          <p>ปรับทัชชิ่งและทดสอบสมรรถนะขั้นสุดท้ายก่อนส่งมอบงานระดับ Masterpiece</p>
+        </div>
       </div>
     </div>
 
     <div class="divider"></div>
-    <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    
+    <div style="text-align: center; width: 100%;">
+      <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Home</span></a>
+    </div>
 
-  </div>
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+  </main>
 </body>
 </html>
