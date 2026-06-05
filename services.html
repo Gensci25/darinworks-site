@@ -18,13 +18,16 @@
   
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
+  <!-- ดึงฟอนต์และไอคอน -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
   <link rel="stylesheet" href="css/darinworks.css">
 
+  <!-- สคริปต์ป้องกันการคลิกขวา/F12 -->
   <script>
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
@@ -42,95 +45,98 @@
   </script>
   
   <style>
-    /* ─── CSS เฉพาะหน้า Services (Bento & Timeline) ─── */
-    .back-nav { width: 100%; text-align: left; margin-bottom: 30px; }
-    .back-link { color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; display: inline-flex; align-items: center; gap: 8px; }
-    .back-link:hover { color: var(--gold); }
+    /* ─── CSS เฉพาะหน้า Services (ส่วนที่เหลือดึงจาก darinworks.css) ─── */
+    
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
 
     /* Bento Grid */
-    .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 60px; width: 100%; }
+    .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; margin-bottom: 70px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
     
     .service-card { 
+      position: relative; 
       background-color: var(--surface); 
       background-size: cover;
       background-position: center;
       border: 1px solid var(--border); 
-      padding: 30px; 
-      text-align: left; 
-      position: relative; 
-      overflow: hidden; 
+      padding: 40px 30px; 
       display: flex; 
       flex-direction: column; 
       justify-content: flex-end; 
-      min-height: 280px; 
-      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s; 
-      cursor: pointer; 
+      min-height: 320px; 
       text-decoration: none; 
       color: var(--text); 
+      overflow: hidden; 
+      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s; 
     }
     
-    /* Overlay ทำให้ตัวหนังสืออ่านง่ายขึ้น และดูพรีเมียม */
+    /* Overlay ให้ภาพดูดาร์กและหรูหรา */
     .service-card::before {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.95) 15%, rgba(10,10,10,0.4) 100%);
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 20%, rgba(10,10,10,0.3) 100%);
       z-index: 1; transition: opacity 0.4s;
     }
     
-    /* กรอบมุมแบบหน้าหลัก */
+    /* กรอบมุมขวาล่างสไตล์ Darinworks */
     .service-card::after {
       content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--gold); border-style: solid; 
       bottom: -1px; right: -1px; border-width: 0 1px 1px 0; opacity: 0; transition: opacity 0.4s; z-index: 3;
     }
 
-    .service-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.5); box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(201,168,76,0.1); }
-    .service-card:hover::before { background: linear-gradient(to top, rgba(10,10,10,0.98) 30%, rgba(10,10,10,0.2) 100%); }
+    .service-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 20px rgba(201,168,76,0.15); }
+    .service-card:hover::before { background: linear-gradient(to top, rgba(10,10,10,0.98) 30%, rgba(10,10,10,0.1) 100%); }
     .service-card:hover::after { opacity: 1; }
 
-    .card-large { grid-column: span 2; min-height: 350px; }
+    .card-large { grid-column: span 2; min-height: 380px; }
     .card-content { position: relative; z-index: 2; }
     
-    .status-tag { font-family: var(--sans); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: var(--gold-dim); color: var(--gold); padding: 4px 10px; display: inline-block; margin-bottom: 16px; border: 1px solid rgba(201,168,76,0.3); }
+    /* ป้าย Coming Soon */
+    .status-tag { font-family: var(--sans); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: var(--gold-dim); color: var(--gold); padding: 5px 10px; display: inline-block; margin-bottom: 16px; border: 1px solid rgba(201,168,76,0.3); border-radius: 2px; backdrop-filter: blur(4px); }
 
-    .service-card h3 { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: 2px; color: var(--text); margin: 0 0 12px 0; display: flex; align-items: center; gap: 12px; }
+    .service-card h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: 2px; color: var(--text); margin: 0 0 12px 0; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
     .service-card h3 i { color: var(--gold); font-size: 20px; }
-    .service-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; font-weight: 300; }
+    .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; font-weight: 300; }
 
     /* Workflow Section */
-    .workflow-section { text-align: left; width: 100%; margin-top: 20px; padding-top: 50px; border-top: 1px solid var(--border); }
-    .workflow-title { font-family: var(--serif); color: var(--gold); font-size: 26px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 12px; font-weight: 400; }
+    .workflow-section { width: 100%; margin-top: 20px; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+    .workflow-title { font-family: var(--serif); color: var(--gold); font-size: 24px; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 4px; display: flex; align-items: center; justify-content: center; gap: 14px; font-weight: 300; }
     
-    .timeline { position: relative; padding-left: 35px; }
+    .timeline { position: relative; padding-left: 35px; max-width: 600px; margin: 0 auto; }
     .timeline::before { content: ''; position: absolute; left: 6px; top: 5px; bottom: 5px; width: 1px; background: var(--border); }
     
     .step { position: relative; margin-bottom: 40px; }
-    .step-dot { position: absolute; left: -35px; width: 13px; height: 13px; background: var(--bg); border: 1px solid var(--gold); border-radius: 50%; top: 6px; box-shadow: 0 0 10px var(--gold-dim); transition: background 0.3s; }
-    .step:hover .step-dot { background: var(--gold); }
+    .step-dot { position: absolute; left: -34px; width: 11px; height: 11px; background: var(--bg); border: 1px solid var(--gold); border-radius: 50%; top: 6px; box-shadow: 0 0 10px var(--gold-dim); transition: all 0.3s; }
+    .step:hover .step-dot { background: var(--gold); transform: scale(1.3); }
     
-    .step h4 { font-family: var(--sans); font-weight: 500; letter-spacing: 1px; color: var(--text); margin: 0 0 8px 0; font-size: 14px; text-transform: uppercase; }
-    .step p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; font-weight: 300; }
+    .step h4 { font-family: var(--sans); font-weight: 500; letter-spacing: 2px; color: var(--text); margin: 0 0 8px 0; font-size: 13px; text-transform: uppercase; }
+    .step p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin: 0; font-weight: 300; }
 
-    @media (max-width: 650px) { .bento-grid { grid-template-columns: 1fr; } .card-large { grid-column: span 1; } }
+    @media (max-width: 650px) { .bento-grid { grid-template-columns: 1fr; } .card-large { grid-column: span 1; min-height: 280px; } }
   </style>
 </head>
 <body>
   <div class="top-line"></div>
   <main class="page">
     
-    <div class="back-nav">
-      <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-    </div>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
 
+    <!-- Header หน้า Services -->
     <p class="logo-mark">Custom Engineering</p>
-    <h1 style="font-size: clamp(40px, 8vw, 60px);">Services</h1>
+    <h1>SERVICES</h1>
+    
     <div class="ornament">
       <div class="ornament-line"></div>
       <div class="ornament-diamond"></div>
       <div class="ornament-line r"></div>
     </div>
-    <p class="subtitle" style="margin-bottom: 40px;">มาตรฐานวิศวกรรม เพื่องานคราฟต์ระดับมาสเตอร์พีซ</p>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">มาตรฐานวิศวกรรม เพื่องานคราฟต์ระดับมาสเตอร์พีซ</p>
 
+    <!-- ─── Core Services (Bento Grid) ─── -->
     <div class="bento-grid">
       
+      <!-- Card ใหญ่ -->
       <a href="custom-engineering.html" class="service-card card-large" style="background-image: url('images/services/your-custom-design.jpg');">
         <div class="card-content">
           <h3><i class="fa-solid fa-compass-drafting"></i> Custom Engineering & Design</h3>
@@ -138,6 +144,7 @@
         </div>
       </a>
 
+      <!-- Card เล็ก 1 -->
       <a href="guitar-clinic-detail.html" class="service-card" style="background-image: url('images/services/your-guitar-tools.jpg');">
         <div class="card-content">
           <h3><i class="fa-solid fa-guitar"></i> Guitar Clinic & Setup</h3>
@@ -145,14 +152,16 @@
         </div>
       </a>
 
+      <!-- Card เล็ก 2 -->
       <a href="cue-clinic-detail.html" class="service-card" style="background-image: url('images/services/your-cue-workshop.jpg');">
         <div class="card-content">
           <h3><i class="fa-solid fa-gavel"></i> The Cue Clinic</h3>
           <p>บริการดัดไม้คิวคด เปลี่ยนหัวคิวเกรดพรีเมียม และปรับตั้งจุดบาลานซ์ให้เข้ากับสรีระ</p>
         </div>
       </a>
-
-      <div class="service-card" style="background-image: url('images/services/your-academy-image.jpg');">
+      
+      <!-- Card Coming Soon 1 -->
+      <div class="service-card" style="background-image: url('images/services/your-academy-image.jpg'); cursor: default;">
         <div class="card-content">
           <div class="status-tag">Coming Soon</div>
           <h3><i class="fa-solid fa-graduation-cap"></i> Darinworks Academy</h3>
@@ -160,7 +169,8 @@
         </div>
       </div>
 
-      <div class="service-card" style="background-image: url('images/services/your-studio-image.jpg');">
+      <!-- Card Coming Soon 2 -->
+      <div class="service-card" style="background-image: url('images/services/your-studio-image.jpg'); cursor: default;">
         <div class="card-content">
           <div class="status-tag">Coming Soon</div>
           <h3><i class="fa-solid fa-sliders"></i> The Live Room</h3>
@@ -170,6 +180,7 @@
 
     </div>
 
+    <!-- ─── Workflow Section ─── -->
     <div class="workflow-section">
       <div class="workflow-title"><i class="fa-solid fa-route"></i> Custom Crafting Workflow</div>
       <div class="timeline">
@@ -198,9 +209,36 @@
 
     <div class="divider"></div>
     
-    <div style="text-align: center; width: 100%;">
-      <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Home</span></a>
+    <!-- Contact Strip สำหรับหน้านี้ -->
+    <div class="contact-strip" style="animation-delay: 0.6s;">
+      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <i class="fa-brands fa-line" aria-hidden="true"></i> ติดต่อประเมินราคา
+      </a>
+      <a href="https://wa.me/66845687670" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+      </a>
     </div>
+
+    <div class="divider" style="margin-top: 10px;"></div>
+
+    <!-- Nav Menu ALL CAPS พร้อม Highlight สีทองที่ SERVICES -->
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
+      <a href="index.html">HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="prototype.html">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="services.html" class="active" style="color: var(--gold-light); font-weight: 500;">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="faq.html">FAQ</a>
+    </nav>
 
     <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
   </main>
