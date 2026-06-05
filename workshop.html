@@ -14,7 +14,7 @@
   <meta name="theme-color" content="#0a0a0a">
   
   <title>Inside the Shop | Darinworks</title>
-  <meta name="description" content="เจาะลึกเบื้องหลังโรงงานกึ่งสตูดิโองานคราฟต์ของ Darinworks ชมกระบวนการสร้างสรรค์กีตาร์คัสตอมและไม้คิวสนุกเกอร์พรีเมียม">
+  <meta name="description" content="เจาะลึกเบื้องหลังโรงงานกึ่งสตูดิโอของ Darinworks ที่ผสานเทคโนโลยี CAD/CAM และงานฝีมือดั้งเดิม">
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,24 +48,6 @@
     .caption { padding: 25px; text-align: left; }
     .caption strong { display: block; color: var(--text); font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; font-weight: 500; }
     .caption p { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin: 0; }
-    .click-hint { color: var(--gold); font-size: 10px; margin-top: 12px; display: block; letter-spacing: 1px; }
-
-    /* Modal Styles */
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
-    .modal-content { position: relative; width: 90%; max-width: 800px; background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
-    .close-btn { position: absolute; top: 20px; right: 24px; font-size: 24px; color: var(--text-muted); cursor: pointer; transition: 0.3s; }
-    .close-btn:hover { color: var(--gold); transform: rotate(90deg); }
-    .modal-carousel-container { position: relative; width: 100%; }
-    .modal-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-    .modal-carousel::-webkit-scrollbar { display: none; }
-    .modal-carousel img { flex: 0 0 100%; width: 100%; max-height: 450px; object-fit: cover; scroll-snap-align: start; }
-    .carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,10,10,0.5); color: var(--text); border: 1px solid var(--border); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 10; transition: 0.3s; }
-    .carousel-arrow:hover { background: var(--gold-dim); color: var(--gold); border-color: var(--gold); }
-    .arrow-left { left: 10px; } .arrow-right { right: 10px; }
-    .modal-dots { text-align: center; padding: 20px 0; }
-    .dot { width: 6px; height: 6px; margin: 0 5px; background: var(--border); border-radius: 50%; cursor: pointer; transition: 0.3s; }
-    .dot.active { background: var(--gold); transform: scale(1.4); }
-    .modal-caption { font-size: 14px; color: var(--text-muted); text-align: left; line-height: 1.7; font-weight: 300; }
   </style>
 </head>
 <body>
@@ -85,23 +67,37 @@
     
     <p class="subtitle" style="margin-bottom: 50px;">เบื้องหลังงานวิศวกรรมและศาสตร์แห่งงานคราฟต์</p>
 
-    <!-- Sections Loop -->
-    <div class="shop-section-title"><i class="fa-solid fa-gears"></i> 1. ENGINEERING & MACHINERY</div>
+    <!-- SECTION 1 -->
+    <div class="shop-section-title"><i class="fa-solid fa-gears"></i> 1. Engineering & Machinery</div>
     <div class="gallery-grid">
-      <div class="gallery-item" onclick="openModal('cnc-modal')">
-        <img src="images/workshop/cnc-machining.jpg" alt="CNC Machining">
-        <div class="caption"><strong>CNC Automated Machining</strong> ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ความแม่นยำสูง <span class="click-hint">คลิกชมแกลเลอรี</span></div>
-      </div>
-      <div class="gallery-item" onclick="openModal('steel-modal')">
-        <img src="images/workshop/steel-table.jpg" alt="Steel Table">
-        <div class="caption"><strong>Heavy Steel Worktable</strong> แท่นประกอบเหล็กหนา 2 นิ้ว เพื่อความนิ่งสนิทระดับมิลลิเมตร <span class="click-hint">คลิกชมแกลเลอรี</span></div>
-      </div>
+      <div class="gallery-item"><img src="images/workshop/cnc-machining.jpg" alt="CNC"><div class="caption"><strong>CNC Automated Machining</strong> ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC</div></div>
+      <div class="gallery-item"><img src="images/workshop/steel-table.jpg" alt="Steel Table"><div class="caption"><strong>Heavy Steel Worktable</strong> แท่นประกอบเหล็กหนา 2 นิ้ว เพื่อความนิ่งสนิทระดับมิลลิเมตร</div></div>
     </div>
 
-    <!-- ... เพิ่มส่วนอื่นๆ ตามโครงสร้างที่คุณมีได้เลยครับ ... -->
+    <!-- SECTION 2 -->
+    <div class="shop-section-title"><i class="fa-solid fa-hammer"></i> 2. Artisan Bench & Hand Tools</div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/workshop/hand-tools.jpg" alt="Hand Tools"><div class="caption"><strong>Hand Tools & Precision Tuning</strong> คัดสรรสิ่วและกบเหล็ก เพื่อเก็บรายละเอียดในจุดที่คอมพิวเตอร์ทำแทนไม่ได้</div></div>
+      <div class="gallery-item"><img src="images/workshop/cad-station.jpg" alt="CAD Station"><div class="caption"><strong>3D Structural Design</strong> สถานีออกแบบ 3 มิติ คำนวณจุดศูนย์ถ่วงเชิงลึก</div></div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="shop-section-title"><i class="fa-solid fa-tree"></i> 3. Exotic Wood Storage</div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/workshop/wood-storage.jpg" alt="Wood Storage"><div class="caption"><strong>Climate-Controlled Storage</strong> พื้นที่บ่มไม้ดิบภายใต้การควบคุมความชื้นสัมพัทธ์ที่เหมาะสม</div></div>
+      <div class="gallery-item"><img src="images/workshop/exotic-selection.jpg" alt="Exotic Wood"><div class="caption"><strong>Exotic Masterpiece Selection</strong> คัดสรรเฉพาะไม้ไทยลายจัดจ้านและความหนาแน่นสูง</div></div>
+    </div>
+
+    <!-- SECTION 4 -->
+    <div class="shop-section-title"><i class="fa-solid fa-music"></i> 4. Creative & Share</div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/workshop/lounge-corner.jpg" alt="Lounge"><div class="caption"><strong>The Artisan's Sanctuary</strong> มุมพักผ่อนและจุดแลกเปลี่ยนไอเดียภายในช็อป</div></div>
+      <div class="gallery-item"><img src="images/workshop/shop-vibe.jpg" alt="Vibe"><div class="caption"><strong>The Creative Atmosphere</strong> บรรยากาศแรงบันดาลใจ ทุกงานผ่านการรับฟังเสียงอย่างตั้งใจ</div></div>
+    </div>
 
     <div class="divider"></div>
 
+    <!-- Nav Menu ALL CAPS -->
     <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">
       <a href="index.html">HOME</a>
       <span class="separator" aria-hidden="true">·</span>
@@ -119,30 +115,8 @@
       <span class="separator" aria-hidden="true">·</span>
       <a href="faq.html">FAQ</a>
     </nav>
+
     <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 0.9s forwards;">© Darinworks · Bangkok · Thailand</p>
   </main>
-
-  <!-- Modal Template (นำไปปรับชื่อ ID และรูปภาพต่อได้เลยครับ) -->
-  <div id="cnc-modal" class="modal-overlay" onclick="closeModal(event, 'cnc-modal')">
-    <div class="modal-content">
-      <span class="close-btn" onclick="closeModal(event, 'cnc-modal')">&times;</span>
-      <div class="modal-carousel-container">
-        <button class="carousel-arrow arrow-left" onclick="slideDirection('cnc-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="carousel-arrow arrow-right" onclick="slideDirection('cnc-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
-        <div class="modal-carousel" id="cnc-carousel">
-          <img src="images/workshop/cnc-machining.jpg" alt="CNC 1">
-          <img src="images/workshop/cnc-machining-2.jpg" alt="CNC 2">
-        </div>
-      </div>
-      <div class="modal-dots" id="cnc-dots"></div>
-      <div class="modal-caption"><strong>CNC Automated Machining</strong> ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ</div>
-    </div>
-  </div>
-
-  <script>
-    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-    function closeModal(e, id) { if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-btn') || e.target.tagName === 'SPAN') document.getElementById(id).style.display = 'none'; }
-    function slideDirection(id, dir) { const c = document.getElementById(id); c.scrollBy({ left: c.clientWidth * dir, behavior: 'smooth' }); }
-  </script>
 </body>
 </html>
