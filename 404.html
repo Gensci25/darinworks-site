@@ -2,13 +2,32 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
   <title>404 Page Not Found | Darinworks</title>
- <link rel="icon" type="image/png" href="/images/ui/favicon.png">
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
   <meta name="robots" content="noindex, follow"> 
   
+  <!-- ดึงฟอนต์และไอคอน -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <!-- สคริปต์ป้องกันการคลิกขวา/F12 ของคุณแบงค์ -->
   <script>
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
@@ -26,82 +45,93 @@
   </script>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
+    /* ─── CSS จัดกลางพิเศษสำหรับหน้า 404 ─── */
+    .error-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      justify-content: center;
+      min-height: 50vh;
+      width: 100%;
       text-align: center;
-      padding: 20px;
+      margin: 40px 0;
+      opacity: 0; 
+      animation: fadeUp 0.8s 0.2s forwards;
     }
-    .error-code {
-      font-size: 80px;
-      font-weight: bold;
-      color: #D4AF37;
-      margin: 0;
+    .error-number {
+      font-family: var(--serif);
+      font-size: clamp(80px, 15vw, 150px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: 10px;
       letter-spacing: 5px;
-      text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+      text-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
     }
-    .error-msg {
-      font-size: 20px;
-      color: #FFF;
-      margin: 10px 0 20px 0;
-    }
-    .error-desc {
+    .error-message {
       font-size: 14px;
-      color: #888;
-      margin-bottom: 40px;
+      color: var(--text-muted);
+      line-height: 1.8;
       max-width: 400px;
-      line-height: 1.6;
+      margin-bottom: 40px;
+      font-weight: 300;
     }
-    .btn-home {
-      display: inline-block;
-      padding: 12px 24px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #D4AF37;
-      color: #D4AF37;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .btn-home:hover {
-      background: #D4AF37;
-      color: #111;
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-      transform: translateY(-2px);
-    }
-    .btn-home i {
-      margin-right: 8px;
-    }
-    .logo-container {
-      margin-bottom: 30px;
-    }
-    .logo-container img {
-      width: 80px;
-      opacity: 0.8;
+    .page-logo { 
+      width: 60px; 
+      height: 60px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      border: 1px solid var(--border); 
+      margin-bottom: 30px; 
     }
   </style>
 </head>
 <body>
+  <div class="top-line"></div>
+  <main class="page">
+    
+    <div class="error-container">
+      <!-- โลโก้ -->
+      <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo">
+      
+      <!-- ข้อความ 404 -->
+      <h1 class="error-number">404</h1>
+      
+      <div class="ornament" style="margin-bottom: 20px;">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line r"></div>
+      </div>
+      
+      <p class="subtitle" style="margin-bottom: 20px;">PAGE NOT FOUND</p>
+      <p class="error-message">ขออภัย ไม่พบหน้าเว็บไซต์ที่คุณกำลังค้นหา<br>อาจมีการเปลี่ยนลิงก์ หรือเนื้อหาถูกย้ายไปแล้วครับ</p>
+      
+      <!-- ปุ่มกลับหน้าแรก -->
+      <a href="index.html" class="btn" style="max-width: 250px;"><span><i class="fa-solid fa-house" style="margin-right: 8px;"></i> กลับสู่หน้าหลัก</span></a>
+    </div>
 
-  <div class="logo-container">
-    <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo">
-  </div>
+    <div class="divider"></div>
 
-  <h1 class="error-code">404</h1>
-  <p class="error-msg">PAGE NOT FOUND</p>
-  <p class="error-desc">ขออภัย ไม่พบหน้าเว็บไซต์ที่คุณกำลังค้นหา อาจมีการเปลี่ยนลิงก์ หรือเนื้อหาถูกย้ายไปแล้วครับ</p>
-  
-  <a href="index.html" class="btn-home"><i class="fa-solid fa-house"></i> กลับสู่หน้าหลัก</a>
+    <!-- Nav Menu ALL CAPS -->
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
+      <a href="index.html">HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="prototype.html">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="faq.html">FAQ</a>
+    </nav>
 
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+  </main>
 </body>
 </html>
