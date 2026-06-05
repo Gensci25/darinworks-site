@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-D80CMSQ1YH');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Academy | Darinworks</title>
-  <link rel="icon" type="image/png" href="/images/ui/favicon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Academy | Darinworks Custom Engineering</title>
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <!-- ดึงฟอนต์และไอคอน -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-<!-- 🛡️ Script ป้องกันการ Copy และคลิกขวา (เด้งหน้ารหัส Matrix) -->
+  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <!-- 🛡️ Script ป้องกันการ Copy และคลิกขวา -->
   <script>
-    // ดักจับการคลิกขวาแล้วเตะไปหน้าใหม่ทันที
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
         window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
     });
-
-    // บล็อกคีย์ลัดสายส่อง (F12, Ctrl+U, Ctrl+Shift+I)
     document.onkeydown = function(e) {
         if (e.keyCode == 123 || 
             (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
@@ -38,162 +45,173 @@
   </script>
   
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111; /* คุมโทนพื้นหลังสีดำ */
-      color: white; /* ตัวหนังสือสีขาว */
-      min-height: 100vh;
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .container {
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-    }
-    
-    .back-btn {
-      display: inline-block;
-      color: #aaa;
-      text-decoration: none;
-      font-size: 14px;
-      margin-bottom: 30px;
-      transition: color 0.3s ease;
-      align-self: flex-start;
-      width: 100%;
-      text-align: left;
-    }
-    .back-btn:hover {
-      color: #D4AF37;
-    }
-    .back-btn i {
-      margin-right: 8px;
-    }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
-      letter-spacing: 1px;
-      color: #FFF;
-    }
-    .subtitle {
-      color: #D4AF37;
-      margin-bottom: 40px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+    /* ─── CSS เฉพาะหน้า Academy ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
 
     /* โซนคอร์สเรียน */
+    .course-list {
+      width: 100%;
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 20px auto 60px;
+    }
+
     .course-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 30px 20px;
-      margin-bottom: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 40px 35px;
       text-align: left;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      position: relative;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      animation: fadeUp 0.8s forwards;
     }
+    .course-card:nth-child(1) { animation-delay: 0.3s; }
+    .course-card:nth-child(2) { animation-delay: 0.4s; }
+    .course-card:nth-child(3) { animation-delay: 0.5s; }
+
+    .course-card::after {
+      content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--gold); border-style: solid; 
+      bottom: -1px; right: -1px; border-width: 0 1px 1px 0; opacity: 0; transition: opacity 0.4s;
+    }
+
     .course-card:hover {
-      transform: translateY(-3px);
-      border-color: #D4AF37;
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 20px rgba(201,168,76,0.05);
     }
-    
-    .status-badge {
-      background: rgba(212, 175, 55, 0.1);
-      color: #D4AF37;
-      display: inline-block;
-      padding: 4px 10px;
-      font-size: 12px;
-      border-radius: 4px;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
+    .course-card:hover::after { opacity: 1; }
+
+    .status-tag {
+      font-family: var(--sans); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; 
+      background: var(--gold-dim); color: var(--gold); padding: 5px 10px; display: inline-block; 
+      margin-bottom: 16px; border: 1px solid rgba(201,168,76,0.3); border-radius: 2px;
     }
 
     .course-card h3 {
-      margin: 0 0 10px 0;
-      font-size: 22px;
-      color: #FFF;
+      font-family: var(--serif);
+      margin: 0 0 12px 0;
+      font-size: 26px;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: 1px;
     }
+    
     .course-card p {
-      margin: 0 0 20px 0;
-      font-size: 15px;
-      color: #aaa;
-      line-height: 1.6;
-    }
-
-    /* ปุ่มลงชื่อจอง */
-    .waitlist-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #00C300;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
+      margin: 0 0 24px 0;
       font-size: 14px;
-      font-weight: bold;
-      transition: opacity 0.3s ease;
-    }
-    .waitlist-btn:hover {
-      opacity: 0.8;
-    }
-    .waitlist-btn i {
-      margin-right: 5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
     }
 
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #444;
-      margin: 40px auto 30px auto;
+    /* ปุ่มลงชื่อจองแบบ Premium LINE Style */
+    .waitlist-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: rgba(0, 195, 0, 0.08); /* สีเขียว LINE โปร่งแสง */
+      border: 1px solid rgba(0, 195, 0, 0.4);
+      color: #00C300;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .waitlist-btn i { font-size: 14px; }
+    
+    .waitlist-btn:hover {
+      background: #00C300;
+      color: #ffffff;
+      border-color: #00C300;
+      box-shadow: 0 0 15px rgba(0, 195, 0, 0.3);
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="top-line"></div>
+  <main class="page">
     
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    <!-- ปุ่มย้อนกลับ เลือกกลับไปหน้า Services เพราะเป็นหมวดหมู่ที่เชื่อมกัน -->
+    <a href="services.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Services</a>
 
-    <h1>Darinworks Academy</h1>
-    <p class="subtitle">ส่งต่อศาสตร์แห่งงานคราฟต์และวิศวกรรม</p>
-
-    <!-- คอร์สที่ 1: Cue Making -->
-    <div class="course-card">
-      <div class="status-badge">COMING SOON</div>
-      <h3>Precision Cue Making</h3>
-      <p>เรียนรู้ศิลปะการทำไม้คิวตั้งแต่การคัดเลือกไม้ การทำ Splicing การบาลานซ์น้ำหนัก ไปจนถึงการขึ้นรูปด้วยความแม่นยำสูง ถ่ายทอดจากประสบการณ์และเทคนิคทางวิศวกรรม</p>
-      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" class="waitlist-btn">
-        <i class="fa-brands fa-line"></i> Join Waitlist via LINE
-      </a>
+    <p class="logo-mark">Darinworks Academy</p>
+    <h1>ACADEMY</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
     </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">ส่งต่อศาสตร์แห่งงานคราฟต์และวิศวกรรม</p>
 
-    <!-- คอร์สที่ 2: Custom Guitar Building -->
-    <div class="course-card">
-      <div class="status-badge">COMING SOON</div>
-      <h3>Custom Guitar Building</h3>
-      <p>เจาะลึกศาสตร์แห่ง Luthier การสร้างกีตาร์ไฟฟ้าและอะคูสติก ตั้งแต่ทรงคลาสสิกอย่าง Stratocaster, Telecaster ไปจนถึงรูปทรงซับซ้อนสไตล์ PRS พร้อมเทคนิคการผสานไม้ไทยเข้ากับงานดีไซน์ระดับสากล</p>
-      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" class="waitlist-btn">
-        <i class="fa-brands fa-line"></i> Join Waitlist via LINE
-      </a>
-    </div>
+    <div class="course-list">
+      
+      <!-- คอร์สที่ 1: Cue Making -->
+      <div class="course-card">
+        <div class="status-tag">COMING SOON</div>
+        <h3>Precision Cue Making</h3>
+        <p>เรียนรู้ศิลปะการทำไม้คิวตั้งแต่การคัดเลือกไม้ การทำ Splicing การบาลานซ์น้ำหนัก ไปจนถึงการขึ้นรูปด้วยความแม่นยำสูง ถ่ายทอดจากประสบการณ์และเทคนิคทางวิศวกรรม</p>
+        <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="waitlist-btn">
+          <i class="fa-brands fa-line"></i> Join Waitlist
+        </a>
+      </div>
 
-    <!-- คอร์สที่ 3: Fusion 360 & CNC -->
-    <div class="course-card">
-      <div class="status-badge">COMING SOON</div>
-      <h3>Fusion 360 & CNC for Craftsmen</h3>
-      <p>ยกระดับงานไม้ด้วยเทคโนโลยี CAD/CAM เจาะลึกการใช้โปรแกรม Fusion 360 สำหรับออกแบบโครงสร้างกีตาร์และไม้คิว พร้อมการสร้าง G-Code เพื่อควบคุมเครื่อง CNC ให้ได้ชิ้นงานที่เป๊ะทุกมิลลิเมตร</p>
-      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" class="waitlist-btn">
-        <i class="fa-brands fa-line"></i> Join Waitlist via LINE
-      </a>
+      <!-- คอร์สที่ 2: Custom Guitar Building -->
+      <div class="course-card">
+        <div class="status-tag">COMING SOON</div>
+        <h3>Custom Guitar Building</h3>
+        <p>เจาะลึกศาสตร์แห่ง Luthier การสร้างกีตาร์ไฟฟ้าและอะคูสติก ตั้งแต่ทรงคลาสสิกอย่าง Stratocaster, Telecaster ไปจนถึงรูปทรงซับซ้อนสไตล์ PRS พร้อมเทคนิคการผสานไม้ไทยเข้ากับงานดีไซน์ระดับสากล</p>
+        <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="waitlist-btn">
+          <i class="fa-brands fa-line"></i> Join Waitlist
+        </a>
+      </div>
+
+      <!-- คอร์สที่ 3: Fusion 360 & CNC -->
+      <div class="course-card">
+        <div class="status-tag">COMING SOON</div>
+        <h3>Fusion 360 & CNC for Craftsmen</h3>
+        <p>ยกระดับงานไม้ด้วยเทคโนโลยี CAD/CAM เจาะลึกการใช้โปรแกรม Fusion 360 สำหรับออกแบบโครงสร้างกีตาร์และไม้คิว พร้อมการสร้าง G-Code เพื่อควบคุมเครื่อง CNC ให้ได้ชิ้นงานที่เป๊ะทุกมิลลิเมตร</p>
+        <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="waitlist-btn">
+          <i class="fa-brands fa-line"></i> Join Waitlist
+        </a>
+      </div>
+
     </div>
 
     <div class="divider"></div>
-    <a href="index.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+    
+    <div style="text-align: center; width: 100%; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;">
+      <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-house" style="margin-right: 8px;"></i> Back to Home</span></a>
+    </div>
 
-  </div>
+    <!-- Nav Menu ALL CAPS -->
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 0.7s forwards;">
+      <a href="index.html">HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="prototype.html">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
 </body>
 </html>
