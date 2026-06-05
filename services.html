@@ -18,16 +18,13 @@
   
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
-  <!-- ดึงฟอนต์และไอคอน -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
   <link rel="stylesheet" href="css/darinworks.css">
 
-  <!-- สคริปต์ป้องกันการคลิกขวา/F12 -->
   <script>
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
@@ -45,13 +42,10 @@
   </script>
   
   <style>
-    /* ─── CSS เฉพาะหน้า Services (ส่วนที่เหลือดึงจาก darinworks.css) ─── */
-    
     .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
     .back-btn:hover { color: var(--gold); }
     .back-btn i { font-size: 10px; }
 
-    /* Bento Grid */
     .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; margin-bottom: 70px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
     
     .service-card { 
@@ -71,14 +65,12 @@
       transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s; 
     }
     
-    /* Overlay ให้ภาพดูดาร์กและหรูหรา */
     .service-card::before {
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(10,10,10,0.95) 20%, rgba(10,10,10,0.3) 100%);
       z-index: 1; transition: opacity 0.4s;
     }
     
-    /* กรอบมุมขวาล่างสไตล์ Darinworks */
     .service-card::after {
       content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--gold); border-style: solid; 
       bottom: -1px; right: -1px; border-width: 0 1px 1px 0; opacity: 0; transition: opacity 0.4s; z-index: 3;
@@ -91,14 +83,12 @@
     .card-large { grid-column: span 2; min-height: 380px; }
     .card-content { position: relative; z-index: 2; }
     
-    /* ป้าย Coming Soon */
     .status-tag { font-family: var(--sans); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: var(--gold-dim); color: var(--gold); padding: 5px 10px; display: inline-block; margin-bottom: 16px; border: 1px solid rgba(201,168,76,0.3); border-radius: 2px; backdrop-filter: blur(4px); }
 
     .service-card h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: 2px; color: var(--text); margin: 0 0 12px 0; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
     .service-card h3 i { color: var(--gold); font-size: 20px; }
     .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; font-weight: 300; }
 
-    /* Workflow Section */
     .workflow-section { width: 100%; margin-top: 20px; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
     .workflow-title { font-family: var(--serif); color: var(--gold); font-size: 24px; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 4px; display: flex; align-items: center; justify-content: center; gap: 14px; font-weight: 300; }
     
@@ -121,7 +111,6 @@
     
     <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
 
-    <!-- Header หน้า Services -->
     <p class="logo-mark">Custom Engineering</p>
     <h1>SERVICES</h1>
     
@@ -133,10 +122,8 @@
     
     <p class="subtitle" style="margin-bottom: 50px;">มาตรฐานวิศวกรรม เพื่องานคราฟต์ระดับมาสเตอร์พีซ</p>
 
-    <!-- ─── Core Services (Bento Grid) ─── -->
     <div class="bento-grid">
       
-      <!-- Card ใหญ่ -->
       <a href="custom-engineering.html" class="service-card card-large" style="background-image: url('images/services/your-custom-design.jpg');">
         <div class="card-content">
           <h3><i class="fa-solid fa-compass-drafting"></i> Custom Engineering & Design</h3>
@@ -144,7 +131,6 @@
         </div>
       </a>
 
-      <!-- Card เล็ก 1 -->
       <a href="guitar-clinic-detail.html" class="service-card" style="background-image: url('images/services/your-guitar-tools.jpg');">
         <div class="card-content">
           <h3><i class="fa-solid fa-guitar"></i> Guitar Clinic & Setup</h3>
@@ -152,7 +138,6 @@
         </div>
       </a>
 
-      <!-- Card เล็ก 2 -->
       <a href="cue-clinic-detail.html" class="service-card" style="background-image: url('images/services/your-cue-workshop.jpg');">
         <div class="card-content">
           <h3><i class="fa-solid fa-gavel"></i> The Cue Clinic</h3>
@@ -160,16 +145,14 @@
         </div>
       </a>
       
-      <!-- Card Coming Soon 1 -->
-      <div class="service-card" style="background-image: url('images/services/your-academy-image.jpg'); cursor: default;">
+      <a href="academy.html" class="service-card" style="background-image: url('images/services/your-academy-image.jpg');">
         <div class="card-content">
-          <div class="status-tag">Coming Soon</div>
+          <div class="status-tag">Academy</div>
           <h3><i class="fa-solid fa-graduation-cap"></i> Darinworks Academy</h3>
           <p>หลักสูตรถ่ายทอดงานวิศวกรรมกว่า 20 ปี ผสานงาน Luthier และการใช้ CAD/CAM</p>
         </div>
-      </div>
+      </a>
 
-      <!-- Card Coming Soon 2 -->
       <div class="service-card" style="background-image: url('images/services/your-studio-image.jpg'); cursor: default;">
         <div class="card-content">
           <div class="status-tag">Coming Soon</div>
@@ -180,7 +163,6 @@
 
     </div>
 
-    <!-- ─── Workflow Section ─── -->
     <div class="workflow-section">
       <div class="workflow-title"><i class="fa-solid fa-route"></i> Custom Crafting Workflow</div>
       <div class="timeline">
@@ -209,7 +191,6 @@
 
     <div class="divider"></div>
     
-    <!-- Contact Strip สำหรับหน้านี้ -->
     <div class="contact-strip" style="animation-delay: 0.6s;">
       <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
         <i class="fa-brands fa-line" aria-hidden="true"></i> ติดต่อประเมินราคา
@@ -221,7 +202,6 @@
 
     <div class="divider" style="margin-top: 10px;"></div>
 
-    <!-- Nav Menu ALL CAPS พร้อม Highlight สีทองที่ SERVICES -->
     <nav class="minimal-tabs" aria-label="เมนูหลัก">
       <a href="index.html">HOME</a>
       <span class="separator" aria-hidden="true">·</span>
