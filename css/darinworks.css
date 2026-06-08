@@ -1,17 +1,13 @@
 :root {
-  /* เปลี่ยนจาก Gold/Black มาเป็นโทน Forest Earth */
-  --gold:        #B8860B;      /* สีทองสัมฤทธิ์ (Dark Goldenrod) */
-  --gold-light:  #CDAA7D;      /* สีครีมทองอ่อนๆ */
-  --gold-dim:    rgba(184,134,11,0.15); /* สัมฤทธิ์แบบโปร่ง */
-  
-  --bg:          #0f120f;      /* ดำอมเขียวเข้มขรึม */
-  --surface:     #161a16;      /* เข้มกว่า bg นิดหน่อย */
-  --surface-2:   #1c211c;
-  
-  --border:      rgba(184,134,11,0.25); /* ใช้สีทองสัมฤทธิ์เป็นเส้นขอบ */
-  --text:        #e0ded5;      /* สีครีมขาวนวล */
-  --text-muted:  #8f8b80;      /* เทาอมเขียวอ่อนๆ */
-  
+  --gold:        #C9A84C;
+  --gold-light:  #E8D5A3;
+  --gold-dim:    rgba(201,168,76,0.15);
+  --bg:          #0a0a0a;
+  --surface:     #111111;
+  --surface-2:   #171717;
+  --border:      rgba(201,168,76,0.18);
+  --text:        #f0ece4;
+  --text-muted:  #7a7570;
   --serif:       'Cormorant Garamond', Georgia, serif;
   --sans:        'Jost', sans-serif;
 }
