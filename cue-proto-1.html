@@ -11,157 +11,116 @@
   </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
   <title>The 10-Day Build (Ebony) | Darinworks</title>
+  <meta name="description" content="บันทึกการสร้างไม้คิวสนุกเกอร์คัสตอม 10 วันเต็ม เจาะลึกกระบวนการเข้าไม้ดำดง (Black Ebony) และระบบบาลานซ์น้ำหนักเชิงวิศวกรรม">
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <script>
-    document.addEventListener('contextmenu', function(event) {
-        event.preventDefault(); 
-        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-    });
+  <link rel="stylesheet" href="css/darinworks.css">
 
-    document.onkeydown = function(e) {
-        if (e.keyCode == 123 || 
-            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
-            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
-            
-            e.preventDefault();
-            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-            return false;
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = e => {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault(); return false;
         }
     }
   </script>
   
   <style>
-    body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; background: #111; color: white; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
-    .container { max-width: 600px; width: 100%; text-align: center; }
-    .back-btn { display: inline-block; color: #aaa; text-decoration: none; font-size: 14px; margin-bottom: 30px; text-align: left; transition: 0.3s; align-self: flex-start; width: 100%; }
-    .back-btn:hover { color: #D4AF37; }
-    .back-btn i { margin-right: 8px; }
-    .page-logo { width: 60px; margin-bottom: 20px; opacity: 0.9; }
-    h1 { margin: 0; font-size: 32px; letter-spacing: 1px; color: #FFF; }
-    .subtitle { color: #D4AF37; margin-bottom: 40px; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
+    /* ─── CSS เฉพาะหน้า Build Detail ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .timeline { display: flex; flex-direction: column; gap: 40px; width: 100%; max-width: 650px; margin: 20px auto 50px; }
     
-    /* Timeline & Items */
-    .timeline { display: flex; flex-direction: column; gap: 50px; margin-bottom: 50px; }
-    .timeline-item { background: rgba(255, 255, 255, 0.02); border: 1px solid #333; border-radius: 12px; overflow: hidden; text-align: left; position: relative; }
-    .day-badge { background: #D4AF37; color: #111; display: inline-block; padding: 6px 18px; font-weight: bold; font-size: 13px; border-bottom-right-radius: 10px; letter-spacing: 1px; position: absolute; top: 0; left: 0; z-index: 10; }
-    
-    /* ==================== โครงสร้างสไลด์ภาพ Carousel ==================== */
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      height: 380px; 
-      background: #090909;
+    .timeline-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
       overflow: hidden;
-      border-bottom: 1px solid #222;
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.8s forwards;
+      transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
     }
     
-    .carousel-track {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    
-    .carousel-slide {
-      min-width: 100%;
-      height: 100%;
-    }
-    
-    .carousel-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    /* Stagger Animation */
+    .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(6) { animation-delay: 0.7s; }
+    .timeline-item:nth-child(7) { animation-delay: 0.8s; }
+    .timeline-item:nth-child(8) { animation-delay: 0.9s; }
+
+    .timeline-item:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+
+    .day-badge {
+      background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); border-left: none; border-top: none;
+      display: inline-block; padding: 6px 14px; font-size: 10px; letter-spacing: 2px; font-family: var(--sans); text-transform: uppercase;
+      position: absolute; top: 0; left: 0; z-index: 10; backdrop-filter: blur(4px);
     }
 
-    /* ปุ่มลูกศร ซ้าย-ขวา */
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #FFF;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      z-index: 5;
-    }
-    .carousel-btn:hover {
-      background: #D4AF37;
-      color: #111;
-      border-color: #D4AF37;
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-    }
-    .carousel-btn.prev { left: 15px; }
-    .carousel-btn.next { right: 15px; }
+    .content { padding: 35px 30px; text-align: left; }
+    .content h3 { font-family: var(--serif); color: var(--gold); font-size: 22px; margin: 0 0 12px 0; font-weight: 400; letter-spacing: 1px; }
+    .content p { margin: 0; font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
 
-    /* ปุ่มจุดวงกลมบอกจำนวนรูป (Dots) */
-    .carousel-dots {
-      position: absolute;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 8px;
-      z-index: 5;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 5px 10px;
-      border-radius: 20px;
-    }
-    .dot {
-      width: 7px;
-      height: 7px;
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .dot.active {
-      background: #D4AF37;
-      transform: scale(1.2);
-    }
+    /* Carousel */
+    .carousel-container { position: relative; width: 100%; height: 380px; background: #000; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .carousel-slide { min-width: 100%; height: 100%; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.9); }
     
-    .content { padding: 25px; }
-    .content h3 { margin: 0 0 12px 0; font-size: 20px; color: #FFF; letter-spacing: 0.5px; }
-    .content p { margin: 0; font-size: 14px; color: #aaa; line-height: 1.6; }
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,10,10,0.55); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: all 0.3s; z-index: 5; backdrop-filter: blur(4px); }
+    .carousel-btn:hover { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
 
-    /* Video Section */
-    .final-video-section { text-align: left; margin-top: 20px; padding-top: 30px; border-top: 1px dashed #333; }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; margin-top: 15px; border: 1px solid #333; }
-    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-    
-    .divider { width: 50px; height: 1px; background: #444; margin: 40px auto 30px auto; }
+    .carousel-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; background: rgba(0,0,0,0.45); padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(4px); }
+    .dot { width: 5px; height: 5px; background: rgba(255,255,255,0.25); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+    .dot.active { background: var(--gold); transform: scale(1.4); }
 
-    @media (max-width: 480px) {
-      .carousel-container { height: 280px; }
-      h1 { font-size: 26px; }
-    }
+    .final-video-section { margin-top: 20px; padding-top: 50px; border-top: 1px solid var(--border); text-align: left; width: 100%; max-width: 650px; opacity: 0; animation: fadeUp 0.8s 1s forwards; }
+    .final-video-section h3 { font-family: var(--serif); color: var(--gold); font-size: 24px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 1px solid var(--border); background: #000; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    @media (max-width: 600px) { .carousel-container { height: 280px; } }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
-    <a href="index.html"><img src="images/ui/darin-guitar-logo.png" alt="Logo" class="page-logo"></a>
+  <div class="top-line"></div>
+  <main class="page">
+    
+    <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Series</a>
 
-    <h1>The 10-Day Build</h1>
-    <p class="subtitle">The Custom Snooker Cue (Ebony)</p>
+    <p class="logo-mark">Darinworks</p>
+    <h1>THE 10-DAY BUILD</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">The Custom Snooker Cue (Ebony)</p>
 
     <div class="timeline">
       
       <div class="timeline-item">
         <div class="day-badge">DAY 1</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day1.jpg" alt="Material Selection" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day1-2.jpg" alt="Ebony Wood Quality" loading="lazy"></div>
@@ -177,8 +136,8 @@
       <div class="timeline-item">
         <div class="day-badge">DAY 2</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day2-1.jpg" alt="Fusion 360 Design" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day2-2.jpg" alt="CNC Machining" loading="lazy"></div>
@@ -194,8 +153,8 @@
       <div class="timeline-item">
         <div class="day-badge">DAY 3</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day3.jpg" alt="Veneer Preparation" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day3-2.jpg" alt="Veneer Cutting" loading="lazy"></div>
@@ -211,8 +170,8 @@
       <div class="timeline-item">
         <div class="day-badge">DAY 4 - 5</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day4-1.jpg" alt="Hand Splicing" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day4-2.jpg" alt="Glue Curing" loading="lazy"></div>
@@ -228,8 +187,8 @@
       <div class="timeline-item">
         <div class="day-badge">DAY 6 - 7</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day6.jpg" alt="Rough Turning" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day6-2.jpg" alt="Seasoning Process" loading="lazy"></div>
@@ -245,8 +204,8 @@
       <div class="timeline-item">
         <div class="day-badge">DAY 8</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day8-1.jpg" alt="Hand Shaving" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day8-2.jpg" alt="Planer Work" loading="lazy"></div>
@@ -262,8 +221,8 @@
       <div class="timeline-item">
         <div class="day-badge">DAY 9</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day9.jpg" alt="Sanding Base" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day9-2.jpg" alt="Oil Finishing" loading="lazy"></div>
@@ -279,8 +238,8 @@
       <div class="timeline-item">
         <div class="day-badge">DAY 10</div>
         <div class="carousel-container">
-          <button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="carousel-track">
             <div class="carousel-slide"><img src="images/prototype/cue1-day10.jpg" alt="Final Assembly" loading="lazy"></div>
             <div class="carousel-slide"><img src="images/prototype/cue1-day10-2.jpg" alt="Cue Tip Work" loading="lazy"></div>
@@ -296,17 +255,35 @@
     </div>
 
     <div class="final-video-section">
-      <h3 style="margin-bottom:5px;"><i class="fa-solid fa-play"></i> Final Performance Test</h3>
-      <p style="color:#aaa; font-size:14px; margin: 0;">ทดสอบการส่งแรงแทงและฟีลลิ่งของไม้คิวตัวจริง</p>
+      <h3><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> Final Performance Test</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin: 0 0 20px 0; font-weight: 300;">ทดสอบการส่งแรงแทงและฟีลลิ่งของไม้คิวตัวจริง</p>
       <div class="video-container">
         <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
       </div>
     </div>
-    
-    <div class="divider"></div>
-    <a href="prototype.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Series</a>
 
-  </div>
+    <div class="divider" style="margin-top: 50px;"></div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 1.1s forwards;">
+      <a href="index.html">HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="prototype.html" class="active" style="color: var(--gold-light); font-weight: 500;">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 1.2s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
 
   <script>
     document.querySelectorAll('.timeline-item').forEach(item => {
