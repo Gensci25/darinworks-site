@@ -167,86 +167,25 @@
       </div>
     </div>
 
-    <div class="divider"></div>
+ <div class="divider"></div>
 
-    <!-- Nav Menu -->
-    <nav  aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 1.2s forwards;">
-      <a href="index.html">HOME</a>
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">
+      <a href="guitar-home.html">GUITAR HOME</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="gallery.html">GALLERY</a>
+      <a href="guitar-gallery.html">GALLERY</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="workshop.html">WORKSHOP</a>
+      <a href="guitar-workshop.html">WORKSHOP</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="prototype.html" class="active" style="color: var(--gold-light); font-weight: 500;">PROTOTYPE</a>
+      <a href="guitar-services.html">SERVICES</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="services.html">SERVICES</a>
+      <a href="guitar-about.html" class="active" style="color: var(--gold-light); font-weight: 500;">ABOUT</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="about.html">ABOUT</a>
-      <span class="separator" aria-hidden="true">·</span>
-      <a href="faq.html">FAQ</a>
+      <a href="guitar-faq.html">FAQ</a>
     </nav>
-    <p class="<nav  aria-label="เมนูหลัก">
-  <a href="guitar-home.html">HOME</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-gallery.html">GALLERY</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-workshop.html">WORKSHOP</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-prototype.html">PROTOTYPE</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-services.html">SERVICES</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-about.html">ABOUT US</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-faq.html">FAQ</a>
-</nav>" style="opacity: 0; animation: fadeUp 0.8s 1.3s forwards;">© Darinworks · Bangkok · Thailand</p>
-  <nav class="minimal-tabs" aria-label="เมนูหลัก">
-  <a href="guitar-home.html">HOME</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-gallery.html">GALLERY</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-workshop.html">WORKSHOP</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-prototype.html">PROTOTYPE</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-services.html">SERVICES</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-about.html">ABOUT US</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-faq.html">FAQ</a>
-</nav>
-</main>
 
-  <script>
-    // Carousel logic
-    document.querySelectorAll('.timeline-item').forEach(item => {
-      const track = item.querySelector('.carousel-track');
-      const slides = Array.from(track.children);
-      const nextBtn = item.querySelector('.carousel-btn.next');
-      const prevBtn = item.querySelector('.carousel-btn.prev');
-      const dotsWrap = item.querySelector('.carousel-dots');
-      let idx = 0;
-      slides.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.className = `dot ${i === 0 ? 'active' : ''}`;
-        dot.onclick = () => move(i);
-        dotsWrap.appendChild(dot);
-      });
-      const dots = dotsWrap.querySelectorAll('.dot');
-      function move(i) {
-        idx = (i + slides.length) % slides.length;
-        track.style.transform = `translateX(-${idx * 100}%)`;
-        dots.forEach((d, n) => d.classList.toggle('active', n === idx));
-      }
-      nextBtn.onclick = () => move(idx + 1);
-      prevBtn.onclick = () => move(idx - 1);
-    });
-  </script>
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 0.9s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
 </body>
 </html>

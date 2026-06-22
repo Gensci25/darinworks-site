@@ -201,109 +201,25 @@
       </a>
     </div>
 
-    <div class="divider" style="margin-top: 10px;"></div>
+<div class="divider"></div>
 
-    <nav  aria-label="เมนูหลัก">
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">
       <a href="guitar-home.html">GUITAR HOME</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="guitar-gallery.html" class="active" style="color: var(--gold-light); font-weight: 500;">GALLERY</a>
+      <a href="guitar-gallery.html">GALLERY</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-workshop.html">WORKSHOP</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="guitar-prototype.html">PROTOTYPE</a>
-      <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-services.html">SERVICES</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="guitar-about.html">ABOUT</a>
+      <a href="guitar-about.html" class="active" style="color: var(--gold-light); font-weight: 500;">ABOUT</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-faq.html">FAQ</a>
     </nav>
 
-    <p class="<nav  aria-label="เมนูหลัก">
-  <a href="guitar-home.html">HOME</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-gallery.html">GALLERY</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-workshop.html">WORKSHOP</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-prototype.html">PROTOTYPE</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-services.html">SERVICES</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-about.html">ABOUT US</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-faq.html">FAQ</a>
-</nav>">© Darinworks · Bangkok · Thailand</p>
-  <nav class="minimal-tabs" aria-label="เมนูหลัก">
-  <a href="guitar-home.html">HOME</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-gallery.html">GALLERY</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-workshop.html">WORKSHOP</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-prototype.html">PROTOTYPE</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-services.html">SERVICES</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-about.html">ABOUT US</a>
-  <span class="separator" aria-hidden="true">·</span>
-  <a href="guitar-faq.html">FAQ</a>
-</nav>
-</main>
-
-  <script>
-    // สคริปต์ควบคุม Carousel
-    document.querySelectorAll('.carousel-container').forEach(container => {
-      const track = container.querySelector('.carousel-track');
-      const slides = Array.from(track.children);
-      const nextBtn = container.querySelector('.carousel-btn.next');
-      const prevBtn = container.querySelector('.carousel-btn.prev');
-      const dotsWrap = container.querySelector('.carousel-dots');
-      let current = 0;
-
-      if (slides.length <= 1) {
-        if (nextBtn) nextBtn.style.display = 'none';
-        if (prevBtn) prevBtn.style.display = 'none';
-        return;
-      }
-
-      slides.forEach((_, i) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(dot);
-      });
-
-      const dots = dotsWrap.querySelectorAll('.dot');
-
-      function goTo(index) {
-        if (index < 0) index = slides.length - 1;
-        if (index >= slides.length) index = 0;
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach(d => d.classList.remove('active'));
-        dots[index].classList.add('active');
-        current = index;
-      }
-
-      nextBtn.addEventListener('click', () => goTo(current + 1));
-      prevBtn.addEventListener('click', () => goTo(current - 1));
-
-      let touchStartX = 0;
-      container.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-      container.addEventListener('touchend', e => {
-        const diff = touchStartX - e.changedTouches[0].screenX;
-        if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
-      }, { passive: true });
-    });
-  </script>
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 0.9s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
 </body>
 </html>

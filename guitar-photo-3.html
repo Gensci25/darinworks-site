@@ -389,78 +389,25 @@
     </div>
 
     <div class="divider"></div>
-    <a href="prototype.html" class="back-btn" style="text-align: center; width: auto;"><i class="fa-solid fa-arrow-left"></i> Back to Prototype Series</a>
+ <div class="divider"></div>
 
-  </div>
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">
+      <a href="guitar-home.html">GUITAR HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-about.html" class="active" style="color: var(--gold-light); font-weight: 500;">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-faq.html">FAQ</a>
+    </nav>
 
-  <script>
-    document.querySelectorAll('.timeline-item').forEach(item => {
-      const container = item.querySelector('.carousel-container');
-      if (!container) return;
-
-      const track = container.querySelector('.carousel-track');
-      const slides = Array.from(track.children);
-      const nextButton = container.querySelector('.carousel-btn.next');
-      const prevButton = container.querySelector('.carousel-btn.prev');
-      const dotsContainer = container.querySelector('.carousel-dots');
-      
-      let currentIndex = 0;
-
-      // 1. สร้างจุดกลมๆ (Dots) ตามจำนวนรูปภาพจริงโดยอัตโนมัติ
-      slides.forEach((slide, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dotsContainer.appendChild(dot);
-        
-        // คลิกที่จุดแล้วสไลด์เปลี่ยนรูป
-        dot.addEventListener('click', () => {
-          goToSlide(index);
-        });
-      });
-
-      const dots = dotsContainer.querySelectorAll('.dot');
-
-      // 2. ฟังก์ชันหลักสำหรับเลื่อนสไลด์
-      const goToSlide = (index) => {
-        if (index < 0) index = slides.length - 1; // วนกลับไปรูปสุดท้าย
-        if (index >= slides.length) index = 0; // วนกลับไปรูปแรก
-        
-        track.style.transform = `translateX(-${index * 100}%)`;
-        
-        // อัปเดตสถานะจุดเมนูด้านล่าง
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].add('active');
-        
-        currentIndex = index;
-      };
-
-      // 3. ผูกคำสั่งกับปุ่ม ลูกศรซ้าย-ขวา
-      nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
-      prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
-
-      // 4. รองรับระบบลากนิ้วบนหน้าจอมือถือ (Touch Swipe Support)
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      container.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      container.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      }, { passive: true });
-
-      const handleSwipe = () => {
-        const swipeThreshold = 50; // ระยะลากนิ้วขั้นต่ำ (พิกเซล)
-        if (touchStartX - touchEndX > swipeThreshold) {
-          goToSlide(currentIndex + 1); // ปัดซ้ายเปลี่ยนไปรูปถัดไป
-        } else if (touchEndX - touchStartX > swipeThreshold) {
-          goToSlide(currentIndex - 1); // ปัดขวาย้อนกลับรูปเก่า
-        }
-      };
-    });
-  </script>
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 0.9s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
 </body>
 </html>
