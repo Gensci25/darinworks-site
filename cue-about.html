@@ -42,12 +42,10 @@
   </script>
 
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
   <link rel="stylesheet" href="css/darinworks.css">
 
   <script>
@@ -75,6 +73,7 @@
     .story-block:nth-child(1) { animation-delay: 0.4s; }
     .story-block:nth-child(2) { animation-delay: 0.5s; }
     .story-block:nth-child(3) { animation-delay: 0.6s; }
+    .story-block:nth-child(4) { animation-delay: 0.7s; }
     
     @media (min-width: 769px) {
       .story-block.reverse .story-img-wrap { order: 2; }
@@ -93,7 +92,7 @@
     .highlight { color: var(--text); font-weight: 400; }
     .highlight-gold { color: var(--gold-light); font-weight: 400; }
 
-    .quote-box { position: relative; border-left: 1px solid var(--gold); padding: 30px 0 30px 40px; margin: 60px auto; max-width: 700px; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
+    .quote-box { position: relative; border-left: 1px solid var(--gold); padding: 30px 0 30px 40px; margin: 60px auto; max-width: 700px; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
     .quote-box::before { content: '"'; position: absolute; left: -10px; top: 15px; font-family: var(--serif); font-size: 60px; color: var(--gold-dim); line-height: 1; }
     .quote-text { font-family: var(--serif); font-size: 24px; font-style: italic; color: var(--text); line-height: 1.5; font-weight: 300; }
     .quote-author { display: block; margin-top: 20px; font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-family: var(--sans); }
@@ -144,16 +143,74 @@
       
       <div class="story-block">
         <div class="story-img-wrap">
-          <img class="story-img" src="images/about/bank-profile.jpg" alt="ช่างแบงค์ Darin Cues" loading="lazy">
+          <img class="story-img" src="images/about/snooker-start.jpg" alt="จุดเริ่มต้นความหลงใหลในสนุกเกอร์" loading="lazy">
         </div>
         <div class="story-text">
-          <h2>จากระบบเครือข่าย<br>สู่เส้นสายของลายไม้</h2>
-          <p>หลายคนอาจสงสัยว่า ทำไมผู้ชายที่ขลุกอยู่กับสายงาน IT Infrastructure และ Operations มาตั้งแต่ปี 2005 ถึงหันมาหลงใหลในกลิ่นขี้เลื่อยและงานทำไม้คิว?</p>
-          <p>ตลอดระยะเวลากว่า 20 ปีในการออกแบบและบริหารจัดการระบบ สิ่งเหล่านี้ได้หล่อหลอม <span class="highlight">"กระบวนการคิดแบบวิศวกร"</span> ให้กับผม ทุกปัญหามีโครงสร้าง และทุกผลลัพธ์เกิดจากการคำนวณที่ไร้ข้อผิดพลาด</p>
-          <p>จนกระทั่งได้ผสานเข้ากับความหลงใหลในกีฬาสนุกเกอร์ ผมจึงตั้งคำถามว่า จะเกิดอะไรขึ้นถ้าเราเอา "ความแม่นยำของวิศวกรรม" มาจัดระเบียบ "ศาสตร์แห่งการทำไม้คิวคัสตอม" ที่ต้องการความละเอียดอ่อนระดับมิลลิเมตร</p>
+          <h2>ทุกอย่างเริ่มต้นจาก<br>ภาพความทรงจำ</h2>
+          <p>สมัยที่ยังเป็นเด็ก ผมมักจะแอบมองผู้ใหญ่หลายคนกำลังขะมักเขม้นอยู่กับกีฬาชนิดหนึ่งเสมอ ในตอนนั้นผมยังไม่รู้ด้วยซ้ำว่ามันเรียกว่าอะไร รู้เพียงแค่ว่าทุกคนต่างมีสมาธิ และดูมีความสุขกับมันเป็นพิเศษ จนมารู้ในภายหลังว่านั่นคือ <strong>"สนุกเกอร์"</strong></p>
+          <p>วันหนึ่งผมได้ลองหยิบไม้คิวขึ้นมาแทงดู และนั่นคือจุดเริ่มต้นของคำถามที่ติดอยู่ในใจ... ทำไมนักกีฬาถึงต้องมีไม้คิวเป็นของตัวเอง? อะไรคือสิ่งที่ทำให้ไม้คิวแต่ละด้ามแตกต่างกัน?</p>
         </div>
       </div>
 
       <div class="story-block reverse">
         <div class="story-img-wrap">
-          <img class="story-img
+          <img class="story-img" src="images/about/challenge.jpg" alt="ความพยายามในการเรียนรู้" loading="lazy">
+        </div>
+        <div class="story-text">
+          <h2>ความฝันที่ไม่ยอมแพ้<br>ในโลกที่หวงวิชา</h2>
+          <p>แม้เข้าสู่วัยทำงาน ความหลงใหลนี้ไม่เคยหายไป แต่เมื่อผมเริ่มศึกษาจริงจัง ผมกลับพบว่าโลกของการทำไม้คิวนั้นเต็มไปด้วยความลับ ข้อมูลมีจำกัด และช่างหลายคนยังคงหวงวิชาเพราะกังวลว่าจะสร้างคู่แข่ง</p>
+          <p>ผมพยายามขอเรียนรู้จากหลายที่ แต่ค่าวิชาที่ถูกเรียกเก็บนั้นสูงเกินกว่าจะเข้าถึงได้ แต่ในความยากลำบาก ผมไม่เคยยอมแพ้ต่อความตั้งใจของตัวเอง จนกระทั่งผมได้พบกับโอกาสที่เปิดประตูให้คนธรรมดาอย่างผมได้เข้าไปเรียนรู้ศาสตร์นี้อย่างจริงจัง</p>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="story-img-wrap">
+          <img class="story-img" src="images/about/crafting.jpg" alt="งานคราฟต์ไม้คิว" loading="lazy">
+        </div>
+        <div class="story-text">
+          <h2>ศาสตร์ ศิลป์<br>และวิศวกรรมไม้คิว</h2>
+          <p>ผมทุ่มเทเวลาเรียนรู้ทุกขั้นตอน ตั้งแต่การคัดเลือกไม้ การวางสมดุลน้ำหนัก การเข้าสลักไม้ (Splicing) ไปจนถึงรายละเอียดที่ส่งผลต่อการใช้งานจริง ยิ่งได้ลงมือทำ ผมยิ่งพบว่าการทำไม้คิวไม่ใช่แค่การผลิตอุปกรณ์ แต่มันคือการผสมผสาน <strong>ศาสตร์ วิศวกรรม และงานฝีมือ</strong> เข้าด้วยกัน</p>
+          <p>ไม้คิวทุกด้ามมีเอกลักษณ์ ทุกขั้นตอนต้องอาศัยความละเอียด ความอดทน และความใส่ใจในรายละเอียดอย่างมาก</p>
+        </div>
+      </div>
+
+      <div class="story-block reverse">
+        <div class="story-img-wrap">
+          <img class="story-img" src="images/about/darin-cues-vision.jpg" alt="Darin Cues Vision" loading="lazy">
+        </div>
+        <div class="story-text">
+          <h2>บันทึกการเดินทาง<br>ภายใต้ Darin Cues</h2>
+          <p>เว็บไซต์แห่งนี้ถูกสร้างขึ้นเพื่อบันทึกประสบการณ์และการเรียนรู้ของผม ผมไม่ได้มองตัวเองว่าเป็นผู้เชี่ยวชาญที่รู้ทุกอย่าง แต่เป็นคนธรรมดาที่ยังคงเรียนรู้และพัฒนาผลงานอยู่เสมอ</p>
+          <p>ผมหวังว่าพื้นที่เล็ก ๆ แห่งนี้จะเป็นแรงบันดาลใจให้กับทุกคนที่หลงใหลในสนุกเกอร์และงานฝีมือ เพราะบางครั้งความฝันที่ยิ่งใหญ่ ก็เริ่มต้นจากคำถามเล็ก ๆ เพียงคำถามเดียวว่า <em>"ทำไมคนที่รักในกีฬาชนิดนี้ ถึงต้องมีไม้คิวเป็นของตัวเอง"</em></p>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        <div class="quote-text">บางครั้งความฝันที่ยิ่งใหญ่ อาจเริ่มต้นจากคำถามเล็ก ๆ เพียงคำถามเดียว... และนั่นคือเหตุผลที่ผมเริ่มต้นการเดินทางครั้งนี้</div>
+        <span class="quote-author">— ช่างแบงค์, Founder of Darin Cues</span>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">
+      <a href="cue-home.html">CUE HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">FEEL TEST</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-about.html" class="active" style="color: var(--gold-light); font-weight: 500;">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 0.9s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
+</body>
+</html>
