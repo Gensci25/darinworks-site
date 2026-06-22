@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Services | Darin Guitar Custom Shop</title>
+  <meta name="description" content="บริการโดยช่างลูธีร์ (Luthier) ระดับพรีเมียม รับสั่งทำกีตาร์คัสตอมแฮนด์เมด พร้อมบริการซ่อม เซ็ตอัพ ทำเฟรต (Fretwork) โดยมาตรฐานวิศวกรรม">
+  
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <script>
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault(); 
+        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+    });
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
+            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
+            e.preventDefault();
+            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+            return false;
+        }
+    }
+  </script>
+  
+  <style>
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; width: 100%; margin-bottom: 70px; opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+    
+    .service-card { 
+      position: relative; 
+      background-color: var(--surface); 
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--border); 
+      padding: 40px 30px; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: flex-end; 
+      min-height: 320px; 
+      text-decoration: none; 
+      color: var(--text); 
+      overflow: hidden; 
+      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.4s; 
+    }
+    
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 20%, rgba(10,10,10,0.3) 100%);
+      z-index: 1; transition: opacity 0.4s;
+    }
+    
+    .service-card::after {
+      content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--gold); border-style: solid; 
+      bottom: -1px; right: -1px; border-width: 0 1px 1px 0; opacity: 0; transition: opacity 0.4s; z-index: 3;
+    }
+
+    .service-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 20px rgba(201,168,76,0.15); }
+    .service-card:hover::before { background: linear-gradient(to top, rgba(10,10,10,0.98) 30%, rgba(10,10,10,0.1) 100%); }
+    .service-card:hover::after { opacity: 1; }
+
+    .card-large { grid-column: span 2; min-height: 380px; }
+    .card-content { position: relative; z-index: 2; }
+    
+    .status-tag { font-family: var(--sans); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; background: var(--gold-dim); color: var(--gold); padding: 5px 10px; display: inline-block; margin-bottom: 16px; border: 1px solid rgba(201,168,76,0.3); border-radius: 2px; backdrop-filter: blur(4px); }
+
+    .service-card h3 { font-family: var(--serif); font-size: 26px; font-weight: 400; letter-spacing: 2px; color: var(--text); margin: 0 0 12px 0; display: flex; align-items: center; gap: 12px; text-transform: uppercase; }
+    .service-card h3 i { color: var(--gold); font-size: 20px; }
+    .service-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin: 0; font-weight: 300; }
+
+    .workflow-section { width: 100%; margin-top: 20px; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+    .workflow-title { font-family: var(--serif); color: var(--gold); font-size: 24px; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 4px; display: flex; align-items: center; justify-content: center; gap: 14px; font-weight: 300; }
+    
+    .timeline { position: relative; padding-left: 35px; max-width: 600px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; left: 6px; top: 5px; bottom: 5px; width: 1px; background: var(--border); }
+    
+    .step { position: relative; margin-bottom: 40px; }
+    .step-dot { position: absolute; left: -34px; width: 11px; height: 11px; background: var(--bg); border: 1px solid var(--gold); border-radius: 50%; top: 6px; box-shadow: 0 0 10px var(--gold-dim); transition: all 0.3s; }
+    .step:hover .step-dot { background: var(--gold); transform: scale(1.3); }
+    
+    .step h4 { font-family: var(--sans); font-weight: 500; letter-spacing: 2px; color: var(--text); margin: 0 0 8px 0; font-size: 13px; text-transform: uppercase; }
+    .step p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin: 0; font-weight: 300; }
+
+    @media (max-width: 650px) { .bento-grid { grid-template-columns: 1fr; } .card-large { grid-column: span 1; min-height: 280px; } }
+  </style>
+</head>
+<body class="theme-guitar">
+  <header class="sticky-header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+        <a href="guitar-gallery.html">Gallery</a>
+        <a href="guitar-workshop.html">Workshop</a>
+        <a href="guitar-services.html" class="active">Services</a>
+        <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">Sound Check</a>
+        <a href="guitar-about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="top-line"></div>
+  <main class="page">
+
+    <div class="brand-logo-container">
+      <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar" style="margin: 0 auto; display: block;">
+    </div>
+    
+    <a href="guitar-home.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Darin Guitar</a>
+
+    <p class="logo-mark">Custom Engineering & Setup</p>
+    <h1>GUITAR SERVICES</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">มาตรฐานวิศวกรรม เพื่องานคราฟต์ระดับมาสเตอร์พีซ</p>
+
+    <div class="bento-grid">
+      
+      <a href="https://line.me/ti/p/B2bKUN2Z25" class="service-card card-large" target="_blank" rel="noopener noreferrer" style="background-image: url('images/services/guitar-custom-design.jpg');">
+        <div class="card-content">
+          <h3><i class="fa-solid fa-compass-drafting"></i> Custom Guitar Building</h3>
+          <p>บริการสั่งทำกีตาร์คัสตอมแบบเฉพาะตัว คำนวณโครงสร้างเชิงวิศวกรรมด้วย Fusion 360 ขึ้นรูปด้วย CNC และขัดแต่งเหลาคอด้วยมือ (Hand-carved) พร้อมแมตช์ไม้ไทยหายาก</p>
+        </div>
+      </a>
+
+      <a href="https://line.me/ti/p/B2bKUN2Z25" class="service-card" target="_blank" rel="noopener noreferrer" style="background-image: url('images/services/guitar-clinic-tools.jpg');">
+        <div class="card-content">
+          <h3><i class="fa-solid fa-screwdriver-wrench"></i> Guitar Clinic & Setup</h3>
+          <p>คืนสมรรถนะสูงสุดด้วยบริการซ่อม เซ็ตอัพแอคชัน อินโทเนชัน และทำเฟรตเต็มระบบ (Fret Leveling & Crowning) วัดค่าแม่นยำระดับมิลลิเมตร</p>
+        </div>
+      </a>
+      
+      <a href="#" class="service-card" style="background-image: url('images/services/guitar-academy.jpg'); cursor: default;">
+        <div class="card-content">
+          <div class="status-tag">Academy</div>
+          <h3><i class="fa-solid fa-graduation-cap"></i> Luthier Academy</h3>
+          <p>หลักสูตรถ่ายทอดงานวิศวกรรมกว่า 20 ปี ผสานงานช่างทำกีตาร์ (Luthier) และการใช้โปรแกรม CAD/CAM สำหรับสร้างเครื่องดนตรี</p>
+        </div>
+      </a>
+
+      <div class="service-card" style="background-image: url('images/services/guitar-studio.jpg'); cursor: default;">
+        <div class="card-content">
+          <div class="status-tag">Coming Soon</div>
+          <h3><i class="fa-solid fa-sliders"></i> The Live Room</h3>
+          <p>ห้องซ้อมดนตรีและสตูดิโอที่ออกแบบพื้นที่ตามหลัก Acoustic Engineering เพื่อสัมผัสโทนเสียงที่แท้จริงของเครื่องดนตรีคุณ</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="workflow-section">
+      <div class="workflow-title"><i class="fa-solid fa-route"></i> Custom Build Workflow</div>
+      <div class="timeline">
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>1. Consultation & Wood Selection</h4>
+          <p>วิเคราะห์สไตล์การเล่น ทรงกีตาร์ที่ต้องการ และร่วมกันคัดเลือกไม้หายาก (Tonewoods) ที่ตอบโจทย์คาแรคเตอร์เสียงของคุณ</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>2. Engineering & CAD Design</h4>
+          <p>สร้าง 3D Model ด้วยโปรแกรม Fusion 360 คำนวณมวลไม้และจัดวางบาลานซ์จุดศูนย์ถ่วงเชิงลึก</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>3. Precision Crafting & Carving</h4>
+          <p>ขึ้นรูปบอดี้ด้วยเครื่อง CNC เพื่อความสมมาตรสูงสุด และเข้าสู่กระบวนการเหลาคอ (Neck Carving) ด้วยมือช่างระดับมืออาชีพ</p>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <h4>4. Fretwork & Final Setup</h4>
+          <p>เดินวงจรไฟฟ้า ติดตั้งฮาร์ดแวร์ ตีและปาดเฟรตให้สมบูรณ์ ก่อนเซ็ตอัพทัชชิ่งขั้นสุดท้ายเพื่อส่งมอบงานระดับ Masterpiece</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    
+    <div class="contact-strip" style="animation-delay: 0.6s;">
+      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <i class="fa-brands fa-line" aria-hidden="true"></i> ติดต่อประเมินราคา / จองคิวเซ็ตอัพ
+      </a>
+      <a href="https://wa.me/66845687670" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+      </a>
+    </div>
+
+    <div class="divider" style="margin-top: 10px;"></div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
+      <a href="guitar-home.html">GUITAR HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-prototype.html">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-services.html" class="active" style="color: var(--gold-light); font-weight: 500;">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+  </main>
+</body>
+</html>
