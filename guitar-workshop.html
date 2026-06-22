@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Inside the Shop | Darin Guitar Thailand</title>
+  
+  <meta name="description" content="เจาะลึกเบื้องหลังเวิร์กชอปงานคราฟต์ของ Darin Guitar ชมกระบวนการสร้างสรรค์กีตาร์คัสตอมพรีเมียม การทำ Fretwork เหลาคอ (Neck Carving) และการเซ็ตอัพระดับวิศวกรรม">
+  <meta name="keywords" content="ช่างทำกีตาร์, สั่งทำกีตาร์, กีตาร์คัสตอม, Custom Guitar, Luthier, Fretwork, Neck Carving, เครื่องมือช่าง, Fusion 360, CNC Machining">
+  <meta name="author" content="Darin Guitar">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="./css/darinworks.css">
+
+  <script>
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault(); 
+        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+    });
+
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
+            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
+            
+            e.preventDefault();
+            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+            return false;
+        }
+    }
+  </script>
+  
+  <style>
+    /* =========================================
+       Main Layout Styles 
+    ========================================= */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+    
+    .shop-section-title { font-family: var(--serif); color: var(--gold); font-size: 20px; margin: 60px 0 25px 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 2px; opacity: 0; animation: fadeUp 0.8s forwards; }
+    
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s forwards; }
+    .gallery-item { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.4s; cursor: pointer; }
+    .gallery-item:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .gallery-item img { width: 100%; height: 260px; object-fit: cover; display: block; filter: brightness(0.85); transition: 0.4s; border-bottom: 1px solid var(--border); }
+    .gallery-item:hover img { filter: brightness(1.1); }
+    
+    .caption { padding: 25px; text-align: left; }
+    .caption strong { display: block; color: var(--text); font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; font-weight: 500; font-family: var(--sans); }
+    .caption { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+    .click-hint { color: var(--gold); font-size: 10px; margin-top: 12px; display: block; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* =========================================
+       Modal & Carousel Styles
+    ========================================= */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.95); z-index: 1000; justify-content: center; align-items: center; 
+      backdrop-filter: blur(8px);
+    }
+    .modal-content {
+      position: relative; width: 90%; max-width: 800px; background: var(--surface); 
+      border: 1px solid var(--border); border-radius: 2px; overflow: hidden; 
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    }
+    .close-btn {
+      position: absolute; top: 15px; right: 20px; color: var(--text-muted); font-size: 32px; 
+      font-weight: 300; cursor: pointer; z-index: 99; transition: color 0.3s, transform 0.3s;
+    }
+    .close-btn:hover { color: var(--gold); transform: rotate(90deg); }
+    
+    .modal-carousel-container { position: relative; width: 100%; border-bottom: 1px solid var(--border); }
+    .modal-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; background: #000; }
+    .modal-carousel::-webkit-scrollbar { display: none; }
+    .modal-carousel img { flex: 0 0 100%; width: 100%; max-height: 500px; object-fit: cover; scroll-snap-align: start; }
+    
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,10,10,0.6); 
+      color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.1); width: 44px; height: 44px; 
+      border-radius: 50%; cursor: pointer; z-index: 10; font-size: 16px; display: flex; justify-content: center; 
+      align-items: center; transition: all 0.3s; backdrop-filter: blur(4px);
+    }
+    .carousel-arrow:hover { background: var(--gold-dim); color: var(--gold); border-color: var(--gold); }
+    .arrow-left { left: 15px; } .arrow-right { right: 15px; }
+
+    .modal-dots { text-align: center; padding: 15px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .dot { display: inline-block; width: 6px; height: 6px; margin: 0 5px; background-color: rgba(255,255,255,0.2); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+    .dot.active { background-color: var(--gold); transform: scale(1.4); }
+    
+    .modal-caption { padding: 30px; font-size: 14px; color: var(--text-muted); line-height: 1.7; text-align: left; font-weight: 300; }
+    .modal-caption strong { display: block; font-family: var(--serif); font-size: 22px; color: var(--gold); margin-bottom: 10px; font-weight: 400; letter-spacing: 1px; }
+  </style>
+</head>
+<body class="theme-guitar">
+  <header class="sticky-header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+        <a href="guitar-gallery.html">Gallery</a>
+        <a href="guitar-workshop.html" class="active">Workshop</a>
+        <a href="guitar-services.html">Services</a>
+        <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">Sound Check</a>
+        <a href="guitar-about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="top-line"></div>
+  <main class="page">
+
+    <div class="brand-logo-container">
+      <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar" style="margin: 0 auto; display: block;">
+    </div>
+    
+    <a href="guitar-home.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Darin Guitar</a>
+    
+    <p class="logo-mark">The Luthier's Domain</p>
+    <h1>INSIDE THE SHOP</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">เจาะลึกศาสตร์แห่ง Luthier และวิศวกรรมการสร้างเครื่องดนตรี</p>
+
+    <div class="shop-section-title" style="animation-delay: 0.2s;">
+      <i class="fa-solid fa-gears"></i>
+      <span>1. Body & Neck Carving</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.3s;">
+      <div class="gallery-item" onclick="openModal('cnc-modal')">
+        <img src="images/workshop/guitar-cnc.jpg" alt="กระบวนการกลึงบอดี้กีตาร์ด้วยเครื่อง CNC" loading="lazy">
+        <div class="caption">
+          <strong>Precision CNC Routing</strong>
+          การกัดขึ้นรูปบอดี้ (Body) และฝังร่องพิกอัปด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาให้ได้มาตรฐานความแม่นยำสูง
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('neck-modal')">
+        <img src="images/workshop/guitar-neck-carve.jpg" alt="การเหลาคอกีตาร์ด้วยมือ" loading="lazy">
+        <div class="caption">
+          <strong>Hand-Carved Neck Profile</strong>
+          ศิลปะการเหลาคอกีตาร์ (Neck Carving) ด้วยเครื่องมือทำมือ (Hand Tools) เพื่อให้ได้ความโค้งที่เข้ากับสรีระมือของผู้เล่นมากที่สุด
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-section-title" style="animation-delay: 0.4s;">
+      <i class="fa-solid fa-hammer"></i>
+      <span>2. Fretwork & Fingerboard</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.5s;">
+      <div class="gallery-item" onclick="openModal('fret-modal')">
+        <img src="images/workshop/guitar-fretwork.jpg" alt="การตีเฟรตและขัดเฟรตกีตาร์ (Fretwork)" loading="lazy">
+        <div class="caption">
+          <strong>Master Level Fretwork</strong>
+          กระบวนการตีเฟรต (Fret Installation), ปาดเฟรต (Leveling), และเก็บขอบ (Crowning) ด้วยโต๊ะเหล็กนิ่งสนิทเพื่อลดอาการ Buzz ของสาย
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('radius-modal')">
+        <img src="images/workshop/guitar-radius.jpg" alt="การขัดรัศมีฟิงเกอร์บอร์ด" loading="lazy">
+        <div class="caption">
+          <strong>Fingerboard Radius Sanding</strong>
+          การปรับรัศมีความโค้ง (Radius) ของฟิงเกอร์บอร์ดด้วยบล็อกขัดเฉพาะทาง รองรับสไตล์การดันสาย (Bending) ที่ลื่นไหลที่สุด
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-section-title" style="animation-delay: 0.6s;">
+      <i class="fa-solid fa-tree"></i>
+      <span>3. Exotic Wood & Tone</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.7s;">
+      <div class="gallery-item" onclick="openModal('wood-modal')">
+        <img src="images/workshop/guitar-wood-storage.jpg" alt="ห้องควบคุมความชื้นและอุณหภูมิสำหรับบ่มไม้คอกีตาร์" loading="lazy">
+        <div class="caption">
+          <strong>Climate-Controlled Tonewoods</strong>
+          พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ควบคุมอุณหภูมิและความชื้นสัมพัทธ์ ป้องกันคอกีตาร์บิดงอในระยะยาว
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('top-wood-modal')">
+        <img src="images/workshop/guitar-top-wood.jpg" alt="การคัดเลือกลายไม้แผ่นหน้ากีตาร์" loading="lazy">
+        <div class="caption">
+          <strong>Exotic Top Selection</strong>
+          คลังไม้ไทยหายาก เช่น ไม้ปุ่มตะแบก, เทพทาโร และเสลา คัดสรรเฉพาะส่วนที่มีลวดลาย (Figured) จัดจ้านสำหรับประกบเป็น Top กีตาร์
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-section-title" style="animation-delay: 0.8s;">
+      <i class="fa-solid fa-plug"></i>
+      <span>4. Assembly & Setup</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.9s;">
+      <div class="gallery-item" onclick="openModal('wiring-modal')">
+        <img src="images/workshop/guitar-wiring.jpg" alt="การเดินวงจรไฟฟ้าและบัดกรีพิกอัป" loading="lazy">
+        <div class="caption">
+          <strong>Electronics & Wiring</strong>
+          การบัดกรีและเดินวงจร (Wiring) อย่างเป็นระเบียบ คัดสรรอะไหล่เกรดสูงเพื่อสัญญาณเสียงที่สะอาดไร้ Noise
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('setup-modal')">
+        <img src="images/workshop/guitar-setup.jpg" alt="การเซ็ตอัพปรับแอคชันและอินโทเนชันกีตาร์"
