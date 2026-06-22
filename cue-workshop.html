@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Inside the Shop | Darin Cues Thailand</title>
+  
+  <meta name="description" content="เจาะลึกเบื้องหลังเวิร์กชอปงานคราฟต์ของ Darin Cues ชมกระบวนการสร้างสรรค์ไม้คิวสนุกเกอร์พรีเมียม ที่ผสานเทคโนโลยี CAD/CAM วิศวกรรมความแม่นยำสูง และศาสตร์งานเข้าจำปาดั้งเดิม">
+  <meta name="keywords" content="ช่างทำไม้คิว, สั่งทำไม้คิว, ไม้คิวคัสตอม, Custom Snooker Cue, Cue Maker, เครื่องมือช่าง, Fusion 360, CNC Machining, Hand Spliced">
+  <meta name="author" content="Darin Cues">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="./css/darinworks.css">
+
+  <script>
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault(); 
+        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+    });
+
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
+            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
+            
+            e.preventDefault();
+            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+            return false;
+        }
+    }
+  </script>
+  
+  <style>
+    /* =========================================
+       Main Layout Styles 
+    ========================================= */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+    
+    .shop-section-title { font-family: var(--serif); color: var(--gold); font-size: 20px; margin: 60px 0 25px 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 2px; opacity: 0; animation: fadeUp 0.8s forwards; }
+    
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s forwards; }
+    .gallery-item { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: all 0.4s; cursor: pointer; }
+    .gallery-item:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .gallery-item img { width: 100%; height: 260px; object-fit: cover; display: block; filter: brightness(0.85); transition: 0.4s; border-bottom: 1px solid var(--border); }
+    .gallery-item:hover img { filter: brightness(1.1); }
+    
+    .caption { padding: 25px; text-align: left; }
+    .caption strong { display: block; color: var(--text); font-size: 16px; margin-bottom: 10px; letter-spacing: 1px; font-weight: 500; font-family: var(--sans); }
+    .caption { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+    .click-hint { color: var(--gold); font-size: 10px; margin-top: 12px; display: block; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* =========================================
+       Modal & Carousel Styles
+    ========================================= */
+    .modal-overlay {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.95); z-index: 1000; justify-content: center; align-items: center; 
+      backdrop-filter: blur(8px);
+    }
+    .modal-content {
+      position: relative; width: 90%; max-width: 800px; background: var(--surface); 
+      border: 1px solid var(--border); border-radius: 2px; overflow: hidden; 
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    }
+    .close-btn {
+      position: absolute; top: 15px; right: 20px; color: var(--text-muted); font-size: 32px; 
+      font-weight: 300; cursor: pointer; z-index: 99; transition: color 0.3s, transform 0.3s;
+    }
+    .close-btn:hover { color: var(--gold); transform: rotate(90deg); }
+    
+    .modal-carousel-container { position: relative; width: 100%; border-bottom: 1px solid var(--border); }
+    .modal-carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; background: #000; }
+    .modal-carousel::-webkit-scrollbar { display: none; }
+    .modal-carousel img { flex: 0 0 100%; width: 100%; max-height: 500px; object-fit: cover; scroll-snap-align: start; }
+    
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,10,10,0.6); 
+      color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.1); width: 44px; height: 44px; 
+      border-radius: 50%; cursor: pointer; z-index: 10; font-size: 16px; display: flex; justify-content: center; 
+      align-items: center; transition: all 0.3s; backdrop-filter: blur(4px);
+    }
+    .carousel-arrow:hover { background: var(--gold-dim); color: var(--gold); border-color: var(--gold); }
+    .arrow-left { left: 15px; } .arrow-right { right: 15px; }
+
+    .modal-dots { text-align: center; padding: 15px 0; background: var(--surface); border-bottom: 1px solid var(--border); }
+    .dot { display: inline-block; width: 6px; height: 6px; margin: 0 5px; background-color: rgba(255,255,255,0.2); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+    .dot.active { background-color: var(--gold); transform: scale(1.4); }
+    
+    .modal-caption { padding: 30px; font-size: 14px; color: var(--text-muted); line-height: 1.7; text-align: left; font-weight: 300; }
+    .modal-caption strong { display: block; font-family: var(--serif); font-size: 22px; color: var(--gold); margin-bottom: 10px; font-weight: 400; letter-spacing: 1px; }
+  </style>
+</head>
+<body class="theme-cue">
+  <header class="sticky-header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+        <a href="cue-gallery.html">Gallery</a>
+        <a href="cue-workshop.html" class="active">Workshop</a>
+        <a href="cue-services.html">Services</a>
+        <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">Feel Test</a>
+        <a href="cue-about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="top-line"></div>
+  <main class="page">
+
+    <div class="brand-logo-container">
+      <img src="images/ui/darin-cues-logo.png" class="logo-cue" alt="Darin Cues" style="margin: 0 auto; display: block;">
+    </div>
+    
+    <a href="cue-home.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Darin Cues</a>
+    
+    <p class="logo-mark">Darin Cues Workshop</p>
+    <h1>INSIDE THE SHOP</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">เบื้องหลังงานวิศวกรรมและศาสตร์แห่งงานเข้าจำปา</p>
+
+    <div class="shop-section-title" style="animation-delay: 0.2s;">
+      <i class="fa-solid fa-gears"></i>
+      <span>1. Engineering & Machinery</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.3s;">
+      <div class="gallery-item" onclick="openModal('cnc-modal')">
+        <img src="images/workshop/cnc-machining.jpg" alt="กระบวนการกลึงขึ้นรูปไม้คิวสนุกเกอร์คัสตอมด้วยเครื่อง CNC ความแม่นยำสูง" loading="lazy">
+        <div class="caption">
+          <strong>CNC Automated Machining</strong>
+          ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('steel-modal')">
+        <img src="images/workshop/steel-table.jpg" alt="โต๊ะช่างเหล็กสั่งทำพิเศษหนา 2 นิ้ว ควบคุมการสั่นสะเทือนเพื่องานประกอบคิวที่เที่ยงตรง" loading="lazy">
+        <div class="caption">
+          <strong>2-Inch Heavy Steel Worktable</strong>
+          แท่นประกอบและขึ้นรูปโครงสร้างเหล็กสั่งทำพิเศษหนา 2 นิ้ว มอบความหนาแน่นและนิ่งสนิท (Vibration Control)
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-section-title" style="animation-delay: 0.4s;">
+      <i class="fa-solid fa-hammer"></i>
+      <span>2. Artisan Bench & Hand Tools</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.5s;">
+      <div class="gallery-item" onclick="openModal('hand-modal')">
+        <img src="images/workshop/hand-tools.jpg" alt="เครื่องมือช่างทำมือ กบเหล็กและสิ่ว สำหรับงานปรับแต่งโค้งเว้าและเข้าจำปาไม้คิวคัสตอม" loading="lazy">
+        <div class="caption">
+          <strong>Hand Tools & Precision Tuning</strong>
+          คัดสรรสิ่ว กบเหล็ก และเหล็กขูดแต่งผิว (Scrapers) เพื่อใช้เดินคมและเก็บรายละเอียดการเข้าจำปาในจุดที่คอมพิวเตอร์ทำแทนไม่ได้
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('cad-modal')">
+        <img src="images/workshop/cad-station.jpg" alt="การออกแบบโครงสร้าง 3 มิติและคำนวณจุดศูนย์ถ่วง (Balance Point) ของไม้คิวด้วยโปรแกรม Fusion 360" loading="lazy">
+        <div class="caption">
+          <strong>3D Structural Design (Fusion 360)</strong>
+          สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรม
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-section-title" style="animation-delay: 0.6s;">
+      <i class="fa-solid fa-tree"></i>
+      <span>3. Exotic Wood Storage</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.7s;">
+      <div class="gallery-item" onclick="openModal('wood-modal')">
+        <img src="images/workshop/wood-storage.jpg" alt="ห้องควบคุมความชื้นและอุณหภูมิสำหรับบ่มไม้ดิบธรรมชาติ ป้องกันไม้คิวบิดงอหรือคดตัว" loading="lazy">
+        <div class="caption">
+          <strong>Climate-Controlled Timber Storage</strong>
+          พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ภายใต้การควบคุมอุณหภูมิและความชื้นสัมพัทธ์ที่เหมาะสม
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('exotic-modal')">
+        <img src="images/workshop/exotic-selection.jpg" alt="คลังไม้หายากเกรดพรีเมียม สำหรับงานคราฟต์สั่งทำไม้คิวพิเศษ" loading="lazy">
+        <div class="caption">
+          <strong>Exotic Masterpiece Selection</strong>
+          คลังไม้ไทยหายากเกรดสูง เช่น ไม้พญางิ้วดำ ไม้ปุ่มตะแบก ไม้เทพทาโร เสลา และอื่นๆ คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและความหนาแน่นสูง
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-section-title" style="animation-delay: 0.8s;">
+      <i class="fa-solid fa-music"></i>
+      <span>4. Creative & Share</span>
+    </div>
+    <div class="gallery-grid" style="animation-delay: 0.9s;">
+      <div class="gallery-item" onclick="openModal('lounge-modal')">
+        <img src="images/workshop/lounge-corner.jpg" alt="พื้นที่แลกเปลี่ยนไอเดียและพูดคุยสเปกงานสั่งทำไม้คิวคัสตอม แบรนด์ Darin Cues" loading="lazy">
+        <div class="caption">
+          <strong>The Artisan's Sanctuary</strong>
+          มุมพักผ่อนและจุดแลกเปลี่ยนไอเดียภายในช็อป พื้นที่ที่ออกแบบไว้เพื่อต้อนรับผู้มาเยือน พูดคุยเรื่องสเปกไม้คิว
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="openModal('vibe-modal')">
+        <img src="images/workshop/shop-vibe.jpg" alt="บรรยากาศสตูดิโอโรงงานคราฟต์ Darin Cues พื้นที่สร้างสรรค์ไม้คิวพรีเมียม" loading="lazy">
+        <div class="caption">
+          <strong>The Creative Atmosphere</strong>
+          บรรยากาศรอบๆ ช็อปที่เต็มไปด้วยแรงบันดาลใจ ทุกชิ้นงานที่สร้างสรรค์ขึ้นที่นี่ผ่านการคิดค้น ทดลอง และรับฟังฟีดแบ็กอย่างตั้งใจ
+          <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกเพื่อดูแกลเลอรีรูปภาพ</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="divider"></div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 1s forwards;">
+      <a href="cue-home.html">CUE HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">FEEL TEST</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-workshop.html" class="active" style="color: var(--gold-light); font-weight: 500;">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-prototype.html">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 1.1s forwards;">© Darinworks · Bangkok · Thailand</p>
+
+  </main>
+
+  <div id="cnc-modal" class="modal-overlay" onclick="closeModal(event, 'cnc-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'cnc-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('cnc-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('cnc-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="cnc-carousel">
+          <img src="images/workshop/cnc-machining.jpg" alt="CNC 1">
+          <img src="images/workshop/cnc-machining-2.jpg" alt="CNC 2">
+          <img src="images/workshop/cnc-machining-3.jpg" alt="CNC 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('cnc-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('cnc-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('cnc-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>CNC Automated Machining</strong>
+        ขึ้นรูปส่วนประกอบสำคัญด้วยเทคโนโลยี CNC ควบคุมความสมมาตรและองศาของชิ้นงานให้ได้มาตรฐานความแม่นยำ ทุกมิลลิเมตรถูกควบคุมอย่างเข้มงวด
+      </div>
+    </div>
+  </div>
+
+  <div id="steel-modal" class="modal-overlay" onclick="closeModal(event, 'steel-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'steel-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('steel-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('steel-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="steel-carousel">
+          <img src="images/workshop/steel-table.jpg" alt="Steel Table 1">
+          <img src="images/workshop/steel-table-2.jpg" alt="Steel Table 2">
+          <img src="images/workshop/steel-table-3.jpg" alt="Steel Table 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('steel-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('steel-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('steel-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>2-Inch Heavy Steel Worktable</strong>
+        แท่นประกอบและขึ้นรูปโครงสร้างเหล็กสั่งทำพิเศษหนา 2 นิ้ว มอบความหนาแน่นและนิ่งสนิท (Vibration Control) เพื่อผลลัพธ์การไสไม้ที่เที่ยงตรงที่สุด
+      </div>
+    </div>
+  </div>
+
+  <div id="hand-modal" class="modal-overlay" onclick="closeModal(event, 'hand-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'hand-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('hand-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('hand-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="hand-carousel">
+          <img src="images/workshop/hand-tools.jpg" alt="Hand Tools 1">
+          <img src="images/workshop/hand-tools-2.jpg" alt="Hand Tools 2">
+          <img src="images/workshop/hand-tools-3.jpg" alt="Hand Tools 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('hand-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('hand-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('hand-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>Hand Tools & Precision Tuning</strong>
+        กลิ่นอายและจิตวิญญาณช็อปช่างดั้งเดิม คัดสรรสิ่ว กบเหล็ก และเหล็กขูดแต่งผิว (Scrapers) เพื่อใช้เดินคมและเก็บรายละเอียดการเข้าจำปาในจุดที่คอมพิวเตอร์ทำแทนไม่ได้
+      </div>
+    </div>
+  </div>
+
+  <div id="cad-modal" class="modal-overlay" onclick="closeModal(event, 'cad-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'cad-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('cad-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('cad-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="cad-carousel">
+          <img src="images/workshop/cad-station.jpg" alt="CAD 1">
+          <img src="images/workshop/cad-station-2.jpg" alt="CAD 2">
+          <img src="images/workshop/cad-station-3.jpg" alt="CAD 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('cad-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('cad-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('cad-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>3D Structural Design (Fusion 360)</strong>
+        สถานีออกแบบคำนวณโครงสร้างจำลอง 3 มิติ หาจุดศูนย์ถ่วง (Balance Point) และน้ำหนักอย่างละเอียดเชิงวิศวกรรมเคียงคู่ไปกับเครื่องมือทำมือ เพื่อวิเคราะห์มวลความหนาแน่นของเนื้อไม้
+      </div>
+    </div>
+  </div>
+
+  <div id="wood-modal" class="modal-overlay" onclick="closeModal(event, 'wood-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'wood-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('wood-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('wood-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="wood-carousel">
+          <img src="images/workshop/wood-storage.jpg" alt="Wood Storage 1">
+          <img src="images/workshop/wood-storage-2.jpg" alt="Wood Storage 2">
+          <img src="images/workshop/wood-storage-3.jpg" alt="Wood Storage 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('wood-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('wood-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('wood-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>Climate-Controlled Timber Storage</strong>
+        พื้นที่จัดเก็บและบ่มไม้ดิบธรรมชาติ (Wood Seasoning) ภายใต้การควบคุมอุณหภูมิและความชื้นสัมพัทธ์ที่เหมาะสม ป้องกันการบิดงอหรือคดตัวในระยะยาว
+      </div>
+    </div>
+  </div>
+
+  <div id="exotic-modal" class="modal-overlay" onclick="closeModal(event, 'exotic-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'exotic-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('exotic-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('exotic-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="exotic-carousel">
+          <img src="images/workshop/exotic-selection.jpg" alt="Exotic Selection 1">
+          <img src="images/workshop/exotic-selection-2.jpg" alt="Exotic Selection 2">
+          <img src="images/workshop/exotic-selection-3.jpg" alt="Exotic Selection 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('exotic-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('exotic-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('exotic-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>Exotic Masterpiece Selection</strong>
+        คลังไม้ไทยหายากเกรดสูง คัดสรรเฉพาะส่วนที่มีลวดลายจัดจ้านและความหนาแน่นของเนื้อไม้ดีเยี่ยม สำหรับงานสั่งทำพิเศษ
+      </div>
+    </div>
+  </div>
+
+  <div id="lounge-modal" class="modal-overlay" onclick="closeModal(event, 'lounge-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'lounge-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('lounge-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('lounge-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="lounge-carousel">
+          <img src="images/workshop/lounge-corner.jpg" alt="Lounge 1">
+          <img src="images/workshop/lounge-corner-2.jpg" alt="Lounge 2">
+          <img src="images/workshop/lounge-corner-3.jpg" alt="Lounge 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('lounge-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('lounge-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('lounge-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>The Artisan's Sanctuary</strong>
+        มุมพักผ่อนและจุดแลกเปลี่ยนไอเดียภายในช็อป พื้นที่ที่ออกแบบไว้เพื่อต้อนรับผู้มาเยือน เป็นสเปซสำหรับนั่งพูดคุย ลงลึกเรื่องสเปกไม้คิว
+      </div>
+    </div>
+  </div>
+
+  <div id="vibe-modal" class="modal-overlay" onclick="closeModal(event, 'vibe-modal')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal(event, 'vibe-modal')">&times;</span>
+      <div class="modal-carousel-container">
+        <button class="carousel-arrow arrow-left" onclick="slideDirection('vibe-carousel', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-arrow arrow-right" onclick="slideDirection('vibe-carousel', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="modal-carousel" id="vibe-carousel">
+          <img src="images/workshop/shop-vibe.jpg" alt="Vibe 1">
+          <img src="images/workshop/shop-vibe-2.jpg" alt="Vibe 2">
+          <img src="images/workshop/shop-vibe-3.jpg" alt="Vibe 3">
+        </div>
+        <div class="modal-dots">
+          <span class="dot active" onclick="scrollToImage('vibe-carousel', 0)"></span>
+          <span class="dot" onclick="scrollToImage('vibe-carousel', 1)"></span>
+          <span class="dot" onclick="scrollToImage('vibe-carousel', 2)"></span>
+        </div>
+      </div>
+      <div class="modal-caption">
+        <strong>The Creative Atmosphere</strong>
+        บรรยากาศรอบๆ ช็อปที่เต็มไปด้วยแรงบันดาลใจ ทุกชิ้นงานที่สร้างสรรค์ขึ้นที่นี่ผ่านการคิดค้น ทดลอง และรับฟังฟีดแบ็กอย่างตั้งใจ
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(modalId) {
+      var modal = document.getElementById(modalId);
+      if (!modal) {
+        alert("ระบบแจ้งเตือน: หาหน้าต่าง ID '" + modalId + "' ไม่เจอครับ");
+        return;
+      }
+      modal.style.display = 'flex';
+      var carousel = modal.querySelector('.modal-carousel');
+      if (carousel) {
+        carousel.scrollLeft = 0;
+      }
+    }
+
+    function closeModal(event, modalId) {
+      if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('close-btn')) {
+        document.getElementById(modalId).style.display = 'none';
+      }
+    }
+
+    function scrollToImage(carouselId, index) {
+      var carousel = document.getElementById(carouselId);
+      if(carousel) {
+        var imageWidth = carousel.clientWidth;
+        carousel.scrollTo({
+          left: imageWidth * index,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function slideDirection(carouselId, direction) {
+      var carousel = document.getElementById(carouselId);
+      if(carousel) {
+        var imageWidth = carousel.clientWidth;
+        var currentScroll = carousel.scrollLeft;
+        var currentIndex = Math.round(currentScroll / imageWidth);
+        var newIndex = currentIndex + direction;
+        carousel.scrollTo({
+          left: imageWidth * newIndex,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var carousels = document.querySelectorAll('.modal-carousel');
+      carousels.forEach(function(carousel) {
+        var overlay = carousel.closest('.modal-overlay');
+        if(!overlay) return;
+        var modalId = overlay.id;
+        var dots = document.querySelectorAll('#' + modalId + ' .dot');
+
+        carousel.addEventListener('scroll', function() {
+          var scrollPosition = carousel.scrollLeft;
+          var imageWidth = carousel.clientWidth;
+          if(imageWidth === 0) return;
+          var activeIndex = Math.round(scrollPosition / imageWidth);
+          dots.forEach(function(dot, index) {
+            if (index === activeIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
