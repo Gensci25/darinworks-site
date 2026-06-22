@@ -75,6 +75,7 @@
     .story-block:nth-child(1) { animation-delay: 0.4s; }
     .story-block:nth-child(2) { animation-delay: 0.5s; }
     .story-block:nth-child(3) { animation-delay: 0.6s; }
+    .story-block:nth-child(4) { animation-delay: 0.7s; }
     
     @media (min-width: 769px) {
       .story-block.reverse .story-img-wrap { order: 2; }
@@ -93,16 +94,23 @@
     .highlight { color: var(--text); font-weight: 400; }
     .highlight-gold { color: var(--gold-light); font-weight: 400; }
 
-    .quote-box { position: relative; border-left: 1px solid var(--gold); padding: 30px 0 30px 40px; margin: 60px auto; max-width: 700px; opacity: 0; animation: fadeUp 0.8s 0.7s forwards; }
+    .quote-box { position: relative; border-left: 1px solid var(--gold); padding: 30px 0 30px 40px; margin: 60px auto; max-width: 700px; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
     .quote-box::before { content: '"'; position: absolute; left: -10px; top: 15px; font-family: var(--serif); font-size: 60px; color: var(--gold-dim); line-height: 1; }
     .quote-text { font-family: var(--serif); font-size: 24px; font-style: italic; color: var(--text); line-height: 1.5; font-weight: 300; }
     .quote-author { display: block; margin-top: 20px; font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-family: var(--sans); }
+
+    /* Custom bullet list inside story text for aesthetics */
+    .story-text ul { list-style-type: none; padding-left: 0; margin-bottom: 16px; }
+    .story-text ul li { position: relative; padding-left: 15px; font-size: 14px; color: var(--text-muted); font-weight: 300; line-height: 1.8; margin-bottom: 8px; }
+    .story-text ul li::before { content: "•"; position: absolute; left: 0; color: var(--gold); }
 
     @media (max-width: 768px) {
       .story-block { grid-template-columns: 1fr; gap: 30px; text-align: center; }
       .story-text { text-align: center; }
       .story-img-wrap { height: 300px; }
       .quote-box { padding: 20px 0 20px 20px; text-align: left; }
+      .story-text ul li { padding-left: 0; }
+      .story-text ul li::before { display: none; }
     }
   </style>
 </head>
@@ -144,36 +152,53 @@
       
       <div class="story-block">
         <div class="story-img-wrap">
-          <img class="story-img" src="images/about/bank-profile.jpg" alt="ช่างแบงค์ Darin Guitar" loading="lazy">
+          <img class="story-img" src="images/about/bank-profile.jpg" alt="จุดเริ่มต้นความหลงใหลในกีตาร์" loading="lazy">
         </div>
         <div class="story-text">
-          <h2>จากระบบเครือข่าย<br>สู่เส้นสายของลายไม้</h2>
-          <p>หลายคนอาจสงสัยว่า ทำไมผู้ชายที่ขลุกอยู่กับสายงาน IT Infrastructure และ Operations มาตั้งแต่ปี 2005 ถึงหันมาหลงใหลในกลิ่นขี้เลื่อยและงานไม้?</p>
-          <p>ตลอดระยะเวลากว่า 20 ปีในการออกแบบและบริหารจัดการระบบ สิ่งเหล่านี้ได้หล่อหลอม <span class="highlight">"กระบวนการคิดแบบวิศวกร"</span> ให้กับผม ทุกปัญหามีโครงสร้าง และทุกผลลัพธ์เกิดจากการคำนวณที่แม่นยำไร้รอยต่อ</p>
-          <p>จนกระทั่งวันหนึ่ง ผมได้สัมผัสกับเสน่ห์ของไม้ไทยหายาก... วัสดุธรรมชาติที่ไม่มีความสมบูรณ์แบบตายตัว ผมจึงตั้งคำถามว่า จะเกิดอะไรขึ้นถ้าเรานำ "ความแม่นยำของวิศวกรรม" มาขับเน้น "สุนทรียภาพแห่งเสียงของงาน Luthier"</p>
+          <h2>ทุกอย่างเริ่มต้นจาก<br>คำถามง่าย ๆ</h2>
+          <p>สมัยที่ยังเป็นวัยรุ่น ผมมีความสนใจในเครื่องดนตรีชนิดหนึ่งเป็นพิเศษ นั่นคือ <strong>"กีตาร์"</strong></p>
+          <p>นอกเหนือจากการเล่นดนตรี สิ่งที่ดึงดูดความสนใจของผมกลับไม่ใช่เพียงแค่เสียงของมัน แต่เป็นกระบวนการที่ซ่อนอยู่เบื้องหลังการสร้างกีตาร์หนึ่งตัวขึ้นมาว่าเขาสร้างกันอย่างไร</p>
+          <p>แม้เวลาจะผ่านไปและผมได้ก้าวเข้าสู่วัยทำงาน (สายงาน IT Infrastructure มาตั้งแต่ปี 2005) คำถามและความสงสัยเหล่านั้นก็ไม่เคยจางหายไปไหน</p>
         </div>
       </div>
 
       <div class="story-block reverse">
         <div class="story-img-wrap">
-          <img class="story-img" src="images/about/engineering-philosophy.jpg" alt="การออกแบบด้วย Fusion 360" loading="lazy">
+          <img class="story-img" src="images/about/engineering-philosophy.jpg" alt="การเรียนรู้และลงมือทำกีตาร์" loading="lazy">
         </div>
         <div class="story-text">
-          <h2>ปรัชญาการทำงาน:<br>Engineering meets Luthier</h2>
-          <p>ที่ Darin Guitar เราไม่ได้แค่ "เหลาไม้" แต่เรา <span class="highlight">"คำนวณ"</span> มัน</p>
-          <p>ในขณะที่งาน Luthier แบบดั้งเดิมอาศัยสัญชาตญาณเพียงอย่างเดียว เราเลือกที่จะลดความผิดพลาดนั้นให้เหลือศูนย์ กีตาร์ทุกตัวจะถูกขึ้นแบบจำลอง 3D ด้วย <span class="highlight">Fusion 360</span> เพื่อคำนวณมวล ความเค้น และบาลานซ์ของตัวบอดี้</p>
-          <p>โครงสร้างหลักถูกกัดขึ้นรูปด้วย <span class="highlight">เครื่อง CNC</span> เพื่อความสมมาตร 100% ก่อนจะส่งผ่านเข้าสู่กระบวนการเหลาคอและเก็บรายละเอียดด้วยมือ เพื่อรักษาจิตวิญญาณและความอบอุ่นที่เครื่องจักรให้ไม่ได้</p>
+          <h2>ก้าวข้ามทฤษฎี<br>สู่การลงมือทำจริง</h2>
+          <p>ผมใช้เวลาหลายปีในการค้นคว้าหาความรู้จากหนังสือ บทความ วิดีโอ และแหล่งข้อมูลบนอินเทอร์เน็ต แต่สุดท้ายก็ได้เรียนรู้ว่า <em>บางคำตอบ... ไม่สามารถหาได้จากการอ่านเพียงอย่างเดียว</em></p>
+          <p>วิธีเดียวที่จะเข้าใจมันอย่างแท้จริง คือการลงมือทำด้วยตัวเอง นั่นจึงเป็นเหตุผลที่ผมตัดสินใจไปเรียนการทำกีตาร์อย่างจริงจัง</p>
+          <p>ผมได้นำกระบวนการคิดเชิงวิศวกรรมมาผสมผสานกับงานคราฟต์ ตั้งแต่การคัดเลือกไม้ การขึ้นรูป การประกอบ ไปจนถึงการปรับแต่งเสียง เพื่อลดความผิดพลาดและสร้างสรรค์ผลงานที่สมบูรณ์แบบที่สุด</p>
         </div>
       </div>
 
       <div class="story-block">
         <div class="story-img-wrap">
-          <img class="story-img" src="images/about/rare-woods.jpg" alt="คลังไม้ไทยหายาก" loading="lazy">
+          <img class="story-img" src="images/about/rare-woods.jpg" alt="เสน่ห์ไม้ไทยและงานคราฟต์" loading="lazy">
         </div>
         <div class="story-text">
-          <h2>เสน่ห์แห่งไม้ไทย<br>ที่โลกต้องจดจำ</h2>
-          <p>เครื่องดนตรีที่ดี ต้องเริ่มจากวัตถุดิบระดับตำนาน Darin Guitar ทุ่มเทให้กับการเสาะหาและบ่มไม้ไทยหายาก ไม่ว่าจะเป็นความหนาแน่นอันเป็นเอกลักษณ์ของ <span class="highlight-gold">พญางิ้วดำ</span>, กลิ่นหอมอบอวลของ <span class="highlight-gold">เทพทาโร</span> หรือมิติสีที่ลึกลับของ <span class="highlight-gold">ไม้ปุ่มตะแบกและเสลา</span></p>
-          <p>ไม้ทุกชิ้นผ่านกระบวนการ Seasoning อย่างเข้มงวด เพื่อให้มั่นใจว่าเมื่อมันถูกแปรสภาพเป็นกีตาร์ มันจะขับขานโทนเสียง (Tonewood) และให้สัมผัสที่สมบูรณ์แบบที่สุด... สู่มือของคุณ</p>
+          <h2>ศาสตร์ ศิลป์<br>และเรื่องราวของลายไม้</h2>
+          <p>ยิ่งได้ลงมือทำจริงภายใต้แบรนด์ <strong>Darin Guitar</strong> ผมก็ยิ่งค้นพบว่า การทำกีตาร์ไม่ใช่เพียงการสร้างเครื่องดนตรี แต่มันคือการผสมผสานระหว่าง 'ศาสตร์' และ 'ศิลป์' เข้าด้วยกัน</p>
+          <ul>
+            <li>ไม้แต่ละชิ้นมีเอกลักษณ์และชีวิตของตัวเอง</li>
+            <li>ทุกเส้นลายไม้มีเรื่องราว</li>
+            <li>ทุกการตัดสินใจเล็ก ๆ ล้วนส่งผลต่อโทนเสียงและผลลัพธ์</li>
+          </ul>
+          <p>รวมถึงการเสาะหาและบ่มไม้ไทยหายากอย่าง พญางิ้วดำ หรือเทพทาโร มาผสานความแม่นยำด้วยเทคโนโลยีสมัยใหม่</p>
+        </div>
+      </div>
+
+      <div class="story-block reverse">
+        <div class="story-img-wrap">
+          <img class="story-img" src="images/about/workshop.jpg" alt="พื้นที่เรียนรู้และพัฒนาฝีมือ" loading="lazy">
+        </div>
+        <div class="story-text">
+          <h2>พื้นที่แห่ง<br>การเรียนรู้และแบ่งปัน</h2>
+          <p>เว็บไซต์แห่งนี้จึงถูกสร้างขึ้นมาเพื่อบันทึกการเดินทางครั้งสำคัญ เป็นพื้นที่ที่รวบรวมเรื่องราว ประสบการณ์ ความรู้ และสิ่งที่ผมได้ตกผลึกจากการลงมือทำจริง</p>
+          <p>ผมไม่ได้มองตัวเองว่าเป็นผู้เชี่ยวชาญที่รู้ทุกอย่าง แต่เป็นช่างฝีมือคนหนึ่งที่ยังคงเรียนรู้ ทดลอง และพัฒนาตัวเองอยู่เสมอ เพราะเชื่อว่าการสร้างสรรค์สิ่งต่าง ๆ ด้วยสองมือมีคุณค่าอย่างมหาศาล</p>
+          <p>หากคุณเป็นคนที่หลงใหลในเสียงดนตรี งานไม้ หรืองานคราฟต์ ผมหวังว่าพื้นที่เล็ก ๆ แห่งนี้ จะเป็นแรงบันดาลใจให้กับคุณครับ</p>
         </div>
       </div>
 
