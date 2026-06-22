@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Prototype Series | Darin Cues Thailand</title>
+  <meta name="description" content="บันทึกการวิจัยและพัฒนาชิ้นงานต้นแบบ (R&D) ของ Darin Cues เจาะลึกไดอารี่การสร้างสรรค์ไม้คิวสนุกเกอร์พรีเมียมจากไม้ไทยหายาก">
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = e => {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault(); return false;
+        }
+    }
+  </script>
+  
+  <style>
+    /* ─── CSS เฉพาะหน้า Prototype Index ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .section-title { 
+      font-family: var(--serif); color: var(--gold); font-size: 22px; margin: 60px 0 20px 0; 
+      padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; 
+      gap: 12px; font-weight: 400; letter-spacing: 2px; text-transform: uppercase;
+    }
+    
+    .selection-card { 
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
+      padding: 30px; margin-bottom: 15px; text-align: left; transition: all 0.4s ease;
+      display: flex; flex-direction: column; text-decoration: none; color: var(--text);
+      opacity: 0; animation: fadeUp 0.8s forwards;
+    }
+    .selection-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+    
+    .card-badge { font-size: 10px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; font-weight: 500; }
+    .selection-card h3 { margin: 0 0 10px 0; font-size: 20px; font-family: var(--serif); font-weight: 400; display: flex; align-items: center; justify-content: space-between; }
+    .selection-card p { margin: 0; font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+  </style>
+</head>
+<body class="theme-cue">
+  <header class="sticky-header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+        <a href="cue-gallery.html">Gallery</a>
+        <a href="cue-workshop.html">Workshop</a>
+        <a href="cue-services.html">Services</a>
+        <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">Feel Test</a>
+        <a href="cue-about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="top-line"></div>
+  <main class="page">
+
+    <div class="brand-logo-container">
+      <img src="images/ui/darin-cues-logo.png" class="logo-cue" alt="Darin Cues" style="margin: 0 auto; display: block;">
+    </div>
+  
+    <a href="cue-home.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Darin Cues</a>
+
+    <p class="logo-mark">Darin Cues</p>
+    <h1>CUE PROTOTYPE SERIES</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">บันทึกการวิจัยและพัฒนาไม้คิวต้นแบบ</p>
+
+    <div class="section-title" style="animation-delay: 0.3s;"><i class="fa-solid fa-flask"></i> R&D Projects</div>
+    
+    <a href="cue-proto-1.html" class="selection-card" style="animation-delay: 0.4s;">
+      <div class="card-badge">Project 01</div>
+      <h3>The 10-Day Build (Ebony) <i class="fa-solid fa-chevron-right" style="font-size: 12px; opacity: 0.5;"></i></h3>
+      <p>บันทึกการวิจัยและสร้างไม้คิวต้นแบบ 10 วันเต็ม เจาะลึกกระบวนการเข้าจำปาไม้ดำดง (Black Ebony) ด้วยมือ และระบบบาลานซ์น้ำหนักเชิงวิศวกรรม</p>
+    </a>
+    
+    <a href="cue-proto-2.html" class="selection-card" style="animation-delay: 0.5s;">
+      <div class="card-badge">Project 02</div>
+      <h3>Premium Ash Wood Series <i class="fa-solid fa-chevron-right" style="font-size: 12px; opacity: 0.5;"></i></h3>
+      <p>ศาสตร์แห่งการคัดเลือกลายไม้แอชเกรดพรีเมียม และเทคนิคการเหลาปลายไม้คิวสนุกเกอร์เฉพาะตัว เพื่อมอบแรงสะท้อน (Feedback) ที่สมบูรณ์แบบ</p>
+    </a>
+
+    <div class="divider"></div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="opacity: 0; animation: fadeUp 0.8s 1.2s forwards;">
+      <a href="cue-home.html">CUE HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">FEEL TEST</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-gallery.html">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-prototype.html" class="active" style="color: var(--gold-light); font-weight: 500;">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="opacity: 0; animation: fadeUp 0.8s 1.3s forwards;">© Darinworks · Bangkok · Thailand</p>
+  </main>
+</body>
+</html>
