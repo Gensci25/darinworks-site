@@ -12,21 +12,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
   
-  <title>Gallery | Darinworks Custom Guitars & Cues</title>
-  <meta name="description" content="ชมผลงานสั่งทำกีตาร์และไม้คิวสนุกเกอร์คัสตอม (Custom Handmade) จาก Darinworks คัดสรรเนื้อไม้ไทยหายาก พร้อมบริการซ่อมและเซ็ตอัพระดับมืออาชีพ">
+  <title>Gallery | Darin Cues Thailand</title>
+  <meta name="description" content="ชมผลงานสั่งทำไม้คิวสนุกเกอร์คัสตอม (Custom Handmade) งาน Hand Spliced ระดับพรีเมียมจาก Darin Cues คัดสรรไม้หายาก พร้อมบริการซ่อมและดัดไม้คิวคด">
   
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
-  <!-- ดึงฟอนต์และไอคอน -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
-  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
   <link rel="stylesheet" href="css/darinworks.css">
 
-  <!-- สคริปต์ป้องกันการคลิกขวา/F12 -->
   <script>
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
@@ -82,16 +79,16 @@
     @media (max-width: 600px) { .carousel-container { height: 300px; } }
   </style>
 </head>
-<body>
+<body class="theme-cue">
   <header class="sticky-header">
     <div class="header-container">
       <a href="index.html" class="header-logo">Darinworks</a>
       <nav class="header-nav">
-        <a href="gallery.html">Gallery</a>
-        <a href="workshop.html">Workshop</a>
-        <a href="services.html">Services</a>
-        <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">Sound Check</a>
-        <a href="about.html">About Us</a>
+        <a href="cue-gallery.html" class="active">Gallery</a>
+        <a href="cue-workshop.html">Workshop</a>
+        <a href="cue-services.html">Services</a>
+        <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">Feel Test</a>
+        <a href="cue-about.html">About Us</a>
       </nav>
     </div>
   </header>
@@ -99,17 +96,15 @@
   <div class="top-line"></div>
   <main class="page">
 
-  <div class="brand-logo-container">
-  <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar">
-  <div class="logo-divider"></div>
-  <img src="images/ui/darin-cue-logo.png" class="logo-cue" alt="Darin Cues">
-</div>
+    <div class="brand-logo-container">
+      <img src="images/ui/darin-cues-logo.png" class="logo-cue" alt="Darin Cues" style="margin: 0 auto; display: block;">
+    </div>
     
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Home</a>
+    <a href="cue-home.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Darin Cues</a>
     
-    <img src="images/ui/darin-guitar-logo.png" alt="Darinworks Logo" class="page-logo" width="56" height="56" loading="lazy">
-    <p class="eyebrow">Handcrafted Works</p>
-    <h1>GALLERY</h1>
+    <img src="images/ui/darin-cues-logo.png" alt="Darin Cues Logo" class="page-logo" width="56" height="56" loading="lazy">
+    <p class="eyebrow">Hand Spliced Masterpieces</p>
+    <h1>CUE GALLERY</h1>
     
     <div class="ornament">
       <div class="ornament-line"></div>
@@ -117,93 +112,14 @@
       <div class="ornament-line r"></div>
     </div>
     
-    <p class="subtitle">ผลงานที่รังสรรค์ด้วยความประณีตระดับมาสเตอร์พีซ</p>
+    <p class="subtitle">ผลงานคัสตอมคิวที่รังสรรค์ด้วยความประณีตระดับสูงสุด</p>
 
-    <!-- ─── Custom Guitars ─── -->
     <div class="section-label" style="animation-delay:0.35s">
-      <span class="section-label-text"><i class="fa-solid fa-guitar" aria-hidden="true"></i> Custom Guitars</span>
-    </div>
-    
-    <div class="gallery-feed">
-      <div class="carousel-wrap" style="animation-delay:0.4s">
-        <div class="carousel-container">
-          <div class="floating-badge">Custom PRS Style · ไม้จามจุรี</div>
-          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/gallery/guitar-prs-1.jpg" alt="Custom PRS Style Guitar ไม้จามจุรี" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/gallery/guitar-prs-2.jpg" alt="Luthier Custom Guitar งานไม้ไทย" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/gallery/guitar-prs-3.jpg" alt="Guitar Setup เซ็ตอัพกีตาร์" loading="lazy"></div>
-          </div>
-          <div class="carousel-dots"></div>
-        </div>
-        <p class="carousel-caption">PRS Style · Chamchuri Wood · Handmade</p>
-      </div>
-
-      <div class="carousel-wrap" style="animation-delay:0.48s">
-        <div class="carousel-container">
-          <div class="floating-badge">Acoustic J200 · ไม้พฤกษ์</div>
-          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/gallery/guitar-aco-1.jpg" alt="Acoustic Guitar J200 Jumbo ไม้พฤกษ์" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/gallery/guitar-aco-2.jpg" alt="Boutique Acoustic Guitar ไม้ไทย" loading="lazy"></div>
-          </div>
-          <div class="carousel-dots"></div>
-        </div>
-        <p class="carousel-caption">Acoustic J200 Jumbo · Pruk Wood · Handmade</p>
-      </div>
-
-      <div class="carousel-wrap" style="animation-delay:0.56s">
-        <div class="carousel-container">
-          <div class="floating-badge">Classic Tele · วินเทจคัสตอม</div>
-          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/gallery/guitar-tele-1.jpg" alt="Classic Telecaster Custom Guitar" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/gallery/guitar-tele-2.jpg" alt="Handmade Telecaster Boutique" loading="lazy"></div>
-          </div>
-          <div class="carousel-dots"></div>
-        </div>
-        <p class="carousel-caption">Classic Telecaster · Vintage Custom · Handmade</p>
-      </div>
-
-      <div class="carousel-wrap" style="animation-delay:0.64s">
-        <div class="carousel-container">
-          <div class="floating-badge">Knaggs Style · ไม้ไทยหายาก</div>
-          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/gallery/guitar-knaggs-1.jpg" alt="Knaggs Style Custom Guitar ไม้ไทย" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/gallery/guitar-knaggs-2.jpg" alt="สั่งทำกีตาร์ไม้ไทยหายาก" loading="lazy"></div>
-          </div>
-          <div class="carousel-dots"></div>
-        </div>
-        <p class="carousel-caption">Knaggs Style · Thai Exotic Wood · Handmade</p>
-      </div>
-
-      <div class="carousel-wrap" style="animation-delay:0.72s">
-        <div class="carousel-container">
-          <div class="floating-badge">Modern Custom · ไฮเอนด์สเปก</div>
-          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="images/gallery/guitar-modern-1.jpg" alt="Modern Custom Guitar Hi-Spec" loading="lazy"></div>
-            <div class="carousel-slide"><img src="images/gallery/guitar-modern-2.jpg" alt="Luthier Guitar Setup" loading="lazy"></div>
-          </div>
-          <div class="carousel-dots"></div>
-        </div>
-        <p class="carousel-caption">Modern Custom · Hi-Spec Build · Handmade</p>
-      </div>
-    </div>
-
-    <!-- ─── Custom Cues ─── -->
-    <div class="section-label" style="animation-delay:0.76s">
       <span class="section-label-text"><i class="fa-solid fa-gavel" aria-hidden="true"></i> Custom Cues</span>
     </div>
     
     <div class="gallery-feed">
-      <div class="carousel-wrap" style="animation-delay:0.8s">
+      <div class="carousel-wrap" style="animation-delay:0.4s">
         <div class="carousel-container">
           <div class="floating-badge">4-Point Classic · ไม้พญางิ้วดำ</div>
           <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
@@ -218,7 +134,7 @@
         <p class="carousel-caption">4-Point Classic · Phaya Ngiu Dam · Hand Spliced</p>
       </div>
 
-      <div class="carousel-wrap" style="animation-delay:0.88s">
+      <div class="carousel-wrap" style="animation-delay:0.48s">
         <div class="carousel-container">
           <div class="floating-badge">Premium Ash · ลายศรคัดพิเศษ</div>
           <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
@@ -232,7 +148,7 @@
         <p class="carousel-caption">Premium Ash · Arrow Grain Select · Hand Spliced</p>
       </div>
 
-      <div class="carousel-wrap" style="animation-delay:0.96s">
+      <div class="carousel-wrap" style="animation-delay:0.56s">
         <div class="carousel-container">
           <div class="floating-badge">Custom Masterpiece · ซ้อนวีเนียร์</div>
           <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
@@ -246,7 +162,7 @@
         <p class="carousel-caption">Custom Masterpiece · Layered Veneer · Hand Spliced</p>
       </div>
 
-      <div class="carousel-wrap" style="animation-delay:1.04s">
+      <div class="carousel-wrap" style="animation-delay:0.64s">
         <div class="carousel-container">
           <div class="floating-badge">Classic 3/4 Joint · ด้ามไม้ลาย</div>
           <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
@@ -260,7 +176,7 @@
         <p class="carousel-caption">Classic 3/4 Joint · Figured Wood Handle · Hand Spliced</p>
       </div>
 
-      <div class="carousel-wrap" style="animation-delay:1.12s">
+      <div class="carousel-wrap" style="animation-delay:0.72s">
         <div class="carousel-container">
           <div class="floating-badge">Pro Series · บาลานซ์สั่งทำ</div>
           <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
@@ -277,10 +193,9 @@
 
     <div class="divider"></div>
 
-    <!-- Contact Strip สำหรับหน้านี้ -->
-    <div class="contact-strip" style="animation-delay: 1.2s; opacity: 0; animation: fadeUp 0.8s 1.2s forwards;">
+    <div class="contact-strip" style="animation-delay: 0.8s; opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">
       <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
-        <i class="fa-brands fa-line" aria-hidden="true"></i> สั่งทำชิ้นงานคัสตอม
+        <i class="fa-brands fa-line" aria-hidden="true"></i> สั่งทำไม้คิวคัสตอม
       </a>
       <a href="https://wa.me/66845687670" target="_blank" rel="noopener noreferrer" class="contact-btn">
         <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
@@ -289,30 +204,29 @@
 
     <div class="divider" style="margin-top: 10px;"></div>
 
-    <!-- Nav Menu ALL CAPS พร้อม Highlight สีทองที่ GALLERY -->
     <nav class="minimal-tabs" aria-label="เมนูหลัก">
-      <a href="index.html">HOME</a>
+      <a href="cue-home.html">CUE HOME</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">FEEL TEST</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="gallery.html" class="active" style="color: var(--gold-light); font-weight: 500;">GALLERY</a>
+      <a href="cue-gallery.html" class="active" style="color: var(--gold-light); font-weight: 500;">GALLERY</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="workshop.html">WORKSHOP</a>
+      <a href="cue-workshop.html">WORKSHOP</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="prototype.html">PROTOTYPE</a>
+      <a href="cue-prototype.html">PROTOTYPE</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="services.html">SERVICES</a>
+      <a href="cue-services.html">SERVICES</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="about.html">ABOUT</a>
+      <a href="cue-about.html">ABOUT</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="faq.html">FAQ</a>
+      <a href="cue-faq.html">FAQ</a>
     </nav>
 
     <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
   </main>
 
   <script>
-    // สคริปต์ควบคุม Carousel
+    // สคริปต์ควบคุม Carousel (ทำงานเหมือนเดิม)
     document.querySelectorAll('.carousel-container').forEach(container => {
       const track = container.querySelector('.carousel-track');
       const slides = Array.from(track.children);
