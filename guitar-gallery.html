@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Gallery | Darin Guitar</title>
+  <meta name="description" content="ชมผลงานสั่งทำกีตาร์คัสตอม (Custom Handmade) จาก Darin Guitar คัดสรรเนื้อไม้ไทยหายากเกรดพรีเมียม พร้อมบริการซ่อมและเซ็ตอัพระดับมืออาชีพ">
+  
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <script>
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault(); 
+        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+    });
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123 || 
+            (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
+            (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
+            e.preventDefault();
+            window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
+            return false;
+        }
+    }
+  </script>
+
+  <style>
+    /* ─── CSS เฉพาะหน้า Gallery (ปุ่ม Back, Section, และ Carousel) ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .page-logo { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); margin-bottom: 20px; opacity: 0; animation: fadeUp 0.7s 0.1s forwards; }
+    .eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; opacity: 0; animation: fadeUp 0.7s 0.15s forwards; }
+    
+    .section-label { width: 100%; display: flex; align-items: center; gap: 14px; margin: 48px 0 20px; opacity: 0; animation: fadeUp 0.7s forwards; }
+    .section-label-text { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+    .section-label-text i { font-size: 10px; }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06); }
+
+    .gallery-feed { width: 100%; display: flex; flex-direction: column; gap: 20px; }
+    
+    .carousel-wrap { position: relative; width: 100%; opacity: 0; animation: fadeUp 0.7s forwards; }
+    .carousel-container { position: relative; width: 100%; height: 460px; background: var(--surface-2); border: 1px solid rgba(255,255,255,0.06); overflow: hidden; transition: border-color 0.35s, box-shadow 0.35s; }
+    .carousel-container:hover { border-color: var(--border); box-shadow: 0 12px 40px rgba(0,0,0,0.6); }
+    .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .carousel-slide { min-width: 100%; height: 100%; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.9); }
+    
+    .floating-badge { position: absolute; top: 16px; left: 0; background: rgba(10,10,10,0.82); border-left: 2px solid var(--gold); color: var(--text); padding: 7px 14px; font-size: 11px; font-weight: 300; letter-spacing: 1.5px; z-index: 10; pointer-events: none; backdrop-filter: blur(4px); }
+    
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,10,10,0.55); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: all 0.3s; z-index: 15; backdrop-filter: blur(4px); }
+    .carousel-btn:hover { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+    
+    .carousel-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 15; padding: 5px 12px; background: rgba(0,0,0,0.45); backdrop-filter: blur(4px); }
+    .dot { width: 5px; height: 5px; background: rgba(255,255,255,0.25); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+    .dot.active { background: var(--gold); transform: scale(1.4); }
+    
+    .carousel-caption { padding: 12px 0 0; font-size: 11px; font-weight: 300; color: var(--text-muted); letter-spacing: 1px; text-align: left; }
+    
+    @media (max-width: 600px) { .carousel-container { height: 300px; } }
+  </style>
+</head>
+<body class="theme-guitar">
+  <header class="sticky-header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+        <a href="guitar-gallery.html" class="active">Gallery</a>
+        <a href="guitar-workshop.html">Workshop</a>
+        <a href="guitar-services.html">Services</a>
+        <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">Sound Check</a>
+        <a href="guitar-about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="top-line"></div>
+  <main class="page">
+
+    <div class="brand-logo-container">
+      <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar" style="margin: 0 auto; display: block;">
+    </div>
+    
+    <a href="guitar-home.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Darin Guitar</a>
+    
+    <img src="images/ui/darin-guitar-logo.png" alt="Darin Guitar Logo" class="page-logo" width="56" height="56" loading="lazy">
+    <p class="eyebrow">Handcrafted Masterpieces</p>
+    <h1>GUITAR GALLERY</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle">ผลงานกีตาร์คัสตอมที่รังสรรค์ด้วยความประณีตระดับมาสเตอร์พีซ</p>
+
+    <div class="section-label" style="animation-delay:0.35s">
+      <span class="section-label-text"><i class="fa-solid fa-guitar" aria-hidden="true"></i> Custom Guitars</span>
+    </div>
+    
+    <div class="gallery-feed">
+      <div class="carousel-wrap" style="animation-delay:0.4s">
+        <div class="carousel-container">
+          <div class="floating-badge">Custom PRS Style · ไม้จามจุรี</div>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/gallery/guitar-prs-1.jpg" alt="Custom PRS Style Guitar ไม้จามจุรี" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/gallery/guitar-prs-2.jpg" alt="Luthier Custom Guitar งานไม้ไทย" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/gallery/guitar-prs-3.jpg" alt="Guitar Setup เซ็ตอัพกีตาร์" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <p class="carousel-caption">PRS Style · Chamchuri Wood · Handmade</p>
+      </div>
+
+      <div class="carousel-wrap" style="animation-delay:0.48s">
+        <div class="carousel-container">
+          <div class="floating-badge">Acoustic J200 · ไม้พฤกษ์</div>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/gallery/guitar-aco-1.jpg" alt="Acoustic Guitar J200 Jumbo ไม้พฤกษ์" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/gallery/guitar-aco-2.jpg" alt="Boutique Acoustic Guitar ไม้ไทย" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <p class="carousel-caption">Acoustic J200 Jumbo · Pruk Wood · Handmade</p>
+      </div>
+
+      <div class="carousel-wrap" style="animation-delay:0.56s">
+        <div class="carousel-container">
+          <div class="floating-badge">Classic Tele · วินเทจคัสตอม</div>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/gallery/guitar-tele-1.jpg" alt="Classic Telecaster Custom Guitar" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/gallery/guitar-tele-2.jpg" alt="Handmade Telecaster Boutique" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <p class="carousel-caption">Classic Telecaster · Vintage Custom · Handmade</p>
+      </div>
+
+      <div class="carousel-wrap" style="animation-delay:0.64s">
+        <div class="carousel-container">
+          <div class="floating-badge">Knaggs Style · ไม้ไทยหายาก</div>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/gallery/guitar-knaggs-1.jpg" alt="Knaggs Style Custom Guitar ไม้ไทย" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/gallery/guitar-knaggs-2.jpg" alt="สั่งทำกีตาร์ไม้ไทยหายาก" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <p class="carousel-caption">Knaggs Style · Thai Exotic Wood · Handmade</p>
+      </div>
+
+      <div class="carousel-wrap" style="animation-delay:0.72s">
+        <div class="carousel-container">
+          <div class="floating-badge">Modern Custom · ไฮเอนด์สเปก</div>
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/gallery/guitar-modern-1.jpg" alt="Modern Custom Guitar Hi-Spec" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/gallery/guitar-modern-2.jpg" alt="Luthier Guitar Setup" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <p class="carousel-caption">Modern Custom · Hi-Spec Build · Handmade</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="contact-strip" style="animation-delay: 0.8s; opacity: 0; animation: fadeUp 0.8s 0.8s forwards;">
+      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <i class="fa-brands fa-line" aria-hidden="true"></i> สั่งทำกีตาร์คัสตอม
+      </a>
+      <a href="https://wa.me/66845687670" target="_blank" rel="noopener noreferrer" class="contact-btn">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+      </a>
+    </div>
+
+    <div class="divider" style="margin-top: 10px;"></div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
+      <a href="guitar-home.html">GUITAR HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-gallery.html" class="active" style="color: var(--gold-light); font-weight: 500;">GALLERY</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-workshop.html">WORKSHOP</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-prototype.html">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-services.html">SERVICES</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-about.html">ABOUT</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="guitar-faq.html">FAQ</a>
+    </nav>
+
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+  </main>
+
+  <script>
+    // สคริปต์ควบคุม Carousel
+    document.querySelectorAll('.carousel-container').forEach(container => {
+      const track = container.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const nextBtn = container.querySelector('.carousel-btn.next');
+      const prevBtn = container.querySelector('.carousel-btn.prev');
+      const dotsWrap = container.querySelector('.carousel-dots');
+      let current = 0;
+
+      if (slides.length <= 1) {
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        return;
+      }
+
+      slides.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      });
+
+      const dots = dotsWrap.querySelectorAll('.dot');
+
+      function goTo(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach(d => d.classList.remove('active'));
+        dots[index].classList.add('active');
+        current = index;
+      }
+
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+
+      let touchStartX = 0;
+      container.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      container.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>
