@@ -9,200 +9,149 @@
     gtag('js', new Date());
     gtag('config', 'G-D80CMSQ1YH');
   </script>
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a0a0a">
   
-  <title>The Cue Clinic | Darinworks</title>
-  <meta name="description" content="คลินิกซ่อมไม้คิว ดัดไม้คิวคด และปรับจุดบาลานซ์ไม้คิวด้วยหลักฟิสิกส์ โดยช่างผู้เชี่ยวชาญ">
+  <title>The Cue Clinic | Darinworks Snooker Cue Services</title>
+  <meta name="description" content="บริการซ่อมบำรุง ตกแต่ง และอัปเกรดไม้คิวสนุกเกอร์แฮนด์เมด เปลี่ยนหัวคิว ทำสี และปรับแต่งทรงด้วยเทคโนโลยีที่แม่นยำโดยช่างแบงค์ Darinworks">
+  
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
-  <!-- ดึงฟอนต์และไอคอน -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-  <!-- MathJax สำหรับเรนเดอร์สมการคณิตศาสตร์ -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
+  
   <link rel="stylesheet" href="css/darinworks.css">
 
-  <!-- สคริปต์ป้องกันการคลิกขวา/F12 -->
-  <script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.onkeydown = e => {
-        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
-            e.preventDefault(); return false;
-        }
-    }
-  </script>
+  <script src="js/security.js"></script>
 
   <style>
-    /* ─── CSS เฉพาะหน้า The Cue Clinic ─── */
+    /* CSS ตกแต่งเพิ่มเติมเฉพาะหน้าตารางราคาคลินิกไม้คิว */
     .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
     .back-btn:hover { color: var(--gold); }
     .back-btn i { font-size: 10px; }
 
-    .clinic-content { width: 100%; max-width: 760px; margin-top: 20px; }
-
-    .section-box { 
-      background: var(--surface); 
-      border: 1px solid var(--border); 
-      padding: 40px; 
-      margin-bottom: 30px; 
-      position: relative; 
-      opacity: 0; 
-      animation: fadeUp 0.8s forwards; 
-      transition: border-color 0.4s, box-shadow 0.4s;
-    }
-    .section-box:nth-child(1) { animation-delay: 0.3s; }
-    .section-box:nth-child(2) { animation-delay: 0.4s; }
-
-    .section-box::after {
-      content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--gold); border-style: solid; 
-      bottom: -1px; right: -1px; border-width: 0 1px 1px 0; opacity: 0; transition: opacity 0.4s;
-    }
-    .section-box:hover { border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .section-box:hover::after { opacity: 1; }
-
-    .section-box h3 { 
-      font-family: var(--serif); color: var(--gold); font-size: 24px; font-weight: 400; 
-      margin-bottom: 20px; display: flex; align-items: center; gap: 12px; letter-spacing: 1px;
-    }
-    .section-box h3 i { font-size: 20px; }
-    .section-box p.desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 0; }
-
-    /* กล่องสมการฟิสิกส์ */
-    .math-box { 
-      background: rgba(0, 0, 0, 0.4); 
-      border-left: 2px solid var(--gold); 
-      padding: 24px; 
-      margin: 24px 0 16px; 
-      text-align: center; 
-      font-size: 20px; 
-      overflow-x: auto;
-      border-radius: 2px;
-      color: var(--text);
-    }
-    .math-caption { font-size: 11px; color: rgba(255,255,255,0.4); text-align: center; letter-spacing: 1px; }
-
-    /* รายการซ่อมบำรุง */
-    .service-list { list-style: none; padding: 0; margin-top: 24px; }
-    .service-list li { 
-      padding: 20px 0; 
-      border-bottom: 1px solid rgba(255,255,255,0.06); 
-      display: flex; 
-      align-items: flex-start; 
-      gap: 18px; 
-      transition: transform 0.3s;
-    }
-    .service-list li:hover { transform: translateX(5px); }
-    .service-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .price-table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 35px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; font-family: 'Jost', sans-serif; }
+    .price-table th { background: rgba(212, 175, 55, 0.08); color: var(--gold); text-align: left; padding: 14px 18px; font-weight: 500; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+    .price-table td { padding: 14px 18px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04); color: #ccc; }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table td.price-col { text-align: right; color: var(--gold-light); font-weight: 500; }
     
-    .service-list i { color: var(--gold); font-size: 20px; margin-top: 4px; width: 24px; text-align: center; }
-    .service-list strong { display: block; color: var(--text); font-family: var(--sans); font-size: 15px; font-weight: 500; letter-spacing: 1px; margin-bottom: 6px; }
-    .service-list span { color: var(--text-muted); font-size: 13px; line-height: 1.6; font-weight: 300; display: block; }
-
-    @media (max-width: 600px) { .section-box { padding: 30px 20px; } }
+    .section-title { font-size: 14px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-top: 40px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-family: 'Jost', sans-serif; }
+    .section-title i { font-size: 12px; }
   </style>
 </head>
-<body>
+<body class="theme-cue">
+
   <header class="sticky-header">
     <div class="header-container">
       <a href="index.html" class="header-logo">Darinworks</a>
       <nav class="header-nav">
-      <a href="cue-home.html">HOME</a>
-      <a href="cue-gallery.html">GALLERY</a>
-      <a href="cue-prototype.html">PROTOTYPE</a>
-      <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">FEEL TEST</a>
-
+        <a href="cue-home.html">HOME</a>
+        <a href="cue-gallery.html">GALLERY</a>
+        <a href="cue-prototype.html">PROTOTYPE</a>
+        <a href="cue-services.html" class="active">SERVICES</a>
       </nav>
     </div>
   </header>
 
   <div class="top-line"></div>
-  <main class="page">
-
-<div class="brand-logo-container">
-  <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar">
-  <div class="logo-divider"></div>
-  <img src="images/ui/darin-cue-logo.png" class="logo-cue" alt="Darin Cues">
-</div>
+  
+  <main class="page" style="padding-top: 60px;">
     
-    <a href="services.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Services</a>
-
-    <p class="logo-mark">Darinworks</p>
+    <a href="cue-services.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Services</a>
+    
     <h1>THE CUE CLINIC</h1>
-    
     <div class="ornament">
       <div class="ornament-line"></div>
       <div class="ornament-diamond"></div>
       <div class="ornament-line r"></div>
     </div>
-    
-    <p class="subtitle" style="margin-bottom: 50px;">Restoration & Balance Tuning</p>
+    <p class="subtitle">บริการซ่อมบำรุงและตกแต่งผิวไม้คิว (Maintenance & Repair Services)</p>
+    <p class="description" style="max-width: 600px; margin: 0 auto 30px; text-align: center;">สำหรับลูกค้าที่ต้องการนำไม้คิวมาปรับแต่ง ซ่อมแซม หรือดูแลรักษาเนื้อไม้ให้พร้อมใช้งานได้อย่างเต็มประสิทธิภาพสูงสุด</p>
 
-    <div class="clinic-content">
+    <div style="max-width: 650px; margin: 0 auto; width: 100%;">
       
-      <!-- Section 1: Engineering -->
-      <div class="section-box">
-        <h3><i class="fa-solid fa-scale-balanced"></i> Balance Point Engineering</h3>
-        <p class="desc">การปรับจุดศูนย์ถ่วง (Center of Gravity) ของไม้คิวให้เข้ากับสรีระผู้เล่น คือหัวใจสำคัญของการส่งแรงที่แม่นยำ เราคำนวณจุดบาลานซ์ใหม่ด้วยสมการฟิสิกส์</p>
-        
-        <div class="math-box">
-          $$ B_p = \frac{\sum (m_i \times d_i)}{M_{total}} $$
-        </div>
-        <div class="math-caption">(การคำนวณการกระจายมวลเทียบกับระยะทาง)</div>
+      <div class="section-title">
+        <i class="fa-solid fa-circle-dot"></i> งานหัวคิวและทองเหลือง
       </div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>รายการบริการ</th>
+            <th style="text-align: right; width: 120px;">ราคา (บาท)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>เปลี่ยนหัวคิว (รวมค่าหัวคิวมาตรฐาน)</td>
+            <td class="price-col">-[ระบุราคา]-</td>
+          </tr>
+          <tr>
+            <td>เปลี่ยนหัวคิว (ลูกค้าเตรียมหัวคิวมาเอง)</td>
+            <td class="price-col">-[ระบุราคา]-</td>
+          </tr>
+          <tr>
+            <td>เปลี่ยนหัวทองเหลือง (Ferrule Replacement)</td>
+            <td class="price-col">-[ระบุราคา]-</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <!-- Section 2: Restoration -->
-      <div class="section-box">
-        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Restoration Services</h3>
-        <ul class="service-list">
-          <li>
-            <i class="fa-solid fa-arrows-to-circle"></i>
-            <div>
-              <strong>เปลี่ยนหัวคิว & ปลอกคิว (Tip & Ferrule)</strong>
-              <span>ติดตั้งหัวคิวเกรดพรีเมียมด้วยความละเอียดระดับมิลลิเมตร เพื่อลดค่า Deflection</span>
-            </div>
-          </li>
-          <li>
-            <i class="fa-solid fa-hammer"></i>
-            <div>
-              <strong>ดัดไม้คิวคด (Straightening)</strong>
-              <span>ใช้เทคนิคการดัดและคลายสปริงไม้ เพื่อคืนความตรงโดยไม่ทำลายโครงสร้างเนื้อไม้</span>
-            </div>
-          </li>
-          <li>
-            <i class="fa-solid fa-droplet"></i>
-            <div>
-              <strong>เคลือบผิวเนื้อไม้ (Oil Finishing)</strong>
-              <span>ขัดเปิดลายไม้และลงออยล์สูตรเฉพาะ เพื่อสัมผัสที่ลื่นไหลเวลาสาวคิว</span>
-            </div>
-          </li>
-        </ul>
+      <div class="section-title">
+        <i class="fa-solid fa-sliders"></i> งานปรับแต่งสเปกไม้
       </div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>รายการบริการ</th>
+            <th style="text-align: right; width: 120px;">ราคา (บาท)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ปรับลดน้ำหนัก / ลดขนาดด้าม</td>
+            <td class="price-col">-[ระบุราคา]-</td>
+          </tr>
+          <tr>
+            <td>แต่งทรงไม้คิว (Reshaping / Tapering) ด้วย CNC เพื่อความแม่นยำ</td>
+            <td class="price-col">-[ระบุราคา]-</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="section-title">
+        <i class="fa-solid fa-sparkles"></i> งานตกแต่งผิว (Refinishing)
+      </div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>รายการบริการ</th>
+            <th style="text-align: right; width: 120px;">ราคา (บาท)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ขัดเคลือบเงาใหม่ทั้งด้าม</td>
+            <td class="price-col">-[ระบุราคา]-</td>
+          </tr>
+          <tr>
+            <td>ทำความสะอาดและลงน้ำมันดูแลรักษาไม้</td>
+            <td class="price-col">-[ระบุราคา]-</td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
 
-    <div class="divider"></div>
-
-    <!-- Contact Strip -->
-    <div class="contact-strip" style="animation-delay: 0.6s; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;">
-      <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
-        <i class="fa-brands fa-line" aria-hidden="true"></i> จองคิวซ่อมบำรุง
-      </a>
-      <a href="https://wa.me/66845687670" target="_blank" rel="noopener noreferrer" class="contact-btn">
-        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+    <div style="text-align: center; margin-top: 40px; margin-bottom: 30px;">
+      <a href="index.html" style="text-decoration: none; color: #b5a47e; border: 1px solid #b5a47e; padding: 10px 28px; border-radius: 50px; font-size: 0.9em; opacity: 0.85; cursor: pointer; display: inline-block; letter-spacing: 1px;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Home
       </a>
     </div>
 
-    <div class="divider" style="margin-top: 10px;"></div>
-
-   <nav class="minimal-tabs" aria-label="เมนูหลัก" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 16px; text-align: center; width: 100%; margin-top: 10px;">
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 16px; text-align: center; width: 100%; margin-top: 10px;">
       <a href="cue-home.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">HOME</a>
       <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
       <a href="cue-gallery.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">GALLERY</a>
