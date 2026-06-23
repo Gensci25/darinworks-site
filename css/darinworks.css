@@ -260,3 +260,28 @@ body {
     letter-spacing: 1px;
   }
 }
+
+
+
+/* =========================================
+   Brand Logos (หน้า Gallery และหน้ารวม)
+========================================= */
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.brand-logos img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.brand-logos img:hover {
+    transform: scale(1.1);
+}
