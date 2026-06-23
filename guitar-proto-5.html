@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>The Survivor (Knaggs Custom) | Darinworks</title>
+  <meta name="description" content="บันทึกการสร้างกีตาร์ Knaggs Custom สไตล์ จากเศษไม้สู่ผลงานมาสเตอร์พีซโดย Darinworks">
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <!-- ดึงฟอนต์และไอคอน -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <!-- สคริปต์ป้องกันการคลิกขวา/F12 -->
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = e => {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault(); return false;
+        }
+    }
+  </script>
+  
+  <style>
+    /* ─── CSS เฉพาะหน้า Knaggs Build Detail ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .hero-section { text-align: center; margin-bottom: 80px; opacity: 0; animation: fadeUp 0.8s forwards; }
+    .hero-section h1 { font-family: var(--serif); font-size: 56px; color: var(--text); margin-bottom: 10px; font-weight: 300; letter-spacing: 2px; }
+    .hero-section h1 span { color: var(--gold); }
+    .hero-section .subtitle { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 30px; }
+    .hero-section p { font-size: 20px; color: var(--text-muted); font-family: var(--serif); font-style: italic; }
+
+    .story-block { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px; opacity: 0; animation: fadeUp 0.8s forwards; }
+    .story-block.reverse { grid-template-columns: 1fr 1fr; }
+    @media (min-width: 769px) { .story-block.reverse .story-img-wrap { order: 2; } .story-block.reverse .story-text { order: 1; } }
+    
+    .story-img-wrap { position: relative; width: 100%; height: 400px; border-radius: 2px; overflow: hidden; }
+    .story-img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); transition: filter 0.4s; }
+    .story-img-wrap:hover .story-img { filter: brightness(1); }
+    
+    .story-text h2 { font-family: var(--serif); color: var(--gold); font-size: 32px; margin-bottom: 24px; font-weight: 400; }
+    .story-text p { color: var(--text-muted); font-size: 15px; line-height: 1.8; font-weight: 300; margin-bottom: 20px; }
+    .highlight { color: var(--text); font-weight: 400; }
+
+    .quote-box { border-left: 1px solid var(--gold); padding: 40px 0 40px 40px; margin: 80px auto; max-width: 700px; font-family: var(--serif); font-size: 24px; font-style: italic; color: var(--text); line-height: 1.6; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
+
+    /* Timeline Section */
+    .section-title { text-align: center; margin: 100px 0 60px 0; font-family: var(--serif); font-size: 36px; color: var(--text); letter-spacing: 2px; }
+    .timeline { display: flex; flex-direction: column; gap: 40px; width: 100%; max-width: 650px; margin: 20px auto 80px; }
+    .timeline-item { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; position: relative; opacity: 0; animation: fadeUp 0.8s forwards; }
+    .day-badge { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); border-left: none; border-top: none; display: inline-block; padding: 6px 14px; font-size: 10px; letter-spacing: 2px; font-family: var(--sans); text-transform: uppercase; position: absolute; top: 0; left: 0; z-index: 10; backdrop-filter: blur(4px); }
+    .content { padding: 35px 30px; }
+    .content h3 { font-family: var(--serif); color: var(--gold); font-size: 24px; margin: 0 0 15px 0; font-weight: 400; }
+    .content p { color: var(--text-muted); font-size: 14px; line-height: 1.7; font-weight: 300; }
+
+    /* Carousel & Video */
+    .carousel-container { position: relative; width: 100%; height: 380px; background: #000; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .carousel-slide { min-width: 100%; height: 100%; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,10,10,0.55); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: all 0.3s; z-index: 5; backdrop-filter: blur(4px); }
+    .carousel-btn:hover { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+
+    .carousel-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; background: rgba(0,0,0,0.45); padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(4px); }
+    .dot { width: 5px; height: 5px; background: rgba(255,255,255,0.25); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+    .dot.active { background: var(--gold); transform: scale(1.4); }
+
+    .final-video-section { margin-top: 20px; padding-top: 50px; border-top: 1px solid var(--border); text-align: left; width: 100%; max-width: 650px; opacity: 0; animation: fadeUp 0.8s 1s forwards; }
+    .final-video-section h3 { font-family: var(--serif); color: var(--gold); font-size: 26px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 400; letter-spacing: 1px; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 1px solid var(--border); background: #000; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    @media (max-width: 768px) { .story-block, .story-block.reverse { grid-template-columns: 1fr; gap: 30px; text-align: center; } .story-img-wrap { height: 300px; } .carousel-container { height: 280px; } }
+  </style>
+</head>
+<body>
+  <header class="sticky-header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+      <a href="guitar-home.html">Home</a>
+      <a href="guitar-gallery.html">GALLERY</a>
+      <a href="guitar-prototype.html">PROTOTYPE</a>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="top-line"></div>
+  <main class="page">
+    
+    <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Prototype</a>
+
+    <div class="hero-section">
+      <p class="subtitle">Prototype Series #4</p>
+      <h1>THE <span>SURVIVOR</span></h1>
+      <p>จากเศษไม้ข้างถังน้ำมัน สู่ปีกผีเสื้อที่ไม่มีวันตาย</p>
+    </div>
+
+    <!-- Story Blocks -->
+    <div class="story-block">
+      <div class="story-img-wrap"><img class="story-img" src="images/prototype/proto4-wood-raw.jpg" alt="เศษไม้ข้างถังน้ำมัน"></div>
+      <div class="story-text">
+        <h2>01. The Forgotten</h2>
+        <p>ครั้งหนึ่ง... มันเคยเป็นแค่ไม้ชิ้นเดียวที่ถูกทิ้งอยู่ข้างถังน้ำมันเครื่องในร้านซ่อมรถ มันเปื้อนฝุ่น ดำคล้ำ และดูไร้ค่า จนไม่มีใครคิดว่าวันหนึ่งมันจะส่งเสียงได้ แต่ภายใต้ความหนาเพียง 2 เซนติเมตรนั้น <span class="highlight">ผมมองเห็นสิ่งที่คนอื่นมองไม่เห็น...</span></p>
+      </div>
+    </div>
+
+    <div class="story-block reverse">
+      <div class="story-img-wrap"><img class="story-img" src="images/prototype/proto4-cutting.jpg" alt="การผ่าไม้"></div>
+      <div class="story-text">
+        <h2>02. The Gamble</h2>
+        <p>ผมตัดสินใจผ่ามันออกเป็นสองซีก วางหัวใจไว้กับการตัดเพียงครั้งเดียว เพราะไม้ชิ้นนี้มีเพียงชิ้นเดียวในโลก <span class="highlight">ถ้าพลาดคือจบ</span> ทุกลมหายใจในการเดินเครื่องมือ คือการเดิมพันเพื่อดึงจิตวิญญาณของมันออกมา</p>
+      </div>
+    </div>
+
+    <div class="story-block">
+      <div class="story-img-wrap"><img class="story-img" src="images/prototype/proto4-butterfly.jpg" alt="ลายปีกผีเสื้อ"></div>
+      <div class="story-text">
+        <h2>03. Revelation</h2>
+        <p>แต่วินาทีที่ไม้แยกออกจากกัน... ความงามที่หลับใหลมานานก็ถูกปลดปล่อย ลวดลาย <span class="highlight">'ปีกผีเสื้อ'</span> ที่สมบูรณ์แบบปรากฏขึ้น ราวกับมันรอคอยเวลานี้มาตลอด นี่คือรางวัลของการไม่ยอมแพ้ให้กับสิ่งที่ถูกตัดสินว่าไร้ค่า</p>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      "มันไม่ได้เกิดมาเพื่อถูกลืม... แต่มันเกิดมาเพื่อกางปีกและส่งเสียงให้อยู่ตลอดไป ในแบบของมันเอง"
+    </div>
+
+    <h2 class="section-title">THE <span>MAKING</span> OF</h2>
+
+    <!-- Timeline -->
+    <div class="timeline">
+      <!-- Days 1-5 loop -->
+      <div class="timeline-item"><div class="day-badge">DAY 1</div><div class="carousel-container"><button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button><button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button><div class="carousel-track"><div class="carousel-slide"><img src="images/prototype/guitar4-day1-1.jpg" alt="Wood Selection"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day1-2.jpg" alt="Exotic Timber"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day1-3.jpg" alt="Density Check"></div></div><div class="carousel-dots"></div></div><div class="content"><h3>Thai Wood Selection for High Sustain</h3><p>คัดเลือกหน้าไม้ดิบและไม้ไทยหายากสูตรเฉพาะเพื่อนำมาประกอบขึ้นโครงสร้างสไตล์ Knaggs มุ่งเน้นไปที่เนื้อไม้ที่มีลวดลายจัดจ้านและมีความหนาแน่นสูงเป็นพิเศษ</p></div></div>
+      <div class="timeline-item"><div class="day-badge">DAY 2</div><div class="carousel-container"><button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button><button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button><div class="carousel-track"><div class="carousel-slide"><img src="images/prototype/guitar4-day2-1.jpg" alt="Body CNC"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day2-2.jpg" alt="Routing"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day2-3.jpg" alt="Milling"></div></div><div class="carousel-dots"></div></div><div class="content"><h3>Advanced Body Shaping & 3D Routing</h3><p>สแกนสเกลและขึ้นรูปบอดี้ที่มีความซับซ้อนด้วยเครื่องจักร CNC ความละเอียดสูง เซาะร่องส่วนเว้าโค้งและขุดช่องฮาร์ดแวร์เพื่อให้ระนาบสมบูรณ์ที่สุด</p></div></div>
+      <div class="timeline-item"><div class="day-badge">DAY 3</div><div class="carousel-container"><button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button><button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button><div class="carousel-track"><div class="carousel-slide"><img src="images/prototype/guitar4-day3-1.jpg" alt="Scraping"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day3-2.jpg" alt="Carving"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day3-3.jpg" alt="Highlighting"></div></div><div class="carousel-dots"></div></div><div class="content"><h3>Artisan Edge Carving & Sanding</h3><p>ผสานงานฝีมือช่างเพื่อขัดเกลาเหลี่ยมมุมที่เครื่องจักรเข้าไม่ถึง ค่อยๆ แต่งขอบและขัดไล่เบอร์กระดาษทรายอย่างพิถีพิถัน เผยให้เห็นแนวชั้นสลับของลายไม้ดิบ</p></div></div>
+      <div class="timeline-item"><div class="day-badge">DAY 4</div><div class="carousel-container"><button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button><button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button><div class="carousel-track"><div class="carousel-slide"><img src="images/prototype/guitar4-day4-1.jpg" alt="Neck"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day4-2.jpg" alt="Gluing"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day4-3.jpg" alt="Fret"></div></div><div class="carousel-dots"></div></div><div class="content"><h3>Set-Neck Jointing & Fretwork</h3><p>ต่อคอกีตาร์แบบฝังลึก (Set-Neck) ตรวจวัดแนวระนาบและการกระจายน้ำหนักอย่างเข้มงวด พร้อมจัดแนวเฟรตเพื่อรองรับการตั้งทัชชิ่งที่ต่ำ</p></div></div>
+      <div class="timeline-item"><div class="day-badge">DAY 5</div><div class="carousel-container"><button class="carousel-btn prev"><i class="fa-solid fa-chevron-left"></i></button><button class="carousel-btn next"><i class="fa-solid fa-chevron-right"></i></button><div class="carousel-track"><div class="carousel-slide"><img src="images/prototype/guitar4-day5-1.jpg" alt="Finish"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day5-2.jpg" alt="Hardware"></div><div class="carousel-slide"><img src="images/prototype/guitar4-day5-3.jpg" alt="Intonation"></div></div><div class="carousel-dots"></div></div><div class="content"><h3>Custom Finish & Final Assembly</h3><p>ย้อมสีเนื้อไม้ พ่นเคลือบผิว เดินวงจรไฟฟ้าและติดตั้งปิ๊กอัพ ประกอบฮาร์ดแวร์สะพานสายเฉพาะตัวของทรง Knaggs และทำการเซ็ตอัพเต็มระบบ</p></div></div>
+    </div>
+
+    <!-- Video -->
+    <div class="final-video-section">
+      <h3><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> The Final Sound Check</h3>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/ใส่_ID_คลิปตรงนี้" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+<div style="text-align: center; margin-top: 40px; margin-bottom: 30px;">
+      <a href="index.html" style="text-decoration: none; color: #b5a47e; border: 1px solid #b5a47e; padding: 10px 28px; border-radius: 50px; font-size: 0.9em; opacity: 0.85; cursor: pointer; display: inline-block; letter-spacing: 1px;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Home
+      </a>
+    </div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 16px; text-align: center; width: 100%; margin-top: 10px;">
+      <a href="guitar-home.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">HOME</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-gallery.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">GALLERY</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-workshop.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">WORKSHOP</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-prototype.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-services.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">SERVICES</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-about.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">ABOUT US</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-faq.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="margin-top: 36px; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.12); text-transform: uppercase; text-align: center; width: 100%;">© Darinworks · Bangkok · Thailand</p>
+  </main>
+</body>
+</html>
+</body>
+</html>
