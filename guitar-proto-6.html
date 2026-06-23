@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Acoustic Guitar J200 Custom | Darinworks</title>
+  <meta name="description" content="บันทึกการสร้างกีตาร์ Acoustic J200 (Jumbo) สไตล์คัสตอมด้วยไม้ไทยหายาก">
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = e => {
+        if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.keyCode == 85)) {
+            e.preventDefault(); return false;
+        }
+    }
+  </script>
+  
+  <style>
+    /* ─── CSS เฉพาะหน้า J200 Build Detail ─── */
+    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
+    .back-btn:hover { color: var(--gold); }
+    .back-btn i { font-size: 10px; }
+
+    .timeline { display: flex; flex-direction: column; gap: 40px; width: 100%; max-width: 650px; margin: 20px auto 50px; }
+    
+    .timeline-item {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px;
+      overflow: hidden; position: relative; opacity: 0; animation: fadeUp 0.8s forwards;
+      transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+    }
+    .timeline-item:nth-child(1) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.7s; }
+    .timeline-item:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+
+    .day-badge {
+      background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); border-left: none; border-top: none;
+      display: inline-block; padding: 6px 14px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      position: absolute; top: 0; left: 0; z-index: 10; backdrop-filter: blur(4px);
+    }
+
+    .content { padding: 35px 30px; text-align: left; }
+    .content h3 { font-family: var(--serif); color: var(--gold); font-size: 22px; margin: 0 0 12px 0; font-weight: 400; letter-spacing: 1px; }
+    .content p { margin: 0; font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+
+    /* Carousel */
+    .carousel-container { position: relative; width: 100%; height: 380px; background: #000; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .carousel-track { display: flex; width: 100%; height: 100%; transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .carousel-slide { min-width: 100%; height: 100%; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.9); }
+
+    .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(10,10,10,0.55); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: all 0.3s; z-index: 5; backdrop-filter: blur(4px); }
+    .carousel-btn:hover { background: var(--gold-dim); border-color: var(--gold); color: var(--gold); }
+    .carousel-btn.prev { left: 12px; }
+    .carousel-btn.next { right: 12px; }
+
+    .carousel-dots { position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 5; background: rgba(0,0,0,0.45); padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(4px); }
+    .dot { width: 5px; height: 5px; background: rgba(255,255,255,0.25); border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+    .dot.active { background: var(--gold); transform: scale(1.4); }
+
+    .final-video-section { margin-top: 20px; padding-top: 50px; border-top: 1px solid var(--border); text-align: left; width: 100%; max-width: 650px; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
+    .final-video-section h3 { font-family: var(--serif); color: var(--gold); font-size: 26px; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; font-weight: 400; letter-spacing: 1px; }
+    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 1px solid var(--border); background: #000; }
+    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+    @media (max-width: 600px) { .carousel-container { height: 280px; } }
+  </style>
+</head>
+<body>
+  <header class="sticky-header">
+    <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+      <a href="guitar-home.html">Home</a>
+      <a href="guitar-gallery.html">GALLERY</a>
+      <a href="guitar-prototype.html">PROTOTYPE</a>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="top-line"></div>
+  <main class="page">
+    
+    <a href="prototype.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Prototype</a>
+
+    <p class="logo-mark">Darinworks</p>
+    <h1>ACOUSTIC J200 CUSTOM</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">บันทึกการสร้างกีตาร์ Acoustic J200 (Jumbo)</p>
+
+    <div class="timeline">
+      
+      <div class="timeline-item">
+        <div class="day-badge">WEEK 1</div>
+        <div class="carousel-container">
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w1-1.jpg" alt="Exotic Wood Selection" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w1-2.jpg" alt="Wood Grain Checking" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w1-3.jpg" alt="Moisture Testing" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="content">
+          <h3>Thai Exotic Wood Selection</h3>
+          <p>คัดเลือกไม้ไทยเกรดพรีเมียมที่มีลวดลายจัดจ้านและให้ย่านเสียงที่กลมกล่อมตามโจทย์ของกีตาร์โปร่งทรง Jumbo โดยตัดสินใจเลือกใช้ ไม้จามจุรี ในส่วนหลังและข้าง และ ไม้พฤกษ์ สำหรับโครงสร้างภายใน เพื่อดึงความกังวานและเสียงที่เปิดสว่าง</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="day-badge">WEEK 2</div>
+        <div class="carousel-container">
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w2-1.jpg" alt="CNC Bending" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w2-2.jpg" alt="Body Shaping" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w2-4.jpg" alt="Rim Assembly" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="content">
+          <h3>CNC Bending & Body Shaping</h3>
+          <p>ขึ้นรูปทรงบอดี้ขนาดใหญ่ (Jumbo Size) ด้วยความแม่นยำสูง ผสานการทำงานระหว่างเครื่องจักร CNC ในการคำนวณสเกล และงานฝีมือดั้งเดิมในการควบคุมความหนาของแผ่นไม้แต่ละจุดเพื่อให้ได้การตอบสนองต่อเสียงที่ดีที่สุด</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="day-badge">WEEK 3</div>
+        <div class="carousel-container">
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w3-1.jpg" alt="Bracing Design" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w3-2.jpg" alt="Soundboard Tuning" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w3-4.jpg" alt="Tap Tuning Test" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="content">
+          <h3>Acoustic Bracing & Soundboard Tuning</h3>
+          <p>วางโครงค้ำยันภายใน (Bracing) ด้วยไม้พฤกษ์ ค่อยๆ เหลาและปรับแต่งความหนาเพื่อควบคุมทิศทางการสั่นสะเทือนของเสียง ให้ตอบสนองต่อน้ำหนักการสตรัมคอร์ดได้อย่างมีมิติและทรงพลังที่สุด</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="day-badge">WEEK 4</div>
+        <div class="carousel-container">
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w4-1.jpg" alt="Neck Carving" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w4-2.jpg" alt="Neck Jointing" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w4-3.jpg" alt="Fretboard Leveling" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="content">
+          <h3>Precision Neck Jointing</h3>
+          <p>กระบวนการต่อคอกีตาร์เข้ากับบอดี้อย่างเที่ยงตรง ตรวจสอบองศาคอและแนวเส้นตรงระดับมิลลิเมตร เพื่อให้การส่งผ่านพลังงานและซัสเทนเสียง (Sustain) ไหลลื่นเข้าสู่บอดี้ได้อย่างสมบูรณ์</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="day-badge">WEEK 5</div>
+        <div class="carousel-container">
+          <button class="carousel-btn prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="carousel-track">
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w5-1.jpg" alt="Finishing Work" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w5-2.jpg" alt="Final Setup" loading="lazy"></div>
+            <div class="carousel-slide"><img src="images/prototype/guitar3-w5-3.jpg" alt="Polishing" loading="lazy"></div>
+          </div>
+          <div class="carousel-dots"></div>
+        </div>
+        <div class="content">
+          <h3>Premium Finishing & Setup</h3>
+          <p>ทำสีและเคลือบผิวบางพิเศษ เพื่อปล่อยให้เนื้อไม้ได้หายใจและสั่นสะเทือนได้อย่างเต็มศักยภาพ ปิดท้ายด้วยการขัดเงาและเซ็ตอัพทัชชิ่ง (Setup) ให้เล่นง่าย นุ่มนวลสบายมือที่สุด</p>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="final-video-section">
+      <h3><i class="fa-brands fa-youtube" style="color: #FF0000;"></i> The Final Sound Check</h3>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/ใส่_ID_คลิปตรงนี้" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+<div style="text-align: center; margin-top: 40px; margin-bottom: 30px;">
+      <a href="index.html" style="text-decoration: none; color: #b5a47e; border: 1px solid #b5a47e; padding: 10px 28px; border-radius: 50px; font-size: 0.9em; opacity: 0.85; cursor: pointer; display: inline-block; letter-spacing: 1px;">
+        <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i> Back to Home
+      </a>
+    </div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 16px; text-align: center; width: 100%; margin-top: 10px;">
+      <a href="guitar-home.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">HOME</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-gallery.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">GALLERY</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-workshop.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">WORKSHOP</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-prototype.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">PROTOTYPE</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-services.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">SERVICES</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">SOUND CHECK</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-about.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">ABOUT US</a>
+      <span class="separator" aria-hidden="true" style="color: rgba(255,255,255,0.1); font-size: 10px; user-select: none;">·</span>
+      <a href="guitar-faq.html" style="color: #7a7570; text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; font-weight: 400;">FAQ</a>
+    </nav>
+
+    <p class="footer-note" style="margin-top: 36px; font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.12); text-transform: uppercase; text-align: center; width: 100%;">© Darinworks · Bangkok · Thailand</p>
+  </main>
+</body>
+</html>
