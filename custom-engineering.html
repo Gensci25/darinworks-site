@@ -14,7 +14,7 @@
   <meta name="theme-color" content="#0a0a0a">
   
   <title>Custom Engineering | Darinworks</title>
-  <meta name="description" content="สั่งทำกีตาร์และไม้คิวด้วยไม้ไทยหายาก เช่น ไม้พญางิ้วดำ ออกแบบด้วย Fusion 360 และ CNC">
+  <meta name="description" content="สั่งทำกีตาร์และไม้คิวด้วยไม้ไทยหายาก เช่น ไม้ไม้ดำดง ออกแบบด้วย Fusion 360 และ CNC">
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
   <!-- ดึงฟอนต์และไอคอน -->
@@ -198,10 +198,10 @@
         <p class="desc">คลังไม้หายากที่ผ่านการคัดสรรและอบแห้งจนได้ความหนาแน่นที่สมบูรณ์แบบสำหรับทำเครื่องดนตรีและไม้คิว</p>
         
         <div class="wood-grid">
-          <!-- กล่องพญางิ้วดำ -->
-          <div class="wood-card" onclick="openGallery('พญางิ้วดำ')">
+          <!-- กล่องไม้ดำดง -->
+          <div class="wood-card" onclick="openGallery('ไม้ดำดง')">
             <i class="fa-solid fa-layer-group"></i>
-            <h4>พญางิ้วดำ (Black Ebony)</h4>
+            <h4>ไม้ดำดง (Black Ebony)</h4>
             <p>สุดยอดไม้เนื้อแข็งที่มีความหนาแน่นสูง สำหรับทำด้ามคิวบาลานซ์เยี่ยม</p>
             <span class="click-hint"><i class="fa-solid fa-images"></i> คลิกชมเนื้อไม้จริง</span>
           </div>
@@ -303,7 +303,7 @@
   <script>
     // 1. ฐานข้อมูลรูปภาพคลังไม้ (แก้ไขลิงก์รูปจริงได้ตรงนี้)
     const woodData = {
-      "พญางิ้วดำ": [
+      "ไม้ดำดง": [
         "https://via.placeholder.com/800x600/1a1a1a/D4AF37?text=Black+Ebony+1",
         "https://via.placeholder.com/800x600/1a1a1a/D4AF37?text=Black+Ebony+2",
         "https://via.placeholder.com/800x600/1a1a1a/D4AF37?text=Black+Ebony+3"
@@ -320,12 +320,12 @@
       ]
     };
 
-    let currentCategory = "พญางิ้วดำ";
+    let currentCategory = "ไม้ดำดง";
     let currentIndex = 0;
 
     // เปิด/ปิด Modal
     // รับค่าหมวดหมู่ไม้จากปุ่มคลิก ถ้าไม่ระบุให้ใช้ค่าเดิม
-    function openGallery(category = "พญางิ้วดำ") {
+    function openGallery(category = "ไม้ดำดง") {
       document.getElementById("woodModal").style.display = "flex";
       loadCategory(category);
     }
