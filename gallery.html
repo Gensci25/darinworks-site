@@ -17,16 +17,13 @@
   
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
-  <!-- ดึงฟอนต์และไอคอน -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   
-  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
   <link rel="stylesheet" href="css/darinworks.css">
 
-  <!-- สคริปต์ป้องกันการคลิกขวา/F12 -->
   <script>
     document.addEventListener('contextmenu', function(event) {
         event.preventDefault(); 
@@ -106,8 +103,6 @@
       Handcrafted Works
     </p>
 
-      Handcrafted Works
-    </p>
    <h1>GALLERY</h1>
     
     <div class="ornament">
@@ -118,7 +113,6 @@
     
     <p class="subtitle">ผลงานที่รังสรรค์ด้วยความประณีตระดับมาสเตอร์พีซ</p>
 
-    <!-- ─── Custom Guitars ─── -->
     <div class="section-label" style="animation-delay:0.35s">
       <span class="section-label-text"><i class="fa-solid fa-guitar" aria-hidden="true"></i> Custom Guitars</span>
     </div>
@@ -196,7 +190,6 @@
       </div>
     </div>
 
-    <!-- ─── Custom Cues ─── -->
     <div class="section-label" style="animation-delay:0.76s">
       <span class="section-label-text"><i class="fa-solid fa-gavel" aria-hidden="true"></i> Custom Cues</span>
     </div>
@@ -276,7 +269,6 @@
 
     <div class="divider"></div>
 
-    <!-- Contact Strip สำหรับหน้านี้ -->
     <div class="contact-strip" style="animation-delay: 1.2s; opacity: 0; animation: fadeUp 0.8s 1.2s forwards;">
       <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="contact-btn">
         <i class="fa-brands fa-line" aria-hidden="true"></i> สั่งทำชิ้นงานคัสตอม
@@ -308,5 +300,49 @@
     </nav>
     <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
   </main>
+
+  <script>
+    document.querySelectorAll('.carousel-wrap').forEach(wrap => {
+      const track = wrap.querySelector('.carousel-track');
+      const slides = Array.from(track.children);
+      const nextButton = wrap.querySelector('.carousel-btn.next');
+      const prevButton = wrap.querySelector('.carousel-btn.prev');
+      const dotsNav = wrap.querySelector('.carousel-dots');
+      
+      // สร้างจุด Dots ตามจำนวนรูป
+      slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dotsNav.appendChild(dot);
+      });
+      const dots = Array.from(dotsNav.children);
+
+      let currentIndex = 0;
+
+      function updateCarousel(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        if(dots[index]) dots[index].classList.add('active');
+      }
+
+      nextButton.addEventListener('click', () => {
+        currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+        updateCarousel(currentIndex);
+      });
+
+      prevButton.addEventListener('click', () => {
+        currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+        updateCarousel(currentIndex);
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel(currentIndex);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
