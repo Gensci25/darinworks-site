@@ -1,29 +1,33 @@
 /* =========================================
-   Universal Active Menu Script
+   Universal Active Menu Script (V3 - Bulletproof)
    จัดการไฮไลต์เมนูสีทองสำหรับ Darinworks
 ========================================= */
 document.addEventListener("DOMContentLoaded", function() {
-  const currentPath = window.location.pathname.split("/").pop();
+  // 1. ดึงค่าตัวท้ายสุดของ URL ออกมา
+  let currentPath = window.location.pathname.split("/").pop();
+  
+  // 2. ท่าไม้ตาย: ถ้าค่าที่ได้เป็นค่าว่าง หรือไม่มีนามสกุล .html ให้บังคับว่าเป็นหน้า index.html ทันที
+  if (currentPath === "" || !currentPath.includes(".html")) {
+    currentPath = "index.html";
+  }
+
+  // 3. เริ่มค้นหาเมนู
   const navLinks = document.querySelectorAll('.header-nav a, .minimal-tabs a');
   
   navLinks.forEach(link => {
     const linkHref = link.getAttribute('href');
+    
+    // กันพัง กรณีเผลอมีแท็ก <a> ที่ไม่ได้ใส่ลิงก์
+    if (!linkHref) return; 
+    
     let isMatch = false;
 
-    // 1. ดักจับหน้าแรกสุด (Home)
-    if (linkHref === "index.html" && (currentPath === "index.html" || currentPath === "" || !currentPath.includes('.html'))) {
+    // เช็กเงื่อนไขแบบตรงไปตรงมา
+    if (linkHref === currentPath) {
       isMatch = true;
-    }
-    // 2. สำหรับกรณีปกติที่ชื่อไฟล์ตรงกันเป๊ะ
-    else if (linkHref === currentPath) {
+    } else if (currentPath.includes('proto') && linkHref.includes('prototype')) {
       isMatch = true;
-    }
-    // 3. กลุ่มหน้าย่อย Prototype
-    else if (currentPath.includes('proto') && linkHref.includes('prototype')) {
-      isMatch = true;
-    }
-    // 4. กลุ่มหน้าย่อย Clinic / Services
-    else if (currentPath.includes('clinic') && linkHref.includes('services')) {
+    } else if (currentPath.includes('clinic') && linkHref.includes('services')) {
       isMatch = true;
     }
 
