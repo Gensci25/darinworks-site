@@ -44,7 +44,6 @@
       gap: 15px;
     }
 
-    /* ปรับให้ responsive ในมือถือ */
     @media (max-width: 600px) {
       .form-row { grid-template-columns: 1fr; gap: 0; }
     }
@@ -85,6 +84,14 @@
       background: rgba(0,0,0,0.5);
     }
 
+    optgroup {
+      font-weight: 600;
+      color: var(--gold);
+      background: var(--surface);
+      font-style: normal;
+    }
+    option { color: var(--text); background: var(--surface-2); }
+
     .btn-line { 
       width: 100%; 
       background: var(--gold); 
@@ -112,10 +119,8 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
     }
 
-    /* คลาสสำคัญสำหรับระบบแสดงผลอัตโนมัติ */
     .hidden { display: none !important; }
     
-    /* สไตล์การแบ่งหมวดหมู่ (Divider) ในฟอร์ม */
     .form-divider {
       border-bottom: 1px solid rgba(255,255,255,0.05);
       margin: 30px 0;
@@ -145,7 +150,7 @@
   <main class="page">
 
     <div class="brand-logo-container">
-      <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar" style="margin: 0 auto; display: block; width: 56px; height: 56px;">
+      <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar" style="margin: 0 auto; display: block;">
     </div>
     
     <h1>GUITAR CUSTOM BUILD</h1>
@@ -181,7 +186,53 @@
             <label>ไม้ปะหน้า (Top Wood)</label>
             <select id="electricTopWood">
               <option value="Solid Body (ไม่ปะไม้หน้า)">Solid Body (ไม่ปะไม้หน้า)</option>
-              <option value="มะม่วงป่า">มะม่วงป่า</option>
+              <optgroup label="กลุ่มไม้ปุ่มพรีเมียม (Burl Wood)">
+                <option value="ไม้ปุ่มเสลา">ไม้ปุ่มเสลา</option>
+                <option value="ไม้ปุ่มเทพทาโร">ไม้ปุ่มเทพทาโร</option>
+                <option value="ไม้ปุ่มประดู่">ไม้ปุ่มประดู่</option>
+                <option value="ไม้ปุ่มมะค่า">ไม้ปุ่มมะค่า</option>
+                <option value="ไม้ปุ่มต่าง ๆ">ไม้ปุ่มต่าง ๆ</option>
+              </optgroup>
+              <optgroup label="กลุ่มไม้เนื้อหลักและไม้ลายทั้งหมด">
+                <option value="มะม่วงป่า">มะม่วงป่า</option>
+                <option value="เทพทาโร">เทพทาโร</option>
+                <option value="เสลา">เสลา</option>
+                <option value="จามจุรี">จามจุรี</option>
+                <option value="สมอ">สมอ</option>
+                <option value="นนทรี">นนทรี</option>
+                <option value="มะขามเทศ">มะขามเทศ</option>
+                <option value="ตะแบกเลือด">ตะแบกเลือด</option>
+                <option value="ประดู่">ประดู่</option>
+                <option value="มะค่า">มะค่า</option>
+                <option value="มะค่าแต้">มะค่าแต้</option>
+                <option value="ขี้เหล็ก">ขี้เหล็ก</option>
+                <option value="กระท้อน">กระท้อน</option>
+                <option value="ขนุน">ขนุน</option>
+                <option value="มะกอก">มะกอก</option>
+                <option value="สะเดา">สะเดา</option>
+                <option value="สะเดาเทียม">สะเดาเทียม</option>
+                <option value="กระถินณรงค์">กระถินณรงค์</option>
+                <option value="คูณ">คูณ</option>
+                <option value="ตะค้อ">ตะค้อ</option>
+                <option value="มะขาม">มะขาม</option>
+                <option value="พยุง">พยุง</option>
+                <option value="ชิงชัน">ชิงชัน</option>
+                <option value="พญางิ้วดำ">พญางิ้วดำ</option>
+                <option value="หว้า">หว้า</option>
+                <option value="ยางนา">ยางนา</option>
+                <option value="พฤกษ์">พฤกษ์</option>
+                <option value="ตะแบกลายเลือด">ตะแบกลายเลือด</option>
+                <option value="มะริด">มะริด</option>
+                <option value="ตะแบกลาย">ตะแบกลาย</option>
+                <option value="ไม้พิกุลทอง">ไม้พิกุลทอง</option>
+                <option value="ไม้ยูคาลิปตัส">ไม้ยูคาลิปตัส</option>
+                <option value="ไม้สาธร">ไม้สาธร</option>
+                <option value="มะฮอกกานี">มะฮอกกานี</option>
+                <option value="ยมหอม">ยมหอม</option>
+                <option value="จำปา">จำปา</option>
+                <option value="ตะแบก">ตะแบก</option>
+                <option value="อีโบนี่">อีโบนี่</option>
+              </optgroup>
             </select>
           </div>
           <div class="form-group">
@@ -348,14 +399,12 @@
       const acousticWood = document.getElementById('acousticWoodSection');
       const electricHardware = document.getElementById('electricHardwareSection');
       
-      // ล้างค่าตัวเลือกทรงเก่าออก
       shapeSelect.innerHTML = '';
 
       if (type === 'Electric') {
         const electricShapes = ['Gibson', 'Stratocaster', 'PRS', 'Telecaster', 'Suhr', 'Knaggs'];
         electricShapes.forEach(shape => shapeSelect.add(new Option(shape, shape)));
         
-        // สลับโชว์หมวดไฟฟ้า ซ่อนหมวดโปร่ง
         electricWood.classList.remove('hidden');
         electricHardware.classList.remove('hidden');
         acousticWood.classList.add('hidden');
@@ -363,7 +412,6 @@
         const acousticShapes = ['Dreadnought (D)', 'OM (Orchestra Model)', 'Jumbo', 'Concert (C)', 'Parlor', 'Grand Auditorium', 'Travel', 'Triple-O (OO / 00)'];
         acousticShapes.forEach(shape => shapeSelect.add(new Option(shape, shape)));
         
-        // สลับโชว์หมวดโปร่ง ซ่อนหมวดไฟฟ้า
         acousticWood.classList.remove('hidden');
         electricWood.classList.add('hidden');
         electricHardware.classList.add('hidden');
@@ -384,10 +432,8 @@
         return;
       }
 
-      // สร้างส่วนหัวข้อความ
       let message = `สวัสดีครับช่างแบงค์ ผมชื่อ ${name} สนใจสั่งทำกีตาร์คัสตอมครับ%0A%0A--- 1. โครงสร้างหลัก ---%0A- ประเภท: กีตาร์${type === 'Electric' ? 'ไฟฟ้า' : 'โปร่ง'}%0A- ทรง: ${shape}`;
 
-      // เพิ่มข้อมูลไม้ตามประเภทกีตาร์
       if (type === 'Electric') {
         const electricTop = document.getElementById('electricTopWood').value;
         const electricBody = document.getElementById('electricBodyWood').value;
@@ -398,7 +444,6 @@
         message += `%0A%0A--- 2. สเปกไม้ ---%0A- ไม้หน้า (Top): ${acousticTop}%0A- ไม้ข้าง/หลัง: ${acousticBack}%0A- ไม้คอ: ${neckWood}%0A- ฟิงเกอร์บอร์ด: ${fingerboard}`;
       }
 
-      // เพิ่มข้อมูลสเกลและฮาร์ดแวร์
       message += `%0A%0A--- 3. สเกลและฮาร์ดแวร์ ---%0A- สเกล: ${scaleLength}%0A- ลูกบิด: Gotoh`;
 
       if (type === 'Electric') {
@@ -408,7 +453,6 @@
 
       message += `%0A%0A- เพิ่มเติม: ${remark || '-'}`;
 
-      // เปิดไปที่ LINE
       const lineUrl = `https://line.me/R/msg/text/?${message}`;
       window.open(lineUrl, '_blank');
     }
