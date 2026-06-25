@@ -84,16 +84,17 @@
     <div class="header-container">
       <a href="index.html" class="header-logo">Darinworks</a>
       <nav class="header-nav">
-      <a href="guitar-home.html">Home</a>
-     <a href="guitar-gallery.html">GALLERY</a>
-      <a href="guitar-prototype.html">PROTOTYPE</a>
-      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+        <a href="guitar-home.html">HOME</a>
+        <a href="guitar-gallery.html">GALLERY</a>
+        <a href="guitar-prototype.html">PROTOTYPE</a>
+        <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
       </nav>
     </div>
   </header>
-    
-    <img src="images/ui/darin-guitar-logo.png" alt="Darin Guitar Logo" class="page-logo" width="56" height="56" loading="lazy">
-    <p class="eyebrow">Handcrafted Masterpieces</p>
+  
+  <div class="top-line"></div>
+  <main class="page"> <img src="images/ui/darin-guitar-logo.png" alt="Darin Guitar Logo" class="page-logo" width="56" height="56" loading="lazy" style="margin: 0 auto; display: block;">
+    <p class="eyebrow" style="text-align: center;">Handcrafted Masterpieces</p>
     <h1>GUITAR GALLERY</h1>
     
     <div class="ornament">
@@ -196,7 +197,7 @@
       <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-house" style="margin-right: 8px;"></i> กลับสู่หน้าหลัก</span></a>
     </div>
 
-<nav class="minimal-tabs" aria-label="เมนูหลัก">
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
       <a href="guitar-home.html">HOME</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-gallery.html">Gallery</a>
@@ -214,37 +215,67 @@
       <a href="guitar-faq.html">FAQ</a>
     </nav>
     
-<p class="footer-note">© Darinworks · Bangkok · Thailand</p>
-<script>
-      document.addEventListener("DOMContentLoaded", function() {
-        // 1. ดึงชื่อไฟล์หน้าปัจจุบันมา (เช่น guitar-clinic.html หรือ cue-gallery.html)
-        const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+
+    <script>
+      document.querySelectorAll('.carousel-wrap').forEach(wrap => {
+        const track = wrap.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = wrap.querySelector('.carousel-btn.next');
+        const prevButton = wrap.querySelector('.carousel-btn.prev');
+        const dotsNav = wrap.querySelector('.carousel-dots');
         
-        // 2. ดึงเมนูทั้งหมด ทั้งด้านบนและด้านล่าง
+        slides.forEach((_, index) => {
+          const dot = document.createElement('div');
+          dot.classList.add('dot');
+          if (index === 0) dot.classList.add('active');
+          dotsNav.appendChild(dot);
+        });
+        const dots = Array.from(dotsNav.children);
+        let currentIndex = 0;
+
+        function updateCarousel(index) {
+          track.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach(dot => dot.classList.remove('active'));
+          if(dots[index]) dots[index].classList.add('active');
+        }
+
+        nextButton.addEventListener('click', () => {
+          currentIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+          updateCarousel(currentIndex);
+        });
+
+        prevButton.addEventListener('click', () => {
+          currentIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+          updateCarousel(currentIndex);
+        });
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel(currentIndex);
+          });
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const currentPath = window.location.pathname.split("/").pop() || "index.html";
         const navLinks = document.querySelectorAll('.header-nav a, .minimal-tabs a');
         
         navLinks.forEach(link => {
           const linkHref = link.getAttribute('href');
-          
-          // --- เริ่มกระบวนการตรวจสอบ (Matching) ---
           let isMatch = false;
 
-          // เงื่อนไขที่ 1: ถ้าชื่อไฟล์ตรงกันเป๊ะ (ครอบคลุม Home, Gallery, About, FAQ)
           if (linkHref === currentPath) {
             isMatch = true;
-          }
-          
-          // เงื่อนไขที่ 2: กลุ่ม Prototype (ถ้าเปิดหน้า proto-1, proto-2 ให้ไปเปิดไฟที่ปุ่ม Prototype)
-          else if (currentPath.includes('proto') && linkHref.includes('prototype')) {
+          } else if (currentPath.includes('proto') && linkHref.includes('prototype')) {
             isMatch = true;
-          }
-          
-          // เงื่อนไขที่ 3: กลุ่ม Clinic / Services (ถ้าเปิดหน้า clinic ให้ไปเปิดไฟที่ปุ่ม Services)
-          else if (currentPath.includes('clinic') && linkHref.includes('services')) {
+          } else if (currentPath.includes('clinic') && linkHref.includes('services')) {
             isMatch = true;
           }
 
-          // ถ้าเข้าเงื่อนไขข้อใดข้อหนึ่ง สั่งให้เมนูนั้นเป็นสีทองทันที
           if (isMatch) {
             link.classList.add('active');
           }
