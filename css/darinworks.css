@@ -282,6 +282,20 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* =========================================
+   Active State สำหรับบอก "หน้าปัจจุบัน"
+========================================= */
+.header-nav a.active,
+.minimal-tabs a.active {
+    color: var(--gold) !important;
+    font-weight: 500;
+    pointer-events: none;
+}
+.minimal-tabs a.active {
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+}
+
 .brand-logos img:hover {
     transform: scale(1.1);
 }
