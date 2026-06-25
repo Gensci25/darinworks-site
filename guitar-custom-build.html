@@ -24,7 +24,6 @@
   <script src="js/security.js"></script>
 
   <style>
-    /* CSS ตกแต่งฟอร์มเพิ่มเติมให้เข้ากับธีม */
     .config-section { 
       background: var(--surface-2); 
       border: 1px solid rgba(255,255,255,0.05); 
@@ -38,6 +37,17 @@
     }
 
     .form-group { margin-bottom: 25px; text-align: left; }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    /* ปรับให้ responsive ในมือถือ */
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+    }
     
     label { 
       display: block; 
@@ -60,6 +70,13 @@
       font-size: 15px;
       font-family: 'Jost', sans-serif;
       transition: all 0.3s;
+    }
+    
+    .fixed-spec {
+      background: rgba(201,168,76,0.05);
+      border-color: rgba(201,168,76,0.2);
+      color: var(--gold);
+      pointer-events: none;
     }
 
     select:focus, input:focus, textarea:focus { 
@@ -95,23 +112,22 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
     }
 
-    .back-btn-top { 
-      align-self: flex-start; 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 8px; 
-      color: var(--text-muted); 
-      text-decoration: none; 
-      font-size: 11px; 
-      letter-spacing: 2px; 
-      text-transform: uppercase; 
-      margin-bottom: 30px; 
-      transition: 0.3s; 
+    /* คลาสสำคัญสำหรับระบบแสดงผลอัตโนมัติ */
+    .hidden { display: none !important; }
+    
+    /* สไตล์การแบ่งหมวดหมู่ (Divider) ในฟอร์ม */
+    .form-divider {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin: 30px 0;
+      padding-bottom: 10px;
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
-    .back-btn-top:hover { color: var(--gold); }
   </style>
 </head>
-<body class="theme-guitar">
+<body class="theme-guitar" onload="toggleGuitarType()">
 
   <header class="sticky-header">
     <div class="header-container">
@@ -129,7 +145,7 @@
   <main class="page">
 
     <div class="brand-logo-container">
-      <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar" style="margin: 0 auto; display: block;">
+      <img src="images/ui/darin-guitar-logo.png" class="logo-guitar" alt="Darin Guitar" style="margin: 0 auto; display: block; width: 56px; height: 56px;">
     </div>
     
     <h1>GUITAR CUSTOM BUILD</h1>
@@ -138,39 +154,156 @@
       <div class="ornament-diamond"></div>
       <div class="ornament-line r"></div>
     </div>
-    <p class="subtitle">เลือกสเปกที่คุณต้องการ เพื่อรับคำปรึกษาจากช่างแบงค์</p>
+    <p class="subtitle">เลือกสเปกไม้ไทยและฮาร์ดแวร์ไฮเอนด์ เพื่อรับคำปรึกษาประเมินราคา</p>
 
     <div class="config-section">
       <form id="orderForm">
+        
+        <div class="form-divider">1. Guitar Profile</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>ประเภท (Type)</label>
+            <select id="guitarType" onchange="toggleGuitarType()">
+              <option value="Electric">กีตาร์ไฟฟ้า (Electric)</option>
+              <option value="Acoustic">กีตาร์โปร่ง (Acoustic)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>ทรงกีตาร์ (Shape)</label>
+            <select id="guitarShape"></select>
+          </div>
+        </div>
+
+        <div class="form-divider">2. Thai Wood Selection</div>
+        
+        <div id="electricWoodSection">
+          <div class="form-group">
+            <label>ไม้ปะหน้า (Top Wood)</label>
+            <select id="electricTopWood">
+              <option value="Solid Body (ไม่ปะไม้หน้า)">Solid Body (ไม่ปะไม้หน้า)</option>
+              <option value="มะม่วงป่า">มะม่วงป่า</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>ไม้ลำตัว (Body Wood)</label>
+            <select id="electricBodyWood">
+              <option value="ตะแบก">ตะแบก</option>
+              <option value="สะเดา">สะเดา</option>
+              <option value="มะฮอกกานี">มะฮอกกานี</option>
+              <option value="ยมหอม">ยมหอม</option>
+              <option value="กระท้อน">กระท้อน</option>
+              <option value="มะม่วงป่า">มะม่วงป่า</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="acousticWoodSection" class="hidden">
+          <div class="form-group">
+            <label>ไม้หน้า (Acoustic Top)</label>
+            <select id="acousticTopWood">
+              <option value="จามจุรี">จามจุรี</option>
+              <option value="ยมหอม">ยมหอม</option>
+              <option value="ไม้จำปา">ไม้จำปา</option>
+              <option value="มะฮอกกานี">มะฮอกกานี</option>
+              <option value="กระถินณรงค์">กระถินณรงค์</option>
+              <option value="มะม่วงป่า">มะม่วงป่า</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>ไม้ข้างและหลัง (Back & Sides)</label>
+            <select id="acousticBackSideWood">
+              <option value="ประดู่">ประดู่</option>
+              <option value="มะขามเทศ">มะขามเทศ</option>
+              <option value="พฤกษ์">พฤกษ์</option>
+              <option value="มะค่า">มะค่า</option>
+              <option value="ตะแบกลายเลือด">ตะแบกลายเลือด</option>
+              <option value="มะริด">มะริด</option>
+              <option value="ตะแบกลาย">ตะแบกลาย</option>
+              <option value="พยุง">พยุง</option>
+              <option value="มะปริง">มะปริง</option>
+              <option value="มะฮอกกานี">มะฮอกกานี</option>
+              <option value="สะเดา">สะเดา</option>
+              <option value="กระถินณรงค์">กระถินณรงค์</option>
+              <option value="ไม้พิกุลทอง">ไม้พิกุลทอง</option>
+              <option value="ไม้ยางนา">ไม้ยางนา</option>
+              <option value="ไม้ยูคาลิปตัส">ไม้ยูคาลิปตัส</option>
+              <option value="ไม้สาธร">ไม้สาธร</option>
+              <option value="มะม่วงป่า">มะม่วงป่า</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>ไม้คอ (Neck Wood)</label>
+            <select id="neckWood">
+              <option value="สะเดาเทียม">สะเดาเทียม</option>
+              <option value="ตะแบก">ตะแบก</option>
+              <option value="ขี้เหล็ก">ขี้เหล็ก</option>
+              <option value="ยมหอม">ยมหอม</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>ฟิงเกอร์บอร์ด (Fingerboard)</label>
+            <select id="fingerboard">
+              <option value="ตะแบกเลือด">ตะแบกเลือด</option>
+              <option value="อีโบนี่">อีโบนี่</option>
+              <option value="ขี้เหล็ก">ขี้เหล็ก</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-divider">3. Hardware & Scale</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>ความยาวสเกล (Scale Length)</label>
+            <select id="scaleLength">
+              <option value="25 inches">25 inches</option>
+              <option value="25.5 inches">25.5 inches</option>
+              <option value="24.75 inches">24.75 inches</option>
+              <option value="26.5 inches">26.5 inches</option>
+              <option value="Custom (ระบุเอง)">ระบุสเกลเอง (แจ้งในรายละเอียดเพิ่มเติม)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>ลูกบิด (Tuners)</label>
+            <input type="text" class="fixed-spec" value="Gotoh" readonly>
+          </div>
+        </div>
+
+        <div id="electricHardwareSection">
+          <div class="form-group">
+            <label>ประเภทปิ๊กอัพ (Pickups)</label>
+            <select id="pickups">
+              <option value="Humbuckers">Humbuckers</option>
+              <option value="Single Coil">Single Coil</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>ระบบควบคุม (Controls)</label>
+              <input type="text" class="fixed-spec" value="6-way switch (3 HB + 3 SC) 1 Vol, 1 Tone" readonly>
+            </div>
+            <div class="form-group">
+              <label>หย่อง (Bridge)</label>
+              <input type="text" class="fixed-spec" value="Tailpiece Aluminium (Nickel)" readonly>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider">4. Contact Details</div>
         <div class="form-group">
           <label>ชื่อ-นามสกุล (Customer Name)</label>
           <input type="text" id="name" placeholder="ชื่อของคุณ" required>
         </div>
 
         <div class="form-group">
-          <label>ชนิดไม้ (Body Wood)</label>
-          <select id="wood">
-            <option value="ไม้ดำดง (Black Ebony)">ไม้ดำดง (Black Ebony)</option>
-            <option value="ไม้ชิงชัน ไม้ตะแบก  (Tepparo)">ไม้ชิงชัน ไม้ตะแบก  (Tepparo)</option>
-            <option value="เสลา (Selao)">เสลา (Selao)</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>ประเภทปิ๊กอัพ (Pickup Type)</label>
-          <select id="pickup">
-            <option value="Single Coil">Single Coil</option>
-            <option value="Humbucker">Humbucker</option>
-          </select>
-        </div>
-
-        <div class="form-group">
           <label>รายละเอียดเพิ่มเติม (Special Requests)</label>
-          <textarea id="remark" rows="4" placeholder="ระบุความต้องการพิเศษ เช่น ทรงคอที่ชอบ หรือต้องการทำสีแบบไหน"></textarea>
+          <textarea id="remark" rows="3" placeholder="ระบุความต้องการพิเศษ เช่น ขนาดเฟรต อินเลย์ หรือสเกลคัสตอม"></textarea>
         </div>
 
         <button type="button" class="btn-line" onclick="sendToLine()">
-          <i class="fa-brands fa-line"></i> สรุปสเปกและขอคำปรึกษาช่างแบงค์
+          <i class="fa-brands fa-line"></i> สรุปสเปกและขอคำปรึกษา
         </button>
       </form>
     </div>
@@ -183,7 +316,7 @@
       <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-house" style="margin-right: 8px;"></i> กลับสู่หน้าหลัก</span></a>
     </div>
 
-<nav class="minimal-tabs" aria-label="เมนูหลัก">
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
       <a href="guitar-home.html">HOME</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-gallery.html">Gallery</a>
@@ -201,17 +334,49 @@
       <a href="guitar-faq.html">FAQ</a>
     </nav>
     
-<p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
     
     <script src="js/darinworks.js"></script>
   </main>
 
   <script>
+    function toggleGuitarType() {
+      const type = document.getElementById('guitarType').value;
+      const shapeSelect = document.getElementById('guitarShape');
+      
+      const electricWood = document.getElementById('electricWoodSection');
+      const acousticWood = document.getElementById('acousticWoodSection');
+      const electricHardware = document.getElementById('electricHardwareSection');
+      
+      // ล้างค่าตัวเลือกทรงเก่าออก
+      shapeSelect.innerHTML = '';
+
+      if (type === 'Electric') {
+        const electricShapes = ['Gibson', 'Stratocaster', 'PRS', 'Telecaster', 'Suhr', 'Knaggs'];
+        electricShapes.forEach(shape => shapeSelect.add(new Option(shape, shape)));
+        
+        // สลับโชว์หมวดไฟฟ้า ซ่อนหมวดโปร่ง
+        electricWood.classList.remove('hidden');
+        electricHardware.classList.remove('hidden');
+        acousticWood.classList.add('hidden');
+      } else {
+        const acousticShapes = ['Dreadnought (D)', 'OM (Orchestra Model)', 'Jumbo', 'Concert (C)', 'Parlor', 'Grand Auditorium', 'Travel', 'Triple-O (OO / 00)'];
+        acousticShapes.forEach(shape => shapeSelect.add(new Option(shape, shape)));
+        
+        // สลับโชว์หมวดโปร่ง ซ่อนหมวดไฟฟ้า
+        acousticWood.classList.remove('hidden');
+        electricWood.classList.add('hidden');
+        electricHardware.classList.add('hidden');
+      }
+    }
+
     function sendToLine() {
-      // ดึงข้อมูลจากฟอร์ม
       const name = document.getElementById('name').value;
-      const wood = document.getElementById('wood').value;
-      const pickup = document.getElementById('pickup').value;
+      const type = document.getElementById('guitarType').value;
+      const shape = document.getElementById('guitarShape').value;
+      const neckWood = document.getElementById('neckWood').value;
+      const fingerboard = document.getElementById('fingerboard').value;
+      const scaleLength = document.getElementById('scaleLength').value;
       const remark = document.getElementById('remark').value;
 
       if (!name) {
@@ -219,13 +384,32 @@
         return;
       }
 
-      // สร้างข้อความ
-      const message = `สวัสดีครับคุณแบงค์ ผมชื่อ ${name} สนใจสั่งทำ Custom Guitar ครับ%0A%0A--- สเปกที่เลือก ---%0A- ชนิดไม้: ${wood}%0A- ปิ๊กอัพ: ${pickup}%0A- รายละเอียดเพิ่มเติม: ${remark || '-'}`;
+      // สร้างส่วนหัวข้อความ
+      let message = `สวัสดีครับช่างแบงค์ ผมชื่อ ${name} สนใจสั่งทำกีตาร์คัสตอมครับ%0A%0A--- 1. โครงสร้างหลัก ---%0A- ประเภท: กีตาร์${type === 'Electric' ? 'ไฟฟ้า' : 'โปร่ง'}%0A- ทรง: ${shape}`;
 
-      // ลิงก์ LINE
+      // เพิ่มข้อมูลไม้ตามประเภทกีตาร์
+      if (type === 'Electric') {
+        const electricTop = document.getElementById('electricTopWood').value;
+        const electricBody = document.getElementById('electricBodyWood').value;
+        message += `%0A%0A--- 2. สเปกไม้ ---%0A- ไม้ปะหน้า: ${electricTop}%0A- ไม้ลำตัว: ${electricBody}%0A- ไม้คอ: ${neckWood}%0A- ฟิงเกอร์บอร์ด: ${fingerboard}`;
+      } else {
+        const acousticTop = document.getElementById('acousticTopWood').value;
+        const acousticBack = document.getElementById('acousticBackSideWood').value;
+        message += `%0A%0A--- 2. สเปกไม้ ---%0A- ไม้หน้า (Top): ${acousticTop}%0A- ไม้ข้าง/หลัง: ${acousticBack}%0A- ไม้คอ: ${neckWood}%0A- ฟิงเกอร์บอร์ด: ${fingerboard}`;
+      }
+
+      // เพิ่มข้อมูลสเกลและฮาร์ดแวร์
+      message += `%0A%0A--- 3. สเกลและฮาร์ดแวร์ ---%0A- สเกล: ${scaleLength}%0A- ลูกบิด: Gotoh`;
+
+      if (type === 'Electric') {
+        const pickups = document.getElementById('pickups').value;
+        message += `%0A- ปิ๊กอัพ: ${pickups}%0A- หย่อง: Tailpiece Aluminium (Nickel)%0A- ระบบ: 6-way switch (3 HB + 3 SC) 1 Vol, 1 Tone`;
+      }
+
+      message += `%0A%0A- เพิ่มเติม: ${remark || '-'}`;
+
+      // เปิดไปที่ LINE
       const lineUrl = `https://line.me/R/msg/text/?${message}`;
-      
-      // เปิดหน้า LINE
       window.open(lineUrl, '_blank');
     }
   </script>
