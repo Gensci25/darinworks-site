@@ -420,8 +420,28 @@
     
     <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
     
-    <script src="js/guitar-clinic.js"></script>
-    <script src="js/darinworks.js"></script>
-  </main>
+ <div class="modal-overlay" id="galleryModal" onclick="closeModal(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="modalTitle">Title</h4>
+        <button class="close-modal" onclick="closeModalDirect()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="nav-arrow nav-left" onclick="changeSlide(-1)"><i class="fa-solid fa-chevron-left"></i></div>
+        <div class="nav-arrow nav-right" onclick="changeSlide(1)"><i class="fa-solid fa-chevron-right"></i></div>
+        
+        <div id="slideContainer"></div>
+      </div>
+
+      <div class="dots-container" id="dotsContainer"></div>
+
+      <div class="modal-desc" id="modalDesc">Description text goes here.</div>
+    </div>
+  </div>
+  <script src="js/guitar-clinic.js"></script>
+  <script src="js/darinworks.js"></script>
+</main>
 </body>
 </html>
+
