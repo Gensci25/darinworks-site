@@ -239,7 +239,23 @@
       <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-faq.html">FAQ</a>
     </nav>
-    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+    
+
+<p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const currentPath = window.location.pathname.split("/").pop() || "index.html";
+        const navLinks = document.querySelectorAll('.header-nav a, .minimal-tabs a');
+        
+        navLinks.forEach(link => {
+          const linkHref = link.getAttribute('href');
+          if (linkHref === currentPath || (currentPath.includes('proto') && linkHref.includes('prototype'))) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
   </main>
 </body>
 </html>
