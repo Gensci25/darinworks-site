@@ -1,16 +1,34 @@
-// ป้องกันการคลิกขวา (Right-Click)
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault(); 
-    window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-});
+/* =========================================
+   Universal Active Menu Script
+   จัดการไฮไลต์เมนูสีทองสำหรับ Darinworks
+========================================= */
+document.addEventListener("DOMContentLoaded", function() {
+  const currentPath = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll('.header-nav a, .minimal-tabs a');
+  
+  navLinks.forEach(link => {
+    const linkHref = link.getAttribute('href');
+    let isMatch = false;
 
-// ป้องกันการกด F12 และคีย์ลัดสำหรับดูโค้ด (Developer Tools)
-document.onkeydown = function(e) {
-    if (e.keyCode == 123 || 
-        (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'i'.charCodeAt(0))) || 
-        (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'u'.charCodeAt(0)))) {
-        e.preventDefault();
-        window.open('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js', '_blank');
-        return false;
+    // 1. ดักจับหน้าแรกสุด (Home)
+    if (linkHref === "index.html" && (currentPath === "index.html" || currentPath === "" || !currentPath.includes('.html'))) {
+      isMatch = true;
     }
-}
+    // 2. สำหรับกรณีปกติที่ชื่อไฟล์ตรงกันเป๊ะ
+    else if (linkHref === currentPath) {
+      isMatch = true;
+    }
+    // 3. กลุ่มหน้าย่อย Prototype
+    else if (currentPath.includes('proto') && linkHref.includes('prototype')) {
+      isMatch = true;
+    }
+    // 4. กลุ่มหน้าย่อย Clinic / Services
+    else if (currentPath.includes('clinic') && linkHref.includes('services')) {
+      isMatch = true;
+    }
+
+    if (isMatch) {
+      link.classList.add('active');
+    }
+  });
+});
