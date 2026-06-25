@@ -235,34 +235,30 @@
 <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
 <script>
       document.addEventListener("DOMContentLoaded", function() {
-        // 1. ดึงชื่อไฟล์หน้าปัจจุบันมา (เช่น guitar-clinic.html หรือ cue-gallery.html)
-        const currentPath = window.location.pathname.split("/").pop() || "index.html";
-        
-        // 2. ดึงเมนูทั้งหมด ทั้งด้านบนและด้านล่าง
+        const currentPath = window.location.pathname.split("/").pop();
         const navLinks = document.querySelectorAll('.header-nav a, .minimal-tabs a');
         
         navLinks.forEach(link => {
           const linkHref = link.getAttribute('href');
-          
-          // --- เริ่มกระบวนการตรวจสอบ (Matching) ---
           let isMatch = false;
 
-          // เงื่อนไขที่ 1: ถ้าชื่อไฟล์ตรงกันเป๊ะ (ครอบคลุม Home, Gallery, About, FAQ)
-          if (linkHref === currentPath) {
+          // 1. ดักจับหน้าแรกสุด (Home) สำหรับ GitHub Pages หรือ Server จริง ที่ URL ไม่มีคำว่า .html
+          if (linkHref === "index.html" && (currentPath === "index.html" || currentPath === "" || !currentPath.includes('.html'))) {
             isMatch = true;
           }
-          
-          // เงื่อนไขที่ 2: กลุ่ม Prototype (ถ้าเปิดหน้า proto-1, proto-2 ให้ไปเปิดไฟที่ปุ่ม Prototype)
+          // 2. สำหรับกรณีปกติที่ชื่อไฟล์ตรงกันเป๊ะ
+          else if (linkHref === currentPath) {
+            isMatch = true;
+          }
+          // 3. กลุ่มหน้าย่อย Prototype
           else if (currentPath.includes('proto') && linkHref.includes('prototype')) {
             isMatch = true;
           }
-          
-          // เงื่อนไขที่ 3: กลุ่ม Clinic / Services (ถ้าเปิดหน้า clinic ให้ไปเปิดไฟที่ปุ่ม Services)
+          // 4. กลุ่มหน้าย่อย Clinic / Services
           else if (currentPath.includes('clinic') && linkHref.includes('services')) {
             isMatch = true;
           }
 
-          // ถ้าเข้าเงื่อนไขข้อใดข้อหนึ่ง สั่งให้เมนูนั้นเป็นสีทองทันที
           if (isMatch) {
             link.classList.add('active');
           }
