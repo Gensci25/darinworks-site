@@ -17,16 +17,13 @@
   <meta name="description" content="บริการซ่อมกีตาร์และเซ็ตอัพ (Guitar Setup) ด้วยมาตรฐานวิศวกรรม วัดค่าแม่นยำระดับมิลลิเมตร">
   <link rel="icon" type="image/png" href="images/ui/favicon.png">
   
-  <!-- ดึงฟอนต์และไอคอน -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <!-- ดึง Master Policy จากส่วนกลางมาใช้ -->
   <link rel="stylesheet" href="css/darinworks.css">
 
-  <!-- สคริปต์ป้องกันการคลิกขวา/F12 -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.onkeydown = e => {
@@ -38,11 +35,7 @@
 
   <style>
     /* ─── CSS เฉพาะหน้า Guitar Clinic ─── */
-    .back-btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; transition: color 0.3s; opacity: 0; animation: fadeUp 0.6s 0.05s forwards; }
-    .back-btn:hover { color: var(--gold); }
-    .back-btn i { font-size: 10px; }
-
-    .clinic-content { width: 100%; max-width: 800px; margin-top: 20px; }
+    .clinic-content { width: 100%; max-width: 900px; margin-top: 20px; }
 
     .section-box { 
       background: var(--surface); 
@@ -54,8 +47,9 @@
       animation: fadeUp 0.8s forwards; 
       transition: border-color 0.4s, box-shadow 0.4s;
     }
-    .section-box:nth-child(1) { animation-delay: 0.3s; }
-    .section-box:nth-child(2) { animation-delay: 0.4s; }
+    .section-box:nth-child(1) { animation-delay: 0.2s; }
+    .section-box:nth-child(2) { animation-delay: 0.3s; }
+    .section-box:nth-child(3) { animation-delay: 0.4s; }
 
     .section-box::after {
       content: ''; position: absolute; width: 16px; height: 16px; border-color: var(--gold); border-style: solid; 
@@ -71,9 +65,58 @@
     .section-box h3 i { font-size: 20px; }
     .section-box p.desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 24px; }
 
-    /* ─── Table Styles (The Measurement Matrix) ─── */
-    .table-container { width: 100%; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-family: var(--sans); min-width: 500px; }
+    /* ─── 10-Point Bench Guarantee Tiles ─── */
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .guarantee-tile {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 25px 20px;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .guarantee-tile:hover {
+      border-color: rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.02);
+    }
+    .guarantee-tile i { color: var(--gold); font-size: 28px; margin-bottom: 15px; display: block; }
+    .guarantee-tile h4 { font-family: var(--sans); font-size: 15px; color: var(--text); margin-bottom: 10px; letter-spacing: 1px; }
+    .guarantee-tile p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; font-weight: 300; }
+
+    /* ─── Quick Filter Buttons ─── */
+    .filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    .filter-btn {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: var(--sans);
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: 1px;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--gold);
+      color: #000;
+      background: var(--gold);
+      font-weight: 500;
+    }
+
+    /* ─── Table Styles (The Master Matrix) ─── */
+    .table-container { width: 100%; overflow-x: auto; border-radius: 4px; }
+    table { width: 100%; border-collapse: collapse; font-family: var(--sans); min-width: 650px; }
     th, td { text-align: left; padding: 16px 20px; }
     th { 
       color: var(--gold); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; 
@@ -82,49 +125,72 @@
     td { 
       border-bottom: 1px solid rgba(255,255,255,0.06); color: var(--text-muted); 
       font-size: 14px; font-weight: 300; transition: color 0.3s, background 0.3s;
+      line-height: 1.6;
     }
     td strong { color: var(--text); font-weight: 500; letter-spacing: 0.5px; }
     tr:last-child td { border-bottom: none; }
     tr:hover td { color: var(--text); background: rgba(255,255,255,0.02); }
 
-    /* ─── Pricing Grid ─── */
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 10px; }
-    .price-card { 
-      background: rgba(0, 0, 0, 0.4); 
-      border: 1px solid var(--border); 
-      border-radius: 2px; 
-      padding: 40px 30px; 
-      text-align: center; 
-      transition: all 0.4s ease; 
-      display: flex; flex-direction: column;
-    }
-    .price-card:hover { transform: translateY(-5px); border-color: var(--gold); background: var(--surface-2); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-    
-    /* เน้นการ์ด Pro ให้ดูพรีเมียม */
-    .price-card.pro { 
-      border-color: rgba(201,168,76,0.4); 
-      background: linear-gradient(180deg, rgba(201,168,76,0.05) 0%, transparent 100%); 
-    }
-    .price-card.pro:hover { border-color: var(--gold); }
+    /* Highlight รายการแนะนำ */
+    .rec-row td { background: rgba(201,168,76,0.02); }
+    .rec-row td strong { color: var(--gold-light); }
 
-    .price-card h4 { font-family: var(--serif); color: var(--text); font-size: 24px; margin: 0 0 16px 0; font-weight: 400; letter-spacing: 1px; }
-    .price-card .price { font-family: var(--sans); color: var(--gold); font-size: 28px; margin: 0 0 24px 0; font-weight: 500; letter-spacing: 1px; }
-    .price-card p { color: var(--text-muted); font-size: 13px; margin: 0 0 12px 0; font-weight: 300; line-height: 1.5; }
-    .price-card p:last-child { margin-bottom: 0; }
-    .price-card i { color: var(--gold-light); font-size: 10px; margin-right: 8px; }
+    /* ─── Symptom Tags ─── */
+    .tag-container { margin-bottom: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .symptom-tag {
+      background: rgba(201,168,76,0.1);
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.2);
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-weight: 400;
+      display: inline-block;
+    }
 
-    @media (max-width: 600px) { .section-box { padding: 30px 20px; } }
+    /* ─── ปุ่มติดต่อ (LINE CTA) ─── */
+    .btn-line { 
+      width: 100%; 
+      max-width: 400px;
+      margin: 30px auto 0;
+      background: var(--gold); 
+      color: #000; 
+      padding: 18px; 
+      border: none; 
+      border-radius: 8px; 
+      font-weight: 600; 
+      cursor: pointer;
+      font-size: 15px; 
+      letter-spacing: 1px;
+      transition: 0.4s; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      gap: 12px;
+      font-family: 'Jost', sans-serif;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .btn-line:hover { 
+      background: var(--gold-light); 
+      transform: translateY(-3px); 
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4); 
+    }
+
+    @media (max-width: 600px) { 
+      .section-box { padding: 30px 20px; } 
+    }
   </style>
 </head>
-<body>
+<body class="theme-guitar">
   <header class="sticky-header">
    <div class="header-container">
       <a href="index.html" class="header-logo">Darinworks</a>
       <nav class="header-nav">
-      <a href="guitar-home.html">Home</a>
-      <a href="guitar-gallery.html">GALLERY</a>
-      <a href="guitar-prototype.html">PROTOTYPE</a>
-      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
+        <a href="guitar-home.html">Home</a>
+        <a href="guitar-gallery.html">GALLERY</a>
+        <a href="guitar-prototype.html">PROTOTYPE</a>
+        <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
       </nav>
     </div>
   </header>
@@ -149,76 +215,183 @@
 
     <div class="clinic-content">
       
-      <!-- Section 1: The Measurement Matrix -->
       <div class="section-box">
-        <h3><i class="fa-solid fa-ruler-combined"></i> The Measurement Matrix</h3>
-        <p class="desc">เราทำงานด้วยมาตรฐานวิศวกรรม ไม่ใช้การกะสายตา ทุกการเซ็ตอัพจะถูกวัดค่าด้วยเกจวัดระดับมิลลิเมตร เพื่อให้ได้ระยะ Action และ Intonation ที่สมบูรณ์แบบที่สุด</p>
+        <h3><i class="fa-solid fa-shield-halved"></i> 10-Point Bench Guarantee</h3>
+        <p class="desc">กีตาร์ทุกตัวที่เข้ารับบริการที่ Darinworks จะผ่านกระบวนการตรวจเช็กสุขภาพและโครงสร้างอย่างละเอียด 10 จุดสำคัญ พร้อมทำความสะอาดบอดี้เบื้องต้นฟรี เพื่อผลลัพธ์การทำงานที่สมบูรณ์แบบที่สุด</p>
         
+        <div class="guarantee-grid">
+          <div class="guarantee-tile">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h4>1. Diagnosis & Check</h4>
+            <p>วิเคราะห์สภาพไม้คอ, Nut slot และความมั่นคงของหย่องอย่างละเอียดก่อนลงมือ</p>
+          </div>
+          <div class="guarantee-tile">
+            <i class="fa-solid fa-compass-drafting"></i>
+            <h4>2. Digital Precision</h4>
+            <p>วัดค่าระยะ Action และคุมความโค้งด้วยเกจมาตรฐานวิศวกรรมระดับมิลลิเมตร</p>
+          </div>
+          <div class="guarantee-tile">
+            <i class="fa-solid fa-sparkles"></i>
+            <h4>3. Care & Hydration</h4>
+            <p>ทำความสะอาด Fretboard และบำรุงรักษาเนื้อไม้ด้วยออยล์เกรดพรีเมียม</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-box">
+        <h3><i class="fa-solid fa-table-list"></i> The Master Service Matrix</h3>
+        <p class="desc">ตารางรายการบริการฟื้นฟูและปรับแต่งเต็มรูปแบบ สามารถกดเลือกหมวดหมู่ที่ต้องการเพื่อกรองรายการได้อย่างรวดเร็ว</p>
+        
+        <div class="filter-container">
+          <button class="filter-btn active" onclick="filterCategory('all')">Show All</button>
+          <button class="filter-btn" onclick="filterCategory('setup')">01. Setup</button>
+          <button class="filter-btn" onclick="filterCategory('fretwork')">02. Fretwork</button>
+          <button class="filter-btn" onclick="filterCategory('hardware')">03. Hardware</button>
+          <button class="filter-btn" onclick="filterCategory('electronics')">04. Electronics</button>
+          <button class="filter-btn" onclick="filterCategory('refinish')">05. Refinish</button>
+        </div>
+
         <div class="table-container">
-          <table>
+          <table id="matrixTable">
             <thead>
               <tr>
-                <th>Metric</th>
-                <th>Standard Spec</th>
-                <th>Low Action (Fast)</th>
+                <th style="width: 25%;">รายการบริการ (Service)</th>
+                <th style="width: 55%;">รายละเอียดทางเทคนิค (Technical Details)</th>
+                <th style="width: 20%;">ราคาเริ่มต้น</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>12th Fret Action (Low E)</strong></td>
-                <td>2.00mm (0.080")</td>
-                <td>1.50mm (0.060")</td>
+              <tr data-category="setup" class="rec-row">
+                <td><strong>Standard Setup</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">แก้สายแข็งเล่นเจ็บมือ</span>
+                    <span class="symptom-tag">แก้สายเพี้ยน</span>
+                  </div>
+                  ปรับทัชชิ่งเต็มระบบ: ปรับคอ (Truss Rod), ปรับ Action, ปรับ Intonation แม่นยำ, ปรับความสูง Pickup และทำความสะอาดฟิงเกอร์บอร์ด
+                </td>
+                <td><strong>฿XXX</strong></td>
               </tr>
-              <tr>
-                <td><strong>12th Fret Action (High E)</strong></td>
-                <td>1.60mm (0.063")</td>
-                <td>1.25mm (0.050")</td>
+              <tr data-category="setup">
+                <td><strong>Restring & Clean</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">บำรุงรักษาพื้นฐาน</span>
+                  </div>
+                  บริการเปลี่ยนสายกีตาร์อย่างถูกวิธี พร้อมเช็ดทำความสะอาดตัวบอดี้และบำรุงผิวไม้ฟิงเกอร์บอร์ด
+                </td>
+                <td>฿XXX</td>
               </tr>
-              <tr>
-                <td><strong>Truss Rod Relief</strong></td>
-                <td>0.25mm (0.010")</td>
-                <td>0.15mm (0.006")</td>
+
+              <tr data-category="fretwork" class="rec-row">
+                <td><strong>Fret Leveling</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">แก้สายตีเฟรต</span>
+                    <span class="symptom-tag">แก้เสียง Buzz</span>
+                    <span class="symptom-tag">เฟรตไม่เสมอ</span>
+                  </div>
+                  ปรับระดับเฟรตที่นูนบวมให้เรียบเสมอกัน ปรับโค้งมน (Crowning) และขัดเงา (Polishing) ลื่นมือ **รวมบริการ Standard Setup ฟรี**
+                </td>
+                <td><strong>฿X,XXX</strong></td>
+              </tr>
+              <tr data-category="fretwork">
+                <td><strong>Fret Dressing</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">ลบคมเฟรต</span>
+                    <span class="symptom-tag">ขัดเฟรตเงา</span>
+                  </div>
+                  ตะไบลบขอบเฟรตที่คมบาดมือเนื่องจากไม้หดตัว (Fret Sprout) พร้อมขัดหัวเฟรตให้เงางามเหมือนกระจก ลดแรงเสียดทานเวลาดันสาย
+                </td>
+                <td>฿XXX</td>
+              </tr>
+              <tr data-category="fretwork">
+                <td><strong>Full Refret</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">เฟรตสึก/หลุมเด่น</span>
+                    <span class="symptom-tag">อัปเกรดสแตนเลส</span>
+                  </div>
+                  งานเปลี่ยนเฟรตใหม่ยกตัว ถอนอย่างถูกหลักลูเธียร์ ปรับรัศมีฟิงเกอร์บอร์ด (Radius) ใหม่ ฝังเฟรตพรีเมียม (Nickel / Stainless Steel)
+                </td>
+                <td>฿X,XXX</td>
+              </tr>
+
+              <tr data-category="hardware">
+                <td><strong>Nut Replacement</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">เสียงบอดที่สายเปิด</span>
+                    <span class="symptom-tag">เพิ่ม Sustain</span>
+                  </div>
+                  เหลาและเปลี่ยนนัท (Nut) ใหม่คัดเกรดวัสดุพิเศษ (กระดูกแท้ / Brass / Synthetic) เซาะร่องสายด้วยความละเอียดตามขนาดสเกลสายเป๊ะๆ
+                </td>
+                <td>฿XXX</td>
+              </tr>
+              <tr data-category="hardware">
+                <td><strong>Tuners & Bridge Swap</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">ลูกบิดรูด/หย่องพัง</span>
+                    <span class="symptom-tag">อัปเกรดความนิ่ง</span>
+                  </div>
+                  ติดตั้งและอัปเกรดชุดลูกบิด (Tuners) หรือสะพานสาย (Bridge) แบรนด์ชั้นนำอย่าง Gotoh เพื่อการตั้งสายที่นิ่งและเสถียรที่สุด
+                </td>
+                <td>฿XXX</td>
+              </tr>
+
+              <tr data-category="electronics">
+                <td><strong>Component Swap</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">วอลลุ่มครืดคราด</span>
+                    <span class="symptom-tag">สวิตช์หลวม/ดับ</span>
+                  </div>
+                  เปลี่ยนอุปกรณ์อิเล็กทรอนิกส์เฉพาะจุด เช่น Pot Volume, Pot Tone, Selector Switch หรือ Jack Output อะไหล่เกรดคัสตอมช็อป
+                </td>
+                <td>฿XXX</td>
+              </tr>
+              <tr data-category="electronics">
+                <td><strong>Full Rewiring & Shielding</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">แก้เสียงจี่/ช็อต</span>
+                    <span class="symptom-tag">เดินวงจรเต็มระบบ</span>
+                  </div>
+                  รื้อเดินสายไฟใหม่หมดทั้งระบบด้วยสายถักเกรดพรีเมียม พร้อมทำเดินสารเคลือบกาวชิลด์ (Shielding) ในห้องเครื่องเพื่อลดสัญญาณรบกวน
+                </td>
+                <td>฿XXX</td>
+              </tr>
+
+              <tr data-category="refinish">
+                <td><strong>Full Refinishing</strong></td>
+                <td>
+                  <div class="tag-container">
+                    <span class="symptom-tag">เปลี่ยนสีใหม่</span>
+                    <span class="symptom-tag">ซ่อมแผลบอดี้</span>
+                  </div>
+                  งานลอกสีเดิมและทำสีใหม่ทั้งตัว หรือซ่อมสีเฉพาะจุด เลือกได้ทั้งแบบสีทึบ (Solid), ซันเบิร์ส (Burst) หรือเคลือบน้ำมันธรรมชาติ (Natural Oil)
+                </td>
+                <td>฿X,XXX</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
 
-      <!-- Section 2: Setup Packages -->
-      <div class="section-box">
-        <h3><i class="fa-solid fa-tags"></i> Setup Packages</h3>
-        <p class="desc">เลือกแพ็กเกจการบำรุงรักษาที่เหมาะสมกับสภาพเครื่องดนตรีของคุณ</p>
+        <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="btn-line">
+          <i class="fa-brands fa-line" aria-hidden="true"></i> ส่งภาพประเมินอาการและจองคิวซ่อม
+        </a>
 
-        <div class="pricing-grid">
-          
-          <!-- Standard Setup -->
-          <div class="price-card">
-            <h4>Standard Setup</h4>
-            <div class="price">฿XXX</div>
-            <p><i class="fa-solid fa-check"></i> ปรับทัชชิ่ง คอ และ Intonation</p>
-            <p><i class="fa-solid fa-check"></i> ทำความสะอาด Fretboard</p>
-            <p><i class="fa-solid fa-check"></i> ตรวจเช็กระบบไฟฟ้าเบื้องต้น</p>
-          </div>
-
-          <!-- Pro Clinic (Highlighted) -->
-          <div class="price-card pro">
-            <h4>Pro Clinic</h4>
-            <div class="price">฿X,XXX</div>
-            <p><i class="fa-solid fa-check"></i> รวมบริการ Standard Setup ทั้งหมด</p>
-            <p><i class="fa-solid fa-check"></i> Fret Leveling & Crowning (ปาดเฟรต)</p>
-            <p><i class="fa-solid fa-check"></i> Electronics Cleaning เต็มระบบ</p>
-          </div>
-
-        </div>
       </div>
 
     </div>
 
-  <div style="text-align: center; width: 100%; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;">
+    <div style="text-align: center; width: 100%; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;">
       <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-house" style="margin-right: 8px;"></i> กลับสู่หน้าหลัก</span></a>
     </div>
 
-<nav class="minimal-tabs" aria-label="เมนูหลัก">
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
       <a href="guitar-home.html">HOME</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-gallery.html">Gallery</a>
@@ -227,7 +400,7 @@
       <span class="separator" aria-hidden="true">·</span>
       <a href="guitar-prototype.html">Prototype</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="guitar-services.html">Services</a>
+      <a href="guitar-services.html" class="active">Services</a>
       <span class="separator" aria-hidden="true">·</span>
       <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
       <span class="separator" aria-hidden="true">·</span>
@@ -236,9 +409,32 @@
       <a href="guitar-faq.html">FAQ</a>
     </nav>
     
-<p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
     
     <script src="js/darinworks.js"></script>
   </main>
+
+  <script>
+    function filterCategory(category) {
+      // 1. สลับ Class Active บนปุ่มตัวกรอง
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      // ดึงปุ่มที่ถูกกดมาไฮไลต์
+      event.target.classList.add('active');
+
+      // 2. ซ่อน/แสดง แถวในตารางตามเงื่อนไข หมวดหมู่
+      const rows = document.querySelectorAll('#matrixTable tbody tr');
+      rows.forEach(row => {
+        const rowCategory = row.getAttribute('data-category');
+        
+        if (category === 'all' || rowCategory === category) {
+          row.style.display = ''; // แสดงผล
+        } else {
+          row.style.display = 'none'; // ซ่อนผล
+        }
+      });
+    }
+  </script>
 </body>
 </html>
