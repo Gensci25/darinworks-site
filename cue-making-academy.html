@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D80CMSQ1YH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D80CMSQ1YH');
+  </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a0a">
+  
+  <title>Cue Making Academy | Darinworks</title>
+  <meta name="description" content="หลักสูตรสอนทำไม้คิวสนุกเกอร์ระดับมืออาชีพ คอร์สเข้มข้น 7 วัน สร้างไม้คิว 7 จำปาด้วยฝีมือตัวเอง">
+  <link rel="icon" type="image/png" href="images/ui/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <link rel="stylesheet" href="css/darinworks.css">
+
+  <style>
+    /* ─── CSS เฉพาะหน้า Cue Making Academy ─── */
+    .academy-content { width: 100%; max-width: 900px; margin-top: 20px; }
+
+    .intro-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 40px;
+      margin-bottom: 35px;
+      text-align: center;
+      position: relative;
+    }
+    .intro-box h2 { font-family: var(--serif); color: var(--gold); font-size: 28px; font-weight: 400; margin-bottom: 15px; }
+    .intro-box p { font-size: 15px; color: var(--text-muted); line-height: 1.8; font-weight: 300; max-width: 750px; margin: 0 auto; }
+
+    /* ─── 7-Day Curriculum Accordion ─── */
+    .curriculum-section { margin-bottom: 40px; }
+    .curriculum-section h3 {
+      font-family: var(--serif); color: var(--gold); font-size: 24px; font-weight: 400;
+      margin-bottom: 20px; letter-spacing: 1px; display: flex; align-items: center; gap: 12px;
+    }
+
+    .accordion-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .accordion-item:hover { border-color: rgba(201,168,76,0.4); }
+    .accordion-item.active { border-color: var(--gold); }
+
+    .accordion-header {
+      padding: 20px 25px;
+      background: rgba(255,255,255,0.01);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .accordion-header .day-title { display: flex; align-items: center; gap: 15px; }
+    .accordion-header .day-badge {
+      background: rgba(201,168,76,0.1);
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 4px;
+      border: 1px solid rgba(201,168,76,0.2);
+      letter-spacing: 0.5px;
+    }
+    .accordion-header h4 {
+      margin: 0; font-family: var(--sans); font-size: 16px; color: var(--text); font-weight: 400; letter-spacing: 0.5px;
+    }
+    .accordion-header .icon-toggle {
+      color: var(--text-muted); font-size: 14px; transition: transform 0.3s;
+    }
+    .accordion-item.active .icon-toggle { transform: rotate(180deg); color: var(--gold); }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background: rgba(0,0,0,0.2);
+    }
+    .accordion-body { padding: 25px; border-top: 1px solid rgba(255,255,255,0.03); }
+    
+    /* รายการย่อยในแต่ละวัน */
+    .topic-list { list-style: none; padding: 0; margin: 0; }
+    .topic-list li {
+      position: relative; padding-left: 24px; font-size: 14px; color: var(--text-muted);
+      line-height: 1.8; font-weight: 300; margin-bottom: 12px;
+    }
+    .topic-list li:last-child { margin-bottom: 0; }
+    .topic-list li::before {
+      content: '\f105'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      position: absolute; left: 6px; color: var(--gold); font-size: 13px;
+    }
+
+    /* ─── Pricing & Packages ─── */
+    .pricing-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 45px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    }
+    .pricing-section::before {
+      content: 'RECOMMENDED COURSE';
+      position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: #000; font-family: var(--sans);
+      font-size: 10px; font-weight: 600; padding: 3px 15px; border-radius: 20px; letter-spacing: 1px;
+    }
+    .price-tag { margin: 20px 0; }
+    .price-tag .amount { font-family: var(--sans); font-size: 42px; color: var(--gold); font-weight: 500; }
+    .price-tag .period { font-size: 14px; color: var(--text-muted); font-weight: 300; margin-left: 5px; }
+    
+    .included-box {
+      max-width: 550px; margin: 25px auto 35px; text-align: left;
+      background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03);
+      padding: 25px 30px; border-radius: 6px;
+    }
+    .included-box h5 { font-family: var(--sans); color: var(--text); font-size: 14px; font-weight: 500; margin-bottom: 15px; letter-spacing: 0.5px; text-transform: uppercase;}
+    .included-list { list-style: none; padding: 0; margin: 0; }
+    .included-list li { font-size: 13.5px; color: var(--text-muted); font-weight: 300; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
+    .included-list li:last-child { margin-bottom: 0; }
+    .included-list li i { color: var(--gold); font-size: 14px; }
+
+    /* ─── ปุ่มติดต่อ (LINE CTA) ─── */
+    .btn-line { 
+      width: 100%; max-width: 400px; margin: 0 auto; background: var(--gold); color: #000; 
+      padding: 18px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+      font-size: 15px; letter-spacing: 1px; transition: 0.4s; display: flex; align-items: center; 
+      justify-content: center; gap: 12px; font-family: 'Jost', sans-serif; text-transform: uppercase; text-decoration: none;
+    }
+    .btn-line:hover { background: var(--gold-light); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+
+    @media (max-width: 600px) { 
+      .intro-box, .pricing-section { padding: 30px 20px; }
+      .accordion-header { padding: 18px 15px; }
+      .accordion-header h4 { font-size: 14px; }
+      .price-tag .amount { font-size: 34px; }
+    }
+  </style>
+</head>
+<body class="theme-cue">
+  <header class="sticky-header">
+   <div class="header-container">
+      <a href="index.html" class="header-logo">Darinworks</a>
+      <nav class="header-nav">
+        <a href="cue-home.html">Home</a>
+        <a href="cue-gallery.html">GALLERY</a>
+        <a href="cue-academy.html" class="active">ACADEMY</a>
+        <a href="cue-contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+ <div class="top-line"></div>
+  <main class="page">
+
+    <p class="logo-mark">Darinworks</p>
+    <h1>CUE MAKING ACADEMY</h1>
+    
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond"></div>
+      <div class="ornament-line r"></div>
+    </div>
+    
+    <p class="subtitle" style="margin-bottom: 50px;">Professional Cue Making Masterclass</p>
+
+    <div class="academy-content">
+      
+      <div class="intro-box">
+        <h2>ศาสตร์และศิลป์แห่งการสร้างไม้คิวคัสตอม</h2>
+        <p>หลักสูตรอบรมเชิงปฏิบัติการเข้มข้นที่จะเปลี่ยนคุณจากผู้เริ่มต้นสู่การเป็นช่างทำคิวอย่างถูกวิธี ถ่ายทอดโดยตรงแบบใกล้ชิด เรียนรู้ลึกตั้งแต่การคัดเลือกวัตถุดิบ ศาสตร์แห่งคมตัด การถ่วงสมดุลเชิงวิศวกรรม ไปจนถึงความละเอียดประณีตในการเข้าจำปามือ 7 จำปา เพื่อให้ได้อาวุธคู่กายที่สมบูรณ์แบบที่สุด</p>
+      </div>
+
+      <div class="curriculum-section">
+        <h3><i class="fa-solid fa-calendar-days"></i> 7-Day Intensive Syllabus</h3>
+        
+        <div class="accordion-container">
+          
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 1</span>
+                <h4>รากฐานเครื่องมือและการเตรียมไม้ปลาย</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>ทำความรู้จักวัสดุอุปกรณ์:</strong> แนะนำเครื่องมือช่างพื้นฐาน อุปกรณ์เฉพาะทาง และวัตถุดิบต่างๆ ในงานทำไม้คิวสนุกเกอร์</li>
+                  <li><strong>ศาสตร์แห่งคมตัด:</strong> สอนเทคนิคการลับใบกบไสมือ และการตั้งองศาใบลบแต่ละชนิดให้คมกริบ พร้อมสู้เนื้อไม้แข็ง</li>
+                  <li><strong>เริ่มต้นชิ้นงาน:</strong> ลงมือปฏิบัติการผ่าไม้ปลาย (Shaft) เพื่อเตรียมความพร้อมของเส้นสายและเนื้อไม้ก่อนขึ้นรูป</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 2</span>
+                <h4>งานไสคิวและระบบถ่วงสมดุลเนื้อไม้</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>งานฝีมือขั้นต้น:</strong> สอนเทคนิคและทิศทางการไสไม้ปลายในแต่ละขั้นตอน เพื่อควบคุมความเรียวและตรงของแกนไม้</li>
+                  <li><strong>ระบบน้ำหนักภายใน:</strong> เรียนรู้การใช้เครื่องมือพื้นฐานเจาะทำไส้สำหรับฝังตะกั่วถ่วงน้ำหนักที่ไม้ปลาย</li>
+                  <li><strong>เตรียมไม้ด้าม:</strong> ขั้นตอนการทำเดือย (Tenon) และการคัดเลือกเตรียมชิ้นไม้ดำ (Ebony) สำหรับทำโครงด้ามคิว</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 3</span>
+                <h4>ศิลปะการเข้าจำปามือขั้นสูง 7 จำปา</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>ลอจิกความแม่นยำ:</strong> สอนวิธีต่อเดือยเชื่อมไม้ เทคนิคการวัดและการมาร์คจุดต่อจำปาแต่ละจุดเพื่อป้องกันการบิดเบี้ยว</li>
+                  <li><strong>งานเข้าจำปามือ:</strong> ลงมือไสและประกอบเข้าชิ้นงานจำปาด้านข้าง จำปาด้านหน้า และจำปาด้านหลังอย่างประณีต</li>
+                  <li><strong>ด้ามคิวพรีเมียม:</strong> เทคนิคการแปะแก้มไม้คัสตอมเพื่อสร้างลวดลายจำปาหนาบางชั้นสูง รวมเป็นด้ามคิวแบบ 7 จำปา</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 4</span>
+                <h4>การไสไล่ทรงคิวและการควบคุมสเปกมาตรฐาน</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>ขึ้นรูปทรงคิวสมบูรณ์:</strong> ฝึกฝนเทคนิคการไสไล่เรียวทรงคิว (Tapering) ตั้งแต่ส่วนโคนด้ามไปจนถึงปลายคิวให้กลมกลืนเป็นเส้นตรง</li>
+                  <li><strong>คุมสเปกเชิงวิศวกรรม:</strong> ตรวจสอบและคุมหน้างานเพื่อให้ได้สเปกเป๊ะตามต้องการ ทั้งค่าน้ำหนัก (Weight), ความยาว, ขนาดหัวคิว (Ferrule Size) และจุดบาลานซ์ (Balance Point)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 5</span>
+                <h4>งานประกอบฮาร์ดแวร์และงานสีรองพื้นวันแรก</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>ฝังระบบเกลียวข้อต่อ:</strong> เทคนิคการเจาะฝังข้อต่อทองเหลืองและการใส่ระบบเกลียวคิวสำหรับท่อนครึ่ง หรือ 3/4</li>
+                  <li><strong>ตีตราแบรนด์:</strong> ขั้นตอนการทำร่องลึกฝังและติดป้ายโลโก้แบรนด์ (Nameplate) ลงบนตูดด้ามคิวอย่างแนบเนียน</li>
+                  <li><strong>งานสีเฟสแรก:</strong> เตรียมผิวไม้ขั้นสุดท้าย ขัดแต่งเนื้อไม้ และลงมือพ่นแลคเกอร์รอบแรก (วันแรก) เพื่อเปิดระบบเคลือบเงา</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 6</span>
+                <h4>งานพ่นสีรอบสองและเทคนิคการขัดเปิดผิวสัมผัส</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>เคลือบผิวขั้นสุด:</strong> งานพ่นแลคเกอร์ซ้ำรอบที่สอง เพื่อเพิ่มมิติความหนา ความฉ่ำเงา และปกป้องลวดลายไม้ด้าม</li>
+                  <li><strong>ตกผลึกเทคนิค:</strong> ทบทวนขั้นตอนและเก็บรายละเอียดเชิงลึกระหว่างรอสีและกาวเซ็ตตัวเต็มที่</li>
+                  <li><strong>เปิดผิวเนียนลื่นมือ:</strong> สอนขั้นตอนการขัดละเอียดไล่เบอร์กระดาษทรายน้ำและการลงครีมขัดเงาพิเศษ เพื่อผิวสัมผัสที่ลื่น ไม่เหนียวมือเวลาแทง</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 7</span>
+                <h4>Business Orientation & สรุปทบทวนวิชา</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>แนวทางการสร้างแบรนด์คิว:</strong> แนะนำวิธีคิดในการสร้างแบรนด์ไม้คิวคัสตอม กลยุทธ์การตลาด และโครงสร้างการตั้งราคาขายในตลาดจริง</li>
+                  <li><strong>Grand Review:</strong> พูดคุย ทบทวนบทเรียน ตอบคำถาม และสรุปเทคนิคแบบลองผิดลองถูกทั้งหมดที่เรียนมาตลอด 7 วัน เพื่อให้มั่นใจว่าสามารถกลับไปทำเองได้จริง</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pricing-section">
+        <h2>Professional Course Tuition</h2>
+        <p class="desc" style="color: var(--text-muted); font-weight: 300; font-size: 14px;">หลักสูตรติวเข้มส่วนบุคคลแบบเจาะลึก 7 วันเต็ม</p>
+        
+        <div class="price-tag">
+          <span class="amount">฿2X,XXX</span>
+          <span class="period">/ ท่าน (รวมวัสดุทั้งหมด)</span>
+        </div>
+
+        <div class="included-box">
+          <h5>สิ่งที่รวมอยู่ในหลักสูตรนี้:</h5>
+          <ul class="included-list">
+            <li><i class="fa-regular fa-circle-check"></i> ไม้คิวคัสตอม 7 จำปาฝีมือตัวเองกลับบ้าน 1 ด้าม</li>
+            <li><i class="fa-regular fa-circle-check"></i> ชุดวัตถุดิบและไม้พญางิ้วดำ/ไม้ปลายเกรดพรีเมียม</li>
+            <li><i class="fa-regular fa-circle-check"></i> ใบประกาศนียบัตรรับรองจากทางเวิร์กชอป Darinworks</li>
+            <li><i class="fa-regular fa-circle-check"></i> บริการอาหารกลางวันและเครื่องดื่มตลอดระยะเวลา 7 วัน</li>
+            <li><i class="fa-regular fa-circle-check"></i> สิทธิ์รับคำปรึกษาปัญหาหน้างานเทคนิคหลังจากเรียนจบหลักสูตร</li>
+          </ul>
+        </div>
+
+        <a href="https://line.me/ti/p/B2bKUN2Z25" target="_blank" rel="noopener noreferrer" class="btn-line">
+          <i class="fa-brands fa-line" aria-hidden="true"></i> สอบถามตารางเรียน และจองสิทธิ์คอร์ส
+        </a>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; width: 100%; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;">
+      <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-house" style="margin-right: 8px;"></i> กลับสู่หน้าหลัก</span></a>
+    </div>
+
+    <nav class="minimal-tabs" aria-label="เมนูหลัก">
+      <a href="cue-home.html">HOME</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-gallery.html">Gallery</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-academy.html" class="active">Academy</a>
+      <span class="separator" aria-hidden="true">·</span>
+      <a href="cue-contact.html">Contact Us</a>
+    </nav>
+    
+    <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
+    
+    <script src="js/darinworks.js"></script>
+  </main>
+
+  <script>
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      const content = header.nextElementSibling;
+      const isAlreadyActive = item.classList.contains('active');
+      
+      // ปิดอันอื่นที่เปิดค้างอยู่ทั้งหมดก่อน (ลอจิกเปิดทีละตัวแบบเด่นๆ)
+      const allItems = document.querySelectorAll('.accordion-item');
+      allItems.forEach(i => {
+        i.classList.remove('active');
+        i.querySelector('.accordion-content').style.maxHeight = null;
+      });
+
+      // ถ้าตัวที่กดไม่ได้เปิดอยู่ก่อน ให้เปิดตัวนั้นขึ้นมา
+      if (!isAlreadyActive) {
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    }
+
+    // สั่งให้เปิดกล่อง Day 1 ค้างไว้ตั้งแต่เริ่มโหลดหน้าเว็บอัตโนมัติ เพื่อกระตุ้นให้ลูกค้ารู้ว่ากดอ่านได้
+    document.addEventListener("DOMContentLoaded", function() {
+      const firstHeader = document.querySelector('.accordion-header');
+      if (firstHeader) {
+        toggleAccordion(firstHeader);
+      }
+    });
+  </script>
+</body>
+</html>
