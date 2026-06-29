@@ -150,11 +150,11 @@
    <div class="header-container">
       <a href="index.html" class="header-logo">Darin Guitar</a>
       <nav class="header-nav">
-      <a href="guitar-home.html">Home</a>
-      <a href="guitar-gallery.html">GALLERY</a>
-      <a href="guitar-prototype.html">PROTOTYPE</a>
-      <a href="https://www.youtube.com/@DarinGuitarsShop" target="_blank" rel="noopener noreferrer">SOUND CHECK</a>
-     </nav>
+        <a href="guitar-home.html">Home</a>
+        <a href="guitar-gallery.html">GALLERY</a>
+        <a href="guitar-academy.html" class="active">ACADEMY</a>
+        <a href="guitar-prototype.html">PROTOTYPE</a>
+    </nav>
     </div>
   </header>
   
@@ -268,6 +268,66 @@
         <p>หลักสูตรยอดฮิต 10 วัน ที่ให้คุณสร้างกีต้าร์ไฟฟ้าหรือเบสทรงตามใจชอบ (ภายใต้สเกลมาตรฐาน) ลงมือกัดบอดี้ด้วย CNC เดินระบบไฟบัดกรีวงจร และตอกเฟรตจนเสียงออกแอมป์</p>
       </div>
 
+      <div class="curriculum-section">
+        <h3><i class="fa-solid fa-bolt"></i> Solid Body Syllabus (10 Days)</h3>
+        <div class="accordion-container">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 1 - 4</span>
+                <h4>CNC Machining & Neck Construction</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>กัดชิ้นงานบอดี้:</strong> เรียนรู้วิธีเซ็ตเครื่อง CNC กัดไม้ตัน (Alder/Ash) ทำช่องปิ๊กอัพ และช่องวงจรควบคุม</li>
+                  <li><strong>ขึ้นรูปคอกีต้าร์:</strong> ควบคุม CNC กัดโปรไฟล์หลังคอ เซาะร่อง Truss-rod และไสคอทำสเกลความยาวที่ถูกต้อง</li>
+                  <li><strong>เข้าฟิงเกอร์บอร์ด:</strong> ประกอบไม้ฟิงเกอร์บอร์ดเข้ากับคอ ปรับแต่งองศา และเตรียมระนาบพื้นผิว</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 5 - 7</span>
+                <h4>Fretwork & Neck-to-Body Joint</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>ติดตั้งเฟรต:</strong> ฝึกฝนการตอกลวดเฟรต (Fret Slotting & Pressing) ลบมุมคม และขัดปรับระนาบเฟรต (Leveling)</li>
+                  <li><strong>เข้าด้ามคอ:</strong> เจาะรูระบบยึดน็อต Bolt-on Neck Joint คุมตำแหน่งกึ่งกลาง (Centerline) ให้ได้ฉาก</li>
+                  <li><strong>ขัดละเอียดชิ้นงาน:</strong> ลบเหลี่ยมมุม (Body Shaping) ด้วยตะไบและขัดกระดาษทรายเพื่อเคลือบเงาเฟสแรก</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 8 - 10</span>
+                <h4>Wiring, Assembly & Test Run</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>บัดกรีระบบไฟ:</strong> เรียนรู้ลอจิกวงจรไฟฟ้า การเชื่อมต่อปิ๊กอัพ (Wiring Potentiometers, Switches & Jack)</li>
+                  <li><strong>ประกอบฮาร์ดแวร์:</strong> ติดตั้งสะพานสาย (Bridge) ลูกบิด (Tuners) และฝาครอบด้านหลัง</li>
+                  <li><strong>Professional Setup:</strong> ขึ้นสายกีต้าร์ ปรับแต่ง Action, Truss-rod และตั้ง Intonation เสียบแอมป์ทดสอบเสียง</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="pricing-section">
         <h2>Solid Body Course Tuition</h2>
         <p class="desc" style="color: var(--text-muted); font-weight: 300; font-size: 14px;">หลักสูตรจัดเต็ม 10 วัน (รับเพียง 4 ท่าน/รอบ พร้อมผู้ช่วยสอนดูแลความปลอดภัย)</p>
@@ -291,6 +351,48 @@
       <div class="intro-box">
         <h2>3. Fusion 360 for Guitar Design</h2>
         <p>คอร์สคอมพิวเตอร์ 2 วัน สำหรับช่างยุคใหม่ เรียนรู้ Parametric Design การคำนวณสเกล และเตรียมไฟล์ส่ง G-Code เข้าเครื่อง CNC ทุ่นแรงและยกระดับสู่มาตรฐานสากล</p>
+      </div>
+
+      <div class="curriculum-section">
+        <h3><i class="fa-solid fa-laptop-code"></i> Digital Course Syllabus (2 Days)</h3>
+        <div class="accordion-container">
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 1</span>
+                <h4>Parametric Guitar Modeling 3D</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>พื้นฐานซอฟต์แวร์:</strong> ทำความเข้าใจหน้าต่าง UI ของ Fusion 360 การกำหนดค่า Parameters สเกลเฟรต และทฤษฎีแนวแกน</li>
+                  <li><strong>ออกแบบโครงสร้าง 2D-3D:</strong> การวาดเส้นสเก็ตช์ (Sketch) รูปทรงบอดี้ คอ และช่องเจาะตำแหน่ง Pickup/Bridge</li>
+                  <li><strong>ขึ้นรูปมิติซับซ้อน:</strong> เรียนรู้เทคนิคการใช้คำสั่ง Loft และ Sculpt สำหรับงานคอเว้า หรือขอบบอดี้โค้งมน</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <div class="day-title">
+                <span class="day-badge">DAY 2</span>
+                <h4>CAM Workspace & Toolpath (G-Code)</h4>
+              </div>
+              <div class="icon-toggle"><i class="fa-solid fa-chevron-down"></i></div>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ul class="topic-list">
+                  <li><strong>ตั้งค่าหน้างาน (Setup):</strong> การกำหนดตำแหน่งจุด X, Y, Z บนก้อนไม้ดิบในโปรแกรมให้ตรงกับเครื่อง CNC จริง</li>
+                  <li><strong>สร้างทางเดินมีดกัด (Toolpath):</strong> ฝึกตั้งค่าคำสั่ง Pocket, Adaptive Clearing, และ Contour สำหรับคุมประเภทดอกกัด</li>
+                  <li><strong>Export G-Code:</strong> การจำลองการทำงาน (Simulation) ตรวจสอบความปลอดภัย และส่งออกไฟล์ไปใช้งานจริงที่ตู้คอนโทรล CNC</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="pricing-section">
@@ -317,22 +419,20 @@
       <a href="index.html" class="btn" style="width: auto; padding: 13px 30px;"><span><i class="fa-solid fa-house" style="margin-right: 8px;"></i> กลับสู่หน้าหลัก</span></a>
     </div>
 
-    <nav class="minimal-tabs" aria-label="เมนูหลัก">
-      <a href="cue-home.html">HOME</a>
+   <nav class="minimal-tabs" aria-label="เมนูหลัก">
+      <a href="guitar-home.html">HOME</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="cue-gallery.html">Gallery</a>
+      <a href="guitar-gallery.html">Gallery</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="cue-workshop.html">Inside the Shop</a>
+      <a href="guitar-workshop.html">Inside the Shop</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="cue-prototype.html">Prototype</a>
+      <a href="guitar-prototype.html">Prototype</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="cue-services.html">Services</a>
+      <a href="guitar-services.html">Services</a>
       <span class="separator" aria-hidden="true">·</span>
-       <a href="https://www.youtube.com/@DarinCuesThailand" target="_blank" rel="noopener noreferrer">FEEL TEST</a>
+      <a href="guitar-about.html">About Us</a>
       <span class="separator" aria-hidden="true">·</span>
-      <a href="cue-about.html">About Us</a>
-      <span class="separator" aria-hidden="true">·</span>
-      <a href="cue-faq.html">FAQ</a>
+      <a href="guitar-faq.html">FAQ</a>
     </nav>
     <p class="footer-note">© Darin Guitar · Bangkok · Thailand</p>
     
@@ -358,7 +458,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-      // เปิด accordion ตัวแรกสุดของทุกคอร์ส
+      // เปิด accordion ตัวแรกสุดของทุกคอร์สโดยอัตโนมัติเมื่อโหลดหน้าเว็บ
       const containers = document.querySelectorAll('.accordion-container');
       containers.forEach(container => {
         const firstHeader = container.querySelector('.accordion-header');
