@@ -257,60 +257,6 @@
     </nav>
     
 <p class="footer-note">© Darinworks · Bangkok · Thailand</p>
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const carousels = document.querySelectorAll('.carousel-container');
-
-        carousels.forEach(carousel => {
-          const track = carousel.querySelector('.carousel-track');
-          const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
-          const nextButton = carousel.querySelector('.next');
-          const prevButton = carousel.querySelector('.prev');
-          const dotsContainer = carousel.querySelector('.carousel-dots');
-          
-          if (slides.length === 0) return;
-
-          let currentIndex = 0;
-
-          // สร้างจุดไข่ปลา
-          slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            
-            dot.addEventListener('click', () => {
-              currentIndex = index;
-              updateCarousel();
-            });
-            dotsContainer.appendChild(dot);
-          });
-
-          const dots = Array.from(dotsContainer.querySelectorAll('.dot'));
-
-          // อัปเดตการเลื่อนรูป
-          function updateCarousel() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach(dot => dot.classList.remove('active'));
-            if(dots[currentIndex]) dots[currentIndex].classList.add('active');
-          }
-
-          // ปุ่มลูกศรขวา
-          nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel();
-          });
-
-          // ปุ่มลูกศรซ้าย
-          prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateCarousel();
-          });
-        });
-      });
-    </script>
-    
-    <script src="js/darinworks.js"></script>
   </main>
 </body>
 </html>
