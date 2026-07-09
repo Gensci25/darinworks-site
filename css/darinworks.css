@@ -327,7 +327,7 @@ body {
   left: 0;
   width: 100%;
   background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
-  color: var(--text-muted);
+  color: var(--gold-light);
   text-align: center;
   font-family: var(--sans, 'Jost', sans-serif);
   font-size: 14px;
@@ -368,10 +368,14 @@ body {
   right: 10px;
 }
 
-/* 4. จุดไข่ปลา (ให้อยู่เหนือ Caption) */
+/* 4. จุดไข่ปลา (ให้อยู่ตรงกลางด้านล่าง) */
 .timeline-item .carousel-dots {
-  z-index: 10;
   position: absolute;
   bottom: 15px;
+  left: 0;
   width: 100%;
+  display: flex;          /* สั่งจัดระเบียบเนื้อหาด้านใน */
+  justify-content: center; /* ดึงจุดไข่ปลาทั้งหมดมาอยู่กึ่งกลางเป๊ะ */
+  gap: 8px;               /* เว้นระยะห่างระหว่างจุดนิดหน่อย */
+  z-index: 10;
 }
