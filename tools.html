@@ -1,0 +1,101 @@
+<!-- ================= โซนสคริปต์ JAVASCRIPT ================= -->
+  <script>
+    // ตัวแปรเก็บปุ่มที่ถูกกดก่อนเปิด Modal (สำหรับการคืน Focus)
+    let lastFocusedElement;
+
+    // 1. ระบบค้นหา (Search)
+    function filterCards(value) {
+      const input = value.trim().toLowerCase();
+      const cards = document.querySelectorAll('.card[data-keywords]');
+      const noResults = document.getElementById('noResults');
+      let hasVisible = false;
+
+      if (input === '') {
+        cards.forEach(c => c.style.display = 'flex');
+        noResults.style.display = 'none';
+        return;
+      }
+
+      cards.forEach(card => {
+        const match = card.getAttribute('data-keywords').toLowerCase().includes(input) 
+                   || card.innerText.toLowerCase().includes(input);
+        card.style.display = match ? 'flex' : 'none';
+        if (match) hasVisible = true;
+      });
+
+      noResults.style.display = hasVisible ? 'none' : 'block';
+    }
+
+    // 2. ระบบเปิด Popup (Modal)
+    function openModal(modalId) {
+      // จำตำแหน่งปุ่มล่าสุดที่กดเปิดไว้
+      lastFocusedElement = document.activeElement; 
+      
+      const modal = document.getElementById(modalId);
+      modal.style.display = 'flex';
+      setTimeout(() => { modal.classList.add('show'); }, 10);
+      document.body.style.overflow = 'hidden'; // ล็อกจอด้านหลัง
+      
+      // ดึงโฟกัสไปที่ปุ่มปิดอัตโนมัติ เพื่อรองรับ Screen Reader
+      setTimeout(() => {
+        const closeBtn = modal.querySelector('.close-btn');
+        if(closeBtn) closeBtn.focus();
+      }, 50);
+    }
+
+    // 3. ระบบปิด Popup
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('show');
+      setTimeout(() => { 
+        modal.style.display = 'none'; 
+        // คืน Focus กลับไปที่ปุ่มเดิมหลังจากปิด Modal สนิท
+        if (lastFocusedElement) {
+          lastFocusedElement.focus();
+        }
+      }, 300);
+      document.body.style.overflow = ''; // ปลดล็อกจอ
+    }
+
+    // 4. ระบบกดพื้นที่สีดำเพื่อปิด (เปลี่ยนเป็น addEventListener ป้องกัน Event ถูกทับ)
+    window.addEventListener('click', function(event) {
+      if (event.target.classList.contains('modal')) {
+        closeModal(event.target.id);
+      }
+    });
+
+    // 5. ระบบ Keyboard Accessibility (ESC + Focus Trap)
+    document.addEventListener('keydown', function(event) {
+      const activeModal = document.querySelector('.modal.show');
+      if (!activeModal) return; // ถ้าไม่มี Modal ไหนเปิดอยู่เลย ให้หยุดทำงาน
+
+      // กฎข้อ 1: ปิดด้วยปุ่ม ESC
+      if (event.key === 'Escape') {
+        closeModal(activeModal.id);
+        return;
+      }
+
+      // กฎข้อ 2: Focus Trap กักการกด Tab ให้อยู่แค่ในหน้าต่าง Modal
+      if (event.key === 'Tab') {
+        // หา Element ทั้งหมดใน Modal ที่สามารถรับ Focus ได้
+        const focusableElements = activeModal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey) { // ถ้ากด Shift + Tab (ถอยหลัง)
+          if (document.activeElement === firstElement) {
+            lastElement.focus(); // เด้งกลับไปตัวสุดท้าย
+            event.preventDefault();
+          }
+        } else { // ถ้ากด Tab (เดินหน้า)
+          if (document.activeElement === lastElement) {
+            firstElement.focus(); // เด้งกลับไปตัวแรกสุด
+            event.preventDefault();
+          }
+        }
+      }
+    });
+  </script>
